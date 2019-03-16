@@ -1,0 +1,60 @@
+From 9e1f68d39bfb7cfe393c86009a7410c07ca31a1c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 14 Mar 2019 01:02:36 +0100
+Subject: [PATCH] configure.ac: Do not try to run code to check for UNIX98
+ compatibility
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [embedded specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ configure.ac | 30 ------------------------------
+ 1 file changed, 30 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index aad44c9..b2b065a 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -109,36 +109,6 @@ AC_CHECK_HEADERS(
+ )
+ AM_CONDITIONAL(HAVE_WINDOWS, test $have_windows = "1")
+ 
+-AC_MSG_CHECKING([whether UNIX98 compatible])
+-AC_LANG_PUSH([C])
+-AC_RUN_IFELSE([AC_LANG_SOURCE([[
+-#ifndef _GNU_SOURCE
+-#define _GNU_SOURCE 1
+-#endif
+-#include <features.h>
+-void main(void) {
+-#if _XOPEN_SOURCE >= 500
+-exit(0); /* UNIX98 compatible */
+-#else
+-exit(-1); /* not UNIX98 compatible */
+-#endif
+-}
+-]])],
+-have_unix98="yes",
+-have_unix98="no",
+-have_unix98="no"
+-)
+-AC_LANG_POP([C])
+-AC_MSG_RESULT([$have_unix98])
+-if test "$have_unix98" = "no" -a "$have_windows" = "0" -a "$mac" = "no" ; then
+-    if test "x$HAVE_UNIX98" = "x"; then
+-        echo "LinuxSampler only runs on UNIX98 compatible systems, which is mandatory for"
+-        echo "pthread_mutexattr_settype() call in Mutex.cpp. You may want to run"
+-        echo "./configure with environment variable HAVE_UNIX98=1 in case you think you"
+-        echo "have a UNIX98 compatible system."
+-        exit -1;
+-    fi
+-fi
+ 
+ # check for <features.h>
+ AC_CHECK_HEADERS(features.h)
+-- 
+2.20.1
+
