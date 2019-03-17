@@ -92,7 +92,6 @@ RDEPENDS_${PN} += " \
     projectm \
     qmidiarp \
     qmmp \
-    qt-gstreamer \
     \
     \
     drumkv1 drumkv1-presets \
