@@ -75,6 +75,7 @@ RDEPENDS_${PN} += " \
     \
     lmms \
     lrdf \
+    mixxx \
     muse \
     nekobee \
     \
@@ -90,6 +91,7 @@ RDEPENDS_${PN} += " \
     portmidi \
     projectm \
     qmidiarp \
+    qmmp \
     qt-gstreamer \
     \
     \
