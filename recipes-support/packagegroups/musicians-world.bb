@@ -120,6 +120,7 @@ RDEPENDS_${PN} += " \
     soundfont-collection-meta \
     \
     \
+    soundtouch \
     stk \
     supercollider \
     timidity++ \
