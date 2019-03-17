@@ -2,19 +2,7 @@ OE layer containing digital audio workstation and plugin recipes
 
 Most recipes formerly lived in [1]
 
-This layer depends on:
-
-URI: git://git.openembedded.org/openembedded-core
-branch: master
-revision: HEAD
-
-URI: git://github.com/openembedded/meta-oe.git
-branch: master
-revision: HEAD
-
-URI: git://github.com/meta-qt5/meta-qt5.git
-branch: master
-revision: HEAD
+Layer dependencies are set in conf/layer.conf
 
 Layer maintainer: Andreas Müller <schnitzeltony@gmail.com>
 
