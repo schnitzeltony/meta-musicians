@@ -123,7 +123,6 @@ RDEPENDS_${PN} += " \
     soundtouch \
     stk \
     supercollider \
-    timidity++ \
     triceratops-lv2 \
     vamp-plugin-sdk \
     wolf-shaper-dssi wolf-shaper-lv2 wolf-shaper-vst \
