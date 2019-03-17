@@ -4,11 +4,6 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit packagegroup
 
-# avoid performance sink
-RDEPENDS_${PN} = " \
-    baloo-no-autostart \
-"
-
 # unfortunately there is no way to add a comment. So folders, containing
 # multiple recipes are separated by two '\' before and after. That way the
 # sequence as displayed in file browser is kept more or less and avoids to
