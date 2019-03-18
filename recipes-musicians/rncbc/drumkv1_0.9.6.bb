@@ -20,8 +20,8 @@ SRC_URI = " \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Remove-extra-rpath.patch \
 "
-SRC_URI[md5sum] = "826afa3fea4933f24d7e9988367a64b9"
-SRC_URI[sha256sum] = "06151455568eb7de54834ca06ef95ce56ff7e29662459d40c99fe49c1fe6ffab"
+SRC_URI[md5sum] = "3d0722435343d5d94ea4864a3c102746"
+SRC_URI[sha256sum] = "0020231be6c8d84eb1f1b5e0fc07522efc37e794b291af0f9facfd9bf2d41334"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
