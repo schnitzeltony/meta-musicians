@@ -1,0 +1,71 @@
+From 2e0abe2365de2d4a03aabe0784faa6cce827c159 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 18 Mar 2019 21:48:41 +0100
+Subject: [PATCH] RTMath.cpp: use clock_gettime when configured with
+ --disable-asm
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/common/RTMath.cpp | 21 +++++++++------------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
+
+diff --git a/src/common/RTMath.cpp b/src/common/RTMath.cpp
+index f228c08..27dc5b0 100644
+--- a/src/common/RTMath.cpp
++++ b/src/common/RTMath.cpp
+@@ -38,22 +38,18 @@ typedef uint64_t time_stamp_t;
+ #endif
+ 
+ /*
+- * Creates a real time stamp for the current moment. Out of efficiency this
+- * is implemented in inline assembly for each CPU independently; we currently
+- * don't use a generic solution for CPUs that are not yet covered by the
+- * assembly code, instead an error message is prompted on compile time, forcing
+- * the user to contact us.
++ * Creates a real time stamp for the current moment.
+  */
+ RTMathBase::time_stamp_t RTMathBase::CreateTimeStamp() {
+-    #if defined(__i386__) || defined(__x86_64__)
++    #if CONFIG_ASM && (defined(__i386__) || defined(__x86_64__))
+     uint64_t t;
+     __asm__ __volatile__ ("rdtsc" : "=A" (t));
+     return time_stamp_t(t >> 8);
+-    #elif defined(__ia64__)
++    #elif CONFIG_ASM && defined(__ia64__)
+     time_stamp_t t;
+     __asm__ __volatile__ ("mov %0=ar.itc" : "=r"(t));
+     return t;
+-    #elif defined(__powerpc__)
++    #elif CONFIG_ASM && defined(__powerpc__)
+     time_stamp_t t;
+     __asm__ __volatile__ (
+         "98:	mftb %0\n"
+@@ -67,15 +63,16 @@ RTMathBase::time_stamp_t RTMathBase::CreateTimeStamp() {
+         : "=r" (t) : "i" (0x00000100)
+     );
+     return t;
+-    #elif defined(__alpha__)
++    #elif CONFIG_ASM && defined(__alpha__)
+     time_stamp_t t;
+     __asm__ __volatile__ ("rpcc %0" : "=r"(t));
+     return t;
+     #elif defined(__APPLE__)
+     return (time_stamp_t) mach_absolute_time();
+-    #else // we don't want to use a slow generic solution
+-    #  error "Sorry, LinuxSampler lacks time stamp code for your system."
+-    #  error "Please report this error and the CPU you are using to the LinuxSampler developers mailing list!"
++    #else
++    timespec tp;
++    clock_gettime(CLOCK_MONOTONIC, &tp);
++    return tp.tv_nsec;
+     #endif
+ }
+ 
+-- 
+2.20.1
+

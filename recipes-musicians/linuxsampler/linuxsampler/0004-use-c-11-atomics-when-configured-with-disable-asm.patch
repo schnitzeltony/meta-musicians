@@ -1,0 +1,126 @@
+From d46974c22d11870123fa2d1de5c75e8f14c08e68 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 18 Mar 2019 23:36:41 +0100
+Subject: [PATCH] use c++11 atomics when configured with --disable-asm
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/common/ChangeFlagRelaxed.h         |  4 ++
+ src/common/atomic.h                    | 54 ++++++++++++++++++++++++++
+ src/drivers/midi/VirtualMidiDevice.cpp |  6 +++
+ 3 files changed, 64 insertions(+)
+
+diff --git a/src/common/ChangeFlagRelaxed.h b/src/common/ChangeFlagRelaxed.h
+index bf2246f..47fdd91 100644
+--- a/src/common/ChangeFlagRelaxed.h
++++ b/src/common/ChangeFlagRelaxed.h
+@@ -20,7 +20,11 @@
+ class ChangeFlagRelaxed {
+ public:
+     ChangeFlagRelaxed() {
++#if CONFIG_ASM
+         newval = (atomic_t) ATOMIC_INIT(0);
++#else
++        newval = 0;
++#endif
+         oldval = 0;
+     }
+     
+diff --git a/src/common/atomic.h b/src/common/atomic.h
+index b1f5c43..4096a60 100644
+--- a/src/common/atomic.h
++++ b/src/common/atomic.h
+@@ -38,6 +38,7 @@
+ #define CONFIG_SMP   /* ... the macro the kernel headers use */
+ #endif
+ 
++#if CONFIG_ASM
+ #if defined(__linux__) || defined(WIN32) || defined(__APPLE__)
+ #ifdef _ARCH_PPC
+ 
+@@ -1287,4 +1288,57 @@ atomic_dec (atomic_t * a) {
+ }
+ 
+ #endif /* linux */
++#else
++
++#include <atomic>
++
++constexpr std::memory_order mem_order = std::memory_order_seq_cst;
++
++using atomic_t = std::atomic_int;
++
++#define ATOMIC_INIT(i)	{ (i) }
++
++inline
++int
++atomic_read (const atomic_t * a) {
++	return a->load(mem_order);
++}
++
++inline
++void
++atomic_set (atomic_t * a, int v) {
++	a->store(v, mem_order);
++}
++
++static __inline__ void atomic_inc(atomic_t *a)
++{
++	*a++;
++}
++
++static __inline__ void atomic_dec(atomic_t *a)
++{
++	*a--;
++}
++
++static __inline__ void atomic_add(int i, atomic_t *a)
++{
++	*a += i;
++}
++
++static __inline__ void atomic_sub(int i, atomic_t *a)
++{
++	*a -= i;
++}
++
++static __inline__ int atomic_dec_and_test(atomic_t *a)
++{
++	return a->fetch_add(1)+1 == 0;
++}
++
++static __inline__ int atomic_inc_and_test(atomic_t *a)
++{
++	return a->fetch_sub(1)-1 == 0;
++}
++
++#endif /* CONFIG_ASM */
+ #endif /* __linuxsampler_atomic_h__ */
+diff --git a/src/drivers/midi/VirtualMidiDevice.cpp b/src/drivers/midi/VirtualMidiDevice.cpp
+index 78d49af..635d696 100644
+--- a/src/drivers/midi/VirtualMidiDevice.cpp
++++ b/src/drivers/midi/VirtualMidiDevice.cpp
+@@ -32,9 +32,15 @@ namespace LinuxSampler {
+     };
+ 
+     VirtualMidiDevice::VirtualMidiDevice() : p(new private_data_t) {
++#if CONFIG_ASM
+         atomic_t zero = ATOMIC_INIT(0);
+         atomic_t defaultVelocity = ATOMIC_INIT(127);
+         atomic_t defaultCCValue = ATOMIC_INIT(0);
++#else
++        int zero = 0;
++        int defaultVelocity = 127;
++        int defaultCCValue = 0;
++#endif
+         p->notesChanged = zero;
+         p->ccsChanged   = zero;
+         for (int i = 0; i < MIDI_KEYS; i++) {
+-- 
+2.20.1
+

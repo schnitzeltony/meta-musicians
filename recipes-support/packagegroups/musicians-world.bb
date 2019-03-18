@@ -69,6 +69,7 @@ RDEPENDS_${PN} += " \
     libmp4v2 \
     libsmf \
     libxmp \
+    linuxsampler-standalone linuxsampler-tools linuxsampler-dssi linuxsampler-lv2 \
     \
     libgig-bin \
     \

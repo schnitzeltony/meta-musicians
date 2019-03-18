@@ -1,0 +1,38 @@
+From 49dce161261712d8c5217e00f08114d4b050bbb1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 18 Mar 2019 22:04:23 +0100
+Subject: [PATCH] Use correct call of snd_pcm_hw_params_set_rate_near
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+configure does not detect als version due to AC_RUN_IFELSE so hardcode maching
+call to snd_pcm_hw_params_set_rate_near. This is the only plac with
+alsa-version specific code.
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/drivers/audio/AudioOutputDeviceAlsa.cpp | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/drivers/audio/AudioOutputDeviceAlsa.cpp b/src/drivers/audio/AudioOutputDeviceAlsa.cpp
+index 1953eda..dcf54d8 100644
+--- a/src/drivers/audio/AudioOutputDeviceAlsa.cpp
++++ b/src/drivers/audio/AudioOutputDeviceAlsa.cpp
+@@ -572,11 +572,7 @@ namespace LinuxSampler {
+ 
+         /* Set sample rate. If the exact rate is not supported */
+         /* by the hardware, use nearest possible rate.         */
+-        #if ALSA_MAJOR > 0
+         if((err = snd_pcm_hw_params_set_rate_near(pcm_handle, hwparams, &uiSamplerate, &dir)) < 0)
+-        #else
+-        if((err = snd_pcm_hw_params_set_rate_near(pcm_handle, hwparams, uiSamplerate, &dir)) < 0)
+-        #endif
+         {
+             throw AudioOutputException(String("Error setting sample rate: ") + snd_strerror(err));
+         }
+-- 
+2.20.1
+
