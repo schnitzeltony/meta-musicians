@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Gigedit
+Comment=Instrument editor for gig files
+Icon=gigedit
+Exec=gigedit
+Categories=AudioVideo;Audio;Midi;Sequencer;
+

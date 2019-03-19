@@ -71,6 +71,7 @@ RDEPENDS_${PN} += " \
     libxmp \
     \
     \
+    gigedit \
     libgig-bin \
     liblscp \
     linuxsampler-standalone linuxsampler-tools linuxsampler-dssi linuxsampler-lv2 \
