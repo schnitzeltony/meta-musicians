@@ -69,9 +69,12 @@ RDEPENDS_${PN} += " \
     libmp4v2 \
     libsmf \
     libxmp \
-    linuxsampler-standalone linuxsampler-tools linuxsampler-dssi linuxsampler-lv2 \
+    \
     \
     libgig-bin \
+    liblscp \
+    linuxsampler-standalone linuxsampler-tools linuxsampler-dssi linuxsampler-lv2 \
+    \
     \
     lmms \
     lrdf \
@@ -99,6 +102,7 @@ RDEPENDS_${PN} += " \
     qjackctl qjackctl-defconfig \
     qmidictl \
     qmidinet \
+    qsampler \
     qsynth \
     qtractor qtractor-defconfig \
     samplv1 \
