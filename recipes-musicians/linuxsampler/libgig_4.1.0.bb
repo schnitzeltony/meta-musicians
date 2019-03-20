@@ -12,8 +12,14 @@ DEPENDS = " \
 
 inherit autotools pkgconfig lib_package
 
-SRC_URI = "http://download.linuxsampler.org/packages/${BPN}-${PV}.tar.bz2"
+SRC_URI = " \
+    http://download.linuxsampler.org/packages/${BPN}-${PV}.tar.bz2 \
+    file://0001-Adjust-libdir.patch \
+"
 SRC_URI[md5sum] = "a2ad3f933d13332b7a2ea68de20fa4b7"
 SRC_URI[sha256sum] = "06a280278a323963042acdf13b092644cceb43ef367fcbb9ca7bbedff132bd0b"
 
-FILES_SOLIBSDEV = "${libdir}/${BPN}/lib*${SOLIBSDEV}"
+do_install_append() {
+    mv ${D}${libdir}/${BPN}/* ${D}${libdir}
+    rmdir ${D}${libdir}/${BPN}
+}

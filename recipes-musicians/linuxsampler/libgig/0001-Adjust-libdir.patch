@@ -1,0 +1,43 @@
+From 98ad79e28c7e1c7b66fb7826fb869d25cf5d6e26 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 20 Mar 2019 20:19:52 +0100
+Subject: [PATCH] Adjust libdir
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ akai.pc.in | 2 +-
+ gig.pc.in  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/akai.pc.in b/akai.pc.in
+index 5b1d993..3a8cd17 100644
+--- a/akai.pc.in
++++ b/akai.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+-libdir=@libdir@/libgig
++libdir=@libdir@
+ includedir=@includedir@/libgig
+ 
+ Name: akai
+diff --git a/gig.pc.in b/gig.pc.in
+index d222298..13b7dbc 100644
+--- a/gig.pc.in
++++ b/gig.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+-libdir=@libdir@/libgig
++libdir=@libdir@
+ includedir=@includedir@/libgig
+ 
+ Name: gig
+-- 
+2.20.1
+
