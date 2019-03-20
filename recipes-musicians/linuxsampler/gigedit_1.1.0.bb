@@ -26,13 +26,14 @@ SRC_URI[sha256sum] = "d18abe98d8bc6ec0d1ac8b8b185a25d7e2454225fcb030f80e19099c42
 EXTRA_OEMAKE = "LIBTOOLFLAGS='--tag=CXX'"
 
 do_install_append() {
+    mv ${D}${libdir}/${BPN}/* ${D}${libdir}
+    rmdir ${D}${libdir}/${BPN}
+
     install -d "${D}/${datadir}/pixmaps"
     install ${WORKDIR}/${BPN}.png ${D}/${datadir}/pixmaps/
 
     install -d  ${D}${datadir}/applications
     install -m 0644 ${WORKDIR}/${BPN}.desktop ${D}${datadir}/applications
 }
-
-FILES_SOLIBSDEV = "${libdir}/${BPN}/lib*${SOLIBSDEV}"
 
 FILES_${PN} += "${libdir}/linuxsampler"
