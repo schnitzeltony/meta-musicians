@@ -22,6 +22,7 @@ SRC_URI = " \
     file://0002-RTMath.cpp-use-clock_gettime-when-configured-with-di.patch \
     file://0003-Use-correct-call-of-snd_pcm_hw_params_set_rate_near.patch \
     file://0004-use-c-11-atomics-when-configured-with-disable-asm.patch \
+    file://0005-Adjust-libdir.patch \
 "
 SRC_URI[md5sum] = "c57fbd1310e9189ee72acf81e63bf3d5"
 SRC_URI[sha256sum] = "4e0a49efeae9c26a223094247b7e01108d829a69618492282a203a290fbfbd39"
@@ -33,9 +34,16 @@ EXTRA_OECONF = " \
     ${USE_ASM} \
     --enable-unsigned-triang-algo=intmathabs \
     --enable-signed-triang-algo=intmathabs \
+    --enable-plugin-dir=${libdir}/${BPN}/plugins \
 "
 
-FILES_SOLIBSDEV = "${libdir}/${BPN}/lib*${SOLIBSDEV}"
+do_install_append() {
+    mv ${D}${libdir}/${BPN}/* ${D}${libdir}
+    rmdir ${D}${libdir}/${BPN}
+
+    rmdir ${D}${libdir}/plugins
+    install -Dd ${D}${libdir}/${BPN}/plugins
+}
 
 PACKAGES =+ "${PN}-standalone ${PN}-tools"
 FILES_${PN}-standalone = " \

@@ -1,0 +1,30 @@
+From e80f1ef751fe70403896fedbfee35975541efd4b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 20 Mar 2019 20:33:10 +0100
+Subject: [PATCH] Adjust libdir
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ linuxsampler.pc.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/linuxsampler.pc.in b/linuxsampler.pc.in
+index 8f0a229..dab68ce 100644
+--- a/linuxsampler.pc.in
++++ b/linuxsampler.pc.in
+@@ -1,6 +1,6 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+-libdir=@libdir@/linuxsampler
++libdir=@libdir@
+ includedir=@includedir@
+ plugindir=@libdir@/linuxsampler/plugins
+ 
+-- 
+2.20.1
+
