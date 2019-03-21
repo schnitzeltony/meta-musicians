@@ -1,0 +1,53 @@
+From 9073bfb0f43976909f30cd4d941d5618f0fc0a6b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 21 Mar 2019 20:17:14 +0100
+Subject: [PATCH] remove broken HAS_PANGOMM_CPP11_ENUMS ifdeffery
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/gigedit/compat.h | 17 -----------------
+ 1 file changed, 17 deletions(-)
+
+diff --git a/src/gigedit/compat.h b/src/gigedit/compat.h
+index 5d34a49..5886bbe 100644
+--- a/src/gigedit/compat.h
++++ b/src/gigedit/compat.h
+@@ -50,14 +50,6 @@
+ # include <gtkmmconfig.h>
+ #endif
+ 
+-#ifndef HAS_PANGOMM_CPP11_ENUMS // pangomm > 2.40 : <- just a "guess"
+-# if PANGOMM_MAJOR_VERSION > 2 || (PANGOMM_MAJOR_VERSION == 2 && PANGOMM_MINOR_VERSION > 40)
+-#  define HAS_PANGOMM_CPP11_ENUMS 1
+-# else
+-#  define HAS_PANGOMM_CPP11_ENUMS 0
+-# endif
+-#endif
+-
+ // Gtk::UIManager had been replaced by Gtk::Builder in GTKMM 3 and removed in GTKMM 4
+ // Gtk::ActionGroup had been replaced by Gio::ActionGroup in GTKMM 3 and removed in GTKMM 4
+ #if !defined(USE_GTKMM_BUILDER) || !defined(USE_GLIB_ACTION) // gtkmm > 3.22 :
+@@ -187,15 +179,6 @@ typedef Gtk::ActionGroup ActionGroup;
+ typedef Gtk::Action Action;
+ #endif // USE_GLIB_ACTION
+ 
+-#if HAS_PANGOMM_CPP11_ENUMS
+-# include <pangomm/layout.h>
+-namespace Pango {
+-    const Alignment ALIGN_LEFT = Alignment::LEFT;
+-    const Alignment ALIGN_CENTER = Alignment::CENTER;
+-    const Alignment ALIGN_RIGHT = Alignment::RIGHT;
+-}
+-#endif // HAS_PANGOMM_CPP11_ENUMS
+-
+ #if HAS_GTKMM_CPP11_ENUMS
+ # include <gdkmm/types.h>
+ # include <gdkmm/cursor.h>
+-- 
+2.20.1
+
