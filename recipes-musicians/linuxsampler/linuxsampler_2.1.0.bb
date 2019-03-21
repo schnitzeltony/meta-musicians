@@ -4,6 +4,8 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=0640e0c29fde7334746a009461544030 \
 "
+# See Homepafe
+LICENSE_FLAGS = "commercial"
 
 inherit autotools pkgconfig pack_audio_plugins
 
