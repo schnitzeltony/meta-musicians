@@ -18,6 +18,7 @@ inherit autotools pkgconfig gtk-icon-cache
 SRC_URI = " \
     http://download.linuxsampler.org/packages/${BPN}-${PV}.tar.bz2 \
     file://0001-remove-broken-HAS_PANGOMM_CPP11_ENUMS-ifdeffery.patch \
+    file://0002-Fix-build-with-gtkmm-3.24.patch \
     file://gigedit.png \
     file://gigedit.desktop \
 "
