@@ -1,9 +1,0 @@
-OE layer containing digital audio workstation and plugin recipes
-
-Most recipes formerly lived in [1]
-
-Layer dependencies are set in conf/layer.conf
-
-Layer maintainer: Andreas Müller <schnitzeltony@gmail.com>
-
-[1] https://github.com/schnitzeltony/meta-qt5-extra
