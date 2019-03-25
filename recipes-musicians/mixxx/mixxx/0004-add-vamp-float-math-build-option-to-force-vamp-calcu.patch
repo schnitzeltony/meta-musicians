@@ -1,6 +1,6 @@
-From 1d07d25a5217cca00fd024566b640aa5c23b1035 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
-Date: Tue, 27 Dec 2016 15:33:26 +0100
+From 6875e137753afe5f6f27cd53a5e4bcdafd74f340 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 25 Mar 2019 23:18:00 +0100
 Subject: [PATCH] add vamp-float-math build option to force vamp calculations
  single precision
 MIME-Version: 1.0
@@ -18,63 +18,63 @@ loss of accuracy.
 
 Upstream-Status: Pending
 
-Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- SConstruct                                        |   5 +-
- build/features.py                                 |  24 +++-
- vamp-plugins/dsp/chromagram/CQprecalc.cpp         |  26 +++--
- vamp-plugins/dsp/chromagram/Chromagram.cpp        |  34 +++---
- vamp-plugins/dsp/chromagram/Chromagram.h          |  34 +++---
- vamp-plugins/dsp/chromagram/ConstantQ.cpp         |  76 ++++++-------
- vamp-plugins/dsp/chromagram/ConstantQ.h           |  32 +++---
- vamp-plugins/dsp/keydetection/GetKeyMode.cpp      |  52 ++++-----
- vamp-plugins/dsp/keydetection/GetKeyMode.h        |  33 +++---
- vamp-plugins/dsp/onsets/DetectionFunction.cpp     |  82 +++++++-------
- vamp-plugins/dsp/onsets/DetectionFunction.h       |  48 ++++----
- vamp-plugins/dsp/onsets/PeakPicking.cpp           |  24 ++--
- vamp-plugins/dsp/onsets/PeakPicking.h             |  28 ++---
- vamp-plugins/dsp/phasevocoder/PhaseVocoder.cpp    |  42 +++----
- vamp-plugins/dsp/phasevocoder/PhaseVocoder.h      |  28 ++---
- vamp-plugins/dsp/signalconditioning/DFProcess.cpp |  24 ++--
- vamp-plugins/dsp/signalconditioning/DFProcess.h   |  23 ++--
- vamp-plugins/dsp/signalconditioning/FiltFilt.cpp  |  10 +-
- vamp-plugins/dsp/signalconditioning/FiltFilt.h    |   7 +-
- vamp-plugins/dsp/signalconditioning/Filter.cpp    |   8 +-
- vamp-plugins/dsp/signalconditioning/Filter.h      |  16 +--
- vamp-plugins/dsp/signalconditioning/Framer.cpp    |  10 +-
- vamp-plugins/dsp/signalconditioning/Framer.h      |  11 +-
- vamp-plugins/dsp/tempotracking/DownBeat.cpp       |  20 ++--
- vamp-plugins/dsp/tempotracking/DownBeat.h         |  17 +--
- vamp-plugins/dsp/tempotracking/TempoTrack.cpp     | 132 +++++++++++-----------
- vamp-plugins/dsp/tempotracking/TempoTrack.h       |  45 ++++----
- vamp-plugins/dsp/tempotracking/TempoTrackV2.cpp   |  62 +++++-----
- vamp-plugins/dsp/tempotracking/TempoTrackV2.h     |  40 +++----
- vamp-plugins/dsp/transforms/FFT.cpp               |  30 ++---
- vamp-plugins/dsp/transforms/FFT.h                 |  16 +--
- vamp-plugins/maths/Correlation.cpp                |   6 +-
- vamp-plugins/maths/Correlation.h                  |   4 +-
- vamp-plugins/maths/CosineDistance.cpp             |   6 +-
- vamp-plugins/maths/CosineDistance.h               |   5 +-
- vamp-plugins/maths/KLDivergence.cpp               |  26 ++---
- vamp-plugins/maths/KLDivergence.h                 |  13 ++-
- vamp-plugins/maths/MathAliases.h                  |   9 +-
- vamp-plugins/maths/MathUtilities.cpp              |  96 ++++++++--------
- vamp-plugins/maths/MathUtilities.h                |  35 +++---
- vamp-plugins/maths/Polyfit.h                      |  61 +++++-----
- vamp-plugins/plugins/BarBeatTrack.cpp             |  26 +++--
- vamp-plugins/plugins/BarBeatTrack.h               |   9 +-
- vamp-plugins/plugins/BeatTrack.cpp                |  26 ++---
- vamp-plugins/plugins/BeatTrack.h                  |   7 +-
- vamp-plugins/plugins/KeyDetect.cpp                |   6 +-
- vamp-plugins/plugins/KeyDetect.h                  |   3 +-
- vamp-plugins/plugins/TonalChangeDetect.cpp        |  15 ++-
- 48 files changed, 728 insertions(+), 664 deletions(-)
+ SConstruct                                    |   3 +-
+ build/features.py                             |  23 ++-
+ vamp-plugins/dsp/chromagram/CQprecalc.cpp     |  26 ++--
+ vamp-plugins/dsp/chromagram/Chromagram.cpp    |  34 ++---
+ vamp-plugins/dsp/chromagram/Chromagram.h      |  34 ++---
+ vamp-plugins/dsp/chromagram/ConstantQ.cpp     |  76 +++++-----
+ vamp-plugins/dsp/chromagram/ConstantQ.h       |  32 ++---
+ vamp-plugins/dsp/keydetection/GetKeyMode.cpp  |  52 +++----
+ vamp-plugins/dsp/keydetection/GetKeyMode.h    |  33 ++---
+ vamp-plugins/dsp/onsets/DetectionFunction.cpp |  82 +++++------
+ vamp-plugins/dsp/onsets/DetectionFunction.h   |  48 +++----
+ vamp-plugins/dsp/onsets/PeakPicking.cpp       |  24 ++--
+ vamp-plugins/dsp/onsets/PeakPicking.h         |  28 ++--
+ .../dsp/phasevocoder/PhaseVocoder.cpp         |  42 +++---
+ vamp-plugins/dsp/phasevocoder/PhaseVocoder.h  |  28 ++--
+ .../dsp/signalconditioning/DFProcess.cpp      |  24 ++--
+ .../dsp/signalconditioning/DFProcess.h        |  23 +--
+ .../dsp/signalconditioning/FiltFilt.cpp       |  10 +-
+ .../dsp/signalconditioning/FiltFilt.h         |   7 +-
+ .../dsp/signalconditioning/Filter.cpp         |   8 +-
+ vamp-plugins/dsp/signalconditioning/Filter.h  |  16 ++-
+ .../dsp/signalconditioning/Framer.cpp         |  10 +-
+ vamp-plugins/dsp/signalconditioning/Framer.h  |  11 +-
+ vamp-plugins/dsp/tempotracking/DownBeat.cpp   |  20 +--
+ vamp-plugins/dsp/tempotracking/DownBeat.h     |  17 +--
+ vamp-plugins/dsp/tempotracking/TempoTrack.cpp | 132 +++++++++---------
+ vamp-plugins/dsp/tempotracking/TempoTrack.h   |  45 +++---
+ .../dsp/tempotracking/TempoTrackV2.cpp        |  62 ++++----
+ vamp-plugins/dsp/tempotracking/TempoTrackV2.h |  40 +++---
+ vamp-plugins/dsp/transforms/FFT.cpp           |  30 ++--
+ vamp-plugins/dsp/transforms/FFT.h             |  16 ++-
+ vamp-plugins/maths/Correlation.cpp            |   6 +-
+ vamp-plugins/maths/Correlation.h              |   4 +-
+ vamp-plugins/maths/CosineDistance.cpp         |   6 +-
+ vamp-plugins/maths/CosineDistance.h           |   5 +-
+ vamp-plugins/maths/KLDivergence.cpp           |  26 ++--
+ vamp-plugins/maths/KLDivergence.h             |  13 +-
+ vamp-plugins/maths/MathAliases.h              |   9 +-
+ vamp-plugins/maths/MathUtilities.cpp          |  96 ++++++-------
+ vamp-plugins/maths/MathUtilities.h            |  35 ++---
+ vamp-plugins/maths/Polyfit.h                  |  61 ++++----
+ vamp-plugins/plugins/BarBeatTrack.cpp         |  26 ++--
+ vamp-plugins/plugins/BarBeatTrack.h           |   9 +-
+ vamp-plugins/plugins/BeatTrack.cpp            |  26 ++--
+ vamp-plugins/plugins/BeatTrack.h              |   7 +-
+ vamp-plugins/plugins/KeyDetect.cpp            |   6 +-
+ vamp-plugins/plugins/KeyDetect.h              |   3 +-
+ vamp-plugins/plugins/TonalChangeDetect.cpp    |  15 +-
+ 48 files changed, 726 insertions(+), 663 deletions(-)
 
 diff --git a/SConstruct b/SConstruct
-index c2680fb364..05e33196c1 100644
+index 62c190ffab..43f46cfc94 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -65,7 +65,8 @@ available_features = [features.Mad,
+@@ -66,7 +66,8 @@ available_features = [features.Mad,
  
                        # Experimental features
                        features.OpenGLES,
@@ -85,7 +85,7 @@ index c2680fb364..05e33196c1 100644
  
  build = mixxx.MixxxBuild(target, machine, build_type,
 diff --git a/build/features.py b/build/features.py
-index 263c01583b..029318d211 100644
+index 1a7bfe1ccc..3427144ce1 100644
 --- a/build/features.py
 +++ b/build/features.py
 @@ -26,6 +26,28 @@ class OpenGLES(Feature):
@@ -126,7 +126,7 @@ index 263c01583b..029318d211 100644
          # If there is no system vamp-hostsdk is installed or if the version
          # of the installed vamp-hostsdk is less than the bundled version,
 diff --git a/vamp-plugins/dsp/chromagram/CQprecalc.cpp b/vamp-plugins/dsp/chromagram/CQprecalc.cpp
-index 96d41b5..43d031c 100644
+index 96d41b5b61..43d031c699 100644
 --- a/vamp-plugins/dsp/chromagram/CQprecalc.cpp
 +++ b/vamp-plugins/dsp/chromagram/CQprecalc.cpp
 @@ -6,6 +6,8 @@
@@ -247,7 +247,7 @@ index 96d41b5..43d031c 100644
      is.reserve(11688);
      js.reserve(11688);
 diff --git a/vamp-plugins/dsp/chromagram/Chromagram.cpp b/vamp-plugins/dsp/chromagram/Chromagram.cpp
-index a8597a5..13ba843 100644
+index a8597a5ddd..13ba8431d7 100644
 --- a/vamp-plugins/dsp/chromagram/Chromagram.cpp
 +++ b/vamp-plugins/dsp/chromagram/Chromagram.cpp
 @@ -37,7 +37,7 @@ int Chromagram::initialise( ChromaConfig Config )
@@ -346,7 +346,7 @@ index a8597a5..13ba843 100644
      {
  	unsigned firstBin = octave*m_BPO;
 diff --git a/vamp-plugins/dsp/chromagram/Chromagram.h b/vamp-plugins/dsp/chromagram/Chromagram.h
-index bd928f5..289cff1 100644
+index bd928f5d48..289cff1b8e 100644
 --- a/vamp-plugins/dsp/chromagram/Chromagram.h
 +++ b/vamp-plugins/dsp/chromagram/Chromagram.h
 @@ -19,13 +19,15 @@
@@ -419,7 +419,7 @@ index bd928f5..289cff1 100644
      bool m_skGenerated;
  };
 diff --git a/vamp-plugins/dsp/chromagram/ConstantQ.cpp b/vamp-plugins/dsp/chromagram/ConstantQ.cpp
-index b764235..10572ad 100644
+index b764235fcd..10572ad2b9 100644
 --- a/vamp-plugins/dsp/chromagram/ConstantQ.cpp
 +++ b/vamp-plugins/dsp/chromagram/ConstantQ.cpp
 @@ -25,8 +25,8 @@
@@ -631,7 +631,7 @@ index b764235..10572ad 100644
  	CQRe[ row ] += (r1*r2 - i1*i2);
  	CQIm[ row ] += (r1*i2 + i1*r2);
 diff --git a/vamp-plugins/dsp/chromagram/ConstantQ.h b/vamp-plugins/dsp/chromagram/ConstantQ.h
-index c06f60a..c4e1048 100644
+index c06f60a9d0..c4e1048166 100644
 --- a/vamp-plugins/dsp/chromagram/ConstantQ.h
 +++ b/vamp-plugins/dsp/chromagram/ConstantQ.h
 @@ -22,33 +22,33 @@
@@ -707,7 +707,7 @@ index c06f60a..c4e1048 100644
  
      SparseKernel *m_sparseKernel;
 diff --git a/vamp-plugins/dsp/keydetection/GetKeyMode.cpp b/vamp-plugins/dsp/keydetection/GetKeyMode.cpp
-index cf3580e..004eb29 100644
+index cf3580e80e..004eb298c7 100644
 --- a/vamp-plugins/dsp/keydetection/GetKeyMode.cpp
 +++ b/vamp-plugins/dsp/keydetection/GetKeyMode.cpp
 @@ -23,13 +23,13 @@
@@ -850,7 +850,7 @@ index cf3580e..004eb29 100644
  //  std::cout << "midpoint = " << midpoint << endl;
  
 diff --git a/vamp-plugins/dsp/keydetection/GetKeyMode.h b/vamp-plugins/dsp/keydetection/GetKeyMode.h
-index bc19208..e8f1f04 100644
+index bc192087af..e8f1f049e3 100644
 --- a/vamp-plugins/dsp/keydetection/GetKeyMode.h
 +++ b/vamp-plugins/dsp/keydetection/GetKeyMode.h
 @@ -13,6 +13,7 @@
@@ -935,7 +935,7 @@ index bc19208..e8f1f04 100644
  
  #endif // !defined GETKEYMODE_H
 diff --git a/vamp-plugins/dsp/onsets/DetectionFunction.cpp b/vamp-plugins/dsp/onsets/DetectionFunction.cpp
-index dfcd4da..5e3a839 100644
+index dfcd4da921..5e3a8398ca 100644
 --- a/vamp-plugins/dsp/onsets/DetectionFunction.cpp
 +++ b/vamp-plugins/dsp/onsets/DetectionFunction.cpp
 @@ -52,26 +52,26 @@ void DetectionFunction::initialise( DFConfig Config )
@@ -1119,7 +1119,7 @@ index dfcd4da..5e3a839 100644
      return m_magnitude;
  }
 diff --git a/vamp-plugins/dsp/onsets/DetectionFunction.h b/vamp-plugins/dsp/onsets/DetectionFunction.h
-index 3a91a6b..fe5e0ef 100644
+index 3a91a6b257..fe5e0ef1d4 100644
 --- a/vamp-plugins/dsp/onsets/DetectionFunction.h
 +++ b/vamp-plugins/dsp/onsets/DetectionFunction.h
 @@ -31,16 +31,16 @@ struct DFConfig{
@@ -1211,7 +1211,7 @@ index 3a91a6b..fe5e0ef 100644
  };
  
 diff --git a/vamp-plugins/dsp/onsets/PeakPicking.cpp b/vamp-plugins/dsp/onsets/PeakPicking.cpp
-index e30e715..be5cb7e 100644
+index e30e71568f..be5cb7e6e1 100644
 --- a/vamp-plugins/dsp/onsets/PeakPicking.cpp
 +++ b/vamp-plugins/dsp/onsets/PeakPicking.cpp
 @@ -62,8 +62,8 @@ void PeakPicking::initialise( PPickParams Config )
@@ -1290,7 +1290,7 @@ index e30e715..be5cb7e 100644
  	if (h < -Qfilta || f > Qfiltc)
  	{
 diff --git a/vamp-plugins/dsp/onsets/PeakPicking.h b/vamp-plugins/dsp/onsets/PeakPicking.h
-index b7c959f..1a02e97 100644
+index b7c959fd9f..1a02e97697 100644
 --- a/vamp-plugins/dsp/onsets/PeakPicking.h
 +++ b/vamp-plugins/dsp/onsets/PeakPicking.h
 @@ -47,11 +47,11 @@ struct PPWinThresh
@@ -1357,7 +1357,7 @@ index b7c959f..1a02e97 100644
      DFProcess*	m_DFSmoothing;
  };
 diff --git a/vamp-plugins/dsp/phasevocoder/PhaseVocoder.cpp b/vamp-plugins/dsp/phasevocoder/PhaseVocoder.cpp
-index 7ee0be2..18ab389 100644
+index 7ee0be2c96..18ab389258 100644
 --- a/vamp-plugins/dsp/phasevocoder/PhaseVocoder.cpp
 +++ b/vamp-plugins/dsp/phasevocoder/PhaseVocoder.cpp
 @@ -29,11 +29,11 @@ PhaseVocoder::PhaseVocoder(int n, int hop) :
@@ -1459,7 +1459,7 @@ index 7ee0be2..18ab389 100644
          unwrapped[i] = m_unwrapped[i] + omega + error;
  
 diff --git a/vamp-plugins/dsp/phasevocoder/PhaseVocoder.h b/vamp-plugins/dsp/phasevocoder/PhaseVocoder.h
-index 2024217..bdd1bec 100644
+index 20242175f0..bdd1bec63a 100644
 --- a/vamp-plugins/dsp/phasevocoder/PhaseVocoder.h
 +++ b/vamp-plugins/dsp/phasevocoder/PhaseVocoder.h
 @@ -16,6 +16,8 @@
@@ -1523,7 +1523,7 @@ index 2024217..bdd1bec 100644
  
  #endif
 diff --git a/vamp-plugins/dsp/signalconditioning/DFProcess.cpp b/vamp-plugins/dsp/signalconditioning/DFProcess.cpp
-index 4ca2159..f828bcd 100644
+index 4ca215934d..f828bcdfd0 100644
 --- a/vamp-plugins/dsp/signalconditioning/DFProcess.cpp
 +++ b/vamp-plugins/dsp/signalconditioning/DFProcess.cpp
 @@ -57,8 +57,8 @@ void DFProcess::initialise( DFProcConfig Config )
@@ -1586,7 +1586,7 @@ index 4ca2159..f828bcd 100644
      MathUtilities::getFrameMinMax( src, m_length, &DFMin, &DFmax );
  
 diff --git a/vamp-plugins/dsp/signalconditioning/DFProcess.h b/vamp-plugins/dsp/signalconditioning/DFProcess.h
-index b93b535..a5f0d76 100644
+index b93b535518..a5f0d76c15 100644
 --- a/vamp-plugins/dsp/signalconditioning/DFProcess.h
 +++ b/vamp-plugins/dsp/signalconditioning/DFProcess.h
 @@ -25,16 +25,17 @@
@@ -1648,7 +1648,7 @@ index b93b535..a5f0d76 100644
      FilterConfig m_FilterConfigParams;
  
 diff --git a/vamp-plugins/dsp/signalconditioning/FiltFilt.cpp b/vamp-plugins/dsp/signalconditioning/FiltFilt.cpp
-index 89076c1..9e779a9 100644
+index 89076c150f..9e779a9100 100644
 --- a/vamp-plugins/dsp/signalconditioning/FiltFilt.cpp
 +++ b/vamp-plugins/dsp/signalconditioning/FiltFilt.cpp
 @@ -49,7 +49,7 @@ void FiltFilt::deInitialise()
@@ -1683,7 +1683,7 @@ index 89076c1..9e779a9 100644
      unsigned int index = 0;
      for( i = nFact; i > 0; i-- )
 diff --git a/vamp-plugins/dsp/signalconditioning/FiltFilt.h b/vamp-plugins/dsp/signalconditioning/FiltFilt.h
-index e5a3812..36cf2c3 100644
+index e5a38124cf..36cf2c3aa3 100644
 --- a/vamp-plugins/dsp/signalconditioning/FiltFilt.h
 +++ b/vamp-plugins/dsp/signalconditioning/FiltFilt.h
 @@ -16,6 +16,7 @@
@@ -1715,7 +1715,7 @@ index e5a3812..36cf2c3 100644
      FilterConfig m_filterConfig;
  };
 diff --git a/vamp-plugins/dsp/signalconditioning/Filter.cpp b/vamp-plugins/dsp/signalconditioning/Filter.cpp
-index fcc12e5..7348104 100644
+index fcc12e590a..73481045a7 100644
 --- a/vamp-plugins/dsp/signalconditioning/Filter.cpp
 +++ b/vamp-plugins/dsp/signalconditioning/Filter.cpp
 @@ -39,8 +39,8 @@ void Filter::initialise( FilterConfig Config )
@@ -1744,7 +1744,7 @@ index fcc12e5..7348104 100644
      for (SP=0;SP<length;SP++)
      {
 diff --git a/vamp-plugins/dsp/signalconditioning/Filter.h b/vamp-plugins/dsp/signalconditioning/Filter.h
-index 9f25945..63fb407 100644
+index 9f25945fc1..63fb407388 100644
 --- a/vamp-plugins/dsp/signalconditioning/Filter.h
 +++ b/vamp-plugins/dsp/signalconditioning/Filter.h
 @@ -16,6 +16,8 @@
@@ -1793,7 +1793,7 @@ index 9f25945..63fb407 100644
  
  #endif
 diff --git a/vamp-plugins/dsp/signalconditioning/Framer.cpp b/vamp-plugins/dsp/signalconditioning/Framer.cpp
-index e352278..eae17e9 100644
+index e352278ada..eae17e92f8 100644
 --- a/vamp-plugins/dsp/signalconditioning/Framer.cpp
 +++ b/vamp-plugins/dsp/signalconditioning/Framer.cpp
 @@ -47,17 +47,17 @@ void Framer::configure( unsigned int frameLength, unsigned int hop )
@@ -1831,7 +1831,7 @@ index e352278..eae17e9 100644
 +    m_maxFrames = (unsigned int)ceil( (fl_t)m_ulSampleLen/(fl_t)m_stepSize ) ;
  }
 diff --git a/vamp-plugins/dsp/signalconditioning/Framer.h b/vamp-plugins/dsp/signalconditioning/Framer.h
-index 7da0718..3ebd447 100644
+index 7da0718b2b..3ebd447aab 100644
 --- a/vamp-plugins/dsp/signalconditioning/Framer.h
 +++ b/vamp-plugins/dsp/signalconditioning/Framer.h
 @@ -19,14 +19,15 @@
@@ -1866,7 +1866,7 @@ index 7da0718..3ebd447 100644
      unsigned int	m_stepSize;		// Analysis Frame Stride
  
 diff --git a/vamp-plugins/dsp/tempotracking/DownBeat.cpp b/vamp-plugins/dsp/tempotracking/DownBeat.cpp
-index 8570da6..97391b2 100644
+index 95256c55d6..a668049964 100644
 --- a/vamp-plugins/dsp/tempotracking/DownBeat.cpp
 +++ b/vamp-plugins/dsp/tempotracking/DownBeat.cpp
 @@ -48,9 +48,9 @@ DownBeat::DownBeat(float originalSampleRate,
@@ -1926,7 +1926,7 @@ index 8570da6..97391b2 100644
      for (int i = 0; i < (int)m_beatsd.size(); ++i) beatsd.push_back(m_beatsd[i]);
  }
 diff --git a/vamp-plugins/dsp/tempotracking/DownBeat.h b/vamp-plugins/dsp/tempotracking/DownBeat.h
-index fc1d7b2..8044466 100644
+index fc1d7b2ec9..8044466f87 100644
 --- a/vamp-plugins/dsp/tempotracking/DownBeat.h
 +++ b/vamp-plugins/dsp/tempotracking/DownBeat.h
 @@ -20,6 +20,7 @@
@@ -1985,7 +1985,7 @@ index fc1d7b2..8044466 100644
  };
  
 diff --git a/vamp-plugins/dsp/tempotracking/TempoTrack.cpp b/vamp-plugins/dsp/tempotracking/TempoTrack.cpp
-index 389403e..12a01f8 100644
+index 389403edaa..12a01f8d1e 100644
 --- a/vamp-plugins/dsp/tempotracking/TempoTrack.cpp
 +++ b/vamp-plugins/dsp/tempotracking/TempoTrack.cpp
 @@ -64,11 +64,11 @@ void TempoTrack::initialise( TTParams Params )
@@ -2372,7 +2372,7 @@ index 389403e..12a01f8 100644
  
      m_beats.clear();
 diff --git a/vamp-plugins/dsp/tempotracking/TempoTrack.h b/vamp-plugins/dsp/tempotracking/TempoTrack.h
-index 0c31571..222c189 100644
+index c973eba6ec..709100c7d3 100644
 --- a/vamp-plugins/dsp/tempotracking/TempoTrack.h
 +++ b/vamp-plugins/dsp/tempotracking/TempoTrack.h
 @@ -22,6 +22,7 @@
@@ -2458,10 +2458,10 @@ index 0c31571..222c189 100644
 +    fl_t* m_ACoeffs;
 +    fl_t* m_BCoeffs;
  	
-     // Objetcs/operators declaration
+     // Objects/operators declaration
      Framer m_DFFramer;
 diff --git a/vamp-plugins/dsp/tempotracking/TempoTrackV2.cpp b/vamp-plugins/dsp/tempotracking/TempoTrackV2.cpp
-index 5466930..3cfde00 100644
+index 546693091e..3cfde00950 100644
 --- a/vamp-plugins/dsp/tempotracking/TempoTrackV2.cpp
 +++ b/vamp-plugins/dsp/tempotracking/TempoTrackV2.cpp
 @@ -42,10 +42,10 @@ TempoTrackV2::filter_df(d_vec_t &df)
@@ -2666,7 +2666,7 @@ index 5466930..3cfde00 100644
  }
  
 diff --git a/vamp-plugins/dsp/tempotracking/TempoTrackV2.h b/vamp-plugins/dsp/tempotracking/TempoTrackV2.h
-index 5f30ba7..815cb9f 100644
+index 5f30ba73b1..815cb9f439 100644
 --- a/vamp-plugins/dsp/tempotracking/TempoTrackV2.h
 +++ b/vamp-plugins/dsp/tempotracking/TempoTrackV2.h
 @@ -18,12 +18,14 @@
@@ -2756,7 +2756,7 @@ index 5f30ba7..815cb9f 100644
      void normalise_vec(d_vec_t &df);
  };
 diff --git a/vamp-plugins/dsp/transforms/FFT.cpp b/vamp-plugins/dsp/transforms/FFT.cpp
-index f5bbc3d..d33ba8c 100644
+index f5bbc3d77f..d33ba8ccc3 100644
 --- a/vamp-plugins/dsp/transforms/FFT.cpp
 +++ b/vamp-plugins/dsp/transforms/FFT.cpp
 @@ -37,10 +37,10 @@ public:
@@ -2857,7 +2857,7 @@ index f5bbc3d..d33ba8c 100644
      m_d->inverse(ri, ii, ro);
  }
 diff --git a/vamp-plugins/dsp/transforms/FFT.h b/vamp-plugins/dsp/transforms/FFT.h
-index c8956ac..c391f65 100644
+index c8956ac7f2..c391f65cad 100644
 --- a/vamp-plugins/dsp/transforms/FFT.h
 +++ b/vamp-plugins/dsp/transforms/FFT.h
 @@ -9,6 +9,8 @@
@@ -2912,7 +2912,7 @@ index c8956ac..c391f65 100644
  private:
      class D;
 diff --git a/vamp-plugins/maths/Correlation.cpp b/vamp-plugins/maths/Correlation.cpp
-index 17ee28f..6fdcbe7 100644
+index 17ee28f749..6fdcbe7384 100644
 --- a/vamp-plugins/maths/Correlation.cpp
 +++ b/vamp-plugins/maths/Correlation.cpp
 @@ -29,10 +29,10 @@ Correlation::~Correlation()
@@ -2930,7 +2930,7 @@ index 17ee28f..6fdcbe7 100644
      unsigned int i,j;
  
 diff --git a/vamp-plugins/maths/Correlation.h b/vamp-plugins/maths/Correlation.h
-index 85fcc73..e46ecf0 100644
+index 85fcc7316b..e46ecf063b 100644
 --- a/vamp-plugins/maths/Correlation.h
 +++ b/vamp-plugins/maths/Correlation.h
 @@ -16,12 +16,14 @@
@@ -2950,7 +2950,7 @@ index 85fcc73..e46ecf0 100644
      virtual ~Correlation();
  
 diff --git a/vamp-plugins/maths/CosineDistance.cpp b/vamp-plugins/maths/CosineDistance.cpp
-index 13ab9ce..2a61b65 100644
+index 13ab9ce0e8..2a61b652cd 100644
 --- a/vamp-plugins/maths/CosineDistance.cpp
 +++ b/vamp-plugins/maths/CosineDistance.cpp
 @@ -20,11 +20,11 @@
@@ -2969,7 +2969,7 @@ index 13ab9ce..2a61b65 100644
      //check if v1, v2 same size
      if (v1.size() != v2.size())
 diff --git a/vamp-plugins/maths/CosineDistance.h b/vamp-plugins/maths/CosineDistance.h
-index 4cdfd4f..280ce1a 100644
+index 4cdfd4f521..280ce1abfe 100644
 --- a/vamp-plugins/maths/CosineDistance.h
 +++ b/vamp-plugins/maths/CosineDistance.h
 @@ -18,6 +18,7 @@
@@ -2994,7 +2994,7 @@ index 4cdfd4f..280ce1a 100644
  
  #endif
 diff --git a/vamp-plugins/maths/KLDivergence.cpp b/vamp-plugins/maths/KLDivergence.cpp
-index 3c3cb13..8af1f8e 100644
+index 3c3cb134ca..8af1f8e1f2 100644
 --- a/vamp-plugins/maths/KLDivergence.cpp
 +++ b/vamp-plugins/maths/KLDivergence.cpp
 @@ -17,21 +17,21 @@
@@ -3048,7 +3048,7 @@ index 3c3cb13..8af1f8e 100644
      for (int i = 0; i < sz; ++i) {
          d += d1[i] * log10((d1[i] + small) / (d2[i] + small));
 diff --git a/vamp-plugins/maths/KLDivergence.h b/vamp-plugins/maths/KLDivergence.h
-index 6f03429..66a1af1 100644
+index 6f0342955d..66a1af1723 100644
 --- a/vamp-plugins/maths/KLDivergence.h
 +++ b/vamp-plugins/maths/KLDivergence.h
 @@ -17,6 +17,7 @@
@@ -3086,7 +3086,7 @@ index 6f03429..66a1af1 100644
  };
  
 diff --git a/vamp-plugins/maths/MathAliases.h b/vamp-plugins/maths/MathAliases.h
-index 8660129..edb1333 100644
+index 8660129cbb..edb1333433 100644
 --- a/vamp-plugins/maths/MathAliases.h
 +++ b/vamp-plugins/maths/MathAliases.h
 @@ -19,9 +19,14 @@
@@ -3107,7 +3107,7 @@ index 8660129..edb1333 100644
  #ifndef PI
  #define PI (3.14159265358979232846)
 diff --git a/vamp-plugins/maths/MathUtilities.cpp b/vamp-plugins/maths/MathUtilities.cpp
-index cb35a2a..428d965 100644
+index cb35a2a7e0..428d96568b 100644
 --- a/vamp-plugins/maths/MathUtilities.cpp
 +++ b/vamp-plugins/maths/MathUtilities.cpp
 @@ -21,61 +21,61 @@
@@ -3392,7 +3392,7 @@ index cb35a2a..428d965 100644
  	f = f * i;
      }
 diff --git a/vamp-plugins/maths/MathUtilities.h b/vamp-plugins/maths/MathUtilities.h
-index fac710a..a2b72a4 100644
+index fac710af9a..a2b72a4179 100644
 --- a/vamp-plugins/maths/MathUtilities.h
 +++ b/vamp-plugins/maths/MathUtilities.h
 @@ -19,6 +19,7 @@
@@ -3505,7 +3505,7 @@ index fac710a..a2b72a4 100644
      /**
       * Return the greatest common divisor of natural numbers a and b.
 diff --git a/vamp-plugins/maths/Polyfit.h b/vamp-plugins/maths/Polyfit.h
-index 5cf97d9..df325b6 100644
+index 5cf97d9df0..df325b6a7a 100644
 --- a/vamp-plugins/maths/Polyfit.h
 +++ b/vamp-plugins/maths/Polyfit.h
 @@ -41,17 +41,18 @@ E-mail:    davidtaylor@writeme.com
@@ -3666,7 +3666,7 @@ index 5cf97d9..df325b6 100644
      matrix.clear();
      for(int j = 0; j < m; ++j)
 diff --git a/vamp-plugins/plugins/BarBeatTrack.cpp b/vamp-plugins/plugins/BarBeatTrack.cpp
-index 72fa565..4e78ec6 100644
+index 72fa565edb..4e78ec6a2d 100644
 --- a/vamp-plugins/plugins/BarBeatTrack.cpp
 +++ b/vamp-plugins/plugins/BarBeatTrack.cpp
 @@ -58,7 +58,7 @@ public:
@@ -3746,7 +3746,7 @@ index 72fa565..4e78ec6 100644
  
  //    std::cerr << "BarBeatTracker: found downbeats at: ";
 diff --git a/vamp-plugins/plugins/BarBeatTrack.h b/vamp-plugins/plugins/BarBeatTrack.h
-index 0edc70a..f36a830 100644
+index 0edc70a94b..f36a8309a5 100644
 --- a/vamp-plugins/plugins/BarBeatTrack.h
 +++ b/vamp-plugins/plugins/BarBeatTrack.h
 @@ -16,6 +16,7 @@
@@ -3773,7 +3773,7 @@ index 0edc70a..f36a830 100644
  
  
 diff --git a/vamp-plugins/plugins/BeatTrack.cpp b/vamp-plugins/plugins/BeatTrack.cpp
-index 00ff40d..b94aac4 100644
+index 00ff40d6ee..b94aac46ad 100644
 --- a/vamp-plugins/plugins/BeatTrack.cpp
 +++ b/vamp-plugins/plugins/BeatTrack.cpp
 @@ -47,7 +47,7 @@ public:
@@ -3866,7 +3866,7 @@ index 00ff40d..b94aac4 100644
      for (size_t i = 0; i < tempi.size(); ++i) {
  
 diff --git a/vamp-plugins/plugins/BeatTrack.h b/vamp-plugins/plugins/BeatTrack.h
-index f14fc29..af5ccc2 100644
+index f14fc2996a..af5ccc2f24 100644
 --- a/vamp-plugins/plugins/BeatTrack.h
 +++ b/vamp-plugins/plugins/BeatTrack.h
 @@ -16,6 +16,7 @@
@@ -3891,7 +3891,7 @@ index f14fc29..af5ccc2 100644
  
      bool m_whiten;
 diff --git a/vamp-plugins/plugins/KeyDetect.cpp b/vamp-plugins/plugins/KeyDetect.cpp
-index a339784..5735a97 100644
+index a339784335..5735a97332 100644
 --- a/vamp-plugins/plugins/KeyDetect.cpp
 +++ b/vamp-plugins/plugins/KeyDetect.cpp
 @@ -168,7 +168,7 @@ KeyDetector::initialise(size_t channels, size_t stepSize, size_t blockSize)
@@ -3922,7 +3922,7 @@ index a339784..5735a97 100644
          if (i == 12) ksf.values.push_back(-1);
          ksf.values.push_back(keystrengths[conversion[i]-1]);
 diff --git a/vamp-plugins/plugins/KeyDetect.h b/vamp-plugins/plugins/KeyDetect.h
-index 7983ac3..b9a1495 100644
+index 7983ac3847..b9a1495e82 100644
 --- a/vamp-plugins/plugins/KeyDetect.h
 +++ b/vamp-plugins/plugins/KeyDetect.h
 @@ -17,6 +17,7 @@
@@ -3943,7 +3943,7 @@ index 7983ac3..b9a1495 100644
      bool m_first;
  };
 diff --git a/vamp-plugins/plugins/TonalChangeDetect.cpp b/vamp-plugins/plugins/TonalChangeDetect.cpp
-index 7b0cd23..5a58be7 100644
+index 7b0cd230d1..5a58be7351 100644
 --- a/vamp-plugins/plugins/TonalChangeDetect.cpp
 +++ b/vamp-plugins/plugins/TonalChangeDetect.cpp
 @@ -15,6 +15,7 @@
@@ -4004,5 +4004,5 @@ index 7b0cd23..5a58be7 100644
          Feature feature;
          feature.label = "";
 -- 
-2.5.5
+2.20.1
 

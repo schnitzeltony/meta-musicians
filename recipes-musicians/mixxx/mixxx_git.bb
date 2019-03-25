@@ -1,15 +1,18 @@
 SUMMARY = "Qt based DJ software"
 HOMEPAGE = "http://mixxx.org/"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e029b0dfdd8cfff5e40a3741234b1ca7"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=53e87493f719820ec7e95c60d090a4ae"
 
-inherit scons qmake5_paths pkgconfig
+inherit scons qmake5_paths pkgconfig distro_features_check
+
+REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS += " \
     qtbase \
     qtscript \
     qtsvg \
     qtxmlpatterns \
+    qtx11extras \
     qttools-native \
     libusb1 \
     hidapi \
@@ -30,21 +33,22 @@ DEPENDS += " \
     rubberband \
     soundtouch \
     libglu \
+    lilv \
 "
 # causes segfault trying to find debug libs
 #    gperftools
 
 SRC_URI = " \
-    git://github.com/mixxxdj/${BPN}.git;branch=2.1 \
+    git://github.com/mixxxdj/${BPN}.git \
     file://0001-do-not-check-for-known-machine-types.patch \
     file://0002-force-using-system-soundtouch.patch \
     file://0003-align-path-of-qt-build-tools-to-our-needs.patch \
     file://0004-add-vamp-float-math-build-option-to-force-vamp-calcu.patch \
     file://0005-Do-not-add-QT-libdir-it-injectst-usr-lib-these-days.patch \
 "
-SRCREV = "b4e0fd7c215c7d9afa6fcef70a7f197200b5a5d1"
+SRCREV = "d9d7ea6404de71c86beacfc86f9087dc8db0fc58"
 S = "${WORKDIR}/git"
-PV = "2.1.5"
+PV = "2.2.0"
 
 EXTRA_OESCONS_MATH ??= " \
     vampfloatmath=1 \
