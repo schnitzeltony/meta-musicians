@@ -1,5 +1,5 @@
-OE layer containing digital audio workstation and plugin recipes
-----------------------------------------------------------------
+OE layer for digital audio workstation and plugin recipes
+---------------------------------------------------------
 
 
 Layer dependencies:
