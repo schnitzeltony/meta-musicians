@@ -14,8 +14,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/dpl.lv2.git"
-SRCREV = "960f87c51ce3243dadeeedc16bb48608da462ed4"
-PV = "0.2.2+git${SRCPV}"
+SRCREV = "10482a6b1bef948ce58370a8468bc790a775f4e0"
+PV = "0.3.0"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
