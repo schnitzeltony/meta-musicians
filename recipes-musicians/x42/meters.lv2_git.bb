@@ -17,8 +17,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/meters.lv2.git"
-SRCREV = "8df3ba60a2be6fd0b040d12c15a3db162b725845"
-PV = "0.9.8"
+SRCREV = "d946499ce9ac2b7fef747c0fb878fe1a33e7850c"
+PV = "0.9.10"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
