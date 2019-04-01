@@ -45,3 +45,5 @@ CACHED_CONFIGUREVARS += "ac_cv_header_valgrind_valgrind_h=no"
 oe_runconf_prepend() {
     sed -i -e "1a\\" -e 'GETTEXT_PACKAGE = @GETTEXT_PACKAGE@' ${S}/po/Makefile.in.in
 }
+
+FILES_${PN} += " ${libdir}/gstreamer-0.10/*.so"
