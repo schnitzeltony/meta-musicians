@@ -7,7 +7,7 @@ inherit autotools pkgconfig
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-Fix-build-with-GCC-8.patch \
 "
-SRC_URI[md5sum] = "b0e70bc0fb2254addf94adddf85cffd3"
-SRC_URI[sha256sum] = "ace1b4e234091425c150261d1ca7070cece48ee3c228a5612d048116d864c06a"
+SRC_URI[md5sum] = "fa1a9d45f86fc18fb54019f670ff2262"
+SRC_URI[sha256sum] = "30a7c9de49a25ed7f2425a7a7415f5b14739def62431423d3419ea26fb978d1b"
+PV = "0.30"
