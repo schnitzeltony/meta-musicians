@@ -21,7 +21,8 @@ SRC_URI = " \
     file://qmidiarp-jack.desktop \
 "
 
-SRCREV = "bf9300363578eee44ce2e1e42e938ce338425937"
+SRCREV = "46771fe52ced2910cb79ba2db4d5a688848dc4cf"
+PV = "0.6.6+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
