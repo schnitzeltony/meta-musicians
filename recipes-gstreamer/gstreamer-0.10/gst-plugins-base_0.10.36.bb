@@ -19,7 +19,9 @@ SRC_URI[sha256sum] = "2cd3b0fa8e9b595db8f514ef7c2bdbcd639a0d63d154c00f8c9b609321
 
 PR = "r8"
 
-inherit gettext
+inherit gettext gobject-introspection
+
+GI_DATA_ENABLED = 'False'
 
 EXTRA_OECONF += "--disable-freetypetest"
 

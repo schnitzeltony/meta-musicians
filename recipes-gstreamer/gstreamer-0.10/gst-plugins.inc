@@ -4,13 +4,12 @@ BUGTRACKER = "https://bugzilla.gnome.org/enter_bug.cgi?product=Gstreamer"
 SECTION = "multimedia"
 DEPENDS = "gstreamer"
 
-# gobject-introspection to get --disable-introspection into UNKNOWN_CONFIGURE_WHITELIST
-inherit autotools pkgconfig gobject-introspection
+inherit autotools pkgconfig
 
 SRC_URI = "http://gstreamer.freedesktop.org/src/${BPN}/${BPN}-${PV}.tar.bz2"
 
 GSTREAMER_DEBUG ?= "--disable-debug"
-EXTRA_OECONF = "--disable-valgrind ${GSTREAMER_DEBUG} --disable-examples --disable-introspection"
+EXTRA_OECONF = "--disable-valgrind ${GSTREAMER_DEBUG} --disable-examples"
 
 acpaths = "-I ${S}/common/m4 -I ${S}/m4"
 
