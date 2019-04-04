@@ -34,6 +34,9 @@ SRC_URI = " \
     file://0006-fixed-unsafe-use-of-strncpy.patch \
     file://0007-util1-csd_util-cs.c-Fix-build-with-gcc8.patch \
     file://0008-Fix-build-with-fluidsynth-version-2.0.0.patch \
+    file://0009-Fix-build-for-linux-musl.patch \
+    file://0010-threadsafe.c-Fix-unused-valable-warning-error.patch \
+    file://0011-Use-POSIX-conform-location-for-errno.h.patch \
 "
 SRCREV = "2905724262b516983e779ed8c589602da4bf3f7d"
 S = "${WORKDIR}/git"
