@@ -7,6 +7,7 @@ PV = "0.38.0"
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz \
     file://0001-do-not-perform-link-test-durin-cross-build.patch \
+    file://0002-Fix-build-for-musl.patch \
 "
 SRC_URI[md5sum] = "c533bfd7223c42a7aef0e516f5b4cc01"
 SRC_URI[sha256sum] = "c709ec903b2ae653802bd9327c32a20a086e6a97e8d029c8d79f1a8445dd655b"
