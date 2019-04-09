@@ -3,14 +3,13 @@ HOMEPAGE = "http://guitarix.org/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
-PV = "0.38.0"
+PV = "0.38.1"
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz \
     file://0001-do-not-perform-link-test-durin-cross-build.patch \
-    file://0002-Fix-build-for-musl.patch \
 "
-SRC_URI[md5sum] = "c533bfd7223c42a7aef0e516f5b4cc01"
-SRC_URI[sha256sum] = "c709ec903b2ae653802bd9327c32a20a086e6a97e8d029c8d79f1a8445dd655b"
+SRC_URI[md5sum] = "d9aec810bf164cbf040b298cb9c45d50"
+SRC_URI[sha256sum] = "00fda3e1ce1d5f1691665f9ff32bb3c9800381313d49b7c2e25618d0b3ed872f"
 
 inherit wafold fontcache gettext
 
