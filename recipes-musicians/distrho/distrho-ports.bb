@@ -10,6 +10,8 @@ SRC_URI = " \
     git://github.com/DISTRHO/DISTRHO-Ports.git \
     file://0001-disable-pitchedDelay-it-uses-double-precision-SSE2-b.patch \
     file://0002-Refine-Plugin-do-not-include-xmmintrin.h.patch \
+    file://0003-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
+    file://0004-Further-musl-fix-by-removal-of-unused-function.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
@@ -17,9 +19,9 @@ SRC_URI = " \
     http://linuxsynths.com/VexPatchesDemos/VexPatches02.tar.gz;name=linuxsynths-vex-patches2;subdir=linuxsynths-vex-patches \
 "
 
-SRCREV = "a82fff059baafc03f7c0e8b9a99f383af7bfbd79"
+SRCREV = "500ac85e3d10d82e1488d09f542daec424a60efd"
 S = "${WORKDIR}/git"
-PV = "2018-04-16"
+PV = "2018-04-16+git${SRCPV}"
 
 SRC_URI[linuxsynths-obxd-patches1.md5sum] = "32244f847a54a71ee3c25079df5c8b84"
 SRC_URI[linuxsynths-obxd-patches1.sha256sum] = "246fccadd71bb9f0606a95bf7b0aee7807fd3a14f754367425423a51c31e160e"

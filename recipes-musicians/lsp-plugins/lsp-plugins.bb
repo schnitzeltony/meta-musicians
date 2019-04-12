@@ -16,15 +16,13 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI += " \
-    file://0001-Makefile-align-for-oe-cross-build.patch \
-"
+SRC_URI += "file://0001-Makefile-align-for-oe-cross-build.patch"
 
 ARM_INSTRUCTION_SET = "arm"
 
 def profile_handler(d):
-    profile = d.getVar('DEFAULTTUNE', True)
-    features = d.getVar('TUNE_FEATURES', True).split()
+    profile = d.getVar('DEFAULTTUNE')
+    features = d.getVar('TUNE_FEATURES').split()
     if 'armv7a' in features or 'armv7ve' in features:
         profile = 'armv7a'
     return profile
@@ -36,11 +34,9 @@ EXTRA_OEMAKE += " \
 "
 
 do_compile_prepend() {
-    export LDLDFLAGS="`echo $LDFLAGS | sed 's:-Wl,::g'`"
-    export CC="${CXX}"
     export CC_ARCH="${CXXFLAGS}"
+    export LD_ARCH="`echo $LDFLAGS | sed 's:-Wl,::g'`"
 }
-
 
 do_install() {
     ${MAKE} ${EXTRA_OEMAKE} DESTDIR=${D} install
