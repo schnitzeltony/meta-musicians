@@ -10,8 +10,6 @@ SRC_URI = " \
     git://github.com/DISTRHO/DISTRHO-Ports.git \
     file://0001-disable-pitchedDelay-it-uses-double-precision-SSE2-b.patch \
     file://0002-Refine-Plugin-do-not-include-xmmintrin.h.patch \
-    file://0003-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
-    file://0004-Further-musl-fix-by-removal-of-unused-function.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
