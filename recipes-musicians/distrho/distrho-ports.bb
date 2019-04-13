@@ -19,9 +19,9 @@ SRC_URI = " \
     http://linuxsynths.com/VexPatchesDemos/VexPatches02.tar.gz;name=linuxsynths-vex-patches2;subdir=linuxsynths-vex-patches \
 "
 
-SRCREV = "500ac85e3d10d82e1488d09f542daec424a60efd"
+SRCREV = "a82fff059baafc03f7c0e8b9a99f383af7bfbd79"
 S = "${WORKDIR}/git"
-PV = "2018-04-16+git${SRCPV}"
+PV = "2018-04-16"
 
 SRC_URI[linuxsynths-obxd-patches1.md5sum] = "32244f847a54a71ee3c25079df5c8b84"
 SRC_URI[linuxsynths-obxd-patches1.sha256sum] = "246fccadd71bb9f0606a95bf7b0aee7807fd3a14f754367425423a51c31e160e"
