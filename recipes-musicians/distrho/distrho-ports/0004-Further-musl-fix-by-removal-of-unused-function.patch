@@ -1,0 +1,146 @@
+From 06be2d073cb86298cba6ae98f8c7ffbec4f15e7e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 4 Apr 2019 00:19:22 +0200
+Subject: [PATCH] Further musl fix by removal of unused function
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This time there are _NL_IDENTIFICATION* variables missing. Since the functions
+
+SystemStats::getUserLanguage()
+SystemStats::getUserRegion()
+SystemStats::getDisplayLanguage()
+
+are not in use there is no harm caused by removing them.
+
+Same: I am aware that there might be an update of JUCE or other prugins using
+getStackBacktrace in the future but till then musl fan boys are happy.
+
+Upstream-Status: Submitted [1]
+
+[1] https://github.com/DISTRHO/DISTRHO-Ports/pull/31
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ .../native/juce_android_SystemStats.cpp       |  4 ----
+ .../native/juce_linux_SystemStats.cpp         |  4 ----
+ .../juce_core/native/juce_mac_SystemStats.mm  | 11 ----------
+ .../native/juce_win32_SystemStats.cpp         | 22 -------------------
+ .../juce_core/system/juce_SystemStats.h       | 17 --------------
+ 5 files changed, 58 deletions(-)
+
+diff --git a/libs/juce/source/modules/juce_core/native/juce_android_SystemStats.cpp b/libs/juce/source/modules/juce_core/native/juce_android_SystemStats.cpp
+index a1bdd59e..6055352f 100644
+--- a/libs/juce/source/modules/juce_core/native/juce_android_SystemStats.cpp
++++ b/libs/juce/source/modules/juce_core/native/juce_android_SystemStats.cpp
+@@ -445,10 +445,6 @@ String SystemStats::getComputerName()
+ }
+ 
+ 
+-String SystemStats::getUserLanguage()    { return AndroidStatsHelpers::getLocaleValue (false); }
+-String SystemStats::getUserRegion()      { return AndroidStatsHelpers::getLocaleValue (true); }
+-String SystemStats::getDisplayLanguage() { return getUserLanguage() + "-" + getUserRegion(); }
+-
+ //==============================================================================
+ void CPUInformation::initialise() noexcept
+ {
+diff --git a/libs/juce/source/modules/juce_core/native/juce_linux_SystemStats.cpp b/libs/juce/source/modules/juce_core/native/juce_linux_SystemStats.cpp
+index 40f19187..07a99749 100644
+--- a/libs/juce/source/modules/juce_core/native/juce_linux_SystemStats.cpp
++++ b/libs/juce/source/modules/juce_core/native/juce_linux_SystemStats.cpp
+@@ -129,10 +129,6 @@ static String getLocaleValue (nl_item key)
+     return result;
+ }
+ 
+-String SystemStats::getUserLanguage()    { return getLocaleValue (_NL_IDENTIFICATION_LANGUAGE); }
+-String SystemStats::getUserRegion()      { return getLocaleValue (_NL_IDENTIFICATION_TERRITORY); }
+-String SystemStats::getDisplayLanguage() { return getUserLanguage() + "-" + getUserRegion(); }
+-
+ //==============================================================================
+ void CPUInformation::initialise() noexcept
+ {
+diff --git a/libs/juce/source/modules/juce_core/native/juce_mac_SystemStats.mm b/libs/juce/source/modules/juce_core/native/juce_mac_SystemStats.mm
+index 81f62192..b0a751dd 100644
+--- a/libs/juce/source/modules/juce_core/native/juce_mac_SystemStats.mm
++++ b/libs/juce/source/modules/juce_core/native/juce_mac_SystemStats.mm
+@@ -241,17 +241,6 @@ static String getLocaleValue (CFStringRef key)
+     return result;
+ }
+ 
+-String SystemStats::getUserLanguage()   { return getLocaleValue (kCFLocaleLanguageCode); }
+-String SystemStats::getUserRegion()     { return getLocaleValue (kCFLocaleCountryCode); }
+-
+-String SystemStats::getDisplayLanguage()
+-{
+-    CFArrayRef cfPrefLangs = CFLocaleCopyPreferredLanguages();
+-    const String result (String::fromCFString ((CFStringRef) CFArrayGetValueAtIndex (cfPrefLangs, 0)));
+-    CFRelease (cfPrefLangs);
+-    return result;
+-}
+-
+ //==============================================================================
+ /*  NB: these are kept outside the HiResCounterInfo struct and initialised to 1 to avoid
+     division-by-zero errors if some other static constructor calls us before this file's
+diff --git a/libs/juce/source/modules/juce_core/native/juce_win32_SystemStats.cpp b/libs/juce/source/modules/juce_core/native/juce_win32_SystemStats.cpp
+index e2b44093..c78cf747 100644
+--- a/libs/juce/source/modules/juce_core/native/juce_win32_SystemStats.cpp
++++ b/libs/juce/source/modules/juce_core/native/juce_win32_SystemStats.cpp
+@@ -469,26 +469,4 @@ static String getLocaleValue (LCID locale, LCTYPE key, const char* defaultValue)
+     return defaultValue;
+ }
+ 
+-String SystemStats::getUserLanguage()     { return getLocaleValue (LOCALE_USER_DEFAULT, LOCALE_SISO639LANGNAME,  "en"); }
+-String SystemStats::getUserRegion()       { return getLocaleValue (LOCALE_USER_DEFAULT, LOCALE_SISO3166CTRYNAME, "US"); }
+-
+-String SystemStats::getDisplayLanguage()
+-{
+-    DynamicLibrary dll ("kernel32.dll");
+-    JUCE_LOAD_WINAPI_FUNCTION (dll, GetUserDefaultUILanguage, getUserDefaultUILanguage, LANGID, (void))
+-
+-    if (getUserDefaultUILanguage == nullptr)
+-        return "en";
+-
+-    const DWORD langID = MAKELCID (getUserDefaultUILanguage(), SORT_DEFAULT);
+-
+-    String mainLang (getLocaleValue (langID, LOCALE_SISO639LANGNAME, "en"));
+-    String region   (getLocaleValue (langID, LOCALE_SISO3166CTRYNAME, nullptr));
+-
+-    if (region.isNotEmpty())
+-        mainLang << '-' << region;
+-
+-    return mainLang;
+-}
+-
+ } // namespace juce
+diff --git a/libs/juce/source/modules/juce_core/system/juce_SystemStats.h b/libs/juce/source/modules/juce_core/system/juce_SystemStats.h
+index a99d830a..ca560670 100644
+--- a/libs/juce/source/modules/juce_core/system/juce_SystemStats.h
++++ b/libs/juce/source/modules/juce_core/system/juce_SystemStats.h
+@@ -106,23 +106,6 @@ public:
+     /** Returns the host-name of the computer. */
+     static String getComputerName();
+ 
+-    /** Returns the language of the user's locale.
+-        The return value is a 2 or 3 letter language code (ISO 639-1 or ISO 639-2)
+-    */
+-    static String getUserLanguage();
+-
+-    /** Returns the region of the user's locale.
+-        The return value is a 2 letter country code (ISO 3166-1 alpha-2).
+-    */
+-    static String getUserRegion();
+-
+-    /** Returns the user's display language.
+-        The return value is a 2 or 3 letter language code (ISO 639-1 or ISO 639-2).
+-        Note that depending on the OS and region, this may also be followed by a dash
+-        and a sub-region code, e.g "en-GB"
+-    */
+-    static String getDisplayLanguage();
+-
+     /** This will attempt to return some kind of string describing the device.
+         If no description is available, it'll just return an empty string. You may
+         want to use this for things like determining the type of phone/iPad, etc.
+-- 
+2.20.1
+
