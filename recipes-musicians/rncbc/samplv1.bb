@@ -18,8 +18,9 @@ SRC_URI = " \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Remove-extra-rpath.patch \
 "
-SRC_URI[md5sum] = "7248f79e68aa9d93df507ca3661cee93"
-SRC_URI[sha256sum] = "e9938e74897b64f7bb47ad1f1cfc7e3fef4403fd662f93dda00fd89b7aec4599"
+PV = "0.9.7"
+SRC_URI[md5sum] = "ed85e8afe5fc4f56ac828bfbf04a8397"
+SRC_URI[sha256sum] = "30d91669cad9074aac405d36df55173720786d48d53cc76ba518bfcb9864f5ed"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
