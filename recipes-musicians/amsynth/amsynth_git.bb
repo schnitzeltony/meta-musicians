@@ -11,8 +11,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/amsynth/amsynth.git;branch=develop"
-SRCREV = "3ddbd8c44ea9ddec558c1da0d27b26f553898d4f"
-PV = "1.8.0+git${SRCPV}"
+SRCREV = "71544e4991f494f9871e13a50d6cf9217bb86986"
+PV = "1.9.0"
 S = "${WORKDIR}/git"
 
 
