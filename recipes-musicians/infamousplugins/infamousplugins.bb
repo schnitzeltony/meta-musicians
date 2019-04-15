@@ -16,8 +16,9 @@ inherit cmake pkgconfig gtk-icon-cache
 SRC_URI = " \
     git://github.com/ssj71/infamousPlugins.git \
 "
-SRCREV = "970a5de32393cc92ab2144d6a8a5e92b302dc9b5"
+SRCREV = "28b405414a5d044e576ab00b75ceaa1c0a7b8929"
 S = "${WORKDIR}/git"
+PV = "0.3.0"
 
 EXTRA_OECMAKE += " \
     -DLIBDIR=${baselib} \
