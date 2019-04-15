@@ -29,10 +29,9 @@ SRC_URI = " \
     file://0002-Controller-Spliter-align-Makefiles-for-cross-compili.patch \
     file://0003-Nio.cpp-Do-not-use-ps-aux-to-find-jack-busybox-s-ps-.patch \
     file://0004-Keep-our-build-flags.patch \
-    file://0005-Fix-crash-with-mxml-V3.patch \
 "
-SRCREV = "576f1371b44db44865d57bbd50609e906bd2bfd7"
-PV = "3.0.4+git${SRCPV}"
+SRCREV = "4d4aedf834dbd13c6e5f07ac512c9da74732fd58"
+PV = "3.0.5"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += "-DPluginLibDir=${baselib}"
