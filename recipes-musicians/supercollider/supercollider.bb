@@ -6,8 +6,8 @@ SRC_URI = " \
     gitsm://github.com/supercollider/supercollider.git \
     file://0001-server-supernova-utilities-time_tag.hpp-Adding-stati.patch \
 "
-SRCREV = "a3b8ac73001f315ad01b29b81a97fbf7d03b709f"
-PV = "3.10.0"
+SRCREV = "834c036d3519337d409277d13f15f321759c5756"
+PV = "3.10.2"
 S = "${WORKDIR}/git/"
 
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d32239bcb673463ab874e80d47fae504"
