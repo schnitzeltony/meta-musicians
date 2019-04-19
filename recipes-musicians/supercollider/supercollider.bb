@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 SRC_URI = " \
     gitsm://github.com/supercollider/supercollider.git \
     file://0001-server-supernova-utilities-time_tag.hpp-Adding-stati.patch \
+    file://0002-Workaround-build-errors-on-musl-libc.patch \
 "
 SRCREV = "834c036d3519337d409277d13f15f321759c5756"
 PV = "3.10.2"
