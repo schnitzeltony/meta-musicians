@@ -1,6 +1,7 @@
 SUMMARY = "Programming language for audio synthesis and algorithmic composition"
 HOMEPAGE = "http://supercollider.github.io/"
 LICENSE = "GPL-3.0"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = " \
     gitsm://github.com/supercollider/supercollider.git \
@@ -9,8 +10,6 @@ SRC_URI = " \
 SRCREV = "834c036d3519337d409277d13f15f321759c5756"
 PV = "3.10.2"
 S = "${WORKDIR}/git/"
-
-LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit cmake_qt5 distro_features_check mime
 
