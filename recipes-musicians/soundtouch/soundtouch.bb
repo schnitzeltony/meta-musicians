@@ -9,6 +9,6 @@ SRC_URI = " \
     git://gitlab.com/${BPN}/${BPN}.git \
     file://0001-Fix-path-to-m4-macro-dir.patch \
 "
-SRCREV = "b9659b64c692aab50a91da44cc0ea6ba41309949"
-PV = "2.1.1"
+SRCREV = "9205fc971ed23cff407a67242bb9036a51113af4"
+PV = "2.1.2"
 S = "${WORKDIR}/git"
