@@ -82,6 +82,7 @@ RDEPENDS_${PN} += " \
     mixxx \
     muse \
     nekobee \
+    non \
     \
     \
     arty-fx \
