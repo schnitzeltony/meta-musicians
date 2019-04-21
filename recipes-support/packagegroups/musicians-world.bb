@@ -97,6 +97,7 @@ RDEPENDS_${PN} += " \
     projectm \
     qmidiarp \
     qmmp \
+    remid.lv2 \
     \
     \
     drumkv1 drumkv1-presets \
