@@ -134,6 +134,7 @@ RDEPENDS_${PN} += " \
     triceratops-lv2 \
     vamp-plugin-sdk \
     wolf-shaper-dssi wolf-shaper-lv2 wolf-shaper-vst \
+    wolf-spectrum wolf-spectrum-lv2 wolf-spectrum-vst \
     \
     \
     avldrums.lv2 \
