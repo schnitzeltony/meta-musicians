@@ -79,6 +79,7 @@ RDEPENDS_${PN} += " \
     \
     lmms \
     lrdf \
+    lsp-plugins-standalone lsp-plugins-ladspa lsp-plugins-lv2 lsp-plugins-vst \
     mixxx \
     muse \
     nekobee \
@@ -152,8 +153,6 @@ RDEPENDS_${PN} += " \
     ${@bb.utils.contains("DISTRO_FEATURES", "opengl", "zyn-fusion-dssi zyn-fusion-lv2 zyn-fusion-vst zyn-fusion-standalone", "zynaddsubfx-dssi zynaddsubfx-lv2 zynaddsubfx-vst zynaddsubfx-standalone",d)} \
 "
 
-# non working
-#    lsp-plugins-standalone lsp-plugins-ladspa lsp-plugins-lv2 lsp-plugins-vst 
 
 # tomahawk
 
