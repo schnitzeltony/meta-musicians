@@ -1,0 +1,29 @@
+From c1bbaf0ad86c5a3fcfbae6f7a5e089b619283f06 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 25 Apr 2019 23:36:34 +0200
+Subject: [PATCH] Pass LDFLAGS to so-lib builds
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ scripts/make/tools.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/make/tools.mk b/scripts/make/tools.mk
+index 65953201..cdbed99a 100644
+--- a/scripts/make/tools.mk
++++ b/scripts/make/tools.mk
+@@ -6,7 +6,7 @@ export LD              ?= ld
+ export MAKE_OPTS        = -s
+ export CFLAGS          += $(CC_ARCH) -std=c++98 -fdata-sections -pthread -ffunction-sections -fno-exceptions -fno-asynchronous-unwind-tables -Wall -pipe -fno-rtti $(CC_FLAGS) -DLSP_MAIN_VERSION=\"$(VERSION)\" -DLSP_INSTALL_PREFIX=\"$(PREFIX)\"
+ export CXXFLAGS		   += $(CC_ARCH) -std=c++98 -fdata-sections -pthread -ffunction-sections -fno-exceptions -fno-asynchronous-unwind-tables -Wall -pipe -fno-rtti $(CC_FLAGS) -DLSP_MAIN_VERSION=\"$(VERSION)\" -DLSP_INSTALL_PREFIX=\"$(PREFIX)\"
+-export SO_FLAGS         = $(CC_ARCH) -Wl,-z,relro,-z,now -Wl,--gc-sections -shared -Llibrary -lc -fPIC
++export SO_FLAGS         = $(CC_ARCH) -Wl,-z,relro,-z,now -Wl,--gc-sections -shared -Llibrary -lc -fPIC $(LDFLAGS)
+ export MERGE_FLAGS      = $(LD_ARCH) -r
+ export EXE_TEST_FLAGS   = $(LDFLAGS) $(CC_ARCH)
+ export EXE_FLAGS        = $(LDFLAGS) $(CC_ARCH) -Wl,-z,relro,-z,now -Wl,--gc-sections
+-- 
+2.20.1
+

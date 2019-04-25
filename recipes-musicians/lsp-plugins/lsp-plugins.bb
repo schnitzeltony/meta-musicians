@@ -16,20 +16,30 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI += "file://0001-Makefile-align-for-oe-cross-build.patch"
+SRC_URI += " \
+    file://0001-Makefile-align-for-oe-cross-build.patch \
+    file://0002-Pass-LDFLAGS-to-so-lib-builds.patch \
+"
 
 ARM_INSTRUCTION_SET = "arm"
 
-def profile_handler(d):
-    profile = d.getVar('DEFAULTTUNE')
-    features = d.getVar('TUNE_FEATURES').split()
-    if 'armv7a' in features or 'armv7ve' in features:
-        profile = 'armv7a'
-    return profile
+COMPATIBLE_MACHINE = "(^$)"
+COMPATIBLE_MACHINE_armv7a = "(.*)"
+COMPATIBLE_MACHINE_armv7ve = "(.*)"
+COMPATIBLE_MACHINE_aarch64 = "(.*)"
+COMPATIBLE_MACHINE_x86 = "(.*)"
+COMPATIBLE_MACHINE_x86-64 = "(.*)"
+
+LSP_TARGET_ARCH = ""
+LSP_TARGET_ARCH_armv7a = "armv7a"
+LSP_TARGET_ARCH_armv7ve = "armv7a"
+LSP_TARGET_ARCH_aarch64 = "aarch64"
+LSP_TARGET_ARCH_x86 = "i586"
+LSP_TARGET_ARCH_x86-64 = "x86_64"
 
 EXTRA_OEMAKE += " \
     BUILD_PLATFORM=Linux \
-    BUILD_PROFILE=${@profile_handler(d)} \
+    BUILD_PROFILE=${LSP_TARGET_ARCH} \
     PREFIX=${prefix} \
 "
 
