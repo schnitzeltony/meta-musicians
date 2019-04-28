@@ -20,6 +20,7 @@ DEPENDS += " \
 SRC_URI += " \
     file://0001-Makefile-align-for-oe-cross-build.patch \
     file://0002-Pass-LDFLAGS-to-so-lib-builds.patch \
+    file://0003-Hack-remove-runtime-charset-conversions.patch \
 "
 
 ARM_INSTRUCTION_SET = "arm"

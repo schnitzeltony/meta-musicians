@@ -1,0 +1,62 @@
+From b8d6bc13a68a78dc026db863cbc7103bbb584afe Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 28 Apr 2019 22:17:48 +0200
+Subject: [PATCH] Hack: remove runtime charset conversions
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+There are no charsets installed yet and I have no idea which are required. So
+treat all texts as UTF-8.
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/core/LSPString.cpp | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/src/core/LSPString.cpp b/src/core/LSPString.cpp
+index 8e0d72af..e8cf00ff 100644
+--- a/src/core/LSPString.cpp
++++ b/src/core/LSPString.cpp
+@@ -1418,7 +1418,8 @@ namespace lsp
+             return true;
+         }
+ 
+-        char buf[BUF_SIZE];
++        set_utf8(s, n);
++/*        char buf[BUF_SIZE];
+         LSPString temp;
+ 
+         // Open conversion
+@@ -1479,7 +1480,7 @@ namespace lsp
+ 
+         // Close descriptor
+         iconv_close(cd);
+-        take(&temp);
++        take(&temp);*/
+         return true;
+     }
+ #endif /* PLATFORM_WINDOWS */
+@@ -1641,7 +1642,9 @@ namespace lsp
+         if (first >= last)
+             return (last == first) ? "" : NULL;
+ 
+-        // Open conversion
++        return get_utf8(first, last);
++
++/*        // Open conversion
+         iconv_t cd = init_iconv_from_wchar_t(charset);
+         if (cd == iconv_t(-1))
+             return NULL;
+@@ -1703,7 +1706,7 @@ namespace lsp
+         if (!append_temp("\x00\x00\x00\x00", 4))
+             return NULL;
+ 
+-        return pTemp->pData;
++        return pTemp->pData;*/
+     }
+ #endif /* PLATFORM_WINDOWS */
+ 
+-- 
+2.20.1
+
