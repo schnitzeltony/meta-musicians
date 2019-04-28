@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit distro_features_check pack_audio_plugins
+inherit distro_features_check pack_audio_plugins qemu-ext
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -14,6 +14,7 @@ DEPENDS += " \
     libsndfile1 \
     ladspa-sdk \
     lv2 \
+    libglu \
 "
 
 SRC_URI += " \
@@ -37,15 +38,30 @@ LSP_TARGET_ARCH_aarch64 = "aarch64"
 LSP_TARGET_ARCH_x86 = "i586"
 LSP_TARGET_ARCH_x86-64 = "x86_64"
 
+# Uncomment for trace output
+#CFLAGS+="-DLSP_TRACE"
+#CXXFLAGS+="-DLSP_TRACE"
+
 EXTRA_OEMAKE += " \
     BUILD_PLATFORM=Linux \
     BUILD_PROFILE=${LSP_TARGET_ARCH} \
     PREFIX=${prefix} \
 "
 
-do_compile_prepend() {
+do_compile() {
     export CC_ARCH="${CXXFLAGS}"
     export LD_ARCH="`echo $LDFLAGS | sed 's:-Wl,::g'`"
+
+    # uncomment to build/run unittest
+    #UNIT_TEST="1"
+    if [ "${UNIT_TEST}" = "1" ]; then
+        oe_runmake clean
+        oe_runmake test
+        echo "QEMU unittest..."
+        ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '.build/lsp-plugins-test')} utest --verbose core.lspstring || echo "ERROR: QEMU unittest failed!"
+        oe_runmake clean
+    fi
+    oe_runmake
 }
 
 do_install() {
