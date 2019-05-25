@@ -12,6 +12,7 @@ DEPENDS += " \
 
 SRC_URI = " \
     git://github.com/charlesfleche/lpd8editor.git \
+    file://0001-Remove-Werror-from-CXXFLAGS.patch\
     file://lpd8-editor.desktop \
 "
 SRCREV = "5ca6f2b90889893e0633b23ffe0e4a014096656a"
