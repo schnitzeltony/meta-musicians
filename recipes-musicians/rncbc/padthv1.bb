@@ -26,9 +26,9 @@ SRC_URI = " \
     file://0002-Remove-extra-rpath.patch \
     file://padthv1.conf \
 "
-PV = "0.9.7"
-SRC_URI[md5sum] = "29126a464782908008d4b4963fade233"
-SRC_URI[sha256sum] = "970f25e0cc34c759653b8526164fea0b9987551dae8f053d79fbc6a08c5ba4c9"
+PV = "0.9.8"
+SRC_URI[md5sum] = "510a59422c80cfde67089c2f31c1ab16"
+SRC_URI[sha256sum] = "5176164e989205322eb74e88ee071086acedb1d1826f3b85d14c6211721497cc"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
