@@ -7,7 +7,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 SRC_URI += " \
     file://0001-Find-native-bin2res.patch \
     file://0002-zynaddsubfx-link-agains-X11.patch \
-    file://0003-CMake-rpmalloc-Do-not-overwrite-CMAKE_C_FLAGS.patch \
+    file://0003-CMake-3rdparty-Do-not-overwrite-CMAKE_C-XX-_FLAGS.patch \
     file://0004-carlabase-Do-not-add-RPATH-to-carlabase.patch \
 "
 
