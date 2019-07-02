@@ -22,11 +22,10 @@ REQUIRED_DISTRO_FEATURE = "x11"
 
 SRC_URI = " \
     gitsm://github.com/zamaudio/${BPN}.git \
-    file://0001-remove-useles-braces-in-macros.patch \
 "
-SRCREV = "96ec0c7dbc9c034bc8716309b92fda84bb27cf92"
+SRCREV = "af338057e42dd5d07cba1889bfc74eda517c6147"
 S = "${WORKDIR}/git"
-PV = "3.10+git${SRCPV}"
+PV = "3.11"
 
 do_configure_prepend() {
     rm -f ${WORKDIR}/lv2_ttl_generator-data
