@@ -16,7 +16,7 @@ DEPENDS += " \
     zita-convolver \
 "
 
-inherit pkgconfig qemu-ext distro_features_check pack_audio_plugins
+inherit pkgconfig lv2-postinst-helper distro_features_check pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURE = "x11"
 
@@ -27,25 +27,36 @@ SRCREV = "af338057e42dd5d07cba1889bfc74eda517c6147"
 S = "${WORKDIR}/git"
 PV = "3.11"
 
-do_configure_prepend() {
-    rm -f ${WORKDIR}/lv2_ttl_generator-data
-    # manipulate scripts to keep lv2_ttl_generator-calls in script for qemu
-    sed -i 's|"$GEN" "./$FILE"|echo `pwd`/$FILE >> ${WORKDIR}/lv2_ttl_generator-data|g' ${S}/dpf/utils/generate-ttl.sh
-}
-
-
 EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
 
+do_configure_prepend() {
+    # reconfigure?
+    if [ ! -f ${LV2-TURTLE-BUILD-DATA} ] ; then
+        # We cannot run lv2-ttl-generator in cross environment so
+        # manipulate generate-ttl.sh to save lib info in ${LV2-TURTLE-BUILD-DATA}
+        sed -i 's|"$GEN" "./$FILE"|echo "dummy-first-col `realpath  "./$FILE"`" >> ${LV2-TURTLE-BUILD-DATA}|g' ${S}/dpf/utils/generate-ttl.sh
+     else
+        rm -f ${LV2-TURTLE-BUILD-DATA}
+     fi
+}
+
+
 do_compile_append() {
-    # build ttl-files must be done in quemu
-    for sofile in `cat ${WORKDIR}/lv2_ttl_generator-data`; do
-        cd `dirname ${sofile}`
-        echo "QEMU lv2_ttl_generator for ${sofile}..."
-        ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${S}/dpf/utils/lv2_ttl_generator')} ${sofile} || echo "ERROR: for QEMU lv2_ttl_generator for ${sofile}!"
-    done
+    # Create dummy lv2-turtles to make install happy
+    #cd ${B}/src/Plugin/
+    #for dir in `find -type d -mindepth 1 -maxdepth 1`; do
+    #    if [ -d $dir/lv2 ] ; then
+    #        echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/manifest.ttl
+    #        echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/presets.ttl
+    #        for so in `find $dir -name '*.so' -mindepth 2 -maxdepth 2`; do
+    #            pluginname=`basename $so | sed 's|.so||g'`
+    #            echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/$pluginname.ttl
+    #        done
+    #    fi
+    #done
 }
 
 do_install() {
