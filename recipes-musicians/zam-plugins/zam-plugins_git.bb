@@ -44,21 +44,6 @@ do_configure_prepend() {
 }
 
 
-do_compile_append() {
-    # Create dummy lv2-turtles to make install happy
-    #cd ${B}/src/Plugin/
-    #for dir in `find -type d -mindepth 1 -maxdepth 1`; do
-    #    if [ -d $dir/lv2 ] ; then
-    #        echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/manifest.ttl
-    #        echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/presets.ttl
-    #        for so in `find $dir -name '*.so' -mindepth 2 -maxdepth 2`; do
-    #            pluginname=`basename $so | sed 's|.so||g'`
-    #            echo ${LV2-DUMMY-TURTLE-STR} > $dir/lv2/$pluginname.ttl
-    #        done
-    #    fi
-    #done
-}
-
 do_install() {
     ${MAKE} DESTDIR=${D} PREFIX= LIBDIR=${libdir} BINDIR=${bindir} install
 }
