@@ -18,9 +18,9 @@ diff --git a/configure.ac b/configure.ac
 index f791a1d..1d46860 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -236,23 +236,9 @@ done
- # A common error message:
- ac_errmsg="not found in current PATH. Maybe QT development environment isn't available."
+@@ -265,23 +265,9 @@ if test -x $ac_qtchooser; then
+    export QT_SELECT=5
+ fi
  
 -# Check for proper qmake path/version alternatives.
 -AC_PATH_TOOL(ac_qmake, qmake, [no], $ac_path)
@@ -45,7 +45,7 @@ index f791a1d..1d46860 100644
  
  if test "x$ac_qmake" = "xno"; then
     AC_MSG_ERROR([qmake-qt5 $ac_errmsg (qt5-devel)])
-@@ -267,13 +253,6 @@ if test -d $ac_qt_install_path; then
+@@ -296,13 +282,6 @@ if test -d $ac_qt_install_path; then
     ac_path="$ac_qt_install_path:$ac_path"
  fi
  
@@ -59,7 +59,7 @@ index f791a1d..1d46860 100644
  AC_SUBST(ac_qmake)
  
  AC_CACHE_CHECK([for Qt install headers], [ac_cv_qt_install_headers], [
-@@ -309,28 +288,36 @@ AC_CACHE_CHECK([for Qt library version >= 5.1],
+@@ -338,28 +317,36 @@ AC_CACHE_CHECK([for Qt library version >= 5.1],
  ])
  
  # Check for Qt moc utility.
