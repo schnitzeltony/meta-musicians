@@ -17,8 +17,8 @@ SRC_URI = " \
     https://aubio.org/pub/${BPN}-${PV}.tar.bz2 \
     file://0001-do-not-build-tests.patch \
 "
-SRC_URI[md5sum] = "1e8deb14b0e45ffadc91dcf7cfaee0c8"
-SRC_URI[sha256sum] = "cbed4afec5ab3a1a6300c7e3af0a1369379aa94259f5e701a8ca905cdd9fa041"
+SRC_URI[md5sum] = "50c9c63b15a2692378af5d602892f16a"
+SRC_URI[sha256sum] = "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
 
 EXTRA_OECONF = " \
     --prefix=${prefix} \
