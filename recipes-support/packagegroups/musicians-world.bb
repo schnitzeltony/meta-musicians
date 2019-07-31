@@ -47,6 +47,9 @@ RDEPENDS_${PN} += " \
     \
     \
     drumgizmo \
+    dgedit \
+    \
+    \
     dssi \
     dssi-vst \
     ftgl \
