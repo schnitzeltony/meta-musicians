@@ -16,11 +16,11 @@ inherit qmake5_base autotools-brokensep gtk-icon-cache qt5-translation mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
 "
-SRC_URI[md5sum] = "1faccc3c0a6f0df4b62e734d146b38d3"
-SRC_URI[sha256sum] = "ee230e8a44b8890117f73f6f3af2a219c4a9df765a2b45b930b9653b3fba22d2"
-PV = "0.5.5"
+SRC_URI[md5sum] = "169401d29fb3b3d438dce5bb094efe08"
+SRC_URI[sha256sum] = "7a41f9a168dc8a316520377aea28b040de0fd54217b9b71d9f4c56a9fcafa253"
+PV = "0.5.6"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
