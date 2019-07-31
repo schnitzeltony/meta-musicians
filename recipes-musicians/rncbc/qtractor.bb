@@ -13,6 +13,7 @@ DEPENDS += " \
     rubberband \
     dssi \
     suil \
+    aubio \
 "
 
 inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime qt5-translation
