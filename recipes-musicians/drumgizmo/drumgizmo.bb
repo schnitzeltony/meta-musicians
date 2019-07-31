@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit autotools-brokensep pkgconfig distro_features_check gtk-icon-cache
+inherit autotools-brokensep pkgconfig distro_features_check gtk-icon-cache qemu-ext
 
 REQUIRED_DISTRO_FEATURE = "x11"
 
@@ -19,6 +19,7 @@ DEPENDS += " \
 SRC_URI += " \
     file://0001-automake-enable-subdir-objects.patch \
     file://0002-Use-native-rcgen.patch \
+    file://0003-Do-not-create-Manifest.ttl-with-cross-ttlgen.patch \
     file://drumgizmo.desktop \
 "
 
@@ -28,6 +29,12 @@ EXTRA_OECONF = " \
     --without-debug \
     --disable-sse \
 "
+
+do_compile_append() {
+    # build manifest.ttl
+    cd ${B}/plugin
+    ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', 'ttlgen')} .libs/drumgizmo.so manifest.ttl || echo "ERROR: at QEMU for ttlgen"
+}
 
 do_install_append() {
     install -d ${D}${datadir}/pixmaps
