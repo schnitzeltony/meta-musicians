@@ -17,7 +17,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-old-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
 "
 SRC_URI[md5sum] = "6fe95a27a9eab56680330cc93393c03d"
 SRC_URI[sha256sum] = "a6eb404778fad87bb37fa1fb4caf1d80f24a324f9c3a22b669df2f8c94849040"
