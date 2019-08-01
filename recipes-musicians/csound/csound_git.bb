@@ -28,19 +28,10 @@ SRC_URI = " \
     git://github.com/csound/csound.git \
     file://0001-Do-not-set-include-path-to-usr-local-include.patch \
     file://0002-Do-not-use-try_run-for-portaudio.patch \
-    file://0003-strict-aliasing-errors.patch \
-    file://0004-Engine-csound_orc_semantics.c-Fix-build-with-gcc8.patch \
-    file://0005-InOut-pmidi.c-Fix-build-with-gcc8.patch \
-    file://0006-fixed-unsafe-use-of-strncpy.patch \
-    file://0007-util1-csd_util-cs.c-Fix-build-with-gcc8.patch \
-    file://0008-Fix-build-with-fluidsynth-version-2.0.0.patch \
-    file://0009-Fix-build-for-linux-musl.patch \
-    file://0010-threadsafe.c-Fix-unused-valable-warning-error.patch \
-    file://0011-Use-POSIX-conform-location-for-errno.h.patch \
 "
-SRCREV = "2905724262b516983e779ed8c589602da4bf3f7d"
+SRCREV = "297845a370b8b5e1b555a60a0be3c5c757599530"
 S = "${WORKDIR}/git"
-PV = "6.11.0"
+PV = "6.13.0"
 
 # Where to get lua-version from?
 LUA_VERSION = "5.3"
