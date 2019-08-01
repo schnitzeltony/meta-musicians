@@ -3,7 +3,7 @@ HOMEPAGE = "http://tytel.org/helm/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-inherit qemu-ext distro_features_check gtk-icon-cache pack_audio_plugins
+inherit dos2unix qemu-ext distro_features_check gtk-icon-cache pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -25,6 +25,7 @@ SRC_URI += " \
     file://0001-do-not-create-ttl-files-it-won-t-work-fo-cross.patch \
     file://0002-set-VECTORIZE_LOOP-for-gcc.patch \
     file://0003-use-single-precision-floats-it-performs-much-better.patch \
+    file://0004-Fix-build-with-gcc9.patch \
 "
 SRCREV = "927d2ed27f71a735c3ff2a1226ce3129d1544e7e"
 PV = "0.9.0"
