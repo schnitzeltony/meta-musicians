@@ -20,22 +20,24 @@ diff --git a/build/depends.py b/build/depends.py
 index a053970..3edb64e 100644
 --- a/build/depends.py
 +++ b/build/depends.py
-@@ -490,12 +490,9 @@ class SoundTouch(Dependence):
+@@ -526,14 +526,9 @@ class SoundTouch(Dependence):
              env = build.env
  
-         if build.platform_is_linux:
+         if build.platform_is_linux or build.platform_is_bsd:
 -            # Try using system lib
 -            if conf.CheckForPKG('soundtouch', '2.0.0'):
 -                # System Lib found
--                build.env.ParseConfig('pkg-config soundtouch --silence-errors \
--                                      --cflags --libs')
+-                if not conf.CheckLib(['SoundTouch']):
+-                    raise Exception(
+-                        "Could not find libSoundTouch or its development headers.")
+-                build.env.ParseConfig('pkg-config soundtouch --silence-errors --cflags --libs')
 -                self.INTERNAL_LINK = False
 +            build.env.ParseConfig('pkg-config soundtouch --silence-errors \
 +                                  --cflags --libs')
 +            self.INTERNAL_LINK = False
  
          if self.INTERNAL_LINK:
-             env.Append(CPPPATH=[self.SOUNDTOUCH_INTERNAL_PATH])
+             env.Append(CPPPATH=['#' + self.SOUNDTOUCH_INTERNAL_PATH])
 -- 
 2.5.5
 
