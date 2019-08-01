@@ -12,6 +12,7 @@ SRC_URI = " \
     file://0002-Refine-Plugin-do-not-include-xmmintrin.h.patch \
     file://0003-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
     file://0004-Further-musl-fix-by-removal-of-unused-function.patch \
+    file://0005-Fix-build-with-gcc9.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
