@@ -10,16 +10,16 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- src/utils/Makefile | 24 ++++++++----------------
- 2 files changed, 11 insertions(+), 19 deletions(-)
+ src/utils/Makefile | 26 +++++++++-----------------
+ 1 file changed, 9 insertions(+), 17 deletions(-)
 
 diff --git a/src/utils/Makefile b/src/utils/Makefile
-index 0d9b57f9..c372c850 100644
+index 37383b05..3cc76ca8 100644
 --- a/src/utils/Makefile
 +++ b/src/utils/Makefile
-@@ -5,22 +5,14 @@ SUBDIRS                 =
- OBJ_FILES               = $(OBJ_CORE) $(OBJ_METADATA)
- OBJ_LIBS                = $(PTHREAD_LIBS) $(MATH_LIBS)
+@@ -14,22 +14,14 @@ ifeq ($(LSP_TESTING),1)
+   OBJ_EXTRA              += $(OBJ_TEST_CORE)
+ endif
  
 -ifeq ($(findstring lv2,$(BUILD_MODULES)),lv2)
 -  MODULES                += $(UTL_GENTTL)
@@ -42,12 +42,12 @@ index 0d9b57f9..c372c850 100644
 +MODULES                += $(UTL_VSTMAKE)
 +FILELIST               += vst_genmake.o
 +MODULES                += $(UTL_JACKMAKE)
-+FILELIST               += jack_genmake.o
++FILELIST               += jack_genmake.o 
 +MODULES                += $(UTL_GENPHP)
-+FILELIST               += gen_php.o
++FILELIST               += gen_php.o 
  
  FILES                   = $(addprefix $(OBJDIR)/, $(FILELIST))
  
 -- 
-2.20.1
+2.21.0
 

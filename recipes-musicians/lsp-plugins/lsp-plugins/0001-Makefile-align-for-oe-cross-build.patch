@@ -7,15 +7,15 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- Makefile                  | 10 ++++----
- scripts/make/configure.mk | 52 ---------------------------------------
- 3 files changed, 8 insertions(+), 60 deletions(-)
+ Makefile                  | 10 +++----
+ scripts/make/configure.mk | 59 ---------------------------------------
+ 2 files changed, 5 insertions(+), 64 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 314efa06..4f8ad82a 100644
+index 189af3f5..52706983 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -61,11 +61,11 @@ export BIN_PROFILE      = $(OBJDIR)/$(ARTIFACT_ID)-profile
+@@ -60,11 +60,11 @@ export BIN_PROFILE      = $(OBJDIR)/$(ARTIFACT_ID)-profile
  export BIN_TEST         = $(OBJDIR)/$(ARTIFACT_ID)-test
  
  # Utils
@@ -33,10 +33,10 @@ index 314efa06..4f8ad82a 100644
  
  # Files
 diff --git a/scripts/make/configure.mk b/scripts/make/configure.mk
-index 47aa3bd4..50d0b34b 100644
+index ecb208c3..7b3e4a1d 100644
 --- a/scripts/make/configure.mk
 +++ b/scripts/make/configure.mk
-@@ -50,58 +50,6 @@ export INSTALLATIONS
+@@ -57,65 +57,6 @@ export INSTALLATIONS
  export UNINSTALLATIONS
  export RELEASES
  
@@ -68,6 +68,13 @@ index 47aa3bd4..50d0b34b 100644
 -  LD_PATH          = /usr/lib:/lib:/usr/local/lib
 -endif
 -
+-ifeq ($(BUILD_PLATFORM), BSD)
+-  ifeq ($(BUILD_PROFILE),arm)
+-    CC_ARCH          = -marm -Wl,-rpath=/usr/local/lib/gcc8
+-    LD_PATH          = /usr/local/lib/gcc8
+-  endif
+-endif
+-
 -ifeq ($(BUILD_PROFILE),armv6a)
 -  CC_ARCH          = -march=armv6-a -marm
 -  LD_PATH          = /usr/lib64:/lib64:/usr/local/lib64
@@ -92,9 +99,9 @@ index 47aa3bd4..50d0b34b 100644
 -export LD_ARCH
 -export LD_PATH
 -
+ export INCLUDE     = -I"${CURDIR}/include"
  
  # Dependencies: compile headers and linkage libraries
- ifeq ($(BUILD_SYSTEM),Windows)
 -- 
-2.20.1
+2.21.0
 
