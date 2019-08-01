@@ -34,7 +34,7 @@ SRC_URI[linuxsynths-vex-patches2.sha256sum] = "378cff261dab333c5f29246b6f3f557e0
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit lv2-postinst-helper distro_features_check pack_audio_plugins
+inherit dos2unix lv2-postinst-helper distro_features_check pack_audio_plugins
 
 DEPENDS += " \
     premake3-native \
