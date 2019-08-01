@@ -7,11 +7,9 @@ inherit pkgconfig
 
 DEPENDS += "lv2"
 
-SRC_URI = " \
-    git://github.com/x42/midifilter.lv2.git \
-"
-SRCREV = "8bfe1d8e3d37467741cdec9de98e5b6b264bc3f9"
-PV = "0.5.2"
+SRC_URI = "git://github.com/x42/midifilter.lv2.git"
+SRCREV = "6aa5893601516e5342a0caf3eeb3eae5e59365f7"
+PV = "0.5.4"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
