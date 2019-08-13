@@ -47,7 +47,7 @@ SRC_URI = " \
     file://0004-build-mixxx.py-Fix-build-with-recent-python3.patch \
     file://0005-Do-not-add-host-libdir-to-LDPATH-rpath.patch \
 "
-SRCREV = "6ae9e7947c743ab4cc3e54a6f09109d7558e7c50"
+SRCREV = "b679fd37093826efa7ab81b3d4679d9a88b02dbb"
 S = "${WORKDIR}/git"
 PV = "2.2.1+git${SRCPV}"
 
