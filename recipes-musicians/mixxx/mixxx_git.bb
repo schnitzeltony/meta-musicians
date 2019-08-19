@@ -1,7 +1,7 @@
 SUMMARY = "Qt based DJ software"
 HOMEPAGE = "http://mixxx.org/"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a8aab84a6580ace4c769a84255082b57"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=827547320b68c9b65f19d8abd3d7a019"
 
 inherit scons qmake5_paths pkgconfig distro_features_check
 
@@ -44,12 +44,11 @@ SRC_URI = " \
     file://0001-do-not-check-for-known-machine-types.patch \
     file://0002-force-using-system-soundtouch.patch \
     file://0003-align-path-of-qt-build-tools-to-our-needs.patch \
-    file://0004-build-mixxx.py-Fix-build-with-recent-python3.patch \
-    file://0005-Do-not-add-host-libdir-to-LDPATH-rpath.patch \
+    file://0004-Do-not-add-host-libdir-to-LDPATH-rpath.patch \
 "
-SRCREV = "b679fd37093826efa7ab81b3d4679d9a88b02dbb"
+SRCREV = "8a94cf57d07e3ce2397ea96724d7c6130aa74eff"
 S = "${WORKDIR}/git"
-PV = "2.2.1+git${SRCPV}"
+PV = "2.2.2"
 
 # qtbase is expected to be build for desktop GL. If there is qtbase with gles
 # add opengles=1 to EXTRA_OESCONS but that currently disables code paths and
@@ -77,8 +76,7 @@ do_compile_prepend() {
 }
 
 do_install_prepend() {
-    install -d ${D}${prefix}
-    sed -i 's:/etc/udev:${D}/etc/udev:g' ${S}/SConscript
+    sed -i 's:/etc/udev:${D}/etc/udev:g' ${S}/src/SConscript
 }
 
 FILES_${PN} += "${datadir}/appdata"

@@ -1,6 +1,6 @@
 From bf659102f80fa2c104c2725e71943453ed8b9caf Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
-Date: Mon, 19 Sep 2016 23:46:11 +0200
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 19 Aug 2019 23:33:01 +0200
 Subject: [PATCH] force using system soundtouch
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -11,33 +11,30 @@ PKG_CONFIG_PATH gets lost in some scons depth - no idea.
 
 Upstream-Status: Inappropriate [embedded specific]
 
-Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- build/depends.py | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ build/depends.py | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
 diff --git a/build/depends.py b/build/depends.py
-index a053970..3edb64e 100644
+index 9d5efa2293..8604466701 100644
 --- a/build/depends.py
 +++ b/build/depends.py
-@@ -526,14 +526,9 @@ class SoundTouch(Dependence):
+@@ -604,12 +604,8 @@ class SoundTouch(Dependence):
              env = build.env
  
-         if build.platform_is_linux or build.platform_is_bsd:
+         if build.platform_is_linux:
 -            # Try using system lib
 -            if conf.CheckForPKG('soundtouch', '2.0.0'):
 -                # System Lib found
--                if not conf.CheckLib(['SoundTouch']):
--                    raise Exception(
--                        "Could not find libSoundTouch or its development headers.")
--                build.env.ParseConfig('pkg-config soundtouch --silence-errors --cflags --libs')
+-                build.env.ParseConfig('pkg-config soundtouch --silence-errors \
+-                                      --cflags --libs')
 -                self.INTERNAL_LINK = False
-+            build.env.ParseConfig('pkg-config soundtouch --silence-errors \
-+                                  --cflags --libs')
++            build.env.ParseConfig('pkg-config soundtouch --silence-errors --cflags --libs')
 +            self.INTERNAL_LINK = False
  
          if self.INTERNAL_LINK:
-             env.Append(CPPPATH=['#' + self.SOUNDTOUCH_INTERNAL_PATH])
+             env.Append(CPPPATH=[self.SOUNDTOUCH_INTERNAL_PATH])
 -- 
-2.5.5
+2.21.0
 
