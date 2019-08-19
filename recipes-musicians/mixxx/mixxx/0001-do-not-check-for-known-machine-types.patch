@@ -1,6 +1,6 @@
 From b8673fb304f0eed41a1bcaa953a63bedb27b05e6 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Mon, 19 Sep 2016 01:11:47 +0200
+Date: Mon, 19 Aug 2019 23:28:51 +0200
 Subject: [PATCH] do not check for known machine types
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -10,19 +10,19 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- build/mixxx.py | 14 --------------
- 1 file changed, 14 deletions(-)
+ build/mixxx.py | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
 diff --git a/build/mixxx.py b/build/mixxx.py
-index aeed9e8..631bbfa 100644
+index 6009973453..b9c7a9fee3 100644
 --- a/build/mixxx.py
 +++ b/build/mixxx.py
-@@ -45,24 +45,6 @@ class MixxxBuild(object):
+@@ -45,21 +45,6 @@ class MixxxBuild(object):
          if target not in ['windows', 'osx', 'linux', 'bsd']:
              raise Exception("invalid target platform")
  
 -        if machine.lower() not in ['x86_64', 'x86', 'i686', 'i586',
--                                   'alpha', 'hppa', 's390',
+-                                   'alpha', 'hppa', 'mips', 'mipsel', 's390',
 -                                   'sparc', 'ia64', 'armel', 'armhf', 'hurd-i386',
 -                                   'armv5tel', 'armv5tejl', 'armv6l', 'armv6hl',
 -                                   'armv7l', 'armv7hl', 'armv7hnl',
@@ -31,11 +31,8 @@ index aeed9e8..631bbfa 100644
 -                                   'i486', 'i386', 'ppc', 'ppc64', 'powerpc',
 -                                   'powerpc64', 'powerpcspe', 's390x',
 -                                   'amd64', 'em64t', 'intel64', 'arm64',
--                                   'ppc64el', 'ppc64le', 'm68k', 
--                                   'mips', 'mipsel', 'mipsr6', 'mipsr6el',
--                                   'mips64', 'mips64r6', 'mips64el', 'mips64r6el', 
--                                   'mipsn32', 'mipsn32el', 'mipsn32r6', 'mipsn32r6el',
--                                   'mipsisa32r6', 'mipsisa32r6el', 'mipsisa64r6', 'mipsisa64r6el',
+-                                   'ppc64el', 'ppc64le', 'm68k', 'mips64',
+-                                   'mips64el', 'mipsn32', 'mipsn32el',
 -                                   'aarch64']:
 -            raise Exception("invalid machine type")
 -
@@ -43,5 +40,5 @@ index aeed9e8..631bbfa 100644
              raise Exception('invalid toolchain type')
  
 -- 
-2.9.4
+2.21.0
 
