@@ -27,6 +27,8 @@ DEPENDS += " \
     fltk fltk-native \
 "
 
+CXXFLAGS += "-fpermissive"
+
 EXTRA_OECMAKE += " \
     -DWANT_QT5=ON \
     -DWANT_WEAKJACK=OFF \

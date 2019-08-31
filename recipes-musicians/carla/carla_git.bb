@@ -7,15 +7,13 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/falkTX/Carla.git \
+    git://github.com/falkTX/Carla.git;branch=develop \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
     file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
-    file://0003-Fluidsynths-Ensure-fluidsynth-s-defaults-are-set-onc.patch \
-    file://0004-Fixes-for-fluidsynth-2.0.0.patch \
 "
-SRCREV = "d73c0788ccc5fb9019d224046ef1b652aa5a9bbe"
+SRCREV = "8385b5ee418357e2dc907518ac39c20beb3b28ed"
 S = "${WORKDIR}/git"
-PV = "1.9.11+git${SRCPV}"
+PV = "2.0.0+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -62,6 +60,7 @@ do_install() {
 FILES_${PN} += " \
     ${datadir}/icons \
     ${datadir}/mime \
+    ${libdir}/jack \
     ${libdir}/lv2 \
     ${libdir}/vst \
 "
