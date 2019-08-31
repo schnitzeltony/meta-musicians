@@ -24,7 +24,7 @@ SRC_URI = " \
     file://polyphone.mime \
     file://0001-align-compiler-switches-constants-for-cross-compilin.patch \
 "
-SRCREV = "9f9720f4fded286f253e85fc708ee9bbba507eb5"
+SRCREV = "e5863e3147599e51563cd93d5f1e4f96384eba9b"
 S = "${WORKDIR}/git/sources"
 
 do_configure_prepend() {
