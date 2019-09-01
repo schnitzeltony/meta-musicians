@@ -21,10 +21,10 @@ DEPENDS += " \
     libxft \
 "
 
-PV = "1.5.11"
-SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/1.5/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "18036c2a802e2df53600a2cdce903720"
-SRC_URI[sha256sum] = "f96420a1158afd6995781be30c1caa725b47c7d00f14aea5ea1c059a9e6e22cf"
+PV = "1.6.0"
+SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/1.6/${BPN}-${PV}.tar.bz2"
+SRC_URI[md5sum] = "5e6b1611a3a946360292b30234a910ca"
+SRC_URI[sha256sum] = "a0288d528e2394dc1959d7b2a17f9d986bd66b68c78c5a5db87e1c6caf2e8c2d"
 
 OECMAKE_SOURCEPATH = "${S}/src"
 
