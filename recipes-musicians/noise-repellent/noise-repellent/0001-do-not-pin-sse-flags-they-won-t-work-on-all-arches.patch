@@ -1,0 +1,39 @@
+From 11e8233da08bd812cd49370ca329aaf9f6f797cd Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 1 Sep 2019 22:00:00 +0200
+Subject: [PATCH] do not pin sse flags - they won't work on all arches
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [embedded specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ meson.build | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 679a46c..e2866f4 100755
+--- a/meson.build
++++ b/meson.build
+@@ -17,7 +17,6 @@ nr_dep = [m_dep,fftw_dep,lv2_dep]
+ if meson.get_compiler('c').get_id() == 'clang'
+   add_global_arguments('-mrecip', language : 'c')
+ endif
+-cflags = ['-msse','-msse2','-mfpmath=sse','-ffast-math','-fomit-frame-pointer','-fno-finite-math-only']
+ 
+ #install folder
+ install_folder = 'nrepel.lv2'
+@@ -35,7 +34,7 @@ if current_os == 'windows'
+ endif
+ 
+ #build of the shared object
+-shared_library(lv2_name,src,name_prefix: '',dependencies: nr_dep,c_args: cflags,install: true,install_dir : install_folder)
++shared_library(lv2_name,src,name_prefix: '',dependencies: nr_dep,install: true,install_dir : install_folder)
+ 
+ #Configure manifest ttl in order to replace the correct shared object extension
+ manifest_conf = configuration_data()
+-- 
+2.21.0
+
