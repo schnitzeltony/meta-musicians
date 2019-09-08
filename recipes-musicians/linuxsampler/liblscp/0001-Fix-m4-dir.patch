@@ -1,4 +1,4 @@
-From 515602e6aab05efb334ad6ddba787e35a4c27641 Mon Sep 17 00:00:00 2001
+From 272211214c1339aae00b90ad6079721cf176d2dc Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
 Date: Tue, 19 Mar 2019 00:42:45 +0100
 Subject: [PATCH] Fix m4 dir
@@ -6,9 +6,15 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
 Upstream-Status: Pending
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+
 ---
  Makefile.am  | 2 +-
  configure.ac | 2 +-
@@ -25,7 +31,7 @@ index 2b9751f..6e89bc1 100644
  SUBDIRS = src lscp examples @ac_doxygen@
  
 diff --git a/configure.ac b/configure.ac
-index 1e06f12..6455671 100644
+index ccadbcb..5ecbc28 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -1,7 +1,7 @@
@@ -35,8 +41,5 @@ index 1e06f12..6455671 100644
 -AC_CONFIG_MACRO_DIR([.m4])
 +AC_CONFIG_MACRO_DIR([m4])
  
- AM_INIT_AUTOMAKE(liblscp, 0.5.8)
+ AM_INIT_AUTOMAKE(liblscp, 0.6.0)
  
--- 
-2.20.1
-

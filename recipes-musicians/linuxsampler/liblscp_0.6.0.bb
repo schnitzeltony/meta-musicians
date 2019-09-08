@@ -14,5 +14,5 @@ SRC_URI = " \
     http://download.linuxsampler.org/packages/${BPN}-${PV}.tar.gz \
     file://0001-Fix-m4-dir.patch \
 "
-SRC_URI[md5sum] = "c9ef8ba50765784b544904b854c68c00"
-SRC_URI[sha256sum] = "b611943f2f81fc58ff6852adfb2ee60789becbd3eda7ca65d300d9c0a7538e01"
+SRC_URI[md5sum] = "ff0fdf2d8b654fc9bfcd32c63d977cd2"
+SRC_URI[sha256sum] = "b39c78f4be07d4cc6b791d934e6fe58c0a7bc4aa32b6ed5131e303f99bd687e6"
