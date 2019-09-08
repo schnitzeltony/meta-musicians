@@ -16,8 +16,8 @@ SRC_URI = " \
     http://download.linuxsampler.org/packages/${BPN}-${PV}.tar.bz2 \
     file://0001-Adjust-libdir.patch \
 "
-SRC_URI[md5sum] = "a2ad3f933d13332b7a2ea68de20fa4b7"
-SRC_URI[sha256sum] = "06a280278a323963042acdf13b092644cceb43ef367fcbb9ca7bbedff132bd0b"
+SRC_URI[md5sum] = "5ab37d9d7532a4cd0ed5508b08b8d1d5"
+SRC_URI[sha256sum] = "16229a46138b101eb9eda042c66d2cd652b1b3c9925a7d9577d52f2282f745ff"
 
 do_install_append() {
     mv ${D}${libdir}/${BPN}/* ${D}${libdir}
