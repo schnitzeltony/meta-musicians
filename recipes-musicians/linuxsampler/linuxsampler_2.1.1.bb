@@ -26,8 +26,8 @@ SRC_URI = " \
     file://0004-use-c-11-atomics-when-configured-with-disable-asm.patch \
     file://0005-Adjust-libdir.patch \
 "
-SRC_URI[md5sum] = "c57fbd1310e9189ee72acf81e63bf3d5"
-SRC_URI[sha256sum] = "4e0a49efeae9c26a223094247b7e01108d829a69618492282a203a290fbfbd39"
+SRC_URI[md5sum] = "8fda14da0ccfc141d5af08daedccaae6"
+SRC_URI[sha256sum] = "20050b22066e9cdbdad34c0470d3c4a47f75e4af620fd98af277f5d2417132be"
 
 # arch specific override - default (tested) is ARM -> no assember (ARM assembler is not suppoted)
 USE_ASM = "--disable-asm"
