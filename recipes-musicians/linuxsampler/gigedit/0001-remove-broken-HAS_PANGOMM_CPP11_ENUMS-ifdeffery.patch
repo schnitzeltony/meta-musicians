@@ -10,19 +10,20 @@ Upstream-Status: pending
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- src/gigedit/compat.h | 17 -----------------
- 1 file changed, 17 deletions(-)
+ src/gigedit/compat.h | 18 ------------------
+ 1 file changed, 18 deletions(-)
 
 diff --git a/src/gigedit/compat.h b/src/gigedit/compat.h
-index 5d34a49..5886bbe 100644
+index e03b854..e62c27d 100644
 --- a/src/gigedit/compat.h
 +++ b/src/gigedit/compat.h
-@@ -50,14 +50,6 @@
+@@ -50,15 +50,6 @@
  # include <gtkmmconfig.h>
  #endif
  
--#ifndef HAS_PANGOMM_CPP11_ENUMS // pangomm > 2.40 : <- just a "guess"
--# if PANGOMM_MAJOR_VERSION > 2 || (PANGOMM_MAJOR_VERSION == 2 && PANGOMM_MINOR_VERSION > 40)
+-#ifndef HAS_PANGOMM_CPP11_ENUMS
+-   // new enums introduced in unstable pangomm 2.41.3, but not in stable 2.42
+-# if PANGOMM_MAJOR_VERSION > 2 || (PANGOMM_MAJOR_VERSION == 2 && ((PANGOMM_MINOR_VERSION == 41 && PANGOMM_MICRO_VERSION >= 3) || PANGOMM_MINOR_VERSION > 42))
 -#  define HAS_PANGOMM_CPP11_ENUMS 1
 -# else
 -#  define HAS_PANGOMM_CPP11_ENUMS 0
@@ -32,7 +33,7 @@ index 5d34a49..5886bbe 100644
  // Gtk::UIManager had been replaced by Gtk::Builder in GTKMM 3 and removed in GTKMM 4
  // Gtk::ActionGroup had been replaced by Gio::ActionGroup in GTKMM 3 and removed in GTKMM 4
  #if !defined(USE_GTKMM_BUILDER) || !defined(USE_GLIB_ACTION) // gtkmm > 3.22 :
-@@ -187,15 +179,6 @@ typedef Gtk::ActionGroup ActionGroup;
+@@ -188,15 +179,6 @@ typedef Gtk::ActionGroup ActionGroup;
  typedef Gtk::Action Action;
  #endif // USE_GLIB_ACTION
  
@@ -49,5 +50,5 @@ index 5d34a49..5886bbe 100644
  # include <gdkmm/types.h>
  # include <gdkmm/cursor.h>
 -- 
-2.20.1
+2.21.0
 
