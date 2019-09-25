@@ -20,15 +20,15 @@ FFTWSINGLEPATCH = "${@bb.utils.contains('TUNE_FEATURES', 'neon', 'file://0001-Bu
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
-    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-Remove-extra-rpath.patch \
     \
     ${FFTWSINGLEPATCH} \
-    file://0002-Remove-extra-rpath.patch \
     file://padthv1.conf \
 "
-PV = "0.9.9"
-SRC_URI[md5sum] = "b5e9a7554c9db4849d181e58133756bf"
-SRC_URI[sha256sum] = "ab97223ef7b83e04a87e8fc433a273ba72f33d564b1e656c606e0fc5bbb6aa2b"
+PV = "0.9.10"
+SRC_URI[md5sum] = "3c60081dcd0b73d093d25d28bc03b479"
+SRC_URI[sha256sum] = "3d833f42ff42bd36b9ab8469eb22d1e72aab0faf1f37fb7d3a93c7a4c2c0f71d"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
