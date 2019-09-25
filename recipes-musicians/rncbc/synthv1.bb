@@ -17,14 +17,14 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     ${SOURCEFORGE_MIRROR}/project/autostatic/autostatic-synthv1-presets/autostatic-synthv1-presets1.tar.gz;name=autostatic-synthv1-presets1 \
     http://linuxsynths.com/Synthv1PatchesDemos/Synthv1Patches06.tar.gz;name=linuxsynths-synthv1-presets;subdir=linuxsynths-synthv1-presets \
-    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Remove-extra-rpath.patch \
     \
     file://synthv1.conf \
 "
-PV = "0.9.9"
-SRC_URI[md5sum] = "b8cecc8d545ba60a26f3c2fc95a1e7c9"
-SRC_URI[sha256sum] = "22a7ee77d6e865e6aabeebd69a431b12ec3a758d538ff9e7c90e93f33eae6a33"
+PV = "0.9.10"
+SRC_URI[md5sum] = "76f06990f23661cc985b15f9a07bfcbe"
+SRC_URI[sha256sum] = "c20986f19ab0279d6e797ded2799721e346b3b9ca9378e9b47207d15d5a94deb"
 
 SRC_URI[autostatic-synthv1-presets1.md5sum] = "02210e5576310554cfe316fb72e88b74"
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
