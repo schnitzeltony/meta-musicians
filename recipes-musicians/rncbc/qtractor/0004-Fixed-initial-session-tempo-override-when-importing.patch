@@ -1,0 +1,111 @@
+From cb72c229bc0d58d29426a018ed9b0c1c410626fe Mon Sep 17 00:00:00 2001
+From: rncbc <rncbc@rncbc.org>
+Date: Fri, 4 Oct 2019 10:36:14 +0100
+Subject: [PATCH] - Fixed initial session tempo override when importing   a
+ standard MIDI file (as reported on issue #230).
+
+Upstream-Status: Backport [1]
+
+[1] https://github.com/rncbc/qtractor/commit/cb72c229bc0d58d29426a018ed9b0c1c410626fe
+---
+ src/qtractorMainForm.cpp      |  7 +++----
+ src/qtractorMidiClip.cpp      |  2 +-
+ src/qtractorMidiFileTempo.cpp | 10 ++++++++++
+ src/qtractorSession.cpp       |  9 +++++++++
+ src/qtractorSession.h         |  1 +
+ 6 files changed, 27 insertions(+), 5 deletions(-)
+
+diff --git a/src/qtractorMainForm.cpp b/src/qtractorMainForm.cpp
+index c137d5c3..7b09283f 100644
+--- a/src/qtractorMainForm.cpp
++++ b/src/qtractorMainForm.cpp
+@@ -7511,7 +7511,7 @@ void qtractorMainForm::fastTimerSlot (void)
+ 			updateTransportTime(iPlayHead);
+ 			m_pThumbView->updateThumb();
+ 		}
+-		// Ensure the amin form is stable later on...
++		// Ensure the main form is stable later on...
+ 		++m_iStabilizeTimer;
+ 		// Done with transport tricks.
+ 	}
+@@ -8627,9 +8627,8 @@ void qtractorMainForm::contentsChanged (void)
+ 	qDebug("qtractorMainForm::contentsChanged()");
+ #endif
+ 
+-	// HACK: Force play-head position update...
+-	// m_iPlayHead = 0;
+-	m_pTempoCursor->clear();
++	// HACK: Force immediate stabilization later...
++	m_iStabilizeTimer = 0;
+ 
+ 	// Stabilize session toolbar widgets...
+ //	m_pTempoSpinBox->setTempo(m_pSession->tempo(), false);
+diff --git a/src/qtractorMidiClip.cpp b/src/qtractorMidiClip.cpp
+index 06e9fec3..00257520 100644
+--- a/src/qtractorMidiClip.cpp
++++ b/src/qtractorMidiClip.cpp
+@@ -465,7 +465,7 @@ bool qtractorMidiClip::openMidiFile (
+ 			qtractorMidiFileTempo *pTempoMap = m_pFile->tempoMap();
+ 			if (pTempoMap) {
+ 				pTempoMap->intoTimeScale(pSession->timeScale(), t0);
+-				pSession->updateTimeScale();
++				pSession->updateTimeScaleEx();
+ 			}
+ 			// Reset session flag now.
+ 			m_bSessionFlag = false;
+diff --git a/src/qtractorMidiFileTempo.cpp b/src/qtractorMidiFileTempo.cpp
+index 6858bb70..14a08ded 100644
+--- a/src/qtractorMidiFileTempo.cpp
++++ b/src/qtractorMidiFileTempo.cpp
+@@ -270,6 +270,16 @@ void qtractorMidiFileTempo::intoTimeScale (
+ 
+ 	// Copy tempo-map nodes...
+ 	qtractorMidiFileTempo::Node *pNode = m_nodes.first();
++
++	// Very first node is kinda special...
++	if (pNode) {
++		pTimeScale->setTempo(pNode->tempo);
++		pTimeScale->setBeatsPerBar(pNode->beatsPerBar);
++		pTimeScale->setBeatDivisor(pNode->beatDivisor);
++		pNode = pNode->next();
++	}
++
++	// Now for all the rest...
+ 	while (pNode) {
+ 		const unsigned long iTime = uint64_t(pNode->tick) * p / q;
+ 		pTimeScale->addNode(
+diff --git a/src/qtractorSession.cpp b/src/qtractorSession.cpp
+index 3087fe2a..1be63831 100644
+--- a/src/qtractorSession.cpp
++++ b/src/qtractorSession.cpp
+@@ -746,6 +746,15 @@ void qtractorSession::updateTimeScale (void)
+ }
+ 
+ 
++void qtractorSession::updateTimeScaleEx (void)
++{
++	updateTimeScale();
++
++	if (m_pAudioEngine)
++		m_pAudioEngine->resetTimebase();
++}
++
++
+ // Update time resolution divisor factors.
+ void qtractorSession::updateTimeResolution (void) 
+ {
+diff --git a/src/qtractorSession.h b/src/qtractorSession.h
+index 2aff216e..db5281cf 100644
+--- a/src/qtractorSession.h
++++ b/src/qtractorSession.h
+@@ -170,6 +170,7 @@ public:
+ 
+ 	// Update time scale divisor factors.
+ 	void updateTimeScale();
++	void updateTimeScaleEx();
+ 
+ 	// Update time resolution divisor factors.
+ 	void updateTimeResolution(); 
+-- 
+2.21.0
+
