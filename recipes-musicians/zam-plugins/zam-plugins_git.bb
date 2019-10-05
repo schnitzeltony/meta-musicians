@@ -23,9 +23,9 @@ REQUIRED_DISTRO_FEATURE = "x11"
 SRC_URI = " \
     gitsm://github.com/zamaudio/${BPN}.git \
 "
-SRCREV = "af338057e42dd5d07cba1889bfc74eda517c6147"
+SRCREV = "d211bff779cd6dd2d24a8106bea944da4d1bd195"
 S = "${WORKDIR}/git"
-PV = "3.11"
+PV = "3.11+git${SRCPV}"
 
 EXTRA_OEMAKE += " \
     NOOPT=true \
