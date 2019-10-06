@@ -35,7 +35,7 @@ pkg_postinst_ontarget_${PN}-lv2() {
     oldpath=`pwd`
     for sofile in `cat ${LV2-POSTINST-MANIFEST}`; do
         cd `dirname "$sofile"`
-        lv2-ttl-generator "$sofile"
+        lv2-ttl-generator "$sofile" || echo "Error: Turtle files for $sofile could not be created!"
     done
     cd $oldpath
 }
