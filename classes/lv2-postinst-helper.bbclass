@@ -23,7 +23,7 @@ do_install_append() {
 
     # create postinst manifest
     install -d ${D}`dirname ${LV2-POSTINST-MANIFEST}`
-    for sofile in `cat ${LV2-TURTLE-BUILD-DATA} | awk '{ print $2 }'`; do
+    for sofile in `sort ${LV2-TURTLE-BUILD-DATA} | uniq | awk '{ print $2 }'`; do
         sofile=`basename $sofile`
         installed=`find ${D}${libdir}/lv2 -name $sofile | sed 's|${D}||g'`
         echo $installed >> ${D}${LV2-POSTINST-MANIFEST}
