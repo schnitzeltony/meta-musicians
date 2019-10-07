@@ -11,7 +11,7 @@ DEPENDS = " \
     jack \
 "
 
-inherit pkgconfig qemu-ext distro_features_check pack_audio_plugins
+inherit pkgconfig lv2-turtle-helper distro_features_check pack_audio_plugins
 
 SRC_URI = "gitsm://github.com/rghvdberg/ninjas2.git"
 SRCREV = "12aa2f9d150caaf602c2f1a31cb6dd078abddde2"
@@ -20,30 +20,10 @@ PV = "0.1"
 
 REQUIRED_DISTRO_FEATURE = "x11 opengl"
 
-do_configure_prepend() {
-    # reconfigure?
-    if [ ! -f ${WORKDIR}/lv2-ttl-generator-data ] ; then
-        # We cannot run lv2-ttl-generator in cross environment so
-        # manipulate generate-ttl.sh to save lib info in ${WORKDIR}/lv2-ttl-generator-data
-        sed -i 's|"$GEN" "./$FILE"|echo "`realpath  "./$FILE"`" >> ${WORKDIR}/lv2-ttl-generator-data|g' ${S}/dpf/utils/generate-ttl.sh
-     else
-        rm -f ${WORKDIR}/lv2-ttl-generator-data
-     fi
-}
-
 EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
-
-do_compile_append() {
-    # build ttl-files must be done in quemu
-    for sofile in `cat ${WORKDIR}/lv2-ttl-generator-data`; do
-        cd `dirname ${sofile}`
-        echo "QEMU lv2-ttl-generator for ${sofile}..."
-        ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${S}/dpf/utils/lv2_ttl_generator')} ${sofile} || echo "ERROR: for QEMU lv2-ttl-generator for ${sofile}!"
-    done
-}
 
 do_install() {
     install -d ${D}${libdir}/lv2
