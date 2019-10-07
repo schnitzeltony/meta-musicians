@@ -28,6 +28,9 @@ LV2_POSTINST_MANIFEST = "${datadir}/${BPN}/lv2-postinst-manifest"
 # (added by git-submodule) we can set a default matchin > 80%+
 LV2_TTL_GENERATOR ?= "${S}/dpf/utils/lv2_ttl_generator"
 
+# For some plugins qemu never finishes so we need a blacklist
+LV2_PLUGIN_BLACKLIST_QEMU ?= ""
+
 inherit qemu-ext audio-plugin-common
 
 # override this function and execute sed (or other magic) to adjust Makefiles
@@ -50,20 +53,32 @@ do_compile_prepend() {
     rm -f ${LV2_PLUGIN_POSTINST_INFO_FILE}
 }
 
+do_compile[vardeps] += "LV2_PLUGIN_BLACKLIST_QEMU LV2_TTL_GENERATOR"
 do_compile_append() {
     if [ -e ${LV2_PLUGIN_INFO_FILE} ]; then
+        echo "lv2-plugins found - try ttl-generation for them"
         # try build ttl-files with quemu
         for sofile in `sort ${LV2_PLUGIN_INFO_FILE} | uniq`; do
-            cd `dirname ${sofile}`
-            echo "QEMU lv2-ttl-generator for ${sofile}..."
-            TTL_FAILED=""
-            ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${LV2_TTL_GENERATOR}')} ${sofile} || TTL_FAILED="true"
-            if [ "x${TTL_FAILED}" = "x" ]; then
-                echo "Generation succeeded."
-            else
-                # If qemu fails: remove generated core files & prepare for postinst fallback
-                echo "ERROR: for QEMU ${LV2_TTL_GENERATOR} for ${sofile} failed!"
-                rm -f *.core
+            sobase=`basename $sofile`
+            ttl_failed=""
+            if echo "${LV2_PLUGIN_BLACKLIST_QEMU}" | grep -q "$sobase"; then
+                echo "$sobase found in blacklist - postpone ttl-genaration to ontarget postinst"
+                ttl_failed="true"
+            fi
+            if [ "x${ttl_failed}" = "x" ]; then
+                cd `dirname ${sofile}`
+                echo "QEMU lv2-ttl-generator for ${sofile}..."
+                ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${LV2_TTL_GENERATOR}')} ${sofile} || ttl_failed="true"
+                if [ "x${ttl_failed}" = "x" ]; then
+                    echo "Generation succeeded."
+                else
+                    # If qemu fails: remove generated core files & prepare for postinst fallback
+                    echo "ERROR: for QEMU ${LV2_TTL_GENERATOR} for ${sofile} failed!"
+                    rm -f *.core
+                fi
+            fi
+            if [ "x${ttl_failed}" != "x" ]; then
+                # postpone on target
                 echo `basename $sofile` >> ${LV2_PLUGIN_POSTINST_INFO_FILE}
             fi
         done
