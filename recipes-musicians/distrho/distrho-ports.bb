@@ -34,7 +34,7 @@ SRC_URI[linuxsynths-vex-patches2.sha256sum] = "378cff261dab333c5f29246b6f3f557e0
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit dos2unix lv2-postinst-helper distro_features_check pack_audio_plugins
+inherit dos2unix lv2-turtle-helper distro_features_check pack_audio_plugins
 
 DEPENDS += " \
     premake3-native \
@@ -47,18 +47,23 @@ DEPENDS += " \
     ladspa-sdk \
 "
 
-do_configure() {
-    # reconfigure?
-    if [ ! -f ${LV2-TURTLE-BUILD-DATA} ] ; then
-        # keep unmodified scripts
-        cp -r ${S}/scripts ${WORKDIR}
-        # manipulate scripts to keep lv2_ttl_generator-calls in script for lv2-postinst-helper
-        sed -i 's|$GEN ./$FILE|echo "lv2-ttl-generator `pwd`/$FILE" >> ${LV2-TURTLE-BUILD-DATA}|g' `find ${S}/scripts -name *.sh`
-    else
-        rm -f ${LV2-TURTLE-BUILD-DATA}
-    fi
+LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
 
-    # platforms supporting sse2 can override this (NOOPTIMIZATIONS)
+LV2_PLUGIN_BLACKLIST_QEMU = " \
+    drowaudio-tremolo.so \
+    drumsynth.so \
+    eqinox.so \
+    HiReSam.so \
+"
+
+do_ttl_sed() {
+    # keep unmodified scripts for distrho-ports-extra
+    cp -r ${S}/scripts ${WORKDIR}
+    sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
+}
+
+do_configure() {
+    # platforms supporting sse2 can override NOOPTIMIZATIONS - later todo?
     NOOPTIMIZATIONS=1 ${S}/scripts/premake-update.sh linux
 }
 
