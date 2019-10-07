@@ -28,7 +28,7 @@ LV2_POSTINST_MANIFEST = "${datadir}/${BPN}/lv2-postinst-manifest"
 # (added by git-submodule) we can set a default matchin > 80%+
 LV2-TTL-GENERATOR ?= "${S}/dpf/utils/lv2_ttl_generator"
 
-inherit qemu-ext
+inherit qemu-ext audio-plugin-common
 
 # override this function and execute sed (or other magic) to adjust Makefiles
 # so that lv2-ttl-generator is not executed but plugin information. Same here:
@@ -86,7 +86,7 @@ do_install_append() {
     fi
 }
 
-pkg_postinst_ontarget_${PN}-lv2() {
+pkg_postinst_ontarget_${PN_LV2}() {
     if [ -e ${LV2_POSTINST_MANIFEST} ]; then
         oldpath=`pwd`
         for sofile in `cat ${LV2_POSTINST_MANIFEST}`; do
@@ -97,7 +97,7 @@ pkg_postinst_ontarget_${PN}-lv2() {
     fi
 }
 
-pkg_prerm_${PN}-lv2() {
+pkg_prerm_${PN_LV2}() {
     if [ -e ${LV2_POSTINST_MANIFEST} ]; then
         for sofile in `cat ${LV2_POSTINST_MANIFEST}`; do
             path=`dirname "$sofile"`
@@ -108,5 +108,5 @@ pkg_prerm_${PN}-lv2() {
     fi
 }
 
-FILES_${PN}-lv2 += "${LV2_POSTINST_MANIFEST}"
-RDEPENDS_${PN}-lv2 += "lv2-ttl-generator"
+FILES_${PN_LV2} += "${LV2_POSTINST_MANIFEST}"
+RDEPENDS_${PN_LV2} += "lv2-ttl-generator"

@@ -1,8 +1,10 @@
 # Auto package audio plugins
 
-PACKAGES =+ "${PN}-dssi ${PN}-ladspa ${PN}-lv2 ${PN}-vst"
+inherit audio-plugin-common
 
-FILES_${PN}-dssi += "${libdir}/dssi"
-FILES_${PN}-ladspa += "${libdir}/ladspa"
-FILES_${PN}-lv2 += "${libdir}/lv2"
-FILES_${PN}-vst += "${libdir}/vst"
+PACKAGES =+ "${PN_DSSI} ${PN_LADSPA} ${PN_LV2} ${PN_VST}"
+
+FILES_${PN_DSSI} += "${libdir}/dssi"
+FILES_${PN_LADSPA} += "${libdir}/ladspa"
+FILES_${PN_LV2} += "${libdir}/lv2"
+FILES_${PN_VST} += "${libdir}/vst"
