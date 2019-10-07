@@ -4,7 +4,7 @@
 # for us because cross build libraries cannot be opened by build host. To get
 # around we:
 #
-# 1. Adjust build (see do_ttl_sed) so that instead calling LV2-TTL-GENERATOR
+# 1. Adjust build (see do_ttl_sed) so that instead calling LV2_TTL_GENERATOR
 #    the plugin file name is written to LV2_PLUGIN_INFO_FILE
 # 2. Try to generate ttl with the help of qemu. This can faile for various
 #    reasons: SIMD instructions not supported / qemu itself / ...
@@ -26,7 +26,7 @@ LV2_POSTINST_MANIFEST = "${datadir}/${BPN}/lv2-postinst-manifest"
 
 # Path to the ttl-generator qemu will use. Since most plugins are based on dpf
 # (added by git-submodule) we can set a default matchin > 80%+
-LV2-TTL-GENERATOR ?= "${S}/dpf/utils/lv2_ttl_generator"
+LV2_TTL_GENERATOR ?= "${S}/dpf/utils/lv2_ttl_generator"
 
 inherit qemu-ext audio-plugin-common
 
@@ -57,12 +57,12 @@ do_compile_append() {
             cd `dirname ${sofile}`
             echo "QEMU lv2-ttl-generator for ${sofile}..."
             TTL_FAILED=""
-            ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${LV2-TTL-GENERATOR}')} ${sofile} || TTL_FAILED="true"
+            ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', '${LV2_TTL_GENERATOR}')} ${sofile} || TTL_FAILED="true"
             if [ "x${TTL_FAILED}" = "x" ]; then
                 echo "Generation succeeded."
             else
                 # If qemu fails: remove generated core files & prepare for postinst fallback
-                echo "ERROR: for QEMU lv2_ttl_generator for ${sofile}!"
+                echo "ERROR: for QEMU ${LV2_TTL_GENERATOR} for ${sofile} failed!"
                 rm -f *.core
                 echo `basename $sofile` >> ${LV2_PLUGIN_POSTINST_INFO_FILE}
             fi
