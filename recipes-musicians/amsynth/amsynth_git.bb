@@ -15,7 +15,6 @@ SRCREV = "71544e4991f494f9871e13a50d6cf9217bb86986"
 PV = "1.9.0"
 S = "${WORKDIR}/git"
 
-
 PACKAGECONFIG ??= "alsa jack sndfile lv2"
 
 PACKAGECONFIG[oss] = "--with-oss,--without-oss"
@@ -33,19 +32,19 @@ FILES_${PN}-standalone += " \
     ${bindir} \
 "
 
-FILES_${PN}-dssi += " \
+FILES_${PN_DSSI} += " \
     ${datadir}/appdata/dssi-amsynth-plugin.metainfo.xml \
 "
 
-FILES_${PN}-lv2 += " \
+FILES_${PN_LV2} += " \
     ${datadir}/appdata/lv2-amsynth-plugin.metainfo.xml \
 "
 
-FILES_${PN}-vst += " \
+FILES_${PN_VST} += " \
     ${datadir}/appdata/vst-amsynth-plugin.metainfo.xml \
 "
 
 RDEPENDS_${PN}-standalone += "${PN}"
-RDEPENDS_${PN}-dssi += "${PN}"
-RDEPENDS_${PN}-lv2 += "${PN}"
-RDEPENDS_${PN}-vst += "${PN}"
+RDEPENDS_${PN_DSSI} += "${PN}"
+RDEPENDS_${PN_LV2} += "${PN}"
+RDEPENDS_${PN_VST} += "${PN}"
