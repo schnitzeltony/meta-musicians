@@ -38,7 +38,10 @@ do_ttl_sed() {
 }
 
 do_configure_prepend() {
-    do_ttl_sed
+    # 1st configure?
+    if [ ! -f ${LV2_PLUGIN_INFO_FILE} ]; then
+        do_ttl_sed
+    fi
 }
 
 do_compile_prepend() {
