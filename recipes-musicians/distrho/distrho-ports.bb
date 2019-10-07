@@ -85,7 +85,7 @@ do_install() {
 }
 
 PACKAGES =+ "${PN}-presets"
-RDEPENDS_${PN}-presets = "${PN}-lv2"
+RDEPENDS_${PN}-presets = "${PN_LV2}"
 
 FILES_${PN}-presets = "${libdir}/lv2/*.preset.lv2"
 

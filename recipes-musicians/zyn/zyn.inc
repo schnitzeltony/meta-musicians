@@ -66,8 +66,8 @@ FILES_${PN}-standalone = " \
     ${bindir}/zynaddsubfx \
 "
 
-RDEPENDS_${PN}-dssi += "${PN}"
-RDEPENDS_${PN}-lv2 += "${PN}"
-RDEPENDS_${PN}-vst += "${PN}"
+RDEPENDS_${PN_DSSI} += "${PN}"
+RDEPENDS_${PN_LV2} += "${PN}"
+RDEPENDS_${PN_VST} += "${PN}"
 RDEPENDS_${PN}-standalone += "${PN}"
 

@@ -14,6 +14,8 @@ LV2-DUMMY-TURTLE-STR = "lv2-dummy-turtle-string"
 # paths as installed on target a stored in a file called lv2-postinst-manifest
 LV2-POSTINST-MANIFEST = "${datadir}/${BPN}/lv2-postinst-manifest"
 
+inherit audio-plugin-common
+
 do_install_append() {
     # remove dummy lv2-turtles again
     cd ${D}/${libdir}/lv2
@@ -31,7 +33,7 @@ do_install_append() {
 }
 
 
-pkg_postinst_ontarget_${PN}-lv2() {
+pkg_postinst_ontarget_${PN_LV2}() {
     oldpath=`pwd`
     for sofile in `cat ${LV2-POSTINST-MANIFEST}`; do
         cd `dirname "$sofile"`
@@ -40,7 +42,7 @@ pkg_postinst_ontarget_${PN}-lv2() {
     cd $oldpath
 }
 
-pkg_prerm_${PN}-lv2() {
+pkg_prerm_${PN_LV2}() {
     for sofile in `cat ${LV2-POSTINST-MANIFEST}`; do
         path=`dirname "$sofile"`
         for turtle in `find $path -name '*.ttl'`; do
@@ -49,5 +51,5 @@ pkg_prerm_${PN}-lv2() {
     done
 }
 
-FILES_${PN}-lv2 += "${LV2-POSTINST-MANIFEST}"
-RDEPENDS_${PN}-lv2 += "lv2-ttl-generator"
+FILES_${PN_LV2} += "${LV2-POSTINST-MANIFEST}"
+RDEPENDS_${PN_LV2} += "lv2-ttl-generator"

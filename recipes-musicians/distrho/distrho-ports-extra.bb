@@ -62,8 +62,8 @@ FILES_${PN} += " \
 "
 
 # for common (?) cabbage files
-RDEPENDS_${PN}-lv2 += "${PN}"
-RDEPENDS_${PN}-vst += "${PN}"
+RDEPENDS_${PN_LV2} += "${PN}"
+RDEPENDS_${PN_VST} += "${PN}"
 
 # Have not found what causes stripping - debugging of plugins is unlikely
 INSANE_SKIP_${PN} = "already-stripped"
