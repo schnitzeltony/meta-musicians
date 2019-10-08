@@ -101,9 +101,9 @@ python do_ttl_qa() {
         num_plugins_postinst = len(open(lv2_plugin_postinst_info_file).readlines())
         name = d.getVar('PN')
         if num_plugins == num_plugins_postinst:
-            bb.warn("All plugins in %s are postponed to post-install! Check log.do_compile for valid LV2_TTL_GENERATOR (%s)" % (name,d.getVar('LV2_TTL_GENERATOR')))
+            bb.warn("All LV2-plugins in %s are postponed to post-install! Check log.do_compile for valid LV2_TTL_GENERATOR (%s)" % (name,d.getVar('LV2_TTL_GENERATOR')))
         else:
-            bb.warn("%i of %i plugins in %s are postponed to post-install! Check %s and log.do_compile for details" % (num_plugins_postinst, num_plugins, name, lv2_plugin_postinst_info_file))
+            bb.warn("%i of %i LV2-plugins in %s are postponed to post-install! Check %s and log.do_compile for details" % (num_plugins_postinst, num_plugins, name, lv2_plugin_postinst_info_file))
 }
 
 do_install_append() {
