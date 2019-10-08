@@ -20,7 +20,7 @@ PV = "0.0.0+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit lv2-postinst-helper distro_features_check pack_audio_plugins
+inherit lv2-turtle-helper distro_features_check pack_audio_plugins
 
 # distro-ports dependency for special hack script / libs 
 DEPENDS += " \
@@ -34,21 +34,21 @@ DEPENDS += " \
     distrho-ports \
 "
 
-do_configure() {
-    # reconfigure?
-    if [ ! -f ${LV2-TURTLE-BUILD-DATA} ] ; then
-        # Seems this collection is not ready for public - copy 'shared' from distrho-ports
-        rm -rf ${S}/scripts
-        rm -rf ${S}/libs
-        cp -rf ${STAGING_LIBDIR}/distrho-ports-build/* ${S}/
-	    # manipulate scripts to keep lv2_ttl_generator-calls in script for lv2-postinst-helper
-        sed -i 's|$GEN ./$FILE|echo "lv2-ttl-generator `pwd`/$FILE" >> ${LV2-TURTLE-BUILD-DATA}|g' `find ${S}/scripts -name *.sh`
-    else
-        rm -f ${LV2-TURTLE-BUILD-DATA}
-    fi
+LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
 
-	cd ${S}
-    # platforms supporting sse2 can override NOOPTIMIZATIONS
+do_ttl_sed() {
+    # Seems this collection is not ready for public
+    # scripts/libs are (broken) symlinks to /usr/src/distrho) - copy 'shared'
+    # from distrho-ports (hack but we need to patch distrho-ports only)
+    rm -f ${S}/libs
+    rm -f ${S}/scripts
+    cp -rf ${STAGING_LIBDIR}/distrho-ports-build/* ${S}/
+    # manipulate scripts to keep lv2_ttl_generator-calls in script for lv2-turtle-helper
+    sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
+}
+
+do_configure() {
+    # platforms supporting sse2 can override NOOPTIMIZATIONS - later todo?
     NOOPTIMIZATIONS=1 ${S}/scripts/premake-update.sh linux
 }
 
