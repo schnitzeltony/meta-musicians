@@ -15,6 +15,7 @@
 # File containing names of plugins to handle in do_compile_append 
 # Line-format expected: <some-path-in-build>/<plugin>.so
 LV2_PLUGIN_INFO_FILE = "${WORKDIR}/lv2-ttl-generator-data"
+LV2_PLUGIN_INFO_FILE_CLEANED = "${LV2_PLUGIN_INFO_FILE}-cleaned"
 
 # File containing names of plugins to handle in do_compile_append 
 # Line-format expected: <path-ontarget>/<plugin>.so
@@ -55,10 +56,12 @@ do_compile_prepend() {
 
 do_compile[vardeps] += "LV2_PLUGIN_BLACKLIST_QEMU LV2_TTL_GENERATOR"
 do_compile_append() {
+    rm -f ${LV2_PLUGIN_INFO_FILE_CLEANED}
     if [ -e ${LV2_PLUGIN_INFO_FILE} ]; then
-        echo "lv2-plugins found - try ttl-generation for them"
+        echo "lv2-plugins found - try ttl-generation with '${LV2_TTL_GENERATOR}"
         # try build ttl-files with quemu
         for sofile in `sort ${LV2_PLUGIN_INFO_FILE} | uniq`; do
+            echo $sofile >> ${LV2_PLUGIN_INFO_FILE_CLEANED}
             sobase=`basename $sofile`
             ttl_failed=""
             if echo "${LV2_PLUGIN_BLACKLIST_QEMU}" | grep -q "$sobase"; then
@@ -88,6 +91,19 @@ do_compile_append() {
         echo
         exit -1
     fi
+}
+do_compile[postfuncs] += "do_ttl_qa"
+python do_ttl_qa() {
+    lv2_plugin_postinst_info_file = d.getVar('LV2_PLUGIN_POSTINST_INFO_FILE')
+    if os.path.isfile(lv2_plugin_postinst_info_file):
+        lv2_plugin_info_file_cleaned = d.getVar('LV2_PLUGIN_INFO_FILE_CLEANED')
+        num_plugins = len(open(lv2_plugin_info_file_cleaned).readlines())
+        num_plugins_postinst = len(open(lv2_plugin_postinst_info_file).readlines())
+        name = d.getVar('PN')
+        if num_plugins == num_plugins_postinst:
+            bb.warn("All plugins in %s are postponed to post-install! Check log.do_compile for valid LV2_TTL_GENERATOR (%s)" % (name,d.getVar('LV2_TTL_GENERATOR')))
+        else:
+            bb.warn("%i of %i plugins in %s are postponed to post-install! Check %s and log.do_compile for details" % (num_plugins_postinst, num_plugins, name, lv2_plugin_postinst_info_file))
 }
 
 do_install_append() {
