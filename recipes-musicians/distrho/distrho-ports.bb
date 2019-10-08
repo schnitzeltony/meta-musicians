@@ -13,6 +13,7 @@ SRC_URI = " \
     file://0003-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
     file://0004-Further-musl-fix-by-removal-of-unused-function.patch \
     file://0005-Fix-build-with-gcc9.patch \
+    file://0006-Use-build-system-flags-also-for-lv2_ttl_generator.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
@@ -82,23 +83,28 @@ do_install() {
         cp -rf $file ${D}${libdir}/lv2/
     done
 
-    # install scripts for distro-ports-extra (and abuse libdir to ensure is is found in sysroot)
-    install -d ${D}/${libdir}/distrho-ports-build
-    cp -rf ${WORKDIR}/scripts ${D}${libdir}/distrho-ports-build/
-    cp -rf ${S}/libs ${D}${libdir}/distrho-ports-build/
-    rm -f ${D}${libdir}/distrho-ports-build/libs/lv2_ttl_generator
+    # install ttl-generator bindir for distrho-ports-extra
+    install -d ${D}/${bindir}/scripts
+	install -m 755 ${S}/libs/lv2_ttl_generator ${D}/${bindir}
+    cp -r ${WORKDIR}/scripts ${D}/${bindir}/
 }
+# ttl-generator bindir for distrho-ports-extra
+SYSROOT_DIRS_append = " ${bindir}"
 
 PACKAGES =+ "${PN}-presets"
 RDEPENDS_${PN}-presets = "${PN_LV2}"
 
 FILES_${PN}-presets = "${libdir}/lv2/*.preset.lv2"
 
-# dummy pack scripts for distrho-ports-extra
-FILES_${PN}-staticdev += " \
-    ${libdir}/distrho-ports-build \
+# dummy pack ttl-generator for distrho-ports-extra
+PACKAGES =+ "${PN}-ttl-generator"
+FILES_${PN}-ttl-generator += " \
+    ${bindir}/lv2_ttl_generator \
+    ${bindir}/scripts \
 "
-RDEPENDS_${PN}-staticdev = "bash perl"
+# ${PN}-ttl-generator is intented for build of distrho-ports-extra and
+# definitely nothing to be installed on target
+INSANE_SKIP_${PN}-ttl-generator = "file-rdeps"
 
 # Have not found what causes stripping - debugging of plugins is unlikely
 INSANE_SKIP_${PN} = "already-stripped"

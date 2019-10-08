@@ -34,7 +34,7 @@ DEPENDS += " \
     distrho-ports \
 "
 
-LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
+LV2_TTL_GENERATOR = "${STAGING_BINDIR}/lv2_ttl_generator"
 
 do_ttl_sed() {
     # Seems this collection is not ready for public
@@ -42,7 +42,8 @@ do_ttl_sed() {
     # from distrho-ports (hack but we need to patch distrho-ports only)
     rm -f ${S}/libs
     rm -f ${S}/scripts
-    cp -rf ${STAGING_LIBDIR}/distrho-ports-build/* ${S}/
+    mkdir ${S}/scripts
+    cp  -r ${STAGING_BINDIR}/scripts/* ${S}/scripts
     # manipulate scripts to keep lv2_ttl_generator-calls in script for lv2-turtle-helper
     sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
 }
