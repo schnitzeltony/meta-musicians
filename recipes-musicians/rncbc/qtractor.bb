@@ -20,18 +20,16 @@ inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime qt5-transl
 
 SRC_URI = " \
     git://github.com/rncbc//qtractor.git;branch=midiimportx \
-    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     \
     file://0001-do-nor-try-run-for-float-sse-detection.patch \
     file://0002-do-nor-try-run-for-suil-libs-detection.patch \
     file://0003-Add-ARM-NEON-acceleration-for-time-stretch-not-yet-t.patch \
     \
-    file://0004-Fixed-initial-session-tempo-override-when-importing.patch \
-    \
     file://Qtractor.conf \
 "
-SRCREV = "51459c9f414927b26c8d4644c356886281f199a7"
-PV = "0.9.9+git${SRCPV}"
+SRCREV = "3d82a74ff1faa7d1767928ae028b839c8814f9b7"
+PV = "0.9.10+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
