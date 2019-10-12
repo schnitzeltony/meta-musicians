@@ -40,15 +40,16 @@ do_ttl_sed() {
     # Seems this collection is not ready for public
     # scripts/libs are (broken) symlinks to /usr/src/distrho) - copy 'shared'
     # from distrho-ports (hack but we need to patch distrho-ports only)
-    rm -f ${S}/libs
-    rm -f ${S}/scripts
-    mkdir ${S}/scripts
-    cp  -r ${STAGING_BINDIR}/scripts/* ${S}/scripts
+    rm -rf ${S}/libs
+    rm -rf ${S}/scripts
+    cp  -r ${STAGING_BINDIR}/scripts ${S}
+    cp  -r ${STAGING_LIBDIR}/libs ${S}
     # manipulate scripts to keep lv2_ttl_generator-calls in script for lv2-turtle-helper
     sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
 }
 
 do_configure() {
+    cd ${S}
     # platforms supporting sse2 can override NOOPTIMIZATIONS - later todo?
     NOOPTIMIZATIONS=1 ${S}/scripts/premake-update.sh linux
 }

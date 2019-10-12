@@ -83,7 +83,10 @@ do_install() {
     # install ttl-generator bindir for distrho-ports-extra
     install -d ${D}/${bindir}/scripts
 	install -m 755 ${S}/libs/lv2_ttl_generator ${D}/${bindir}
+    rm ${S}/libs/lv2_ttl_generator
     cp -r ${WORKDIR}/scripts ${D}/${bindir}/
+    cp -r ${S}/libs ${D}/${libdir}/
+    mv ${D}/${libdir}/libs/*.a ${D}/${libdir}
 }
 # ttl-generator bindir for distrho-ports-extra
 SYSROOT_DIRS_append = " ${bindir}"
@@ -98,6 +101,7 @@ PACKAGES =+ "${PN}-ttl-generator"
 FILES_${PN}-ttl-generator += " \
     ${bindir}/lv2_ttl_generator \
     ${bindir}/scripts \
+    ${libdir}/libs \
 "
 # ${PN}-ttl-generator is intented for build of distrho-ports-extra and
 # definitely nothing to be installed on target
