@@ -59,6 +59,7 @@ RDEPENDS_${PN} += " \
     helm-standalone helm-lv2 helm-vst \
     hydrogen hydrogen-drumkits \
     infamousplugins \
+    ir.lv2-automatable ir.lv2-zero-latency \
     \
     \
     clthreads \

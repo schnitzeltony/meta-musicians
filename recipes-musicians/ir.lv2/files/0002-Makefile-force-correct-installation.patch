@@ -1,0 +1,35 @@
+From 32881acc0258680b3f61e2e8ea532223eb4db353 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 1 Sep 2019 23:45:26 +0200
+Subject: [PATCH] Makefile: force correct installation
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ Makefile | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 031f865..a843428 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,12 +7,7 @@
+ BUNDLE = ir.lv2
+ PREFIX ?= /usr
+ 
+-user = $(shell whoami)
+-ifeq ($(user),root)
+ INSTDIR ?= $(DESTDIR)$(PREFIX)/lib/lv2
+-else 
+-INSTDIR ?= ~/.lv2
+-endif
+ 
+ INST_FILES = ir.so ir_gui.so ir.ttl manifest.ttl
+ 
+-- 
+2.21.0
+
