@@ -15,7 +15,7 @@ inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0002-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Remove-extra-rpath.patch \
 "
 PV = "0.9.10"

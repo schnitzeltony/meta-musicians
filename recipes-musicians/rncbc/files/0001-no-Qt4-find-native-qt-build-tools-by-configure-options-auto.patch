@@ -15,10 +15,10 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 15 insertions(+), 28 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index f791a1d..1d46860 100644
+index a6156ef..f99502d 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -265,23 +265,9 @@ if test -x $ac_qtchooser; then
+@@ -266,23 +266,9 @@ if test -x $ac_qtchooser; then
     export QT_SELECT=5
  fi
  
@@ -45,7 +45,7 @@ index f791a1d..1d46860 100644
  
  if test "x$ac_qmake" = "xno"; then
     AC_MSG_ERROR([qmake-qt5 $ac_errmsg (qt5-devel)])
-@@ -296,13 +282,6 @@ if test -d $ac_qt_install_path; then
+@@ -297,13 +283,6 @@ if test -d $ac_qt_install_path; then
     ac_path="$ac_qt_install_path:$ac_path"
  fi
  
@@ -59,7 +59,7 @@ index f791a1d..1d46860 100644
  AC_SUBST(ac_qmake)
  
  AC_CACHE_CHECK([for Qt install headers], [ac_cv_qt_install_headers], [
-@@ -338,28 +317,36 @@ AC_CACHE_CHECK([for Qt library version >= 5.1],
+@@ -339,14 +318,18 @@ AC_CACHE_CHECK([for Qt library version >= 5.1],
  ])
  
  # Check for Qt moc utility.
@@ -80,7 +80,8 @@ index f791a1d..1d46860 100644
  if test "x$ac_uic" = "xno"; then
     AC_MSG_ERROR([uic $ac_errmsg])
  fi
- AC_SUBST(ac_uic)
+@@ -354,7 +337,9 @@ AC_SUBST(ac_uic)
+ 
  
  # Check for Qt lupdate utility.
 -AC_PATH_TOOL(ac_lupdate, lupdate, [no], $ac_path)
@@ -88,8 +89,9 @@ index f791a1d..1d46860 100644
 +  AC_HELP_STRING([--with-lupdate=PATH], [use alternate lupdate path]),
 +  [ac_lupdate="$withval"], [ac_lupdate="no"])
  if test "x$ac_lupdate" = "xno"; then
-    AC_MSG_ERROR([lupdate $ac_errmsg])
- fi
+    AC_PATH_TOOL(ac_cv_lupdate, lupdate-qt5, [no], $ac_path)
+    if test "x$ac_cv_lupdate" = "xno"; then
+@@ -366,7 +351,9 @@ fi
  AC_SUBST(ac_lupdate)
  
  # Check for Qt lrelease utility.
@@ -97,9 +99,9 @@ index f791a1d..1d46860 100644
 +AC_ARG_WITH(lrelease,
 +  AC_HELP_STRING([--with-lrelease=PATH], [use alternate lrelease path]),
 +  [ac_lrelease="$withval"], [ac_lrelease="no"])
- if test "x$ac_release" = "xno"; then
-    AC_MSG_ERROR([lrelease $ac_errmsg])
- fi
+ if test "x$ac_lrelease" = "xno"; then
+    AC_PATH_TOOL(ac_cv_lrelease, lrelease-qt5, [no], $ac_path)
+    if test "x$ac_cv_lrelease" = "xno"; then
 -- 
-2.14.5
+2.21.0
 
