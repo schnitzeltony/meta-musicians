@@ -1,6 +1,6 @@
 From 5e5395fb24a2fac8e5377aba16e5a47ccfba977f Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Wed, 31 Jul 2019 20:20:25 +0200
+Date: Thu, 24 Oct 2019 21:47:59 +0200
 Subject: [PATCH] Do not create Manifest.ttl with cross ttlgen
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -14,15 +14,15 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/plugin/Makefile.am b/plugin/Makefile.am
-index 7751154..d22f9c5 100644
+index 6c0d324..5b36f21 100644
 --- a/plugin/Makefile.am
 +++ b/plugin/Makefile.am
-@@ -42,7 +42,7 @@ ttlgen_SOURCES = \
- 	$(top_srcdir)/plugin/plugingizmo/ttlgen.cc
+@@ -66,7 +66,7 @@ UITYPE=CocoaUI
+ endif
  
  manifest.ttl : ttlgen drumgizmo.la
--	./ttlgen .libs/drumgizmo.so manifest.ttl
-+	echo ./ttlgen .libs/drumgizmo.so manifest.ttl
+-	./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE)
++	echo ./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE)
  
  
  #######
