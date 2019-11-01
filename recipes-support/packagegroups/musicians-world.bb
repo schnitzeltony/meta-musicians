@@ -68,6 +68,7 @@ RDEPENDS_${PN} += " \
     zita-resampler \
     \
     \
+    kushview-element \
     ladspa-sdk \
     liblo \
     libmp4v2 \
