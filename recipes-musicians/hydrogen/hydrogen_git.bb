@@ -92,8 +92,8 @@ PV ="1.0.0~beta1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-SRC_URI[drumkit-list.md5sum] = "d7c54dba04092112fb012c1a0acc6404"
-SRC_URI[drumkit-list.sha256sum] = "c4ddfcff63e57e72ab376a9b85a1fdf7ba47ec244dcca45ab95984adfd585780"
+SRC_URI[drumkit-list.md5sum] = "a690b411370deb00439c1fb9dbbab1f7"
+SRC_URI[drumkit-list.sha256sum] = "c5254e76c2d5d16e4a9674e0f226a3fe49103f9cdc938950598a8b780fd06108"
 
 SRC_URI[Audiophob.md5sum] = "24cb2577a447bbd72aab769aacb3e8b4"
 SRC_URI[Audiophob.sha256sum] = "70b71304221a1287f257ed9a03bfb221af6ce335deec3a3385237e6be6fa9e0c"
