@@ -19,11 +19,9 @@ DEPENDS += " \
     ladspa-sdk \
 "
 
-SRC_URI = " \
-    gitsm://github.com/kushview/Element.git \
-"
-SRCREV = "efc93f9b93ca0edffaa7a356122deb28a3b6d60a"
-PV = "0.40.0+git${SRCPV}"
+SRC_URI = "gitsm://github.com/kushview/Element.git"
+SRCREV = "be5fd408301278a6c6c9d26fc21b3ebc4a599ca8"
+PV = "0.41.0"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
