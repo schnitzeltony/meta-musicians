@@ -21,14 +21,13 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
-    file://0002-Remove-extra-rpath.patch \
     \
     ${FFTWSINGLEPATCH} \
     file://padthv1.conf \
 "
-PV = "0.9.10"
-SRC_URI[md5sum] = "3c60081dcd0b73d093d25d28bc03b479"
-SRC_URI[sha256sum] = "3d833f42ff42bd36b9ab8469eb22d1e72aab0faf1f37fb7d3a93c7a4c2c0f71d"
+PV = "0.9.11"
+SRC_URI[md5sum] = "c620734d31cabb7bea3bdcd23081d2ab"
+SRC_URI[sha256sum] = "cf1cddee41e84abbdab52fd92d676df39499568acc36eccb01aa6399a3e7ce0b"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
