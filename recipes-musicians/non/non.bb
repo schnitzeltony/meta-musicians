@@ -14,7 +14,7 @@ DEPENDS += " \
     libsigc++-2.0 \
 "
 
-inherit waf pkgconfig distro_features_check gtk-icon-cache
+inherit waf pkgconfig features_check gtk-icon-cache
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

@@ -11,7 +11,7 @@ DEPENDS = " \
     jack \
 "
 
-inherit pkgconfig lv2-turtle-helper distro_features_check pack_audio_plugins
+inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
 
 SRC_URI = "gitsm://github.com/rghvdberg/ninjas2.git"
 SRCREV = "12aa2f9d150caaf602c2f1a31cb6dd078abddde2"

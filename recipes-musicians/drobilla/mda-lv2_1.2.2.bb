@@ -3,7 +3,7 @@ HOMEPAGE = "https://drobilla.net/software/mda-lv2"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-inherit waf distro_features_check pkgconfig
+inherit waf features_check pkgconfig
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

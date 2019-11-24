@@ -3,7 +3,7 @@ HOMEPAGE = "https://sourceforge.net/projects/bristol/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING.GPL;md5=d32239bcb673463ab874e80d47fae504"
 
-inherit autotools pkgconfig  distro_features_check
+inherit autotools pkgconfig  features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

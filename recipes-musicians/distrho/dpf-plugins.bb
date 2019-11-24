@@ -11,7 +11,7 @@ PV = "v1.3"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit pkgconfig lv2-turtle-helper pack_audio_plugins distro_features_check 
+inherit pkgconfig lv2-turtle-helper pack_audio_plugins features_check
 
 # TODO standalone: *.desktop
 DEPENDS += " \

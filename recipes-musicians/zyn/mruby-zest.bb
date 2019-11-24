@@ -2,7 +2,7 @@ require ${BPN}.inc
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit autotools-brokensep distro_features_check
+inherit autotools-brokensep features_check
 
 SRC_URI += " \
     file://0005-mruby-Use-native-mrbc.patch \

@@ -14,7 +14,7 @@ DEPENDS += " \
     lrdf \
 "
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache distro_features_check mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime
 
 REQUIRED_DISTRO_FEATURE = "x11"
 

@@ -3,7 +3,7 @@ HOMEPAGE = "http://yoshimi.sourceforge.net/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4c5f39c482ca5ca058c1ebd39612cf98"
 
-inherit cmake pkgconfig gtk-icon-cache distro_features_check
+inherit cmake pkgconfig gtk-icon-cache features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

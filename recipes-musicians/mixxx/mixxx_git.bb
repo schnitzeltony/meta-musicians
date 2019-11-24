@@ -3,7 +3,7 @@ HOMEPAGE = "http://mixxx.org/"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=827547320b68c9b65f19d8abd3d7a019"
 
-inherit scons qmake5_paths pkgconfig distro_features_check
+inherit scons qmake5_paths pkgconfig features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

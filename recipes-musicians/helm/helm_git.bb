@@ -3,7 +3,7 @@ HOMEPAGE = "http://tytel.org/helm/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-inherit dos2unix qemu-ext distro_features_check gtk-icon-cache pack_audio_plugins
+inherit dos2unix qemu-ext features_check gtk-icon-cache pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

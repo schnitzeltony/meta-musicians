@@ -3,7 +3,7 @@ HOMEPAGE = "https://drobilla.net/software/suil"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=31b283049b7bf3fc441d62cd43d8f4b9"
 
-inherit waf distro_features_check pkgconfig
+inherit waf features_check pkgconfig
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

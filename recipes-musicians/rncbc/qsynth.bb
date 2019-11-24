@@ -11,7 +11,7 @@ DEPENDS += " \
     fluidsynth \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache distro_features_check
+inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

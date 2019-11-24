@@ -16,7 +16,7 @@ DEPENDS += " \
     zita-convolver \
 "
 
-inherit pkgconfig lv2-turtle-helper distro_features_check pack_audio_plugins
+inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURE = "x11"
 

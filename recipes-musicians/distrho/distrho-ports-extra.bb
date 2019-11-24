@@ -20,7 +20,7 @@ PV = "0.0.0+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit lv2-turtle-helper distro_features_check pack_audio_plugins
+inherit lv2-turtle-helper features_check pack_audio_plugins
 
 # distro-ports dependency for special hack script / libs 
 DEPENDS += " \

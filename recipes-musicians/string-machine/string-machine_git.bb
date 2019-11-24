@@ -10,7 +10,7 @@ DEPENDS += " \
     cairo \
 "
 
-inherit pkgconfig distro_features_check lv2-turtle-helper pack_audio_plugins
+inherit pkgconfig features_check lv2-turtle-helper pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURE = "x11"
 
