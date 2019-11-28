@@ -19,7 +19,7 @@ DEPENDS += " \
 "
 # Note: lmms is in DEPENDS for supplying VST header aeffectx.h only
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache distro_features_check mime qt5-translation
+inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime qt5-translation
 
 SRC_URI = " \
     git://github.com/muse-sequencer/muse.git \
