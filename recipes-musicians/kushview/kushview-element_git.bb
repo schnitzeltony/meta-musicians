@@ -19,9 +19,12 @@ DEPENDS += " \
     ladspa-sdk \
 "
 
-SRC_URI = "gitsm://github.com/kushview/Element.git"
-SRCREV = "be5fd408301278a6c6c9d26fc21b3ebc4a599ca8"
-PV = "0.41.0"
+SRC_URI = " \
+    gitsm://github.com/kushview/Element.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "ad065721569ea8174811579fd700b84f802e3ff2"
+PV = "0.42.0"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
