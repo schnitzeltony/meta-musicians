@@ -9,8 +9,12 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS = "gtk+ gtk+3 qtbase lv2"
 
-SRC_URI = "http://download.drobilla.net/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "b5a0ccb70ec0791531ee69f3a5b86ab6"
-SRC_URI[sha256sum] = "a1e9899012790eef8867b5475853d76689b246cca88a99ac0d379a6c0d85c72b"
+SRC_URI = " \
+    gitsm://github.com/drobilla/suil.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "5d45fda230192d47a4afadecdf3dce038b8d6fe9"
+S = "${WORKDIR}/git"
+PV = "0.10.6+git${SRCPV}"
 
 FILES_${PN} += "${libdir}/suil-0"
