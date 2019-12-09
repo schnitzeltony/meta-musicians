@@ -1,7 +1,7 @@
 SUMMARY = "Jalv is a simple but fully featured LV2 host for Jack"
 HOMEPAGE = "http://drobilla.net/software/jalv"
 LICENSE = "ISC"
-LIC_FILES_CHKSUM = "file://COPYING;md5=eb60cfffc455677d4f11cf7f36c12093"
+LIC_FILES_CHKSUM = "file://COPYING;md5=2b0c9f0c37e43f926aac5d7732f06dfb"
 
 inherit waf pkgconfig gtk-icon-cache
 
@@ -20,12 +20,12 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/drobilla/jalv.git \
-    file://0001-Do-not-inject-usr-local-include-to-include-paths.patch \
+    gitsm://github.com/drobilla/jalv.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "8311df91cc212adf3220acfcb50ab63414fe9dd6"
+SRCREV = "15f779a8603bc3f020e7000189900c52964771cd"
 S = "${WORKDIR}/git"
-PV = "1.6.0+git${SRCPV}"
+PV = "1.6.4+git${SRCPV}"
 
 FILES_${PN} += " \
     ${libdir}/jack \
