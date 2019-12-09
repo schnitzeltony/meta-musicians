@@ -7,6 +7,11 @@ inherit waf pkgconfig
 
 DEPENDS += "lv2 serd sord"
 
-SRC_URI = "http://download.drobilla.net/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "aa3c540032da43cf6cf68f684983d7f5"
-SRC_URI[sha256sum] = "0a514a55d6b6cb7b5d6f32d1dcb78a1e6e54537fa22fce533e4ef6adf240e853"
+SRC_URI = " \
+    gitsm://github.com/drobilla/sratom.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "2a585c391df6d8d9b0c92e850eab891b6a8f74f3"
+S = "${WORKDIR}/git"
+PV = "0.6.4+git${SRCPV}"
+
