@@ -7,6 +7,10 @@ inherit waf pkgconfig
 
 DEPENDS += "libpcre serd"
 
-SRC_URI = "http://download.drobilla.net/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "eb1d1c62ffb5153d5e1f5d12a3b7279b"
-SRC_URI[sha256sum] = "09f51174dd8f3efbd95f44f0bb0b165f08e066e052d40095de59de787987da8d"
+SRC_URI = " \
+    gitsm://github.com/drobilla/sord.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "834610cd3faceff24c083738dbe88a56d412368c"
+S = "${WORKDIR}/git"
+PV = "0.16.4+git${SRCPV}"
