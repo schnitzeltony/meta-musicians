@@ -6,7 +6,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit waf
 
-SRC_URI = "git://github.com/drobilla/raul.git"
-SRCREV = "5eb7a555de2291f4df8c75ce261c555552725beb"
+SRC_URI = " \
+    gitsm://github.com/drobilla/raul.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "e87bb398f025912fb989a09f1450b838b251aea1"
 S = "${WORKDIR}/git"
-PV = "0.8.10+git${SRCPV}"
+PV = "1.0.0+git${SRCPV}"
