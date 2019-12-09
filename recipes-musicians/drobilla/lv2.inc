@@ -3,11 +3,12 @@ LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0383f162366b0c5a316292759a55d292"
 
 SRC_URI = " \
-    git://github.com/drobilla/lv2.git \
+    gitsm://github.com/drobilla/lv2.git \
     file://0001-Output-more-details-on-import-error-to-catch-missing.patch \
+    file://0001-Fix-build-for-python3-only-environments.patch \
 "
 S = "${WORKDIR}/git"
-SRCREV = "96a6283a5fe023c59113242631f337da5f0eb278"
-PV = "1.14.0+git${SRCPV}"
+SRCREV = "06d3f56a39be35b73b7c687920da871b24913edd"
+PV = "1.17.0+git${SRCPV}"
 
 inherit waf pkgconfig
