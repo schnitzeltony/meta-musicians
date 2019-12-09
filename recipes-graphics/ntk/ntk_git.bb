@@ -6,11 +6,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=f6b26344a24a941a01a5b0826e80b5ca"
 SRC_URI = " \
     git://github.com/original-male/${BPN}.git \
     file://0001-wscript-check-compile-instead-of-tun-check-datatype-.patch \
+    file://0002-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "1e3f5106d404562902bed2983403301db24a3f78"
+SRCREV = "dae177189b12f74ea01ac2389b76326c06d9be78"
 S = "${WORKDIR}/git"
 PV_LAST_RELEASE = "1.3.1000"
-PV = "${PV_LAST_RELEASE}"
+PV = "${PV_LAST_RELEASE}+git${SRCPV}"
 
 inherit waf pkgconfig
 
