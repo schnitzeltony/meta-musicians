@@ -5,6 +5,10 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=7aceb3a3edc99517b08f5cdd557e11fb"
 
 inherit waf
 
-SRC_URI = "http://download.drobilla.net/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "82243362b8b5a47dd46dac7ae893f562"
-SRC_URI[sha256sum] = "6efb0efa5c2155e6bbac941cddeeabb7ed26d70a57d24178894ff169d8f6cefb"
+SRC_URI = " \
+    gitsm://github.com/drobilla/serd.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRCREV = "2efb107eb4d4381198de51bd4f092ae1ead02e31"
+S = "${WORKDIR}/git"
+PV = "0.30.3+git${SRCPV}"
