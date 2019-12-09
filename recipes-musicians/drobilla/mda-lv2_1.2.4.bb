@@ -9,9 +9,12 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS = "lv2"
 
-SRC_URI = "http://download.drobilla.net/${BPN}-${PV}.tar.bz2"
-SRC_URI[md5sum] = "1962f48c54eafe52a3d2471cd3072aa8"
-SRC_URI[sha256sum] = "a476c31ed9f8b009ebacc32a02d06ba9584c0d0d03f03dd62b1354d10a030442"
+SRC_URI = " \
+    http://download.drobilla.net/${BPN}-${PV}.tar.bz2 \
+    file://0001-Fix-build-for-python3-only-environments.patch \
+"
+SRC_URI[md5sum] = "57feb6b58b195f87f8b3e436f3b56076"
+SRC_URI[sha256sum] = "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
 
 EXTRA_OECONF = " \
     --lv2dir=${libdir}/lv2 \
