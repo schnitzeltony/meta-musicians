@@ -3,7 +3,7 @@ HOMEPAGE = "http://drobilla.net/software/ingen"
 LICENSE = "AGPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-inherit waf pkgconfig gtk-icon-cache pack_audio_plugins pythonnative
+inherit waf pkgconfig gtk-icon-cache pack_audio_plugins python3native
 
 DEPENDS += " \
     boost \
@@ -16,10 +16,10 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/drobilla/ingen.git \
-    file://0001-Do-not-inject-usr-local-include-to-include-paths.patch \
+    gitsm://github.com/drobilla/ingen.git \
+    file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "cc3d7ef610e5f93086eb46406cc600ee81a23e98"
+SRCREV = "36949a845cf79e105445b9bc8656f2560469dc4d"
 S = "${WORKDIR}/git"
 PV = "0.5.1+git${SRCPV}"
 
@@ -37,7 +37,7 @@ PACKAGECONFIG[doc] = "--docs,,${DOCDEPENDS}"
 
 PACKAGES =+ "${PN}-standalone ${PN}-python"
 
-FILES_SOLIBSDEV = "${libdir}/libingen${SOLIBSDEV}"
+FILES_SOLIBSDEV = "${libdir}/libingen-*${SOLIBSDEV}"
 
 FILES_${PN} += " \
     ${libdir}/libingen_*.so \
