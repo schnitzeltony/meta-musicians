@@ -13,9 +13,9 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-     git://git.drobilla.net/patchage.git;protocol=http \
-     file://0001-Do-not-inject-usr-local-include-to-include-paths.patch \
+    gitsm://gitlab.com/drobilla/patchage.git;protocol=https \
+    file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "b69a38d171758c6e979d74541fc21d12b7e6abda"
-PV = "1.0.0+git${SRCPV}"
+SRCREV = "0a175df57e8d55d67a8b5fe8308f35dd895b91cf"
+PV = "1.0.1+git${SRCPV}"
 S = "${WORKDIR}/git"
