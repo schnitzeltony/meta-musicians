@@ -20,9 +20,9 @@ SRC_URI = " \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://QjackCtl.conf \
 "
-SRC_URI[md5sum] = "96f9547d61bf963704df988a5074bda0"
-SRC_URI[sha256sum] = "9dd5ee9a7f0a2d1d530b10652e09972732dc210239b7c082be816f0e7bdfadcd"
-PV = "0.6.0"
+SRC_URI[md5sum] = "738984a015119e5853beccca1cbf5124"
+SRC_URI[sha256sum] = "dec2b1d98cc06bce6bc714a57521b15bafa2718835a1afffb6f0b1eb07d1c027"
+PV = "0.6.1"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
