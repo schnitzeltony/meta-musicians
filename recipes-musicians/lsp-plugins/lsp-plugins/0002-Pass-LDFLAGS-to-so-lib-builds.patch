@@ -15,15 +15,15 @@ diff --git a/scripts/make/tools.mk b/scripts/make/tools.mk
 index 0d67881b..18ba73fb 100644
 --- a/scripts/make/tools.mk
 +++ b/scripts/make/tools.mk
-@@ -22,7 +22,7 @@ export LD              ?= $(TOOL_LD)
- export MAKE_OPTS        = -s
- export CFLAGS          += $(CC_ARCH) -std=c++98 -fdata-sections -pthread -ffunction-sections -fno-exceptions -fno-asynchronous-unwind-tables -Wall -pipe -fno-rtti $(CC_FLAGS) -DLSP_MAIN_VERSION=\"$(VERSION)\" -DLSP_INSTALL_PREFIX=\"$(PREFIX)\"
- export CXXFLAGS        += $(CC_ARCH) -std=c++98 -fdata-sections -pthread -ffunction-sections -fno-exceptions -fno-asynchronous-unwind-tables -Wall -pipe -fno-rtti $(CC_FLAGS) -DLSP_MAIN_VERSION=\"$(VERSION)\" -DLSP_INSTALL_PREFIX=\"$(PREFIX)\"
--export SO_FLAGS         = $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections -shared -Llibrary -lc -fPIC
-+export SO_FLAGS         = $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections -shared -Llibrary -lc -fPIC $(LDFLAGS)
- export MERGE_FLAGS      = $(LD_ARCH) -r
- export EXE_TEST_FLAGS   = $(LDFLAGS) $(CC_ARCH)
- export EXE_FLAGS        = $(LDFLAGS) $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections
+@@ -27,7 +27,7 @@ LD                       ?= $(TOOL_LD)
+ MAKE_OPTS                 = -s
+ CFLAGS                   += $(CC_ARCH) $(FLAG_CTUNE) $(CC_FLAGS) $(FLAG_VERSION)
+ CXXFLAGS                 += $(CC_ARCH) $(FLAG_CTUNE) $(CC_FLAGS) $(FLAG_VERSION)
+-SO_FLAGS                  = $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections -shared -Llibrary -lc -fPIC
++SO_FLAGS                  = $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections -shared -Llibrary -lc -fPIC $(LDFLAGS)
+ MERGE_FLAGS               = $(LD_ARCH) -r
+ EXE_TEST_FLAGS            = $(LDFLAGS) $(CC_ARCH)
+ EXE_FLAGS                 = $(LDFLAGS) $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections
 -- 
 2.21.0
 
