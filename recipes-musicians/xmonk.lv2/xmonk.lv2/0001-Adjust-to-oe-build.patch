@@ -1,0 +1,83 @@
+From cac14ae87d8c72bf9016435cb98a2952f6b28bed Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 28 Dec 2019 20:33:23 +0100
+Subject: [PATCH] Adjust to oe-build
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [OE-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ libxputty/Build/Makefile | 2 +-
+ Xmonk/Makefile | 29 +++--------------------------
+ 2 files changed, 2 insertion(+), 25 deletions(-)
+
+diff --git a/libxputty/Build/Makefile b/libxputty/Build/Makefile
+index 04b4d82..39877a8 100644
+--- a/libxputty/Build/Makefile
++++ b/libxputty/Build/Makefile
+@@ -82,7 +82,7 @@ $(LIB_OBJ): $(LIB_SOURCES)
+ -include $(DEP)
+ 
+ libxputty.a:  $(RESOURCES_OBJ) $(LIB_OBJ) $(WIDGET_OBJ) $(DIALOG_OBJ) $(XDG_OBJ)
+-	ar rcs libxputty.a $(LIB_OBJ) $(WIDGET_OBJ) $(DIALOG_OBJ) $(RESOURCES_OBJ) $(XDG_OBJ)
++	$(AR) rcs libxputty.a $(LIB_OBJ) $(WIDGET_OBJ) $(DIALOG_OBJ) $(RESOURCES_OBJ) $(XDG_OBJ)
+ 	mkdir -p $(RELEASE_DIR)include/
+ 	cp $(HEADER_DIR)*.h $(RELEASE_DIR)include/
+ 	cp $(WIDGET_HEADER_DIR)*.h $(RELEASE_DIR)include/
+diff --git a/Xmonk/Makefile b/Xmonk/Makefile
+index 31fbb31..0021150 100644
+--- a/Xmonk/Makefile
++++ b/Xmonk/Makefile
+@@ -1,33 +1,10 @@
+ 	
+ 	STRIP ?= strip
+ 	# check if user is root
+-	user = $(shell whoami)
+-	ifeq ($(user),root)
+ 	INSTALL_DIR = /usr/lib/lv2
+-	else 
+-	INSTALL_DIR = ~/.lv2
+-	endif
+ 
+ 	# check CPU and supported optimization flags
+-	ifneq ($(shell cat /proc/cpuinfo | grep sse3 ) , )
+-		SSE_CFLAGS = -msse3 -mfpmath=sse
+-	else ifneq ($(shell cat /proc/cpuinfo | grep sse2 ) , )
+-		SSE_CFLAGS = -msse2 -mfpmath=sse
+-	else ifneq ($(shell cat /proc/cpuinfo | grep sse ) , )
+-		SSE_CFLAGS = -msse -mfpmath=sse
+-		else ifneq ($(shell cat /proc/cpuinfo | grep ARM ) , )
+-		ifneq ($(shell cat /proc/cpuinfo | grep ARMv7 ) , )
+-			ifneq ($(shell cat /proc/cpuinfo | grep vfpd32 ) , )
+-				SSE_CFLAGS = -march=armv7-a -mfpu=vfpv3 
+-			else ifneq ($(shell cat /proc/cpuinfo | grep vfpv3 ) , )
+-				SSE_CFLAGS = -march=armv7-a -mfpu=vfpv3
+-			endif
+-		else
+-			ARMCPU = "YES"
+-		endif
+-	else
+-		SSE_CFLAGS =
+-	endif
++	SSE_CFLAGS =
+ 
+ 	# set bundle name
+ 	NAME = Xmonk
+@@ -41,9 +18,9 @@
+ 	CXXFLAGS += -D_FORTIFY_SOURCE=2 -I. -I./dsp -I./plugin -fPIC -DPIC -O2 -Wall -funroll-loops \
+ 	-fstack-protector -ffast-math -fomit-frame-pointer -fstrength-reduce \
+ 	-fdata-sections -Wl,--gc-sections -Wl,-z,relro,-z,now -Wl,--exclude-libs,ALL $(SSE_CFLAGS)
+-	LDFLAGS += -I. -shared -lm -Wl,-z,noexecstack -fvisibility=hidden
+ 	GUI_LDFLAGS += -I./gui -I$(HEADER_DIR) -Wl,-z,noexecstack -fvisibility=hidden \
+-	-L. $(LIB_DIR)libxputty.a -shared `pkg-config --cflags --libs cairo x11` -lm 
++	-L. $(LIB_DIR)libxputty.a -shared `pkg-config --cflags --libs cairo x11` -lm $(LDFLAGS)
++	LDFLAGS += -I. -shared -lm -Wl,-z,noexecstack -fvisibility=hidden
+ 	# invoke build files
+ 	OBJECTS = plugin/$(NAME).cpp 
+ 	GUI_OBJECTS = gui/$(NAME)_x11ui.c
+-- 
+2.21.0
+
