@@ -18,10 +18,11 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-Avoid-stripping.patch \
 "
-PV = "0.9.11"
-SRC_URI[md5sum] = "b6bfd03d70f10dc96341c534590e9658"
-SRC_URI[sha256sum] = "a78da0dd73df549a1add4ae96120958491b27fbbc3c99b6628bf025a4eb0d2f2"
+PV = "0.9.12"
+SRC_URI[md5sum] = "331d534d6ef488b5399f2ad055dbc713"
+SRC_URI[sha256sum] = "aaa1f32e3bf1b084b08692375779ad072204e4790d78a50de583c4bdd3acb642"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
