@@ -155,6 +155,7 @@ RDEPENDS_${PN} += " \
     tuna.lv2 \
     \
     \
+    xmonk.lv2 \
     ykchorus ykchorus-dssi ykchorus-lv2 ykchorus-vst \
     yoshimi \
     zam-plugins-standalone zam-plugins-ladspa zam-plugins-lv2 zam-plugins-vst \
