@@ -28,8 +28,8 @@ SRC_URI = " \
     \
     file://Qtractor.conf \
 "
-SRCREV = "49cad4d83b6ef7c678d864b62c116acb69ba0440"
-PV = "0.9.11+git${SRCPV}"
+SRCREV = "c2a4d134d8a30ceaa177d098b2d932c19078b558"
+PV = "0.9.12+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
