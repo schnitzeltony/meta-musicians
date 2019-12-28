@@ -21,13 +21,14 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-Avoid-stripping.patch \
     \
     ${FFTWSINGLEPATCH} \
     file://padthv1.conf \
 "
-PV = "0.9.11"
-SRC_URI[md5sum] = "c620734d31cabb7bea3bdcd23081d2ab"
-SRC_URI[sha256sum] = "cf1cddee41e84abbdab52fd92d676df39499568acc36eccb01aa6399a3e7ce0b"
+PV = "0.9.12"
+SRC_URI[md5sum] = "9b13bf5b9663014bc8f78295d40afb48"
+SRC_URI[sha256sum] = "d4a86ffb679453742b58741032cc4c1d3cb579c3947e9a014e014d90d2cfe3ff"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
