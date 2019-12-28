@@ -18,12 +18,13 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/autostatic/autostatic-synthv1-presets/autostatic-synthv1-presets1.tar.gz;name=autostatic-synthv1-presets1 \
     http://linuxsynths.com/Synthv1PatchesDemos/Synthv1Patches06.tar.gz;name=linuxsynths-synthv1-presets;subdir=linuxsynths-synthv1-presets \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0002-Avoid-stripping.patch \
     \
     file://synthv1.conf \
 "
-PV = "0.9.11"
-SRC_URI[md5sum] = "b8167809c3d762bed5282c5e5d5fac93"
-SRC_URI[sha256sum] = "f5510ae43659d37c73c604def672ee81821b4ced9b13649adecfb7a4d816d384"
+PV = "0.9.12"
+SRC_URI[md5sum] = "a2840bafb8253c7a898066d21e479698"
+SRC_URI[sha256sum] = "611c1c3085174574027ceb3a36b486ddb8979d38259f410a67f671cc02cdbdaa"
 
 SRC_URI[autostatic-synthv1-presets1.md5sum] = "02210e5576310554cfe316fb72e88b74"
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
