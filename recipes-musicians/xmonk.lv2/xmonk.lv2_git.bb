@@ -24,8 +24,6 @@ S = "${WORKDIR}/git"
 EXTRA_OEMAKE += " \
     STRIP=echo \
     PREFIX=${prefix} \
-    NOOPT=true \
-    SKIP_STRIPPING=true \
 "
 
 do_install() {
