@@ -19,7 +19,6 @@ DEPENDS += " \
     boost \
     libeigen \
     avahi \
-    bluez5 \
     gtkmm \
     jack \
     lilv \
@@ -29,6 +28,8 @@ DEPENDS += " \
     zita-resampler \
     zita-convolver \
 "
+
+PACKAGECONFIG[bluez] = ",--no-bluez,bluez5"
 
 EXTRA_OECONF = " \
     --disable-sse \
