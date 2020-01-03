@@ -10,12 +10,12 @@ DEPENDS += " \
     lv2 \
 "
 
-PV = "0.1.4+git${SRCPV}"
+PV = "0.1.5"
 SRC_URI = " \
     git://github.com/lucianodato/noise-repellent.git \
     file://0001-do-not-pin-sse-flags-they-won-t-work-on-all-arches.patch \
 "
-SRCREV = "9efdd0b41ec184a792087c87cbf5382f455e33ec"
+SRCREV = "7f9653d77918418e3b4ae39f4af8e5860362e986"
 S = "${WORKDIR}/git"
 
 

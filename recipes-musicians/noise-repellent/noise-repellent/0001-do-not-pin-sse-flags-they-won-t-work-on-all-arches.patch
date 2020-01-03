@@ -1,6 +1,6 @@
 From 11e8233da08bd812cd49370ca329aaf9f6f797cd Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Sun, 1 Sep 2019 22:00:00 +0200
+Date: Fri, 3 Jan 2020 22:06:56 +0100
 Subject: [PATCH] do not pin sse flags - they won't work on all arches
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -10,22 +10,26 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- meson.build | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ meson.build | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 679a46c..e2866f4 100755
+index c43938e..1d3297e 100755
 --- a/meson.build
 +++ b/meson.build
-@@ -17,7 +17,6 @@ nr_dep = [m_dep,fftw_dep,lv2_dep]
- if meson.get_compiler('c').get_id() == 'clang'
-   add_global_arguments('-mrecip', language : 'c')
- endif
--cflags = ['-msse','-msse2','-mfpmath=sse','-ffast-math','-fomit-frame-pointer','-fno-finite-math-only']
+@@ -27,11 +27,6 @@ install_folder = 'nrepel.lv2'
+ current_os = build_machine.system()
+ current_arch = build_machine.cpu_family()
  
- #install folder
- install_folder = 'nrepel.lv2'
-@@ -35,7 +34,7 @@ if current_os == 'windows'
+-# Add x86_64 optimization where appropriate (not for ARM)
+-if current_arch != 'aarch64'
+-    cflags += ['-msse','-msse2','-mfpmath=sse']
+-endif
+-
+ # Add osx multiarch flags when appropriate
+ if current_os == 'darwin'
+     cflags += ['-march=i386', '-march=x86-64','-mmacosx-version-min=10.5','-DMAC_OS_X_VERSION_MAX_ALLOWED=105']
+@@ -48,7 +43,7 @@ if current_os == 'windows' or current_os == 'cygwin'
  endif
  
  #build of the shared object
