@@ -17,7 +17,7 @@ REQUIRED_DISTRO_FEATURE = "x11"
 SRC_URI = " \
     gitsm://github.com/jpcima/string-machine.git \
 "
-SRCREV = "5e8ad47d03adafa3f7ec5746025482b50d93c4ca"
+SRCREV = "cfd556fb88e0236d90170605a7173fd730921fd3"
 S = "${WORKDIR}/git"
 PV = "0.1.1+git${SRCPV}"
 
