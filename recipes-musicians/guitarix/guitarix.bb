@@ -3,19 +3,17 @@ HOMEPAGE = "http://guitarix.org/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
-PV = "0.38.1"
-SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz \
-    file://0001-do-not-perform-link-test-durin-cross-build.patch \
-"
-SRC_URI[md5sum] = "d9aec810bf164cbf040b298cb9c45d50"
-SRC_URI[sha256sum] = "00fda3e1ce1d5f1691665f9ff32bb3c9800381313d49b7c2e25618d0b3ed872f"
+PV = "0.39.0"
+SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz"
+SRC_URI[md5sum] = "04c22ff9baaa69d256e2ca84ba288936"
+SRC_URI[sha256sum] = "490ff3f856282f776456b8e27366dd074d663870c0a89fccded03d854305c8da"
 
-inherit wafold fontcache gettext
+inherit waf fontcache gettext
 
 DEPENDS += " \
     gperf-native \
     intltool-native \
+    faust-native \
     boost \
     libeigen \
     avahi \
@@ -40,6 +38,10 @@ EXTRA_OECONF = " \
     --lib-dev \
     --install-roboto-font \
 "
+
+do_configure_prepend() {
+    sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
+}
 
 do_install_append() {
     # some corrections [dev-elf] - inspired by https://src.fedoraproject.org/rpms/guitarix/blob/master/f/guitarix.spec
