@@ -1,0 +1,60 @@
+From d918a439015b69ed3b351c9b14985c43a744bb7e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Tue, 14 Jan 2020 22:12:38 +0100
+Subject: [PATCH] Remove /usr/local/include from include path
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt          | 2 +-
+ interp/CMakeLists.txt   | 3 +--
+ wasmglue/CMakeLists.txt | 2 +-
+ 3 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a7470e2e8..709bb23a5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -67,7 +67,7 @@ set (FAUST_INC ${SRCDIR}
+ 	${SRCDIR}/patternmatcher ${SRCDIR}/propagate ${SRCDIR}/signals
+ 	${SRCDIR}/tlib ${SRCDIR}/transform ${SRCDIR}/utils
+ 	${SRCDIR}/draw/device ${SRCDIR}/draw/schema
+-	${SRCDIR}/../architecture /usr/local/include)
++	${SRCDIR}/../architecture)
+ 
+ 
+ ####################################
+diff --git a/interp/CMakeLists.txt b/interp/CMakeLists.txt
+index efdf4e81e..08c0a1ff4 100644
+--- a/interp/CMakeLists.txt
++++ b/interp/CMakeLists.txt
+@@ -40,8 +40,7 @@ set( INCLUDE
+ 	${FAUSTROOT}/utils
+ 	${ROOT}/architecture
+ 	${FAUSTGEN}/  
+-	${FAUSTITP}/
+-	/usr/local/include)
++	${FAUSTITP})
+ 
+ set( MACHINEDEFS -DMACHINE -D${LLVM_VERSION})
+ 
+diff --git a/wasmglue/CMakeLists.txt b/wasmglue/CMakeLists.txt
+index 9d153689d..12667884b 100644
+--- a/wasmglue/CMakeLists.txt
++++ b/wasmglue/CMakeLists.txt
+@@ -37,7 +37,7 @@ set (FAUST_INC ${SRCDIR}
+ 	${SRCDIR}/errors 
+ 	${SRCDIR}/generator
+ 	${SRCDIR}/tlib ${SRCDIR}/transform ${SRCDIR}/utils
+-	${SRCDIR}/../architecture /usr/local/include)
++	${SRCDIR}/../architecture)
+ 
+ 
+ ####################################
+-- 
+2.21.0
+
