@@ -16,7 +16,7 @@ DEPENDS += " \
     aubio \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime qt5-translation
+inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime mime-xdg qt5-translation
 
 SRC_URI = " \
     git://github.com/rncbc//qtractor.git;branch=midiimportx \
