@@ -12,7 +12,7 @@ DEPENDS += " \
 "
 
 # autotools-brokensep must be after qmake5_base!
-inherit qmake5_base autotools-brokensep gtk-icon-cache qt5-translation mime
+inherit qmake5_base autotools-brokensep gtk-icon-cache qt5-translation mime mime-xdg
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
