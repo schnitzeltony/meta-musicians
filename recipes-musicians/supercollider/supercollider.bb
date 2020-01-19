@@ -12,7 +12,7 @@ SRCREV = "834c036d3519337d409277d13f15f321759c5756"
 PV = "3.10.2"
 S = "${WORKDIR}/git/"
 
-inherit cmake_qt5 features_check mime
+inherit cmake_qt5 features_check mime mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
