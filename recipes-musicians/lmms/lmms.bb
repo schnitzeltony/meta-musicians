@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit cmake_qt5 features_check pkgconfig mime gtk-icon-cache pkgconfig bash-completion
+inherit cmake_qt5 features_check pkgconfig mime mime-xdg gtk-icon-cache pkgconfig bash-completion
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
