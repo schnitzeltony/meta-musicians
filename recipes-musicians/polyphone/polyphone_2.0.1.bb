@@ -3,7 +3,7 @@ HOMEPAGE = "http://polyphone-soundfonts.com/en/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://main.cpp;beginline=6;endline=18;md5=11e8b245e7c8a15dafd52bc856ef3ff1"
 
-inherit qmake5 gtk-icon-cache mime
+inherit qmake5 gtk-icon-cache mime mime-xdg
 
 DEPENDS += " \
     qtbase \
