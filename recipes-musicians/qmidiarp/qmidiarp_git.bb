@@ -11,7 +11,7 @@ DEPENDS += " \
     liblo \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache qt5-translation
+inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache qt5-translation mime-xdg
 
 SRC_URI = " \
     git://github.com/emuse/qmidiarp.git \
