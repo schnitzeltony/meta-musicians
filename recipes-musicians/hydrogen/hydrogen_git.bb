@@ -231,7 +231,7 @@ SRC_URI[YamahaTG-55Kit.md5sum] = "cf95db46c05287aaa1a18dff0b0ce335"
 SRC_URI[YamahaTG-55Kit.sha256sum] = "8dba9f8fa7027606765b3b9bd3d11470e39919683a8676b1598d96c2f7df1462"
 
 
-inherit cmake_qt5 manpages
+inherit cmake_qt5 manpages mime-xdg
 
 EXTRA_OECMAKE = " \
     -DWANT_DEBUG=OFF \
