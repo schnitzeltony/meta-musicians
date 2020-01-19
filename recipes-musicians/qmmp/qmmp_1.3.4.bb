@@ -37,7 +37,7 @@ SRC_URI = " \
 SRC_URI[md5sum] = "d08b4c397821990faeaba6cfc1342cbd"
 SRC_URI[sha256sum] = "e07d9026e5d0c53bf1a057974088363929a06f4e3785447956879b204c7d3b49"
 
-inherit cmake_qt5
+inherit cmake_qt5 mime-xdg
 
 FILES_${PN} += " \
     ${datadir} \
