@@ -30,10 +30,6 @@ do_configure_prepend() {
     # dummy call -> unpacks waf
     ./waf configure -o ${B} --prefix=${prefix} ${EXTRA_OECONF} || true
 
-    # add unpacked modules to pypath
-    echo `find ${S} -type d -name wafadmin` > ${B}/PYTHONPATH
-    export PYTHONPATH=`cat ${B}/PYTHONPATH`
-
     # -> python3
     2to3 -w -x import `find .waf3-* -name '*.py'`
 
@@ -42,7 +38,6 @@ do_configure_prepend() {
 
 do_compile()  {
     export PATH="${PATH}:${B}"
-    export PYTHONPATH=`cat ${B}/PYTHONPATH`
 
     # waf breaks but gets far enough to build what's necessary
 	${S}/waf build ${@oe.utils.parallel_make_argument(d, '-j%d', limit=64)} || true
