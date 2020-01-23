@@ -37,10 +37,6 @@ do_configure_prepend() {
     # -> python3
     2to3 -w -x import `find .waf3-* -name '*.py'`
 
-    # hmmm
-    #sed -i 's:from . import:import:g' `find .waf3-* -name '*.py'`
-    #sed -i 's:from .:from :g' `find .waf3-* -name '*.py'`
-
     ./waf configure --prefix=${prefix} ${WAF_EXTRA_CONF} ${EXTRA_OECONF}
 }
 
