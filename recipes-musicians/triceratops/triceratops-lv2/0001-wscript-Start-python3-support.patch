@@ -1,0 +1,37 @@
+From f1415c629d745c9835356b1bb0af3ff77e8b9d8b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 17 Jan 2020 00:01:09 +0100
+Subject: [PATCH] wscript: Start python3 support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+* Fix (mixed) indention
+* call print the python3 way
+* replace maxint by maxsize
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ wscript | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/wscript b/wscript
+index 07c8a7a..71c38d0 100755
+--- a/wscript
++++ b/wscript
+@@ -29,9 +29,9 @@ def configure(conf):
+     else:
+         conf.env.append_unique('CXXFLAGS', ['-O2','-funroll-loops','-std=c++0x','-g'])
+ 
+-	if sys.maxint >= 9223372036854775807:
+-		print "detected 64 bit architecture, enabling -fPIC"
+-        	conf.env.append_unique('CXXFLAGS', ['-fPIC','-fpermissive','-finline-functions'])
++    if sys.maxsize >= 9223372036854775807:
++        print("detected 64 bit architecture, enabling -fPIC")
++        conf.env.append_unique('CXXFLAGS', ['-fPIC','-fpermissive','-finline-functions'])
+ 
+     if not autowaf.is_child():
+         autowaf.check_pkg(conf, 'lv2', uselib_store='LV2CORE')
+-- 
+2.21.0
+
