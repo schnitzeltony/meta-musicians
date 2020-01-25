@@ -74,6 +74,7 @@ EXTRA_OECONF = " \
 
 PATH_append = ":${B}"
 
+# Asking fails - waf supports --bindir / --libdir
 waf_preconfigure() {
 }
 
