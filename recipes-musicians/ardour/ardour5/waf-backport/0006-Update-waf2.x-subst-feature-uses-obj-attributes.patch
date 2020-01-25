@@ -1,0 +1,114 @@
+From 4fe30364951ea46b93e3c93acbaf2f777343d131 Mon Sep 17 00:00:00 2001
+From: Robin Gareus <robin@gareus.org>
+Date: Sat, 25 Jan 2020 06:20:16 +0100
+Subject: [PATCH 7/8] Update waf2.x "subst" feature uses obj attributes
+
+Upstrem-Status: Backport [1]
+
+[1] https://github.com/Ardour/ardour/commit/4fe30364951ea46b93e3c93acbaf2f777343d131
+---
+ libs/fst/wscript                         | 4 +---
+ libs/plugins/a-comp.lv2/wscript          | 2 +-
+ libs/plugins/a-delay.lv2/wscript         | 2 +-
+ libs/plugins/a-eq.lv2/wscript            | 2 +-
+ libs/plugins/a-fluidsynth.lv2/wscript    | 2 +-
+ libs/plugins/a-reverb.lv2/wscript        | 2 +-
+ libs/plugins/reasonablesynth.lv2/wscript | 2 +-
+ 7 files changed, 7 insertions(+), 9 deletions(-)
+
+diff --git a/libs/fst/wscript b/libs/fst/wscript
+index ca90b7207d..bbac8d6f27 100644
+--- a/libs/fst/wscript
++++ b/libs/fst/wscript
+@@ -52,9 +52,7 @@ def build(bld):
+         obj.target = 'ardour-vst-scanner'
+         obj.chmod  = Utils.O755
+         obj.install_path = os.path.join(bld.env['LIBDIR'])
+-        obj.dict   = {
+-            'VERSION' : bld.env['VERSION'],
+-                }
++        obj.VERSION = bld.env['VERSION']
+ 
+         obj = bld (features = 'c cxx cxxprogram wine')
+         obj.source = (
+diff --git a/libs/plugins/a-comp.lv2/wscript b/libs/plugins/a-comp.lv2/wscript
+index 99d7bb03f1..00099cb564 100644
+--- a/libs/plugins/a-comp.lv2/wscript
++++ b/libs/plugins/a-comp.lv2/wscript
+@@ -34,7 +34,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'c cshlib',
+diff --git a/libs/plugins/a-delay.lv2/wscript b/libs/plugins/a-delay.lv2/wscript
+index 2af05ff137..c28d7cabcf 100644
+--- a/libs/plugins/a-delay.lv2/wscript
++++ b/libs/plugins/a-delay.lv2/wscript
+@@ -33,7 +33,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'c cshlib',
+diff --git a/libs/plugins/a-eq.lv2/wscript b/libs/plugins/a-eq.lv2/wscript
+index e36a804f7f..6f380aa232 100644
+--- a/libs/plugins/a-eq.lv2/wscript
++++ b/libs/plugins/a-eq.lv2/wscript
+@@ -33,7 +33,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'c cshlib',
+diff --git a/libs/plugins/a-fluidsynth.lv2/wscript b/libs/plugins/a-fluidsynth.lv2/wscript
+index 3a093259d6..681ad1f489 100644
+--- a/libs/plugins/a-fluidsynth.lv2/wscript
++++ b/libs/plugins/a-fluidsynth.lv2/wscript
+@@ -32,7 +32,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'cxx cshlib',
+diff --git a/libs/plugins/a-reverb.lv2/wscript b/libs/plugins/a-reverb.lv2/wscript
+index 3eb5ce10bc..a11e2cf7af 100644
+--- a/libs/plugins/a-reverb.lv2/wscript
++++ b/libs/plugins/a-reverb.lv2/wscript
+@@ -32,7 +32,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'c cshlib',
+diff --git a/libs/plugins/reasonablesynth.lv2/wscript b/libs/plugins/reasonablesynth.lv2/wscript
+index 0eb5c55a04..ee54ce8bee 100644
+--- a/libs/plugins/reasonablesynth.lv2/wscript
++++ b/libs/plugins/reasonablesynth.lv2/wscript
+@@ -32,7 +32,7 @@ def build(bld):
+             obj.target = '../../LV2/%s/%s' % (bundle, i)
+             obj.install_path = '${LV2DIR}/%s' % bundle
+             obj.chmod = Utils.O644
+-            obj.dict = {'LIB_EXT': module_ext}
++            obj.LIB_EXT = module_ext
+ 
+         # Build plugin library
+         obj = bld(features     = 'c cshlib',
+-- 
+2.21.0
+

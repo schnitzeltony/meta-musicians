@@ -1,0 +1,31 @@
+From 1d2cfd6f2d736144b8c81179126b5850a718f769 Mon Sep 17 00:00:00 2001
+From: Robin Gareus <robin@gareus.org>
+Date: Tue, 21 Jan 2020 02:23:51 +0100
+Subject: [PATCH 3/8] Change waf/darwin default compiler to prefer gcc (if
+ available)
+
+---
+ wscript | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/wscript b/wscript
+index cb3980ed41..e1beb6a86d 100644
+--- a/wscript
++++ b/wscript
+@@ -11,6 +11,13 @@ from waflib.Tools import winres
+ from waflib.Build import Context
+ from waflib.Build import BuildContext
+ 
++# Fixup OSX 10.5/10.6 builds
++# prefer gcc, g++ 4.x over ancient clang-1.5
++from waflib.Tools.compiler_c import c_compiler
++from waflib.Tools.compiler_cxx import cxx_compiler
++c_compiler['darwin'] = ['gcc', 'clang' ]
++cxx_compiler['darwin'] = ['g++', 'clang++' ]
++
+ class i18n(BuildContext):
+         cmd = 'i18n'
+         fun = 'i18n'
+-- 
+2.21.0
+

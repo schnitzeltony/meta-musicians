@@ -10,12 +10,14 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [cross specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+
 ---
- tools/autowaf.py                                   |    1 +
- wscript                                            |   26 -
+ tools/autowaf.py |  1 +
+ wscript          | 26 --------------------------
+ 2 files changed, 1 insertion(+), 26 deletions(-)
 
 diff --git a/tools/autowaf.py b/tools/autowaf.py
-index f82b80a..626e951 100644
+index 375dc5909..bb7714335 100644
 --- a/tools/autowaf.py
 +++ b/tools/autowaf.py
 @@ -93,6 +93,7 @@ def copyfile (task):
@@ -27,10 +29,10 @@ index f82b80a..626e951 100644
      if sys.platform == "darwin":
          includes = '/opt/local/include'
 diff --git a/wscript b/wscript
-index a7dd5e2..35acc51 100644
+index 9fd84bb2c..d4178cb36 100644
 --- a/wscript
 +++ b/wscript
-@@ -440,31 +440,6 @@ int main() { return 0; }''',
+@@ -476,31 +476,6 @@ int main() { return 0; }''',
  
          compiler_flags.append ("-DARCH_X86")
  
@@ -62,14 +64,11 @@ index a7dd5e2..35acc51 100644
  
          if (conf.env['build_target'] == 'mingw'):
              if (re.search ("(x86_64|AMD64)", cpu) != None):
-@@ -965,7 +940,6 @@ def configure(conf):
-             else:
-                 conf.check_cc(function_name='dlopen', header_name='dlfcn.h', lib='dl', uselib_store='DL')
+@@ -1034,7 +1009,6 @@ def configure(conf):
+                         fragment = "#include <dlfcn.h>\n int main(void) { dlopen (\"\", 0); return 0;}\n",
+                         linkflags='-ldl', uselib_store='DL', execute = False)
          conf.check_cxx(fragment = "#include <boost/version.hpp>\nint main(void) { return (BOOST_VERSION >= 103900 ? 0 : 1); }\n",
 -                  execute = "1",
                    mandatory = True,
                    msg = 'Checking for boost library >= 1.39',
                    okmsg = 'ok',
--- 
-2.9.3
-

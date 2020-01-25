@@ -1,0 +1,37 @@
+From de5b65e6e5c558237fbdcfb4c6a284bc17a6054e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 25 Jan 2020 22:11:56 +0100
+Subject: [PATCH] Find fmt-binding in out-of-tree building
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ gtk2_ardour/wscript | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gtk2_ardour/wscript b/gtk2_ardour/wscript
+index beb5b196b8..ed1d5631dd 100644
+--- a/gtk2_ardour/wscript
++++ b/gtk2_ardour/wscript
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python
+ from waflib.extras import autowaf as autowaf
+-from waflib import Options, TaskGen
++from waflib import Options, TaskGen, Context
+ import waflib.Logs as Logs, waflib.Utils as Utils
+ import os
+ import shutil
+@@ -852,7 +852,7 @@ def build(bld):
+     # NATIVE ARDOUR BINDING FILES
+     # explicitly state the use of perl here so that it works on windows too
+     #
+-    a_rule = 'perl ../tools/fmt-bindings --platform="%s" --winkey="%s" --accelmap ${SRC[0].abspath()} >${TGT}' % (sys.platform, bld.env['WINDOWS_KEY'] )
++    a_rule = 'perl %s/tools/fmt-bindings --platform="%s" --winkey="%s" --accelmap ${SRC[0].abspath()} >${TGT}' % (Context.top_dir, sys.platform, bld.env['WINDOWS_KEY'] )
+     for b in [ 'ardour' ] :
+         obj = bld(
+             target = b + '.keys',
+-- 
+2.21.0
+
