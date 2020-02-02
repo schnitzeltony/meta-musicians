@@ -39,8 +39,6 @@ do_configure_prepend() {
 
     # hmmm
     sed -i 's:^.*raise StopIteration::g' `find .waf3-* -name '*.py'`
-
-    ./waf configure --prefix=${prefix} ${WAF_EXTRA_CONF} ${EXTRA_OECONF}
 }
 
 do_compile()  {
