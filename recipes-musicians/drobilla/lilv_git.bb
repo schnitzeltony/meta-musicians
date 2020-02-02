@@ -3,7 +3,7 @@ HOMEPAGE = "http://drobilla.net/software/lilv"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0c6c8928b7dc2190a0aff762ae5a0f64"
 
-inherit waf python3-dir bash-completion pkgconfig
+inherit waf python3native bash-completion pkgconfig
 
 DEPENDS += "lv2 serd sord sratom"
 
