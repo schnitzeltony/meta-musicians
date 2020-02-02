@@ -2,7 +2,7 @@ SUMMARY = "A sound and music computing system"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343"
 
-inherit cmake gettext python-dir
+inherit cmake gettext python3native
 
 # TBD: fltk is not propely detected
 DEPENDS += " \
@@ -47,11 +47,11 @@ PACKAGECONFIG[pulseaudio] = "-DUSE_PULSEAUDIO=ON,-DUSE_PULSEAUDIO=OFF,pulseaudio
 PACKAGECONFIG[luajit] = "-DLUA_MODULE_INSTALL_DIR=${libdir}/lua/${LUA_VERSION},,luajit"
 
 PACKAGES =+ " \
-    ${PN}-python2 \
+    ${PN}-python \
     ${PN}-luajit \
 "
 
-FILES_${PN}-python2 = "${PYTHON_SITEPACKAGES_DIR}"
-RDEPENDS_${PN}-python2 += "python"
+FILES_${PN}-python = "${PYTHON_SITEPACKAGES_DIR}"
+RDEPENDS_${PN}-python += "python3-core"
 
 FILES_${PN}-luajit = "${libdir}/lua"
