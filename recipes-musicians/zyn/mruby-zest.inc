@@ -8,10 +8,12 @@ SRC_URI = " \
     file://0002-mruby-zest-Align-build-to-our-needs.patch \
     file://0003-src-osc-bridge-Align-build-to-our-needs.patch \
 "
-SRCREV = "014e96473bd08768b2e8a05f39ddb406563084b4"
-PV = "3.0.5"
+SRCREV = "3f8b82e4c56786ef6f4589640fcfed1fe8c9373a"
+PV = "3.0.5+git${SRCPV}"
 PE = "1"
 S = "${WORKDIR}/git"
+
+inherit python3native
 
 DEPENDS += " \
     ruby-native \
@@ -19,3 +21,17 @@ DEPENDS += " \
 "
 
 CLEANBROKEN = "1"
+
+do_configure_prepend() {
+    # common
+    sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
+    sed -i 's:python2:python3:' `grep -rl 'python2' ${S}`
+
+    # pugl
+    # dummy call -> unpacks waf
+    ${S}/deps/pugl/waf configure --prefix=${prefix} ${EXTRA_OECONF} || true
+    # hmmm
+    sed -i 's:^.*raise StopIteration::g' `find ${S}/deps/pugl/.waf3-* -name '*.py'`
+    # -> python3
+    2to3 -w -x import `find ${S}/deps/pugl/.waf3-* -name '*.py'`
+}

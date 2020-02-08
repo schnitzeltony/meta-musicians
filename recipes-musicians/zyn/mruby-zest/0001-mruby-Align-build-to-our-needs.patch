@@ -61,7 +61,7 @@ index f370c0ab..a2ab5ed4 100644
    end
  
    conf.linker do |linker|
--    linker.command = ENV['LD'] || 'gcc'
+-    linker.command = ENV['LD'] || ENV['CXX'] || ENV['CC'] || 'gcc'
 +    linker.command = ENV['CC']
      linker.flags = [ENV['LDFLAGS'] || %w()]
      linker.libraries = %w(m)

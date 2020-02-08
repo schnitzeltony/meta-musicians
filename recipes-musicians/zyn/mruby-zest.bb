@@ -9,6 +9,7 @@ SRC_URI += " \
     file://0006-mruby-regexp-pcre-link-against-libpcre.patch \
     file://0007-Load-schema-from-usr-share-zyn-fusion-schema.patch \
     file://0008-Do-not-require-dummy-MainWindow.qml.patch \
+    file://0009-Avoid-glGenerateMipmap-for-GLES2-either.patch \
 "
 
 DEPENDS += " \
@@ -24,9 +25,9 @@ DEPENDS += " \
 # autotools (don't forget git submodules) does not allow a cleaner approach.
 # But we are lucky: there is only one autoconf target (yet). If that happens
 # we need to try running autotoools multiple times in a dynamically
-# linked forlder. Let's hope that will not be necessary...
+# linked folder. Let's hope that will not be necessary...
 
-AUTOTOOLS_SCRIPT_PATH = "${S}/mruby/build/mrbgems/mruby-file-stat"
+AUTOTOOLS_SCRIPT_PATH = "${S}/deps/mruby-file-stat"
 
 do_configure_prepend() {
     # taken from https://github.com/zynaddsubfx/zyn-fusion-build/blob/master/build-rpi3.rb
@@ -40,7 +41,11 @@ do_configure_prepend() {
     MRUBY_CONFIG=../build_config.rb ruby minirake --pull-gems || true
 
     # ensure config.h is created at the right place...
-    cd build/mrbgems/mruby-file-stat/src
+    cd build/host/mrbgems/mruby-file-stat/src
+}
+
+do_configure_append() {
+    cp -f ${S}/mruby/build/host/mrbgems/mruby-file-stat/src/config.h ${S}/deps/mruby-file-stat/src/
 }
 
 do_install() {
@@ -54,7 +59,6 @@ do_install() {
 
     install -d ${D}/opt/zyn-fusion
     cp -r ${B}/package/{libzest.so,font} ${D}/opt/zyn-fusion/
-
 }
 
 FILES_${PN} += " \

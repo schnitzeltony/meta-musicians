@@ -1,0 +1,31 @@
+From 6bf18256d7ee9bd67266feac0836204af370afc5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 3 Feb 2020 23:46:25 +0100
+Subject: [PATCH] Avoid glGenerateMipmap for GLES2 either
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ deps/nanovg/src/nanovg_gl.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/deps/nanovg/src/nanovg_gl.h b/deps/nanovg/src/nanovg_gl.h
+index 4ba87f3..66b5306 100644
+--- a/deps/nanovg/src/nanovg_gl.h
++++ b/deps/nanovg/src/nanovg_gl.h
+@@ -763,7 +763,7 @@ static int glnvg__renderCreateTexture(void* uptr, int type, int w, int h, int im
+ #endif
+ 
+ 	// The new way to build mipmaps on GLES and GL3
+-#if !defined(NANOVG_GL2)
++#if !defined(NANOVG_GL2) && !defined(MRUBY_NANOVG_GLES2)
+ 	if (imageFlags & NVG_IMAGE_GENERATE_MIPMAPS) {
+ 		glGenerateMipmap(GL_TEXTURE_2D);
+ 	}
+-- 
+2.21.0
+

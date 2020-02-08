@@ -18,7 +18,7 @@ index 6211152..c82cb86 100644
 --- a/deps/mruby-regexp-pcre/mrbgem.rake
 +++ b/deps/mruby-regexp-pcre/mrbgem.rake
 @@ -3,7 +3,7 @@ MRuby::Gem::Specification.new('mruby-regexp-pcre') do |spec|
-   spec.authors = 'Internet Initiative Japan Inc.'
+   spec.add_dependency 'mruby-string-ext', :core => 'mruby-string-ext'
  
    ## For dynamic link
 -  #spec.linker.libraries << ['pcre']
