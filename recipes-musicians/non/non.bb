@@ -27,7 +27,12 @@ NON_SIMD ?= "--disable-sse"
 
 EXTRA_OECONF = " \
     ${NON_SIMD} \
+    --bindir=${bindir} \
+    --libdir=${libdir} \
 "
+
+python waf_preconfigure() {
+}
 
 do_configure_prepend() {
     sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
