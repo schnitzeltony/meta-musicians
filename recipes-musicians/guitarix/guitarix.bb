@@ -31,6 +31,8 @@ PACKAGECONFIG[bluez] = ",--no-bluez,bluez5"
 
 EXTRA_OECONF = " \
     --disable-sse \
+    --bindir=${bindir} \
+    --libdir=${libdir} \
     --ldflags="${LDFLAGS}" \
     --no-ldconfig \
     --no-desktop-update \
@@ -38,6 +40,9 @@ EXTRA_OECONF = " \
     --lib-dev \
     --install-roboto-font \
 "
+
+python waf_preconfigure() {
+}
 
 do_configure_prepend() {
     sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
