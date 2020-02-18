@@ -36,7 +36,7 @@ DEPENDS += " \
 SRC_URI = " \
     git://github.com/hydrogen-music/hydrogen.git \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
-    file://0002-Fix-man-installation-path.patch \
+    file://0002-Fixing-bugs-in-the-JACK-audio-driver.patch \
     \
     http://hydrogen-music.org/feeds/drumkit_list.php;name=drumkit-list \
     \
@@ -87,7 +87,7 @@ SRC_URI = " \
     https://freewavesamples.com/files/YamahaRX15Kit.h2drumkit;downloadfilename=YamahaRX15Kit.tar.gz;name=YamahaRX15Kit;subdir=drumkits \
     https://freewavesamples.com/files/YamahaTG-55Kit.h2drumkit;downloadfilename=YamahaTG-55Kit.tar.gz;name=YamahaTG-55Kit;subdir=drumkits \
 "
-SRCREV = "538eaeb9f4e9be2febf02e36a08e3e9fca2ae317"
+SRCREV = "e317548515bfc64b973f873b47fa6c1f8df73297"
 PV ="1.0.0~beta1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
@@ -231,7 +231,7 @@ SRC_URI[YamahaTG-55Kit.md5sum] = "cf95db46c05287aaa1a18dff0b0ce335"
 SRC_URI[YamahaTG-55Kit.sha256sum] = "8dba9f8fa7027606765b3b9bd3d11470e39919683a8676b1598d96c2f7df1462"
 
 
-inherit cmake_qt5 manpages mime-xdg
+inherit cmake_qt5 manpages mime-xdg gtk-icon-cache
 
 EXTRA_OECMAKE = " \
     -DWANT_DEBUG=OFF \
@@ -257,6 +257,7 @@ FILES_SOLIBSDEV = ""
 
 FILES_${PN} += " \
     ${datadir}/appdata \
+    ${datadir}/icons \
     ${libdir}/libhydrogen-core* \
 "
 
