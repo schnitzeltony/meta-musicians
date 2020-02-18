@@ -23,8 +23,8 @@ SRC_URI = " \
     gitsm://github.com/kushview/Element.git \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "ad065721569ea8174811579fd700b84f802e3ff2"
-PV = "0.42.0"
+SRCREV = "95d3b1f8dc86a56888814d979823117aeca43143"
+PV = "0.43.1"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
