@@ -86,6 +86,7 @@ RDEPENDS_${PN} += " \
     lrdf \
     lsp-plugins-standalone lsp-plugins-ladspa lsp-plugins-lv2 lsp-plugins-vst \
     mixxx \
+    muse \
     nekobee \
     ninjas2-standalone ninjas2-lv2 ninjas2-vst \
     noise-repellent \

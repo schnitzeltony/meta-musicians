@@ -1,0 +1,31 @@
+From e65afafddba1872c9983e891df7f8a7276a638aa Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 26 Feb 2020 21:57:06 +0100
+Subject: [PATCH] Do not try to find aeffectx.h - it is not found for unknown
+ reasons
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [OE-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ muse3/CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/muse3/CMakeLists.txt b/muse3/CMakeLists.txt
+index 2746a50f..ebf97d10 100644
+--- a/muse3/CMakeLists.txt
++++ b/muse3/CMakeLists.txt
+@@ -451,7 +451,6 @@ SET (AEFFECT_H_FOUND FALSE)
+ SET (VST_NATIVE_SUPPORT FALSE)
+ 
+ if (ENABLE_VST_NATIVE)
+-      find_file(VST_HEADER_CHECK aeffectx.h PATHS ${VST_HEADER_PATH} NO_DEFAULT_PATH)
+       if (VST_HEADER_CHECK STREQUAL "VST_HEADER_CHECK-NOTFOUND")
+         message("Native VST support disabled")
+       else (VST_HEADER_CHECK STREQUAL "VST_HEADER_CHECK-NOTFOUND")
+-- 
+2.21.0
+
