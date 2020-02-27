@@ -36,7 +36,6 @@ DEPENDS += " \
 SRC_URI = " \
     git://github.com/hydrogen-music/hydrogen.git \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
-    file://0002-Fixing-bugs-in-the-JACK-audio-driver.patch \
     \
     http://hydrogen-music.org/feeds/drumkit_list.php;name=drumkit-list \
     \
