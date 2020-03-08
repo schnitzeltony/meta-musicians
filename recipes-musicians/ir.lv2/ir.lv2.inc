@@ -24,9 +24,15 @@ IR_LV2_VARIANT ?= ""
 IR_LV2_DOAP_EXTENSION ?= ""
 
 do_compile_prepend() {
-    sed -i 's|${LV2_NAME}|${LV2_NAME}_${IR_LV2_VARIANT}|g' `grep -rl '${LV2_NAME}'`
-    sed -i 's|ir.so|ir_${IR_LV2_VARIANT}.so|g' `grep -rl ir.so`
-    sed -i 's|ir_gui.so|ir_gui_${IR_LV2_VARIANT}.so|g' `grep -rl ir_gui.so`
+    for file in `grep -rl '${LV2_NAME}'`; do
+        sed -i 's|${LV2_NAME}|${LV2_NAME}_${IR_LV2_VARIANT}|g' $file
+    done
+    for file in `grep -rl ir.so`; do
+        sed -i 's|ir.so|ir_${IR_LV2_VARIANT}.so|g' $file
+    done
+    for file in `grep -rl ir_gui.so`; do
+        sed -i 's|ir_gui.so|ir_gui_${IR_LV2_VARIANT}.so|g' $file
+    done
 }
 
 do_install() {
