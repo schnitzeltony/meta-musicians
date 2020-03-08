@@ -24,8 +24,12 @@ CLEANBROKEN = "1"
 
 do_configure_prepend() {
     # common
-    sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
-    sed -i 's:python2:python3:' `grep -rl 'python2' ${S}`
+    for pyfile in `grep -rl '/usr/bin/env python$' ${S}`; do
+        sed -i 's:/usr/bin/env python:/usr/bin/env python3:' $pyfile
+    done
+    for pyfile in `grep -rl 'python2' ${S}`; do
+        sed -i 's:python2:python3:' $pyfile
+    done
 
     # pugl
     # dummy call -> unpacks waf
