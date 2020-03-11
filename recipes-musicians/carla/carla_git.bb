@@ -17,7 +17,7 @@ PV = "2.0.0+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-inherit qmake5_base pkgconfig qemu-ext features_check mime mime-xdg gtk-icon-cache
+inherit qmake5_base pkgconfig qemu-ext-musicians features_check mime mime-xdg gtk-icon-cache
 
 B = "${S}"
 

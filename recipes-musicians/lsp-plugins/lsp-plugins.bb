@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit features_check pack_audio_plugins qemu-ext
+inherit features_check pack_audio_plugins qemu-ext-musicians
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

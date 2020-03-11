@@ -2,7 +2,7 @@ HOMEPAGE = "http://zynaddsubfx.sourceforge.net"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=21fa88a5e50a1c608d22612c1fbe1971"
 
-inherit cmake qemu-ext pkgconfig gtk-icon-cache features_check pack_audio_plugins
+inherit cmake qemu-ext-musicians pkgconfig gtk-icon-cache features_check pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

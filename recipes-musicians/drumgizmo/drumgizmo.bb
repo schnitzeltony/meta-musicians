@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit autotools-brokensep pkgconfig features_check gtk-icon-cache qemu-ext
+inherit autotools-brokensep pkgconfig features_check gtk-icon-cache qemu-ext-musicians
 
 REQUIRED_DISTRO_FEATURE = "x11"
 

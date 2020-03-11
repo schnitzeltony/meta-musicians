@@ -17,7 +17,7 @@ SRCREV = "e5c08dc2483c444d18d24a37c395274002320f5c"
 S = "${WORKDIR}/git"
 PV = "0.90.1"
 
-inherit autotools-brokensep pkgconfig gtk-icon-cache bash-completion qemu-ext
+inherit autotools-brokensep pkgconfig gtk-icon-cache bash-completion qemu-ext-musicians
 
 DEPENDS += " \
     gtk+ \

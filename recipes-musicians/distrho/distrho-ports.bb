@@ -47,13 +47,6 @@ DEPENDS += " \
 
 LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
 
-LV2_PLUGIN_BLACKLIST_QEMU = " \
-    drowaudio-tremolo.so \
-    drumsynth.so \
-    eqinox.so \
-    HiReSam.so \
-"
-
 do_ttl_sed() {
     # keep unmodified scripts for distrho-ports-extra
     cp -r ${S}/scripts ${WORKDIR}
