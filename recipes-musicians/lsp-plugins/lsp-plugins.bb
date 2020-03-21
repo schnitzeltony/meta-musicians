@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit features_check pack_audio_plugins qemu-ext-musicians
+inherit features_check pack_audio_plugins qemu-ext-musicians gtk-icon-cache
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -69,7 +69,11 @@ do_install() {
     ${MAKE} ${EXTRA_OEMAKE} DESTDIR=${D} install
 }
 
-FILES_${PN} += "${libdir}/lsp-plugins-jack-core-${PV}.so"
+FILES_${PN} += " \
+    ${datadir}/icons \
+    ${datadir}/desktop-directories \
+    ${libdir}/lsp-plugins-jack-core-${PV}.so \
+"
 
 PACKAGES =+ "${PN}-standalone"
 FILES_${PN}-standalone = "${bindir}"

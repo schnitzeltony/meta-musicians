@@ -18,8 +18,8 @@ index a246ebda..17f390eb 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -1,4 +1,4 @@
--SUBDIRS                 = core metadata utils rendering 
-+SUBDIRS                 = core dsp metadata utils rendering
+-SUBDIRS                 = core metadata utils 
++SUBDIRS                 = core dsp metadata utils
  MODULES                 = $(SUBDIRS)
  CONTAINER_DEPS          = $(OBJ_METADATA) $(OBJ_CORE) $(UTL_FILES)
  UTL_DEPS                = $(OBJ_CORE) $(OBJ_DSP) $(OBJ_METADATA)
