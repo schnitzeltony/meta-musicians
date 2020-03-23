@@ -5,9 +5,7 @@ HOMEPAGE = "http://premake.github.io/"
 
 DEPENDS = "lua-native"
 
-SRC_URI = " \
-    http://downloads.sourceforge.net/project/premake/Premake/${PV}/premake-src-${PV}.zip \
-"
+SRC_URI = "http://downloads.sourceforge.net/project/premake/Premake/${PV}/premake-src-${PV}.zip"
 SRC_URI[md5sum] = "8d30dc5bbc52aad81abb1509c1dd7d8f"
 SRC_URI[sha256sum] = "b59841a519e75d5b6566848a2c5be2f91455bf0cc6ae4d688fcbd4c40db934d5"
 S = "${WORKDIR}/Premake-${PV}"

@@ -3,8 +3,6 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=6f3a39cc652afb51d2f2bc39b67e308f"
 HOMEPAGE = "http://premake.github.io/"
 
-#    https://downloads.sourceforge.net/project/premake/Premake/4.3/premake-4.3-src.zip
-
 SRC_URI = " \
     http://downloads.sourceforge.net/project/premake/Premake/${PV}/premake-${PV}-src.zip \
     file://0001-Premake4.make-keep-more-of-our-build-defaults.patch \
