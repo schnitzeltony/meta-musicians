@@ -1,5 +1,5 @@
 SUMMARY = "A simple build configuration and project generation tool using lua"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=6f3a39cc652afb51d2f2bc39b67e308f"
 HOMEPAGE = "http://premake.github.io/"
 
