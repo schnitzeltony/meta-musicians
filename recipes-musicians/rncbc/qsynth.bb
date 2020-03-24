@@ -19,9 +19,9 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
 "
-SRC_URI[md5sum] = "299c545720192dd03d322ba602f40767"
-SRC_URI[sha256sum] = "94d57e0cca0523b3450ab592624804cd4c3aaaaab6f8e9f0da20a880ac72508a"
-PV = "0.6.1"
+SRC_URI[md5sum] = "9a19ef8b22472376c23568457ddca150"
+SRC_URI[sha256sum] = "9b5af9747875ff49eb40ab7860a4bbfc1f49cccb783b7cd4d8f90c9971dee632"
+PV = "0.6.2"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
