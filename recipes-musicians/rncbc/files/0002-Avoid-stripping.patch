@@ -12,35 +12,34 @@ Upstream-Status: Inappropriate [Configuration]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- src/src_jack.pro | 2 --
+ src/src_jack.pro | 1 -
  src/src_lv2.pro  | 1 -
- 2 files changed, 3 deletions(-)
+ 2 files changed, 2 deletions(-)
 
 diff --git a/src/src_jack.pro b/src/src_jack.pro
-index 05ed384..2bdabd6 100644
+index c5f0a02..879d39d 100644
 --- a/src/src_jack.pro
 +++ b/src/src_jack.pro
-@@ -78,8 +78,6 @@ unix {
- 
+@@ -79,7 +79,6 @@ unix {
  	mimetypes_scalable.path = $${DATADIR}/icons/hicolor/scalable/mimetypes
  	mimetypes_scalable.files += mimetypes/application-x-$${NAME}-preset.svg
--
--	CONFIG(release, debug|release):QMAKE_POST_LINK += strip -v $(TARGET)
+ 
+-	CONFIG(release, debug|release):QMAKE_POST_LINK += strip $(TARGET)
  }
  
  QT += widgets xml
 diff --git a/src/src_lv2.pro b/src/src_lv2.pro
-index a8d87e7..ccc95e4 100644
+index fcf8c1c..ccc95e4 100644
 --- a/src/src_lv2.pro
 +++ b/src/src_lv2.pro
 @@ -66,7 +66,6 @@ unix {
  		$${TARGET_LV2UI}.ttl \
  		$${NAME}.lv2/manifest.ttl
  
--	CONFIG(release, debug|release)::QMAKE_POST_LINK += strip -v $(TARGET);
+-	CONFIG(release, debug|release)::QMAKE_POST_LINK += strip $(TARGET);
  	QMAKE_POST_LINK += $${QMAKE_COPY} -vp $(TARGET) $${TARGET_LV2}.so
  
  	QMAKE_CLEAN += $${TARGET_LV2}.so
 -- 
-2.21.0
+2.21.1
 
