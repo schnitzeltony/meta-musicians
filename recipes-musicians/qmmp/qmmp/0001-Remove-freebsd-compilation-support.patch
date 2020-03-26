@@ -12,8 +12,9 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 5976e69..0711b11 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -1,9 +1,5 @@
+@@ -1,10 +1,6 @@
  cmake_minimum_required(VERSION 2.8.11 FATAL_ERROR)
+ project(qmmp)
  
 -#freebsd support
 -include_directories(SYSTEM /usr/local/include)
