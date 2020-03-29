@@ -27,7 +27,7 @@ index a582410f..0dbfc4f5 100644
 -         int main() { return !suil_ui_supported(LV2_UI__Qt5UI, LV2_UI__GtkUI); }
 -      ], ac_cv_libsuil_gtk2_in_qt5="yes", ac_cv_libsuil_gtk2_in_qt5="no")
 -   ])
-+   ac_cv_suil_gtk2_in_qt5="yes"
++   ac_cv_libsuil_gtk2_in_qt5="yes"
     if test "x$ac_cv_libsuil_gtk2_in_qt5" = "xyes"; then
        AC_DEFINE(CONFIG_LIBSUIL_GTK2_IN_QT5, 1, [Define if libsuil_gtk2_in_qt5 is available.])
     #  ac_lv2_ui_gtk2="no"
@@ -46,7 +46,7 @@ index a582410f..0dbfc4f5 100644
 -         int main() { return !suil_ui_supported(LV2_UI__Qt5UI, LV2_UI__X11UI); }
 -      ], ac_cv_libsuil_x11_in_qt5="yes", ac_cv_libsuil_x11_in_qt5="no")
 -   ])
-+   ac_cv_suil_x11_in_qt5="yes"
++   ac_cv_libsuil_x11_in_qt5="yes"
     if test "x$ac_cv_libsuil_x11_in_qt5" = "xyes"; then
        AC_DEFINE(CONFIG_LIBSUIL_X11_IN_QT5, 1, [Define if libsuil_x11_in_qt5 is available.])
     #  ac_lv2_ui_x11="no"
