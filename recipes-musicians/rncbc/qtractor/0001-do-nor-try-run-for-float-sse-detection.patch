@@ -8,30 +8,29 @@ Content-Transfer-Encoding: 8bit
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
 ---
- configure.ac | 19 +++----------------
- 1 file changed, 3 insertions(+), 16 deletions(-)
+ configure.ac | 18 +++---------------
+ 1 file changed, 3 insertions(+), 15 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index 99b3e5a..35416ff 100644
+index e33d2cb2..a582410f 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -564,14 +564,7 @@ fi
+@@ -606,13 +606,7 @@ fi
  AC_SUBST(ac_lrelease)
  
  
 -# Check for IEEE 32bit float optimizations.
+-AC_CHECK_SIZEOF(float)
 -AC_CACHE_CHECK([for IEEE 32bit float optimizations],
 -   ac_cv_float32, [
--   AC_TRY_RUN([
--      int main() { return (sizeof(float) == 4 ? 0 : 1); }
--   ], ac_cv_float32="yes", ac_cv_float32="no")
+-   AS_IF([test "$ac_cv_sizeof_float" = 4], [ac_cv_float32="yes"], [ac_cv_float32="no"])
 -])
 -ac_float32=$ac_cv_float32
 +ac_float32=yes
  if test "x$ac_float32" = "xyes"; then
     AC_DEFINE(CONFIG_FLOAT32, 1, [Define if IEEE 32bit float optimizations are enabled.])
  fi
-@@ -585,19 +578,13 @@ if test "x$ac_sse" = "xyes"; then
+@@ -626,19 +620,13 @@ if test "x$ac_sse" = "xyes"; then
     CPPFLAGS="$ac_sse_cflags $CPPFLAGS"
     AC_CACHE_CHECK([for SSE optimization],
        ac_cv_sse, [
@@ -54,5 +53,5 @@ index 99b3e5a..35416ff 100644
        ], ac_cv_sse="yes", ac_cv_sse="no")
     ])
 -- 
-2.5.5
+2.21.1
 

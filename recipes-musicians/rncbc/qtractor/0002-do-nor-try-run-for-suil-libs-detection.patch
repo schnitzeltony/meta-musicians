@@ -9,15 +9,15 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 2 insertions(+), 22 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index b3de5acd..09d2ef06 100644
+index a582410f..0dbfc4f5 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1229,17 +1229,7 @@ if test "x$ac_lv2_ui_show" = "xyes"; then
+@@ -1339,17 +1339,7 @@ if test "x$ac_lv2_ui_show" = "xyes"; then
  fi
  
- if test "x$ac_suil" = "xyes"; then
+ if test "x$ac_libsuil" = "xyes"; then
 -   AC_CACHE_CHECK([for LV2 UI GTK2 support (libsuil_gtk2_in_qt5)],
--      ac_cv_suil_gtk2_in_qt5, [
+-      ac_cv_libsuil_gtk2_in_qt5, [
 -      AC_TRY_RUN([
 -         #include <suil/suil.h>
 -         #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
@@ -25,18 +25,18 @@ index b3de5acd..09d2ef06 100644
 -         #define LV2_UI__Qt5UI LV2_UI_PREFIX "Qt5UI"
 -         #endif
 -         int main() { return !suil_ui_supported(LV2_UI__Qt5UI, LV2_UI__GtkUI); }
--      ], ac_cv_suil_gtk2_in_qt5="yes", ac_cv_suil_gtk2_in_qt5="no")
+-      ], ac_cv_libsuil_gtk2_in_qt5="yes", ac_cv_libsuil_gtk2_in_qt5="no")
 -   ])
 +   ac_cv_suil_gtk2_in_qt5="yes"
-    if test "x$ac_cv_suil_gtk2_in_qt5" = "xyes"; then
+    if test "x$ac_cv_libsuil_gtk2_in_qt5" = "xyes"; then
        AC_DEFINE(CONFIG_LIBSUIL_GTK2_IN_QT5, 1, [Define if libsuil_gtk2_in_qt5 is available.])
     #  ac_lv2_ui_gtk2="no"
-@@ -1257,17 +1247,7 @@ else
+@@ -1367,17 +1357,7 @@ else
  fi
  
- if test "x$ac_suil" = "xyes"; then
+ if test "x$ac_libsuil" = "xyes"; then
 -   AC_CACHE_CHECK([for LV2 UI X11 support (libsuil_x11_in_qt5)],
--      ac_cv_suil_x11_in_qt5, [
+-      ac_cv_libsuil_x11_in_qt5, [
 -      AC_TRY_RUN([
 -         #include <suil/suil.h>
 -         #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
@@ -44,12 +44,12 @@ index b3de5acd..09d2ef06 100644
 -         #define LV2_UI__Qt5UI LV2_UI_PREFIX "Qt5UI"
 -         #endif
 -         int main() { return !suil_ui_supported(LV2_UI__Qt5UI, LV2_UI__X11UI); }
--      ], ac_cv_suil_x11_in_qt5="yes", ac_cv_suil_x11_in_qt5="no")
+-      ], ac_cv_libsuil_x11_in_qt5="yes", ac_cv_libsuil_x11_in_qt5="no")
 -   ])
 +   ac_cv_suil_x11_in_qt5="yes"
-    if test "x$ac_cv_suil_x11_in_qt5" = "xyes"; then
+    if test "x$ac_cv_libsuil_x11_in_qt5" = "xyes"; then
        AC_DEFINE(CONFIG_LIBSUIL_X11_IN_QT5, 1, [Define if libsuil_x11_in_qt5 is available.])
     #  ac_lv2_ui_x11="no"
 -- 
-2.20.1
+2.21.1
 
