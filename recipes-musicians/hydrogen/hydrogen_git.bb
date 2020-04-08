@@ -86,8 +86,8 @@ SRC_URI = " \
     https://freewavesamples.com/files/YamahaRX15Kit.h2drumkit;downloadfilename=YamahaRX15Kit.tar.gz;name=YamahaRX15Kit;subdir=drumkits \
     https://freewavesamples.com/files/YamahaTG-55Kit.h2drumkit;downloadfilename=YamahaTG-55Kit.tar.gz;name=YamahaTG-55Kit;subdir=drumkits \
 "
-SRCREV = "9dfab9acc576e6bbe99e6f519d948d16094a6509"
-PV ="1.0.0~beta1+git${SRCPV}"
+SRCREV = "0ad7234163cbf3896637b65afa5c92e350c025a3"
+PV ="1.0.0~beta2+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
