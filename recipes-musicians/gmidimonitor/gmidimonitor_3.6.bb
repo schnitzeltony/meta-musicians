@@ -8,10 +8,10 @@ LIC_FILES_CHKSUM = " \
 inherit meson gtk-icon-cache
 
 DEPENDS += " \
-    gtk+ \
+    gtk+3 \
     jack \
 "
 
 SRC_URI = "git://github.com/schnitzeltony/gmidimonitor.git"
-SRCREV = "d09b60906b31fcb7d5cd708e2e3745f1a585d630"
+SRCREV = "af366f49970ed91a414e5b832a13436417be4bdb"
 S = "${WORKDIR}/git"
