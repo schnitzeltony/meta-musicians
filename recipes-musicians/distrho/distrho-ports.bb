@@ -10,7 +10,6 @@ SRC_URI = " \
     git://github.com/DISTRHO/DISTRHO-Ports.git \
     file://0001-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
     file://0002-Further-musl-fix-by-removal-of-unused-function.patch \
-    file://0003-Use-build-system-flags-also-for-lv2_ttl_generator.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
@@ -18,7 +17,7 @@ SRC_URI = " \
     http://linuxsynths.com/VexPatchesDemos/VexPatches02.tar.gz;name=linuxsynths-vex-patches2;subdir=linuxsynths-vex-patches \
 "
 
-SRCREV = "00ad25fd574c1724bbc974308aa5e88306969009"
+SRCREV = "65c7c68a79e532d01695466f5b94c0e1cc4ae940"
 S = "${WORKDIR}/git"
 PV = "2018-04-16+git${SRCPV}"
 

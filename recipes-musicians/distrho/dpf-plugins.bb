@@ -5,9 +5,9 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = "git://github.com/DISTRHO/DPF-Plugins.git"
-SRCREV = "0530b4309bf5f451c3ee00503acc9c997d30353c"
+SRCREV = "86084a934adb26f529038cbcf901fd7a09b95897"
 S = "${WORKDIR}/git"
-PV = "v1.3"
+PV = "v1.3+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
