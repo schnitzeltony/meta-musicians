@@ -4,7 +4,7 @@ OE layer for digital audio workstations and plugins
 
 Layer dependencies:
 ----------------------
-see [layer.conf](conf/layer.conf) for dependencies and https://layers.openembedded.org/layerindex/branch/master/layers/ where to find layers
+see [layer.conf](conf/layer.conf) for dependencies and [Layer-index](https://layers.openembedded.org/layerindex/branch/master/layers/) where to find layers
 
 
 Contributing
