@@ -45,7 +45,9 @@ python waf_preconfigure() {
 }
 
 do_configure_prepend() {
-    sed -i 's:/usr/bin/env python:/usr/bin/env python3:' `grep -rl '/usr/bin/env python$' ${S}`
+    for pfile in `grep -rl '/usr/bin/env python$' ${S}`; do
+        sed -i 's:/usr/bin/env python:/usr/bin/env python3:' $pfile
+    done
 }
 
 do_install_append() {
