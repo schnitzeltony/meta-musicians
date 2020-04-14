@@ -1,0 +1,30 @@
+From 9d2b855ee283487134aff459e1f885f9838fd375 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Tue, 14 Apr 2020 23:59:35 +0200
+Subject: [PATCH] Remove tests from builds - they cause linker errors
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstrem-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ meson.build | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 24d9351..6b9e62e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -169,7 +169,6 @@ add_project_arguments (
+ subdir('pugl')
+ subdir('inc')
+ subdir('src')
+-subdir('tests')
+ 
+ # this is so that it can be used as a meson
+ # subproject
+-- 
+2.21.1
+
