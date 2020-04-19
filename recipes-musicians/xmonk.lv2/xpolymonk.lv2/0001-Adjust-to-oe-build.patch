@@ -1,0 +1,73 @@
+From cac14ae87d8c72bf9016435cb98a2952f6b28bed Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 19 Apr 2020 20:42:37 +0200
+Subject: [PATCH] Adjust to oe-build
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [OE-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ XPolyMonk/Makefile | 37 ++++---------------------------------
+ 1 file changed, 4 insertions(+), 33 deletions(-)
+
+diff --git a/XPolyMonk/Makefile b/XPolyMonk/Makefile
+index 8422a63..0ea1a09 100644
+--- a/XPolyMonk/Makefile
++++ b/XPolyMonk/Makefile
+@@ -1,36 +1,7 @@
+ 	
+-	UNAME := $(shell uname)
+ 	STRIP ?= strip
+ 	# check if user is root
+-	user = $(shell whoami)
+-	ifeq ($(user),root)
+ 	INSTALL_DIR ?= /usr/lib/lv2
+-	else 
+-	INSTALL_DIR ?= ~/.lv2
+-	endif
+-
+-	# check CPU and supported optimization flags
+-	ifeq ($(UNAME), Linux)
+-		ifneq ($(shell cat /proc/cpuinfo | grep sse3 ) , )
+-			SSE_CFLAGS = -msse3 -mfpmath=sse
+-		else ifneq ($(shell cat /proc/cpuinfo | grep sse2 ) , )
+-			SSE_CFLAGS = -msse2 -mfpmath=sse
+-		else ifneq ($(shell cat /proc/cpuinfo | grep sse ) , )
+-			SSE_CFLAGS = -msse -mfpmath=sse
+-			else ifneq ($(shell cat /proc/cpuinfo | grep ARM ) , )
+-			ifneq ($(shell cat /proc/cpuinfo | grep ARMv7 ) , )
+-				ifneq ($(shell cat /proc/cpuinfo | grep vfpd32 ) , )
+-					SSE_CFLAGS = -march=armv7-a -mfpu=vfpv3 
+-				else ifneq ($(shell cat /proc/cpuinfo | grep vfpv3 ) , )
+-					SSE_CFLAGS = -march=armv7-a -mfpu=vfpv3
+-				endif
+-			else
+-				ARMCPU = "YES"
+-			endif
+-		else
+-			SSE_CFLAGS =
+-		endif
+-	endif
+ 
+ 	# set bundle name
+ 	NAME = XPolyMonk
+@@ -43,10 +14,10 @@
+ 	# set compile flags
+ 	CXXFLAGS += -D_FORTIFY_SOURCE=2 -I. -I./dsp -I./plugin -fPIC -DPIC -O2 -Wall -fstack-protector -funroll-loops \
+ 	-ffast-math -fomit-frame-pointer -fstrength-reduce -fdata-sections \
+-	-Wl,--gc-sections -Wl,-z,relro,-z,now -Wl,--exclude-libs,ALL -Wl,-z,defs $(SSE_CFLAGS)
+-	LDFLAGS += -I. -shared -lm -Wl,-z,noexecstack -fvisibility=hidden
++	-Wl,--gc-sections -Wl,-z,relro,-z,now -Wl,--exclude-libs,ALL -Wl,-z,defs
+ 	GUI_LDFLAGS += -I./gui -I$(HEADER_DIR) -Wl,-z,noexecstack -fvisibility=hidden \
+-	-L. $(LIB_DIR)libxputty.a -shared `pkg-config --cflags --libs cairo x11` -lm 
++	$(LDFLAGS) -L. $(LIB_DIR)libxputty.a -shared `pkg-config --cflags --libs cairo x11` -lm
++	LDFLAGS += -I. -shared -lm -Wl,-z,noexecstack -fvisibility=hidden
+ 	# invoke build files
+ 	OBJECTS = plugin/$(NAME).cpp 
+ 	GUI_OBJECTS = gui/$(NAME)_x11ui.c
+-- 
+2.21.1
+
