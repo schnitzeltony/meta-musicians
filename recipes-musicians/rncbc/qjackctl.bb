@@ -15,14 +15,18 @@ DEPENDS += " \
 # autotools-brokensep must be after qmake5_base!
 inherit qmake5_base autotools-brokensep gtk-icon-cache qt5-translation
 
+#    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz 
 SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
+    git://github.com/rncbc/qjackctl.git \
     file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://QjackCtl.conf \
 "
-SRC_URI[md5sum] = "4b58417b824fe807783b4dbdec9bc760"
-SRC_URI[sha256sum] = "1ec77d0e8edac1b4d60a32a08d2f4329f90571801920cb48c6147e0eae6f50e6"
-PV = "0.6.2"
+SRCREV = "c88e08a7d62be39ea541d26c8c7e1e7b82289cd3"
+S = "${WORKDIR}/git"
+
+#SRC_URI[md5sum] = "4b58417b824fe807783b4dbdec9bc760"
+#SRC_URI[sha256sum] = "1ec77d0e8edac1b4d60a32a08d2f4329f90571801920cb48c6147e0eae6f50e6"
+PV = "0.6.2+git${SRCPV}"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
