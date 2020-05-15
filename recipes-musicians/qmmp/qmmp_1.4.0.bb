@@ -34,12 +34,12 @@ SRC_URI = " \
     file://0001-Remove-freebsd-compilation-support.patch \
     file://0002-Hardcode-projectM-configuration-file-location.patch \
 "
-SRC_URI[md5sum] = "23f2d2ea40e0c909030f78da3cefe777"
-SRC_URI[sha256sum] = "e7a996e11b9af2e3bc5634304c5a7144a1d56767177a7cb79a6e50b7ce45b38e"
+SRC_URI[md5sum] = "2add4ac23e4b850b0d1958c4d242ff01"
+SRC_URI[sha256sum] = "a8b9cda1fe137f9b50acc54bc02ac1f3ba89051f828f40f5dc9a9056cab4308f"
 
 inherit cmake_qt5 mime-xdg
 
 FILES_${PN} += " \
     ${datadir} \
-    ${libdir}/qmmp-1.3 \
+    ${libdir}/qmmp-1.4 \
 "
