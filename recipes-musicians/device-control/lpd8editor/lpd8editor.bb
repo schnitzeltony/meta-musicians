@@ -15,8 +15,8 @@ SRC_URI = " \
     file://0001-Remove-Werror-from-CXXFLAGS.patch\
     file://lpd8-editor.desktop \
 "
-SRCREV = "5ca6f2b90889893e0633b23ffe0e4a014096656a"
-PV = "0.0.12"
+SRCREV = "c5b3a64487b3f126f9da15e94d547eff8e972c0c"
+PV = "0.0.13"
 S = "${WORKDIR}/git"
 
 do_install_append() {
