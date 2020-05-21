@@ -13,12 +13,10 @@ DEPENDS += " \
 
 inherit cmake pkgconfig gtk-icon-cache
 
-SRC_URI = " \
-    git://github.com/ssj71/infamousPlugins.git \
-"
-SRCREV = "28b405414a5d044e576ab00b75ceaa1c0a7b8929"
+SRC_URI = "git://github.com/ssj71/infamousPlugins.git"
+SRCREV = "4c7275b1fa8ea3296446421cbd29ec2df66588c0"
 S = "${WORKDIR}/git"
-PV = "0.3.0"
+PV = "0.3.0+git${SRCPV}"
 
 EXTRA_OECMAKE += " \
     -DLIBDIR=${baselib} \
