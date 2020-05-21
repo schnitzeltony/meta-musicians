@@ -16,6 +16,7 @@ SRC_URI = " \
     git://github.com/tomszilagyi/ir.lv2.git;branch=${IR_LV2_BRANCH} \
     file://0001-Makefile-Do-not-add-usr-include-to-include-paths.patch \
     file://0002-Makefile-force-correct-installation.patch \
+    file://0003-Fix-build-with-lv2-1.1.18.patch \
 "
 S = "${WORKDIR}/git"
 

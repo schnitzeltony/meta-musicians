@@ -1,0 +1,54 @@
+From d1c6690abb1b23712712da710b1629091fe13453 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 21 May 2020 18:07:23 +0200
+Subject: [PATCH] Fix build with lv2 >= 1.1.18
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ ir_gui.cc | 2 +-
+ lv2_ui.h  | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/ir_gui.cc b/ir_gui.cc
+index 5a0a97b..5f67289 100644
+--- a/ir_gui.cc
++++ b/ir_gui.cc
+@@ -1523,7 +1523,7 @@ static void cleanup(LV2UI_Handle ui) {
+ 	free(cp);
+ }
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+ 				const char * plugin_uri,
+ 				const char * bundle_path,
+ 				LV2UI_Write_Function write_function,
+diff --git a/lv2_ui.h b/lv2_ui.h
+index d5b813d..b32fba7 100644
+--- a/lv2_ui.h
++++ b/lv2_ui.h
+@@ -238,7 +238,7 @@ typedef void (*LV2UI_Write_Function)(LV2UI_Controller controller,
+ /** This struct contains the implementation of an UI. A pointer to an 
+     object of this type is returned by the lv2ui_descriptor() function. 
+ */
+-typedef struct _LV2UI_Descriptor {
++typedef struct LV2UI_Descriptor {
+   
+   /** The URI for this UI (not for the plugin it controls). */
+   const char* URI;
+@@ -268,7 +268,7 @@ typedef struct _LV2UI_Descriptor {
+ 			same array as the one the plugin host passes to a 
+ 			plugin.
+   */
+-  LV2UI_Handle (*instantiate)(const struct _LV2UI_Descriptor* descriptor,
++  LV2UI_Handle (*instantiate)(const struct LV2UI_Descriptor* descriptor,
+                               const char*                     plugin_uri,
+                               const char*                     bundle_path,
+                               LV2UI_Write_Function            write_function,
+-- 
+2.21.1
+
