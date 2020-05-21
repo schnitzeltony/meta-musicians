@@ -10,10 +10,9 @@ DEPENDS += " \
     ffmpeg \
 "
 
-
 SRC_URI = "git://github.com/acoustid/chromaprint.git"
-SRCREV = "ecd2edd73315530d4f9c1b1186aee24c63a7b6c2"
-PV = "1.4.3"
+SRCREV = "516e3b31c7fa6e822035ea3b3e31f9c7f51ef4b6"
+PV = "1.5.0"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += " \
