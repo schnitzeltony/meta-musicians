@@ -1,0 +1,33 @@
+From 686bd0eb5f8c7095f70ebf3dbfaa770e22684e1a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 21 May 2020 23:24:52 +0200
+Subject: [PATCH] Fix build with lv2 >= 1.1.18
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+_LV2UI_Descriptor was never meant to be used by clients - use typedef name
+
+Upstream-Status Submitted [https://github.com/brummer10/XPolyMonk.lv2/pull/4]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ XPolyMonk/gui/XPolyMonk_x11ui.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/XPolyMonk/gui/XPolyMonk_x11ui.c b/XPolyMonk/gui/XPolyMonk_x11ui.c
+index 02baafb..c200443 100644
+--- a/XPolyMonk/gui/XPolyMonk_x11ui.c
++++ b/XPolyMonk/gui/XPolyMonk_x11ui.c
+@@ -347,7 +347,7 @@ Widget_t* add_polymonk_knob(Widget_t *w, PortIndex index, const char * label,
+ }
+ 
+ // init the xwindow and return the LV2UI handle
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+             const char * plugin_uri, const char * bundle_path,
+             LV2UI_Write_Function write_function,
+             LV2UI_Controller controller, LV2UI_Widget * widget,
+-- 
+2.21.1
+

@@ -17,6 +17,7 @@ SRC_URI = " \
     gitsm://github.com/brummer10/XPolyMonk.lv2.git;protocol=https \
     file://0001-Adjust-to-oe-build.patch \
     file://0002-Do-not-use-host-machine-s-ld-to-pack-resources.patch \
+    file://0003-Fix-build-with-lv2-1.1.18.patch \
 "
 SRCREV = "512d109d20e0a46d87ece9fea9576052da60ab86"
 PV = "0.6"
