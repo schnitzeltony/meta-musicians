@@ -20,6 +20,7 @@ SRC_URI += " \
     file://0001-automake-enable-subdir-objects.patch \
     file://0002-Use-native-rcgen.patch \
     file://0003-Do-not-create-Manifest.ttl-with-cross-ttlgen.patch \
+    file://0004-Fix-build-with-lv2-1.1.18.patch \
     file://drumgizmo.desktop \
 "
 
