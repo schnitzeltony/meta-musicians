@@ -10,12 +10,10 @@ SRC_URI = " \
     git://github.com/calf-studio-gear/calf.git \
     file://0001-Do-store-calfmakerdf-commandline-for-later-use-in-qe.patch \
     file://0002-fluidsynth-Activate-synth.dynamic-sample-loading-for.patch \
-    file://0003-Fix-detection-of-LV2-for-latest-git.patch \
-    file://0004-Find-headers-for-all-versions-of-LV2.patch \
 "
-SRCREV = "e5c08dc2483c444d18d24a37c395274002320f5c"
+SRCREV = "41a2b7fb029cf0099fc05b7a9c569208034018de"
 S = "${WORKDIR}/git"
-PV = "0.90.1"
+PV = "0.90.3"
 
 inherit autotools-brokensep pkgconfig gtk-icon-cache bash-completion qemu-ext-musicians
 
