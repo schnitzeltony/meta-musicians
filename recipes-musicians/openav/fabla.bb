@@ -16,6 +16,7 @@ DEPENDS = " \
 SRC_URI = " \
     git://github.com/openAVproductions/openAV-Fabla.git \
     file://0001-Do-not-overwrite-build-flags-it-causes-trouble-for-m.patch \
+    file://0002-Fix-for-building-with-lv2-1.18.0.patch \
 "
 SRCREV = "05bb8d4704a601e660dcd146caf5899d4a4cc5cc"
 S = "${WORKDIR}/git"
