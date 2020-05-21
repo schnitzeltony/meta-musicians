@@ -39,6 +39,7 @@ RDEPENDS_${PN} += " \
     jalv \
     mda-lv2 \
     patchage \
+    raul \
     serd \
     sord \
     \
