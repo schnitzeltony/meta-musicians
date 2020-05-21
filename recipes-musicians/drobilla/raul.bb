@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 inherit waf
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/raul.git \
+    gitsm://gitlab.com/drobilla/raul.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "e87bb398f025912fb989a09f1450b838b251aea1"
