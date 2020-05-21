@@ -10,11 +10,12 @@ REQUIRED_DISTRO_FEATURES = "x11"
 DEPENDS = "lv2"
 
 SRC_URI = " \
-    http://download.drobilla.net/${BPN}-${PV}.tar.bz2 \
+    gitsm://gitlab.com/drobilla/mda-lv2.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRC_URI[md5sum] = "57feb6b58b195f87f8b3e436f3b56076"
-SRC_URI[sha256sum] = "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
+SRCREV = "1761c1c97a4a4b9b5dc1bbb5b2784bafa8c7d2d5"
+PV = "1.2.4"
+S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
     --lv2dir=${libdir}/lv2 \
