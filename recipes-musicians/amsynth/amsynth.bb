@@ -11,17 +11,16 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/amsynth/amsynth.git;branch=develop"
-SRCREV = "71544e4991f494f9871e13a50d6cf9217bb86986"
-PV = "1.9.0"
+SRCREV = "3994bc3edfd606b5965f0bacdf128a664a78b86a"
+PV = "1.10.0"
 S = "${WORKDIR}/git"
 
-PACKAGECONFIG ??= "alsa jack sndfile lv2"
+PACKAGECONFIG ??= "alsa jack lv2"
 
 PACKAGECONFIG[oss] = "--with-oss,--without-oss"
 PACKAGECONFIG[alsa] = "--with-alsa,--without-alsa,alsa-lib"
 PACKAGECONFIG[dssi] = "--with-dssi,--without-dssi,dssi liblo"
 PACKAGECONFIG[jack] = "--with-jack,--without-jack,jack"
-PACKAGECONFIG[sndfile] = "--with-sndfile,--without-sndfile,libsndfile1"
 PACKAGECONFIG[lv2] = "--with-lv2,--without-lv2,lv2"
 
 PACKAGES =+ "${PN}-standalone"
