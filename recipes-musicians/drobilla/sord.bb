@@ -8,7 +8,7 @@ inherit waf pkgconfig
 DEPENDS += "libpcre serd"
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/sord.git \
+    gitsm://gitlab.com/drobilla/sord.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "834610cd3faceff24c083738dbe88a56d412368c"
