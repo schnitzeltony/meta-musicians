@@ -1,0 +1,33 @@
+From 2305d2c327f6b1dfcc3e69a35d9ba4c0e533d1cf Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 21 May 2020 21:45:35 +0200
+Subject: [PATCH] Fix build with lv2 >= 1.1.18
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Name of the struct is gone with lv2 1.1.18. Instead use name of typedef.
+
+Upstream-Status: Submitted [https://github.com/openAVproductions/openAV-Sorcer/pull/29]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ gui/sorcer_ui.cxx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gui/sorcer_ui.cxx b/gui/sorcer_ui.cxx
+index 60edbe4..3bd25a3 100644
+--- a/gui/sorcer_ui.cxx
++++ b/gui/sorcer_ui.cxx
+@@ -44,7 +44,7 @@ typedef struct {
+   LV2UI_Controller controller;
+ } SorcerGUI;
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                 const char * plugin_uri,
+                 const char * bundle_path,
+                 LV2UI_Write_Function write_function,
+-- 
+2.21.1
+
