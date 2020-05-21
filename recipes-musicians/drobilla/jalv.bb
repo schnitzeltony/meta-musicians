@@ -20,7 +20,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/jalv.git \
+    gitsm://gitlab.com/drobilla/jalv.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "15f779a8603bc3f020e7000189900c52964771cd"
