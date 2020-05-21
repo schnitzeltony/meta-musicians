@@ -37,14 +37,10 @@ RDEPENDS_${PN} += " \
     ganv \
     ingen-lv2 ingen-standalone \
     jalv \
-    lilv \
-    lv2 \
     mda-lv2 \
     patchage \
     serd \
     sord \
-    sratom \
-    suil \
     \
     \
     drumgizmo \
@@ -86,6 +82,14 @@ RDEPENDS_${PN} += " \
     lmms \
     lrdf \
     lsp-plugins-standalone lsp-plugins-ladspa lsp-plugins-lv2 lsp-plugins-vst \
+    \
+    \
+    lilv \
+    lv2 \
+    sratom \
+    suil \
+    \
+    \
     mixxx \
     muse \
     nekobee \

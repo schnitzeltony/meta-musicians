@@ -8,7 +8,7 @@ inherit waf pkgconfig
 DEPENDS += "lv2 serd sord"
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/sratom.git \
+    gitsm://github.com/lv2/sratom.git \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "2a585c391df6d8d9b0c92e850eab891b6a8f74f3"

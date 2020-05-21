@@ -10,7 +10,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 DEPENDS = "gtk+ gtk+3 qtbase lv2"
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/suil.git \
+    gitsm://github.com/lv2/suil.git \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "5d45fda230192d47a4afadecdf3dce038b8d6fe9"
