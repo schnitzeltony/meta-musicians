@@ -10,24 +10,29 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
 ---
- src/avtk/CMakeLists.txt | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ src/avtk/CMakeLists.txt | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
 
 diff --git a/src/avtk/CMakeLists.txt b/src/avtk/CMakeLists.txt
-index 710533d..5c17071 100644
+index 072dddd..a15c47d 100644
 --- a/src/avtk/CMakeLists.txt
 +++ b/src/avtk/CMakeLists.txt
-@@ -55,8 +55,8 @@ include_directories( ${X11_INCLUDE_DIRS} )
+@@ -54,13 +54,8 @@ pkg_check_modules(X11 x11 REQUIRED)
+ include_directories( ${X11_INCLUDE_DIRS} )
  link_directories   ( ${X11_LIBRARY_DIRS} )
  
- 
--SET(CMAKE_C_FLAGS   "-fPIC -msse -msse2 -mfpmath=sse -g") # -fsanitize=address
--SET(CMAKE_CXX_FLAGS "-fPIC -msse -msse2 -mfpmath=sse -g") # -fsanitize=address
-+SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fPIC") # -fsanitize=address
-+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC") # -fsanitize=address
+-IF(NOT ${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+-  SET(CMAKE_C_FLAGS   "-fPIC -msse -msse2 -mfpmath=sse -g") # -fsanitize=address
+-  SET(CMAKE_CXX_FLAGS "-fPIC -msse -msse2 -mfpmath=sse -g") # -fsanitize=address
+-ELSE()
+-    SET(CMAKE_C_FLAGS   "-fPIC -mfpu=neon -g")
+-    SET(CMAKE_CXX_FLAGS "-fPIC -mfpu=neon -g")
+-ENDIF(NOT ${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
++SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -fPIC -g")
++SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -g")
  
  FILE(GLOB src libs/pffft.cxx avtk/*.cxx )
  
 -- 
-2.9.5
+2.21.1
 
