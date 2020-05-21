@@ -8,12 +8,12 @@ inherit waf python3native bash-completion pkgconfig
 DEPENDS += "lv2 serd sord sratom"
 
 SRC_URI = " \
-    gitsm://github.com/drobilla/lilv.git \
+    gitsm://github.com/lv2/lilv.git \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "425af428afb969ec2562bdf269967778e067384d"
+SRCREV = "20f2351a859568ca87bf71ef48a9ec4441c156f3"
 S = "${WORKDIR}/git"
-PV = "0.24.6"
+PV = "0.24.8"
 EXTRA_OECONF = "--configdir=${sysconfdir} --dyn-manifest"
 
 PACKAGES += "${PN}-python3"
