@@ -4,7 +4,10 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
 PV = "0.39.0"
-SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz"
+SRC_URI = " \
+    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz \
+    file://0001-Fix-build-with-latest-LV2.patch \
+"
 SRC_URI[md5sum] = "04c22ff9baaa69d256e2ca84ba288936"
 SRC_URI[sha256sum] = "490ff3f856282f776456b8e27366dd074d663870c0a89fccded03d854305c8da"
 

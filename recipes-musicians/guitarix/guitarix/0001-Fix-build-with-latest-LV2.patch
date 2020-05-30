@@ -1,0 +1,1075 @@
+From a168bd7e8c42e948bcf50a63a5f5fdc26423662f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 30 May 2020 13:46:40 +0200
+Subject: [PATCH] Fix build with latest LV2
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/LV2/gx_aclipper.lv2/gx_aclipper_gui.cpp                   | 2 +-
+ src/LV2/gx_alembic.lv2/gx_alembic_gui.cpp                     | 2 +-
+ src/LV2/gx_amp.lv2/gxamp_gui.cpp                              | 2 +-
+ src/LV2/gx_amp_stereo.lv2/gxamp_stereo_gui.cpp                | 2 +-
+ src/LV2/gx_barkgraphiceq.lv2/gx_barkgraphiceq_gui.cpp         | 2 +-
+ src/LV2/gx_bmp.lv2/gx_bmp_gui.cpp                             | 2 +-
+ src/LV2/gx_bossds1.lv2/gx_bossds1_gui.cpp                     | 2 +-
+ src/LV2/gx_cabinet.lv2/gx_cabinet_gui.cpp                     | 2 +-
+ src/LV2/gx_chorus.lv2/gx_chorus_gui.cpp                       | 2 +-
+ src/LV2/gx_compressor.lv2/gx_compressor_gui.cpp               | 2 +-
+ src/LV2/gx_cstb.lv2/gx_cstb_gui.cpp                           | 2 +-
+ src/LV2/gx_delay.lv2/gx_delay_gui.cpp                         | 2 +-
+ src/LV2/gx_detune.lv2/gx_detune_gui.cpp                       | 2 +-
+ src/LV2/gx_digital_delay.lv2/gx_digital_delay_gui.cpp         | 2 +-
+ src/LV2/gx_digital_delay_st.lv2/gx_digital_delay_st_gui.cpp   | 2 +-
+ src/LV2/gx_duck_delay.lv2/gx_duck_delay_gui.cpp               | 2 +-
+ src/LV2/gx_duck_delay_st.lv2/gx_duck_delay_st_gui.cpp         | 2 +-
+ src/LV2/gx_echo.lv2/gx_echo_gui.cpp                           | 2 +-
+ src/LV2/gx_expander.lv2/gx_expander_gui.cpp                   | 2 +-
+ src/LV2/gx_flanger.lv2/gx_flanger_gui.cpp                     | 2 +-
+ src/LV2/gx_fumaster.lv2/gx_fumaster_gui.cpp                   | 2 +-
+ src/LV2/gx_fuzz.lv2/gx_fuzz_gui.cpp                           | 2 +-
+ src/LV2/gx_fuzzface.lv2/gx_fuzzface_gui.cpp                   | 2 +-
+ src/LV2/gx_fuzzfacefm.lv2/gx_fuzzfacefm_gui.cpp               | 2 +-
+ src/LV2/gx_gcb_95.lv2/gx_gcb_95_gui.cpp                       | 2 +-
+ src/LV2/gx_graphiceq.lv2/gx_graphiceq_gui.cpp                 | 2 +-
+ src/LV2/gx_hfb.lv2/gx_hfb_gui.cpp                             | 2 +-
+ src/LV2/gx_hogsfoot.lv2/gx_hogsfoot_gui.cpp                   | 2 +-
+ src/LV2/gx_hornet.lv2/gx_hornet_gui.cpp                       | 2 +-
+ src/LV2/gx_jcm800pre.lv2/gx_jcm800pre_gui.cpp                 | 2 +-
+ src/LV2/gx_jcm800pre_st.lv2/gx_jcm800pre_st_gui.cpp           | 2 +-
+ src/LV2/gx_livelooper.lv2/gx_livelooper_gui.cpp               | 2 +-
+ src/LV2/gx_mbcompressor.lv2/gx_mbcompressor_gui.cpp           | 2 +-
+ src/LV2/gx_mbdelay.lv2/gx_mbdelay_gui.cpp                     | 2 +-
+ src/LV2/gx_mbdistortion.lv2/gx_mbdistortion_gui.cpp           | 2 +-
+ src/LV2/gx_mbecho.lv2/gx_mbecho_gui.cpp                       | 2 +-
+ src/LV2/gx_mbreverb.lv2/gx_mbreverb_gui.cpp                   | 2 +-
+ src/LV2/gx_mole.lv2/gx_mole_gui.cpp                           | 2 +-
+ src/LV2/gx_muff.lv2/gx_muff_gui.cpp                           | 2 +-
+ src/LV2/gx_mxrdist.lv2/gx_mxrdist_gui.cpp                     | 2 +-
+ src/LV2/gx_oc_2.lv2/gx_oc_2_gui.cpp                           | 2 +-
+ src/LV2/gx_phaser.lv2/gx_phaser_gui.cpp                       | 2 +-
+ src/LV2/gx_rangem.lv2/gx_rangem_gui.cpp                       | 2 +-
+ src/LV2/gx_redeye.lv2/gxredeye_gui.cpp                        | 2 +-
+ src/LV2/gx_reverb.lv2/gx_reverb_gui.cpp                       | 2 +-
+ src/LV2/gx_room_simulator.lv2/gx_room_simulator_gui.cpp       | 2 +-
+ src/LV2/gx_scream.lv2/gx_scream_gui.cpp                       | 2 +-
+ src/LV2/gx_studiopre.lv2/gx_studiopre_gui.cpp                 | 2 +-
+ src/LV2/gx_studiopre_st.lv2/gx_studiopre_st_gui.cpp           | 2 +-
+ src/LV2/gx_susta.lv2/gx_susta_gui.cpp                         | 2 +-
+ src/LV2/gx_tremolo.lv2/gx_tremolo_gui.cpp                     | 2 +-
+ src/LV2/gx_vibe.lv2/gx_vibe_gui.cpp                           | 2 +-
+ src/LV2/gx_w20.lv2/gx_w20_gui.cpp                             | 2 +-
+ src/LV2/gx_wah.lv2/gx_colwah_gui.cpp                          | 2 +-
+ src/LV2/gx_zita_rev1.lv2/gx_zita_rev1_gui.cpp                 | 2 +-
+ src/LV2/gxautowah.lv2/gxautowah_gui.cpp                       | 2 +-
+ src/LV2/gxbooster.lv2/gxbooster_gui.cpp                       | 2 +-
+ src/LV2/gxechocat.lv2/gxechocat_gui.cpp                       | 2 +-
+ src/LV2/gxmetal_amp.lv2/gxmetal_amp_gui.cpp                   | 4 ++--
+ src/LV2/gxmetal_head.lv2/gxmetal_head_gui.cpp                 | 4 ++--
+ src/LV2/gxpreamp.lv2/gxpreamp_gui.cpp                         | 2 +-
+ src/LV2/gxtape.lv2/gxtape_gui.cpp                             | 2 +-
+ src/LV2/gxtape_st.lv2/gxtape_st_gui.cpp                       | 2 +-
+ src/LV2/gxtilttone.lv2/gxtilttone_gui.cpp                     | 2 +-
+ src/LV2/gxts9.lv2/gxts9_gui.cpp                               | 2 +-
+ src/LV2/gxtubedelay.lv2/gxtubedelay_gui.cpp                   | 2 +-
+ src/LV2/gxtubetremelo.lv2/gxtubetremelo_gui.cpp               | 2 +-
+ src/LV2/gxtubevibrato.lv2/gxtubevibrato_gui.cpp               | 4 ++--
+ src/LV2/gxtuner.lv2/gxtuner_gui.cpp                           | 4 ++--
+ .../DK/buildlv2/gx_sceletonX11.lv2/gui/gx_sceleton_x11ui.c    | 2 +-
+ .../gx_sceletonX11_stereo.lv2/gui/gx_sceleton_x11ui.c         | 2 +-
+ .../buildlv2/gx_sceleton_rs_X11.lv2/gui/gx_sceleton_x11ui.c   | 2 +-
+ .../gx_sceleton_rs_X11_stereo.lv2/gui/gx_sceleton_x11ui.c     | 2 +-
+ 73 files changed, 77 insertions(+), 77 deletions(-)
+
+diff --git a/src/LV2/gx_aclipper.lv2/gx_aclipper_gui.cpp b/src/LV2/gx_aclipper.lv2/gx_aclipper_gui.cpp
+index ca3acd9..0eb3795 100644
+--- a/src/LV2/gx_aclipper.lv2/gx_aclipper_gui.cpp
++++ b/src/LV2/gx_aclipper.lv2/gx_aclipper_gui.cpp
+@@ -276,7 +276,7 @@ GtkWidget* Gx_aclipper_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_alembic.lv2/gx_alembic_gui.cpp b/src/LV2/gx_alembic.lv2/gx_alembic_gui.cpp
+index d1f56d1..5be676c 100644
+--- a/src/LV2/gx_alembic.lv2/gx_alembic_gui.cpp
++++ b/src/LV2/gx_alembic.lv2/gx_alembic_gui.cpp
+@@ -182,7 +182,7 @@ GtkWidget* gx_alembicGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_amp.lv2/gxamp_gui.cpp b/src/LV2/gx_amp.lv2/gxamp_gui.cpp
+index c441a01..15c3a6c 100644
+--- a/src/LV2/gx_amp.lv2/gxamp_gui.cpp
++++ b/src/LV2/gx_amp.lv2/gxamp_gui.cpp
+@@ -199,7 +199,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_amp_stereo.lv2/gxamp_stereo_gui.cpp b/src/LV2/gx_amp_stereo.lv2/gxamp_stereo_gui.cpp
+index c069a84..b876790 100644
+--- a/src/LV2/gx_amp_stereo.lv2/gxamp_stereo_gui.cpp
++++ b/src/LV2/gx_amp_stereo.lv2/gxamp_stereo_gui.cpp
+@@ -196,7 +196,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_barkgraphiceq.lv2/gx_barkgraphiceq_gui.cpp b/src/LV2/gx_barkgraphiceq.lv2/gx_barkgraphiceq_gui.cpp
+index 2b4244a..d27a16c 100644
+--- a/src/LV2/gx_barkgraphiceq.lv2/gx_barkgraphiceq_gui.cpp
++++ b/src/LV2/gx_barkgraphiceq.lv2/gx_barkgraphiceq_gui.cpp
+@@ -152,7 +152,7 @@ GtkWidget* Gx_barkgraphiceq_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_bmp.lv2/gx_bmp_gui.cpp b/src/LV2/gx_bmp.lv2/gx_bmp_gui.cpp
+index db2053d..4b0e62c 100644
+--- a/src/LV2/gx_bmp.lv2/gx_bmp_gui.cpp
++++ b/src/LV2/gx_bmp.lv2/gx_bmp_gui.cpp
+@@ -276,7 +276,7 @@ GtkWidget* Gx_bmp_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_bossds1.lv2/gx_bossds1_gui.cpp b/src/LV2/gx_bossds1.lv2/gx_bossds1_gui.cpp
+index 545d9d8..50da93b 100644
+--- a/src/LV2/gx_bossds1.lv2/gx_bossds1_gui.cpp
++++ b/src/LV2/gx_bossds1.lv2/gx_bossds1_gui.cpp
+@@ -276,7 +276,7 @@ GtkWidget* Gx_bossds1_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_cabinet.lv2/gx_cabinet_gui.cpp b/src/LV2/gx_cabinet.lv2/gx_cabinet_gui.cpp
+index 3f70ff9..9062772 100644
+--- a/src/LV2/gx_cabinet.lv2/gx_cabinet_gui.cpp
++++ b/src/LV2/gx_cabinet.lv2/gx_cabinet_gui.cpp
+@@ -210,7 +210,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_chorus.lv2/gx_chorus_gui.cpp b/src/LV2/gx_chorus.lv2/gx_chorus_gui.cpp
+index b4363f3..d53075e 100644
+--- a/src/LV2/gx_chorus.lv2/gx_chorus_gui.cpp
++++ b/src/LV2/gx_chorus.lv2/gx_chorus_gui.cpp
+@@ -208,7 +208,7 @@ GtkWidget* Gx_chorus_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_compressor.lv2/gx_compressor_gui.cpp b/src/LV2/gx_compressor.lv2/gx_compressor_gui.cpp
+index 7db6423..c668af5 100644
+--- a/src/LV2/gx_compressor.lv2/gx_compressor_gui.cpp
++++ b/src/LV2/gx_compressor.lv2/gx_compressor_gui.cpp
+@@ -208,7 +208,7 @@ GtkWidget* Gx_compressorGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_cstb.lv2/gx_cstb_gui.cpp b/src/LV2/gx_cstb.lv2/gx_cstb_gui.cpp
+index 1681e98..885c8c1 100644
+--- a/src/LV2/gx_cstb.lv2/gx_cstb_gui.cpp
++++ b/src/LV2/gx_cstb.lv2/gx_cstb_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_cstb_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_delay.lv2/gx_delay_gui.cpp b/src/LV2/gx_delay.lv2/gx_delay_gui.cpp
+index 51ce007..dba8513 100644
+--- a/src/LV2/gx_delay.lv2/gx_delay_gui.cpp
++++ b/src/LV2/gx_delay.lv2/gx_delay_gui.cpp
+@@ -223,7 +223,7 @@ GtkWidget* Gx_delay_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_detune.lv2/gx_detune_gui.cpp b/src/LV2/gx_detune.lv2/gx_detune_gui.cpp
+index 5f3484a..c0a6c49 100644
+--- a/src/LV2/gx_detune.lv2/gx_detune_gui.cpp
++++ b/src/LV2/gx_detune.lv2/gx_detune_gui.cpp
+@@ -216,7 +216,7 @@ GtkWidget* Gx_detune_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_digital_delay.lv2/gx_digital_delay_gui.cpp b/src/LV2/gx_digital_delay.lv2/gx_digital_delay_gui.cpp
+index a5e5bae..f295f9a 100644
+--- a/src/LV2/gx_digital_delay.lv2/gx_digital_delay_gui.cpp
++++ b/src/LV2/gx_digital_delay.lv2/gx_digital_delay_gui.cpp
+@@ -239,7 +239,7 @@ GtkWidget* Gx_digital_delay_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_digital_delay_st.lv2/gx_digital_delay_st_gui.cpp b/src/LV2/gx_digital_delay_st.lv2/gx_digital_delay_st_gui.cpp
+index eb5d6c9..0d2495e 100644
+--- a/src/LV2/gx_digital_delay_st.lv2/gx_digital_delay_st_gui.cpp
++++ b/src/LV2/gx_digital_delay_st.lv2/gx_digital_delay_st_gui.cpp
+@@ -239,7 +239,7 @@ GtkWidget* Gx_digital_delay_st_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_duck_delay.lv2/gx_duck_delay_gui.cpp b/src/LV2/gx_duck_delay.lv2/gx_duck_delay_gui.cpp
+index cb802c9..2bd96c9 100644
+--- a/src/LV2/gx_duck_delay.lv2/gx_duck_delay_gui.cpp
++++ b/src/LV2/gx_duck_delay.lv2/gx_duck_delay_gui.cpp
+@@ -208,7 +208,7 @@ GtkWidget* Gx_duck_delayGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_duck_delay_st.lv2/gx_duck_delay_st_gui.cpp b/src/LV2/gx_duck_delay_st.lv2/gx_duck_delay_st_gui.cpp
+index ceea68a..07440de 100644
+--- a/src/LV2/gx_duck_delay_st.lv2/gx_duck_delay_st_gui.cpp
++++ b/src/LV2/gx_duck_delay_st.lv2/gx_duck_delay_st_gui.cpp
+@@ -208,7 +208,7 @@ GtkWidget* Gx_duck_delay_stGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_echo.lv2/gx_echo_gui.cpp b/src/LV2/gx_echo.lv2/gx_echo_gui.cpp
+index 6445028..80d5877 100644
+--- a/src/LV2/gx_echo.lv2/gx_echo_gui.cpp
++++ b/src/LV2/gx_echo.lv2/gx_echo_gui.cpp
+@@ -223,7 +223,7 @@ GtkWidget* Gx_echo_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_expander.lv2/gx_expander_gui.cpp b/src/LV2/gx_expander.lv2/gx_expander_gui.cpp
+index 01bab6d..b88c19b 100644
+--- a/src/LV2/gx_expander.lv2/gx_expander_gui.cpp
++++ b/src/LV2/gx_expander.lv2/gx_expander_gui.cpp
+@@ -202,7 +202,7 @@ GtkWidget* Gx_expanderGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_flanger.lv2/gx_flanger_gui.cpp b/src/LV2/gx_flanger.lv2/gx_flanger_gui.cpp
+index eabdc21..98d35f6 100644
+--- a/src/LV2/gx_flanger.lv2/gx_flanger_gui.cpp
++++ b/src/LV2/gx_flanger.lv2/gx_flanger_gui.cpp
+@@ -202,7 +202,7 @@ GtkWidget* Gx_flangerGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_fumaster.lv2/gx_fumaster_gui.cpp b/src/LV2/gx_fumaster.lv2/gx_fumaster_gui.cpp
+index 20d944e..c3c0f73 100644
+--- a/src/LV2/gx_fumaster.lv2/gx_fumaster_gui.cpp
++++ b/src/LV2/gx_fumaster.lv2/gx_fumaster_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_fumaster_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_fuzz.lv2/gx_fuzz_gui.cpp b/src/LV2/gx_fuzz.lv2/gx_fuzz_gui.cpp
+index bee6bdd..49b4f0e 100644
+--- a/src/LV2/gx_fuzz.lv2/gx_fuzz_gui.cpp
++++ b/src/LV2/gx_fuzz.lv2/gx_fuzz_gui.cpp
+@@ -201,7 +201,7 @@ GtkWidget* Gx_fuzz_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_fuzzface.lv2/gx_fuzzface_gui.cpp b/src/LV2/gx_fuzzface.lv2/gx_fuzzface_gui.cpp
+index 92416c4..afda20b 100644
+--- a/src/LV2/gx_fuzzface.lv2/gx_fuzzface_gui.cpp
++++ b/src/LV2/gx_fuzzface.lv2/gx_fuzzface_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_fuzzface_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_fuzzfacefm.lv2/gx_fuzzfacefm_gui.cpp b/src/LV2/gx_fuzzfacefm.lv2/gx_fuzzfacefm_gui.cpp
+index cd60b82..cc97366 100644
+--- a/src/LV2/gx_fuzzfacefm.lv2/gx_fuzzfacefm_gui.cpp
++++ b/src/LV2/gx_fuzzfacefm.lv2/gx_fuzzfacefm_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_fuzzfacefm_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_gcb_95.lv2/gx_gcb_95_gui.cpp b/src/LV2/gx_gcb_95.lv2/gx_gcb_95_gui.cpp
+index a15f335..16ca372 100644
+--- a/src/LV2/gx_gcb_95.lv2/gx_gcb_95_gui.cpp
++++ b/src/LV2/gx_gcb_95.lv2/gx_gcb_95_gui.cpp
+@@ -276,7 +276,7 @@ GtkWidget* Gx_gcb_95_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_graphiceq.lv2/gx_graphiceq_gui.cpp b/src/LV2/gx_graphiceq.lv2/gx_graphiceq_gui.cpp
+index b527c69..776b7a0 100644
+--- a/src/LV2/gx_graphiceq.lv2/gx_graphiceq_gui.cpp
++++ b/src/LV2/gx_graphiceq.lv2/gx_graphiceq_gui.cpp
+@@ -147,7 +147,7 @@ GtkWidget* Gx_graphiceq_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_hfb.lv2/gx_hfb_gui.cpp b/src/LV2/gx_hfb.lv2/gx_hfb_gui.cpp
+index 2aa2ebe..ffc1810 100644
+--- a/src/LV2/gx_hfb.lv2/gx_hfb_gui.cpp
++++ b/src/LV2/gx_hfb.lv2/gx_hfb_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_hfb_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_hogsfoot.lv2/gx_hogsfoot_gui.cpp b/src/LV2/gx_hogsfoot.lv2/gx_hogsfoot_gui.cpp
+index 7fe28e2..ecbe283 100644
+--- a/src/LV2/gx_hogsfoot.lv2/gx_hogsfoot_gui.cpp
++++ b/src/LV2/gx_hogsfoot.lv2/gx_hogsfoot_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_hogsfoot_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_hornet.lv2/gx_hornet_gui.cpp b/src/LV2/gx_hornet.lv2/gx_hornet_gui.cpp
+index a199a16..dd43e66 100644
+--- a/src/LV2/gx_hornet.lv2/gx_hornet_gui.cpp
++++ b/src/LV2/gx_hornet.lv2/gx_hornet_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_hornet_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_jcm800pre.lv2/gx_jcm800pre_gui.cpp b/src/LV2/gx_jcm800pre.lv2/gx_jcm800pre_gui.cpp
+index 7f27ac9..c95516e 100644
+--- a/src/LV2/gx_jcm800pre.lv2/gx_jcm800pre_gui.cpp
++++ b/src/LV2/gx_jcm800pre.lv2/gx_jcm800pre_gui.cpp
+@@ -217,7 +217,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_jcm800pre_st.lv2/gx_jcm800pre_st_gui.cpp b/src/LV2/gx_jcm800pre_st.lv2/gx_jcm800pre_st_gui.cpp
+index d25d289..fe4d1dd 100644
+--- a/src/LV2/gx_jcm800pre_st.lv2/gx_jcm800pre_st_gui.cpp
++++ b/src/LV2/gx_jcm800pre_st.lv2/gx_jcm800pre_st_gui.cpp
+@@ -218,7 +218,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_livelooper.lv2/gx_livelooper_gui.cpp b/src/LV2/gx_livelooper.lv2/gx_livelooper_gui.cpp
+index 325754c..306143e 100644
+--- a/src/LV2/gx_livelooper.lv2/gx_livelooper_gui.cpp
++++ b/src/LV2/gx_livelooper.lv2/gx_livelooper_gui.cpp
+@@ -277,7 +277,7 @@ GtkWidget* Gx_livelooper_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mbcompressor.lv2/gx_mbcompressor_gui.cpp b/src/LV2/gx_mbcompressor.lv2/gx_mbcompressor_gui.cpp
+index 4b5e84d..396260a 100644
+--- a/src/LV2/gx_mbcompressor.lv2/gx_mbcompressor_gui.cpp
++++ b/src/LV2/gx_mbcompressor.lv2/gx_mbcompressor_gui.cpp
+@@ -224,7 +224,7 @@ GtkWidget* Gx_mbcompressor_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mbdelay.lv2/gx_mbdelay_gui.cpp b/src/LV2/gx_mbdelay.lv2/gx_mbdelay_gui.cpp
+index 1443b08..74975f0 100644
+--- a/src/LV2/gx_mbdelay.lv2/gx_mbdelay_gui.cpp
++++ b/src/LV2/gx_mbdelay.lv2/gx_mbdelay_gui.cpp
+@@ -233,7 +233,7 @@ GtkWidget* Gx_mbdelay_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mbdistortion.lv2/gx_mbdistortion_gui.cpp b/src/LV2/gx_mbdistortion.lv2/gx_mbdistortion_gui.cpp
+index fa7fabc..f18580d 100644
+--- a/src/LV2/gx_mbdistortion.lv2/gx_mbdistortion_gui.cpp
++++ b/src/LV2/gx_mbdistortion.lv2/gx_mbdistortion_gui.cpp
+@@ -250,7 +250,7 @@ GtkWidget* Gx_mbdistortion_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mbecho.lv2/gx_mbecho_gui.cpp b/src/LV2/gx_mbecho.lv2/gx_mbecho_gui.cpp
+index 85ca93c..6c91e7a 100644
+--- a/src/LV2/gx_mbecho.lv2/gx_mbecho_gui.cpp
++++ b/src/LV2/gx_mbecho.lv2/gx_mbecho_gui.cpp
+@@ -233,7 +233,7 @@ GtkWidget* Gx_mbecho_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mbreverb.lv2/gx_mbreverb_gui.cpp b/src/LV2/gx_mbreverb.lv2/gx_mbreverb_gui.cpp
+index bd5da3c..18163d8 100644
+--- a/src/LV2/gx_mbreverb.lv2/gx_mbreverb_gui.cpp
++++ b/src/LV2/gx_mbreverb.lv2/gx_mbreverb_gui.cpp
+@@ -233,7 +233,7 @@ GtkWidget* Gx_mbreverb_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mole.lv2/gx_mole_gui.cpp b/src/LV2/gx_mole.lv2/gx_mole_gui.cpp
+index 7be5943..88832dc 100644
+--- a/src/LV2/gx_mole.lv2/gx_mole_gui.cpp
++++ b/src/LV2/gx_mole.lv2/gx_mole_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_mole_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_muff.lv2/gx_muff_gui.cpp b/src/LV2/gx_muff.lv2/gx_muff_gui.cpp
+index de3746f..99672cb 100644
+--- a/src/LV2/gx_muff.lv2/gx_muff_gui.cpp
++++ b/src/LV2/gx_muff.lv2/gx_muff_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_muff_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_mxrdist.lv2/gx_mxrdist_gui.cpp b/src/LV2/gx_mxrdist.lv2/gx_mxrdist_gui.cpp
+index af77c89..76cdfaf 100644
+--- a/src/LV2/gx_mxrdist.lv2/gx_mxrdist_gui.cpp
++++ b/src/LV2/gx_mxrdist.lv2/gx_mxrdist_gui.cpp
+@@ -276,7 +276,7 @@ GtkWidget* Gx_mxrdist_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_oc_2.lv2/gx_oc_2_gui.cpp b/src/LV2/gx_oc_2.lv2/gx_oc_2_gui.cpp
+index a7827e9..7ad0ca2 100644
+--- a/src/LV2/gx_oc_2.lv2/gx_oc_2_gui.cpp
++++ b/src/LV2/gx_oc_2.lv2/gx_oc_2_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_oc_2_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_phaser.lv2/gx_phaser_gui.cpp b/src/LV2/gx_phaser.lv2/gx_phaser_gui.cpp
+index 0d32696..87f984e 100644
+--- a/src/LV2/gx_phaser.lv2/gx_phaser_gui.cpp
++++ b/src/LV2/gx_phaser.lv2/gx_phaser_gui.cpp
+@@ -183,7 +183,7 @@ GtkWidget* Gx_phaserGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_rangem.lv2/gx_rangem_gui.cpp b/src/LV2/gx_rangem.lv2/gx_rangem_gui.cpp
+index 758af49..2407c5f 100644
+--- a/src/LV2/gx_rangem.lv2/gx_rangem_gui.cpp
++++ b/src/LV2/gx_rangem.lv2/gx_rangem_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_rangem_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_redeye.lv2/gxredeye_gui.cpp b/src/LV2/gx_redeye.lv2/gxredeye_gui.cpp
+index e274a64..4c8afab 100644
+--- a/src/LV2/gx_redeye.lv2/gxredeye_gui.cpp
++++ b/src/LV2/gx_redeye.lv2/gxredeye_gui.cpp
+@@ -171,7 +171,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_reverb.lv2/gx_reverb_gui.cpp b/src/LV2/gx_reverb.lv2/gx_reverb_gui.cpp
+index f4bc2e6..41cedaf 100644
+--- a/src/LV2/gx_reverb.lv2/gx_reverb_gui.cpp
++++ b/src/LV2/gx_reverb.lv2/gx_reverb_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_reverb_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_room_simulator.lv2/gx_room_simulator_gui.cpp b/src/LV2/gx_room_simulator.lv2/gx_room_simulator_gui.cpp
+index 426e16f..5fa912f 100644
+--- a/src/LV2/gx_room_simulator.lv2/gx_room_simulator_gui.cpp
++++ b/src/LV2/gx_room_simulator.lv2/gx_room_simulator_gui.cpp
+@@ -164,7 +164,7 @@ GtkWidget* GxRoomSimulator::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_scream.lv2/gx_scream_gui.cpp b/src/LV2/gx_scream.lv2/gx_scream_gui.cpp
+index 418aa55..37de3a5 100644
+--- a/src/LV2/gx_scream.lv2/gx_scream_gui.cpp
++++ b/src/LV2/gx_scream.lv2/gx_scream_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_scream_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_studiopre.lv2/gx_studiopre_gui.cpp b/src/LV2/gx_studiopre.lv2/gx_studiopre_gui.cpp
+index 3d3745d..9cce760 100644
+--- a/src/LV2/gx_studiopre.lv2/gx_studiopre_gui.cpp
++++ b/src/LV2/gx_studiopre.lv2/gx_studiopre_gui.cpp
+@@ -182,7 +182,7 @@ GtkWidget* gx_studiopreGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_studiopre_st.lv2/gx_studiopre_st_gui.cpp b/src/LV2/gx_studiopre_st.lv2/gx_studiopre_st_gui.cpp
+index 834f29b..9d9302e 100644
+--- a/src/LV2/gx_studiopre_st.lv2/gx_studiopre_st_gui.cpp
++++ b/src/LV2/gx_studiopre_st.lv2/gx_studiopre_st_gui.cpp
+@@ -182,7 +182,7 @@ GtkWidget* gx_studiopre_stGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_susta.lv2/gx_susta_gui.cpp b/src/LV2/gx_susta.lv2/gx_susta_gui.cpp
+index fe7053f..3b6a4ad 100644
+--- a/src/LV2/gx_susta.lv2/gx_susta_gui.cpp
++++ b/src/LV2/gx_susta.lv2/gx_susta_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_susta_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_tremolo.lv2/gx_tremolo_gui.cpp b/src/LV2/gx_tremolo.lv2/gx_tremolo_gui.cpp
+index 26d898a..b660eef 100644
+--- a/src/LV2/gx_tremolo.lv2/gx_tremolo_gui.cpp
++++ b/src/LV2/gx_tremolo.lv2/gx_tremolo_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_tremoloGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_vibe.lv2/gx_vibe_gui.cpp b/src/LV2/gx_vibe.lv2/gx_vibe_gui.cpp
+index 6776327..5633c49 100644
+--- a/src/LV2/gx_vibe.lv2/gx_vibe_gui.cpp
++++ b/src/LV2/gx_vibe.lv2/gx_vibe_gui.cpp
+@@ -239,7 +239,7 @@ GtkWidget* Gx_vibe_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_w20.lv2/gx_w20_gui.cpp b/src/LV2/gx_w20.lv2/gx_w20_gui.cpp
+index 3a194ac..b8e9ee8 100644
+--- a/src/LV2/gx_w20.lv2/gx_w20_gui.cpp
++++ b/src/LV2/gx_w20.lv2/gx_w20_gui.cpp
+@@ -182,7 +182,7 @@ GtkWidget* gx_w20GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_wah.lv2/gx_colwah_gui.cpp b/src/LV2/gx_wah.lv2/gx_colwah_gui.cpp
+index 449a8d3..213972e 100644
+--- a/src/LV2/gx_wah.lv2/gx_colwah_gui.cpp
++++ b/src/LV2/gx_wah.lv2/gx_colwah_gui.cpp
+@@ -262,7 +262,7 @@ GtkWidget* Gx_colwah_GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gx_zita_rev1.lv2/gx_zita_rev1_gui.cpp b/src/LV2/gx_zita_rev1.lv2/gx_zita_rev1_gui.cpp
+index 3db2a3a..b14e2f7 100644
+--- a/src/LV2/gx_zita_rev1.lv2/gx_zita_rev1_gui.cpp
++++ b/src/LV2/gx_zita_rev1.lv2/gx_zita_rev1_gui.cpp
+@@ -238,7 +238,7 @@ GtkWidget* Gx_zita_rev1_stereoGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxautowah.lv2/gxautowah_gui.cpp b/src/LV2/gxautowah.lv2/gxautowah_gui.cpp
+index 669252a..68e036a 100644
+--- a/src/LV2/gxautowah.lv2/gxautowah_gui.cpp
++++ b/src/LV2/gxautowah.lv2/gxautowah_gui.cpp
+@@ -154,7 +154,7 @@ GtkWidget* GxautowahGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxbooster.lv2/gxbooster_gui.cpp b/src/LV2/gxbooster.lv2/gxbooster_gui.cpp
+index f313ccb..b5a56e8 100644
+--- a/src/LV2/gxbooster.lv2/gxbooster_gui.cpp
++++ b/src/LV2/gxbooster.lv2/gxbooster_gui.cpp
+@@ -147,7 +147,7 @@ GtkWidget* GxboosterGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxechocat.lv2/gxechocat_gui.cpp b/src/LV2/gxechocat.lv2/gxechocat_gui.cpp
+index 11a8c23..ac9b3c0 100644
+--- a/src/LV2/gxechocat.lv2/gxechocat_gui.cpp
++++ b/src/LV2/gxechocat.lv2/gxechocat_gui.cpp
+@@ -164,7 +164,7 @@ GtkWidget* GxechocatGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxmetal_amp.lv2/gxmetal_amp_gui.cpp b/src/LV2/gxmetal_amp.lv2/gxmetal_amp_gui.cpp
+index fae5ecc..1e2c6bd 100644
+--- a/src/LV2/gxmetal_amp.lv2/gxmetal_amp_gui.cpp
++++ b/src/LV2/gxmetal_amp.lv2/gxmetal_amp_gui.cpp
+@@ -46,7 +46,7 @@ private:
+ 
+ public:
+ 
+-  static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++  static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                   const char * plugin_uri,
+                                   const char * bundle_path,
+                                   LV2UI_Write_Function write_function,
+@@ -175,7 +175,7 @@ GtkWidget* Gxmetal_ampGUI::make_gui()
+ }
+ 
+ 
+-LV2UI_Handle Gxmetal_ampGUI::instantiate(const struct _LV2UI_Descriptor * descriptor,
++LV2UI_Handle Gxmetal_ampGUI::instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxmetal_head.lv2/gxmetal_head_gui.cpp b/src/LV2/gxmetal_head.lv2/gxmetal_head_gui.cpp
+index 78dce58..604c3d7 100644
+--- a/src/LV2/gxmetal_head.lv2/gxmetal_head_gui.cpp
++++ b/src/LV2/gxmetal_head.lv2/gxmetal_head_gui.cpp
+@@ -46,7 +46,7 @@ private:
+ 
+ public:
+ 
+-  static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++  static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                   const char * plugin_uri,
+                                   const char * bundle_path,
+                                   LV2UI_Write_Function write_function,
+@@ -175,7 +175,7 @@ GtkWidget* Gxmetal_headGUI::make_gui()
+ }
+ 
+ 
+-LV2UI_Handle Gxmetal_headGUI::instantiate(const struct _LV2UI_Descriptor * descriptor,
++LV2UI_Handle Gxmetal_headGUI::instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxpreamp.lv2/gxpreamp_gui.cpp b/src/LV2/gxpreamp.lv2/gxpreamp_gui.cpp
+index b10732d..f882017 100644
+--- a/src/LV2/gxpreamp.lv2/gxpreamp_gui.cpp
++++ b/src/LV2/gxpreamp.lv2/gxpreamp_gui.cpp
+@@ -152,7 +152,7 @@ GtkWidget* GXPluginGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtape.lv2/gxtape_gui.cpp b/src/LV2/gxtape.lv2/gxtape_gui.cpp
+index 03adca3..541bf1b 100644
+--- a/src/LV2/gxtape.lv2/gxtape_gui.cpp
++++ b/src/LV2/gxtape.lv2/gxtape_gui.cpp
+@@ -173,7 +173,7 @@ GtkWidget* GxtapeGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtape_st.lv2/gxtape_st_gui.cpp b/src/LV2/gxtape_st.lv2/gxtape_st_gui.cpp
+index ecf8111..bbb1b94 100644
+--- a/src/LV2/gxtape_st.lv2/gxtape_st_gui.cpp
++++ b/src/LV2/gxtape_st.lv2/gxtape_st_gui.cpp
+@@ -174,7 +174,7 @@ GtkWidget* Gxtape_stGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtilttone.lv2/gxtilttone_gui.cpp b/src/LV2/gxtilttone.lv2/gxtilttone_gui.cpp
+index d3cd6ad..3021cb6 100644
+--- a/src/LV2/gxtilttone.lv2/gxtilttone_gui.cpp
++++ b/src/LV2/gxtilttone.lv2/gxtilttone_gui.cpp
+@@ -164,7 +164,7 @@ GtkWidget* GxtilttoneGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxts9.lv2/gxts9_gui.cpp b/src/LV2/gxts9.lv2/gxts9_gui.cpp
+index caf96d9..4183cd7 100644
+--- a/src/LV2/gxts9.lv2/gxts9_gui.cpp
++++ b/src/LV2/gxts9.lv2/gxts9_gui.cpp
+@@ -143,7 +143,7 @@ GtkWidget* Gxts9GUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtubedelay.lv2/gxtubedelay_gui.cpp b/src/LV2/gxtubedelay.lv2/gxtubedelay_gui.cpp
+index 3d95e6c..e5ca036 100644
+--- a/src/LV2/gxtubedelay.lv2/gxtubedelay_gui.cpp
++++ b/src/LV2/gxtubedelay.lv2/gxtubedelay_gui.cpp
+@@ -140,7 +140,7 @@ GtkWidget* GxTubeDelayGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtubetremelo.lv2/gxtubetremelo_gui.cpp b/src/LV2/gxtubetremelo.lv2/gxtubetremelo_gui.cpp
+index 5eb84c2..da65589 100644
+--- a/src/LV2/gxtubetremelo.lv2/gxtubetremelo_gui.cpp
++++ b/src/LV2/gxtubetremelo.lv2/gxtubetremelo_gui.cpp
+@@ -164,7 +164,7 @@ GtkWidget* GxtubetremeloGUI::make_gui()
+ }
+ 
+ 
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtubevibrato.lv2/gxtubevibrato_gui.cpp b/src/LV2/gxtubevibrato.lv2/gxtubevibrato_gui.cpp
+index e2c8171..afa0a47 100644
+--- a/src/LV2/gxtubevibrato.lv2/gxtubevibrato_gui.cpp
++++ b/src/LV2/gxtubevibrato.lv2/gxtubevibrato_gui.cpp
+@@ -48,7 +48,7 @@ public:
+   static LV2UI_Descriptor descriptors[];
+   static void cleanup(LV2UI_Handle ui);
+   
+-  static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++  static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                   const char * plugin_uri,
+                                   const char * bundle_path,
+                                   LV2UI_Write_Function write_function,
+@@ -171,7 +171,7 @@ GtkWidget* GxtubevibratoGUI::make_gui()
+ }
+ 
+ 
+-LV2UI_Handle GxtubevibratoGUI::instantiate(const struct _LV2UI_Descriptor * descriptor,
++LV2UI_Handle GxtubevibratoGUI::instantiate(const struct LV2UI_Descriptor * descriptor,
+                                             const char * plugin_uri,
+                                             const char * bundle_path,
+                                             LV2UI_Write_Function write_function,
+diff --git a/src/LV2/gxtuner.lv2/gxtuner_gui.cpp b/src/LV2/gxtuner.lv2/gxtuner_gui.cpp
+index 0d2a9f1..e393afe 100644
+--- a/src/LV2/gxtuner.lv2/gxtuner_gui.cpp
++++ b/src/LV2/gxtuner.lv2/gxtuner_gui.cpp
+@@ -46,7 +46,7 @@ private:
+ 
+ public:
+ 
+-  static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++  static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+                                   const char * plugin_uri,
+                                   const char * bundle_path,
+                                   LV2UI_Write_Function write_function,
+@@ -306,7 +306,7 @@ GtkWidget* GxtunerGUI::make_gui()
+ }
+ 
+ 
+-LV2UI_Handle GxtunerGUI::instantiate(const struct _LV2UI_Descriptor * descriptor,
++LV2UI_Handle GxtunerGUI::instantiate(const struct LV2UI_Descriptor * descriptor,
+                                 const char * plugin_uri,
+                                 const char * bundle_path,
+                                 LV2UI_Write_Function write_function,
+diff --git a/tools/ampsim/DK/buildlv2/gx_sceletonX11.lv2/gui/gx_sceleton_x11ui.c b/tools/ampsim/DK/buildlv2/gx_sceletonX11.lv2/gui/gx_sceleton_x11ui.c
+index 92af872..6d48a0e 100644
+--- a/tools/ampsim/DK/buildlv2/gx_sceletonX11.lv2/gui/gx_sceleton_x11ui.c
++++ b/tools/ampsim/DK/buildlv2/gx_sceletonX11.lv2/gui/gx_sceleton_x11ui.c
+@@ -211,7 +211,7 @@ cairo_surface_t *cairo_image_surface_create_from_stream (gx_sceletonUI* ui, cons
+ ----------------------------------------------------------------------*/
+ 
+ // init the xwindow and return the LV2UI handle
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+ 			const char * plugin_uri, const char * bundle_path,
+ 			LV2UI_Write_Function write_function,
+ 			LV2UI_Controller controller, LV2UI_Widget * widget,
+diff --git a/tools/ampsim/DK/buildlv2/gx_sceletonX11_stereo.lv2/gui/gx_sceleton_x11ui.c b/tools/ampsim/DK/buildlv2/gx_sceletonX11_stereo.lv2/gui/gx_sceleton_x11ui.c
+index 92af872..6d48a0e 100644
+--- a/tools/ampsim/DK/buildlv2/gx_sceletonX11_stereo.lv2/gui/gx_sceleton_x11ui.c
++++ b/tools/ampsim/DK/buildlv2/gx_sceletonX11_stereo.lv2/gui/gx_sceleton_x11ui.c
+@@ -211,7 +211,7 @@ cairo_surface_t *cairo_image_surface_create_from_stream (gx_sceletonUI* ui, cons
+ ----------------------------------------------------------------------*/
+ 
+ // init the xwindow and return the LV2UI handle
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+ 			const char * plugin_uri, const char * bundle_path,
+ 			LV2UI_Write_Function write_function,
+ 			LV2UI_Controller controller, LV2UI_Widget * widget,
+diff --git a/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11.lv2/gui/gx_sceleton_x11ui.c b/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11.lv2/gui/gx_sceleton_x11ui.c
+index 92af872..6d48a0e 100644
+--- a/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11.lv2/gui/gx_sceleton_x11ui.c
++++ b/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11.lv2/gui/gx_sceleton_x11ui.c
+@@ -211,7 +211,7 @@ cairo_surface_t *cairo_image_surface_create_from_stream (gx_sceletonUI* ui, cons
+ ----------------------------------------------------------------------*/
+ 
+ // init the xwindow and return the LV2UI handle
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+ 			const char * plugin_uri, const char * bundle_path,
+ 			LV2UI_Write_Function write_function,
+ 			LV2UI_Controller controller, LV2UI_Widget * widget,
+diff --git a/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11_stereo.lv2/gui/gx_sceleton_x11ui.c b/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11_stereo.lv2/gui/gx_sceleton_x11ui.c
+index 92af872..6d48a0e 100644
+--- a/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11_stereo.lv2/gui/gx_sceleton_x11ui.c
++++ b/tools/ampsim/DK/buildlv2/gx_sceleton_rs_X11_stereo.lv2/gui/gx_sceleton_x11ui.c
+@@ -211,7 +211,7 @@ cairo_surface_t *cairo_image_surface_create_from_stream (gx_sceletonUI* ui, cons
+ ----------------------------------------------------------------------*/
+ 
+ // init the xwindow and return the LV2UI handle
+-static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
++static LV2UI_Handle instantiate(const struct LV2UI_Descriptor * descriptor,
+ 			const char * plugin_uri, const char * bundle_path,
+ 			LV2UI_Write_Function write_function,
+ 			LV2UI_Controller controller, LV2UI_Widget * widget,
+-- 
+2.21.1
+
