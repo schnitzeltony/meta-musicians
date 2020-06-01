@@ -3,13 +3,10 @@ HOMEPAGE = "https://github.com/brummer10/GxPlugins.lv2"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-SRC_URI = " \
-    gitsm://github.com/brummer10/GxPlugins.lv2.git \
-    file://0001-Adjust-Makefiles-for-cross-compiling.patch \
-"
-SRCREV = "63f19485984c002caddec734a9ee94faad2acb55"
+SRC_URI = "gitsm://github.com/brummer10/GxPlugins.lv2.git"
+SRCREV = "e40b34f3fd5dc4c6523dc826062d0ddb2578f573"
 S = "${WORKDIR}/git"
-PV = "0.6"
+PV = "0.8"
 
 inherit pkgconfig
 
@@ -20,6 +17,7 @@ DEPENDS += " \
 "
 
 do_compile() {
+    export GUI_LDFLAGS="${LDFLAGS}"
     oe_runmake SSE_CFLAGS= STRIP=echo 
 }
 
