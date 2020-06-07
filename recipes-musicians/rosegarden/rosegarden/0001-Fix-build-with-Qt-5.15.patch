@@ -1,0 +1,43 @@
+From 2aa451137236f610b65bfa7e271b5918accde247 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 7 Jun 2020 22:55:40 +0200
+Subject: [PATCH] Fix build with Qt 5.15
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/gui/widgets/Panner.cpp     | 1 +
+ src/gui/general/ThornStyle.cpp | 1 +
+ 2 file changed, 2 insertions(+)
+
+diff --git a/src/gui/widgets/Panner.cpp b/src/gui/widgets/Panner.cpp
+index ceba4ea..d4f9ae3 100644
+--- a/src/gui/widgets/Panner.cpp
++++ b/src/gui/widgets/Panner.cpp
+@@ -26,6 +26,7 @@
+ 
+ #include <QPolygon>
+ #include <QMouseEvent>
++#include <QPainterPath>
+ 
+ #include <iostream>
+ 
+diff --git a/src/gui/general/ThornStyle.cpp b/src/gui/general/ThornStyle.cpp
+index 4374607..4c82c29 100644
+--- a/src/gui/general/ThornStyle.cpp
++++ b/src/gui/general/ThornStyle.cpp
+@@ -45,6 +45,7 @@
+ #include <QSpinBox>
+ #include <QScrollBar>
+ #include <QAbstractScrollArea>
++#include <QPainterPath>
+ 
+ using namespace Rosegarden;
+ 
+-- 
+2.26.2
+
