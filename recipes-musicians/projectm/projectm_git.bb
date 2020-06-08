@@ -19,7 +19,7 @@ SRC_URI = " \
     file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Makefile.am-Fix-installation-with-DESTDIR-set.patch \
 "
-SRCREV_projectm = "9650468607537a028e4d71523c5e88a81f506578"
+SRCREV_projectm = "595bb28b6c3fbb104a4af21607b20c176b283b89"
 SRC_URI[presets.md5sum] = "8976d72c05e3f4ddee996c6f2e98fc63"
 SRC_URI[presets.sha256sum] = "e323515f0ee5920ec45e4f9efdb55890f028dabb5ae9468fdc97c43d55040614"
 
