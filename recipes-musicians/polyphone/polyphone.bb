@@ -25,6 +25,7 @@ SRC_URI = " \
     file://polyphone.mime \
     file://0001-align-compiler-switches-constants-for-cross-compilin.patch \
     file://0002-Sanitize-includes.patch \
+    file://0003-Fix-build-with-Qt-5.15.patch \
 "
 SRCREV = "f579c57045e443b8f4b22375e3bbaf09a3e45c24"
 PV = "2.2.0+git${SRCPV}"
