@@ -3,9 +3,10 @@ HOMEPAGE = "http://polyphone-soundfonts.com/en/"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://main.cpp;beginline=6;endline=18;md5=11e8b245e7c8a15dafd52bc856ef3ff1"
 
-inherit qmake5 gtk-icon-cache mime mime-xdg
+inherit qmake5 gtk-icon-cache mime mime-xdg dos2unix
 
 DEPENDS += " \
+    qttools-native \
     qtbase \
     qtsvg \
     alsa-lib \
@@ -23,16 +24,19 @@ SRC_URI = " \
     file://polyphone.desktop \
     file://polyphone.mime \
     file://0001-align-compiler-switches-constants-for-cross-compilin.patch \
+    file://0002-Sanitize-includes.patch \
 "
-SRCREV = "e5863e3147599e51563cd93d5f1e4f96384eba9b"
+SRCREV = "f579c57045e443b8f4b22375e3bbaf09a3e45c24"
+PV = "2.2.0+git${SRCPV}"
 S = "${WORKDIR}/git/sources"
 
 do_configure_prepend() {
     sed -i \
         -e 's:= /usr/include:= ${STAGING_INCDIR}:g' \
-        -e 's:^DEFINES += USE_LOCAL_:#DEFINES += USE_LOCAL_:g' \
         ${S}/polyphone.pro
 }
+
+CXXFLAGS += "-I${STAGING_INCDIR}/qcustomplot"
 
 do_install() {
     install -d ${D}${bindir}

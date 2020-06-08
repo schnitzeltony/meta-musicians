@@ -1,0 +1,66 @@
+From aebd295b630dd997e9ee3c0e90b385d45de0bc17 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Hubert=20Figui=C3=A8re?= <hub@figuiere.net>
+Date: Sat, 21 Mar 2020 11:05:50 -0400
+Subject: [PATCH] Sanitize includes
+
+Upstream-Status: Submitted[https://github.com/davy7125/polyphone/pull/100/commits]
+
+---
+ context/audiodevice.cpp | 2 +-
+ polyphone.pro           | 4 +---
+ sound_engine/voice.h    | 4 ++--
+ 3 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/context/audiodevice.cpp b/context/audiodevice.cpp
+index 80a56aa6..71c9f80a 100644
+--- a/context/audiodevice.cpp
++++ b/context/audiodevice.cpp
+@@ -29,7 +29,7 @@
+ #include "contextmanager.h"
+ 
+ #ifndef Q_OS_WIN
+-#include "jack.h"
++#include "jack/jack.h"
+ 
+ // Jack callbacks
+ int jackProcess(jack_nframes_t nframes, void * arg)
+diff --git a/polyphone.pro b/polyphone.pro
+index caa3910e..713bf312 100644
+--- a/polyphone.pro
++++ b/polyphone.pro
+@@ -68,8 +68,7 @@ unix:!macx {
+     isEmpty(PREFIX) {
+         PREFIX = /usr/local
+     }
+-    INCLUDEPATH += $$PREFIX/include/jack \
+-        lib/flac
++    INCLUDEPATH += lib/flac
+     DESTDIR=bin
+     
+     # Install target
+@@ -145,7 +144,6 @@ contains(DEFINES, USE_LOCAL_STK) {
+     INCLUDEPATH += lib/stk
+ } else {
+     LIBS += -lstk
+-    INCLUDEPATH += $$PREFIX/include/stk
+ }
+ 
+ # Location of QCustomplot
+diff --git a/sound_engine/voice.h b/sound_engine/voice.h
+index 57b9f54a..5f9142aa 100644
+--- a/sound_engine/voice.h
++++ b/sound_engine/voice.h
+@@ -29,8 +29,8 @@
+ #include "sound.h"
+ #include "enveloppevol.h"
+ #include "oscsinus.h"
+-#include "Chorus.h"
+-#include "FreeVerb.h"
++#include "stk/Chorus.h"
++#include "stk/FreeVerb.h"
+ 
+ class Voice : public QObject
+ {
+-- 
+2.21.3
+
