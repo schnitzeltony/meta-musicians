@@ -25,6 +25,7 @@ SRC_URI = " \
     git://github.com/muse-sequencer/muse.git \
     file://0001-Do-not-try-to-find-aeffectx.h-it-is-not-found-for-un.patch \
     file://0002-muse-find-unused-wavs-convert-to-pythomn3.patch \
+    file://0003-Fix-buid-with-Qt-5.15.patch \
 "
 SRCREV = "50f4b71eab801aa49f35b66fdfdca9ab02e08238"
 PV = "3.1.0"

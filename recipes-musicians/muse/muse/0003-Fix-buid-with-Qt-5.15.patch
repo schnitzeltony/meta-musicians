@@ -1,0 +1,111 @@
+From 4f7fa72afee94dc14d16b71c15f992907b4cc6b1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 8 Jun 2020 14:09:28 +0200
+Subject: [PATCH] Fix buid with Qt >= 5.15
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+There were several errors as
+| error: aggregate 'QPainterPath path' has incomplete type and cannot be defined
+
+Upstream-Status: Submitted [https://github.com/muse-sequencer/muse/pull/818]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ muse3/awl/knob.cpp                | 1 +
+ muse3/awl/slider.cpp              | 1 +
+ muse3/muse/components/slider.cpp  | 1 +
+ muse3/muse/components/utils.cpp   | 1 +
+ muse3/muse/midiedit/scoreedit.cpp | 1 +
+ muse3/muse/mixer/routedialog.cpp  | 1 +
+ muse3/muse/widgets/meter.cpp      | 1 +
+ 7 files changed, 7 insertions(+)
+
+diff --git a/muse3/awl/knob.cpp b/muse3/awl/knob.cpp
+index be8bc85d..b9f1e3e2 100644
+--- a/muse3/awl/knob.cpp
++++ b/muse3/awl/knob.cpp
+@@ -25,6 +25,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ 
+ namespace Awl {
+ 
+diff --git a/muse3/awl/slider.cpp b/muse3/awl/slider.cpp
+index 7d82fde3..e33be869 100644
+--- a/muse3/awl/slider.cpp
++++ b/muse3/awl/slider.cpp
+@@ -24,6 +24,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ 
+ namespace Awl {
+ 
+diff --git a/muse3/muse/components/slider.cpp b/muse3/muse/components/slider.cpp
+index 5a0e85c0..831ba89c 100644
+--- a/muse3/muse/components/slider.cpp
++++ b/muse3/muse/components/slider.cpp
+@@ -26,6 +26,7 @@
+ #include "mmath.h"
+ 
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QResizeEvent>
+ 
+ #include "utils.h"
+diff --git a/muse3/muse/components/utils.cpp b/muse3/muse/components/utils.cpp
+index e40d5e14..b0d348ae 100644
+--- a/muse3/muse/components/utils.cpp
++++ b/muse3/muse/components/utils.cpp
+@@ -34,6 +34,7 @@
+ #include <QLinearGradient>
+ #include <QMimeData>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QPointF>
+ #include <QFileInfo>
+ #include <QFont>
+diff --git a/muse3/muse/midiedit/scoreedit.cpp b/muse3/muse/midiedit/scoreedit.cpp
+index b963f3ad..788e43c3 100644
+--- a/muse3/muse/midiedit/scoreedit.cpp
++++ b/muse3/muse/midiedit/scoreedit.cpp
+@@ -44,6 +44,7 @@
+ #include <QImage>
+ #include <QInputDialog>
+ #include <QMessageBox>
++#include <QPainterPath>
+ 
+ #include <stdio.h>
+ #include "muse_math.h"
+diff --git a/muse3/muse/mixer/routedialog.cpp b/muse3/muse/mixer/routedialog.cpp
+index 2e6cf0f0..92285b19 100644
+--- a/muse3/muse/mixer/routedialog.cpp
++++ b/muse3/muse/mixer/routedialog.cpp
+@@ -35,6 +35,7 @@
+ #include <QLayout>
+ #include <QFlags>
+ #include <QVariant>
++#include <QPainterPath>
+ 
+ #include "routedialog.h"
+ #include "globaldefs.h"
+diff --git a/muse3/muse/widgets/meter.cpp b/muse3/muse/widgets/meter.cpp
+index 3920e6f6..85d4953a 100644
+--- a/muse3/muse/widgets/meter.cpp
++++ b/muse3/muse/widgets/meter.cpp
+@@ -28,6 +28,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QResizeEvent>
+ #include <QVector>
+ #include <QLocale>
+-- 
+2.21.3
+
