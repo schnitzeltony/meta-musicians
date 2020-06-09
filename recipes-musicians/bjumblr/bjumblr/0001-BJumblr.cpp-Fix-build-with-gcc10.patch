@@ -32,6 +32,8 @@ Error message:
 |   844 |      fprintf (stderr, "%s\n", ia.what());
 |       |                               ^~
 
+Upstream-Status: Submitted[https://github.com/sjaehn/BJumblr/pull/9]
+
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
  src/BJumblr.cpp | 1 +
