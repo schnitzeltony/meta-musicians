@@ -14,7 +14,10 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BJumblr.git"
+SRC_URI = " \
+    git://github.com/sjaehn/BJumblr.git \
+    file://0001-BJumblr.cpp-Fix-build-with-gcc10.patch \
+"
 SRCREV = "7a240470926e7929048121f0b67938851d712b6c"
 S = "${WORKDIR}/git"
 PV = "1.2.0"

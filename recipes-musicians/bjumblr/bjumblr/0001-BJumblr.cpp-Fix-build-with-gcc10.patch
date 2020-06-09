@@ -1,0 +1,54 @@
+From aceb6d17c6ef7abb6780606df780fd6288ff4e71 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Tue, 9 Jun 2020 22:30:48 +0200
+Subject: [PATCH] BJumblr.cpp: Fix build with gcc10
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Error message:
+| src/BJumblr.cpp:70:21: error: 'invalid_argument' is not a member of 'std'
+|    70 |  if (!m) throw std::invalid_argument ("BJumblr.lv2: Host does not support urid:map.");
+|       |                     ^~~~~~~~~~~~~~~~
+| src/BJumblr.cpp:71:34: error: 'invalid_argument' is not a member of 'std'
+|    71 |  if (!workerSchedule) throw std::invalid_argument ("BJumblr.lv2: Host does not support work:schedule.");
+|       |                                  ^~~~~~~~~~~~~~~~
+|  src/BJumblr.cpp: In constructor 'BJumblr::Sample::Sample(const char*)':
+| src/BJumblr.cpp:104:50: error: 'invalid_argument' is not a member of 'std'
+|   104 |         if (!sndfile || !info.frames) throw std::invalid_argument("BJumblr.lv2: Can't open " + std::string(samplepath) + ".");
+|       |                                                  ^~~~~~~~~~~~~~~~
+| src/BJumblr.cpp: In member function 'LV2_State_Status BJumblr::state_restore(LV2_State_Retrieve_Function, LV2_State_Handle, uint32_t, const LV2_Feature* const*)':
+| src/BJumblr.cpp:701:15: error: 'invalid_argument' in namespace 'std' does not name a type
+|   701 |   catch (std::invalid_argument &ia)
+|       |               ^~~~~~~~~~~~~~~~
+| src/BJumblr.cpp:703:29: error: 'ia' was not declared in this scope
+|   703 |    fprintf (stderr, "%s\n", ia.what());
+|       |                             ^~
+| src/BJumblr.cpp: In member function 'LV2_Worker_Status BJumblr::work(LV2_Worker_Respond_Function, LV2_Worker_Respond_Handle, uint32_t, const void*)':
+| src/BJumblr.cpp:842:17: error: 'invalid_argument' in namespace 'std' does not name a type
+|   842 |     catch (std::invalid_argument &ia)
+|       |                 ^~~~~~~~~~~~~~~~
+| src/BJumblr.cpp:844:31: error: 'ia' was not declared in this scope
+|   844 |      fprintf (stderr, "%s\n", ia.what());
+|       |                               ^~
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/BJumblr.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/BJumblr.cpp b/src/BJumblr.cpp
+index 5f89e41..3e97e6a 100644
+--- a/src/BJumblr.cpp
++++ b/src/BJumblr.cpp
+@@ -19,6 +19,7 @@
+  */
+ 
+ #include "BJumblr.hpp"
++#include <stdexcept>
+ 
+ inline double floorfrac (const double value) {return value - floor (value);}
+ inline double floormod (const double numer, const double denom) {return numer - floor(numer / denom) * denom;}
+-- 
+2.26.2
+
