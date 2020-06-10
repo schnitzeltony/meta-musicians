@@ -28,16 +28,10 @@ DEPENDS += " \
     cppunit \
 "
 
-# drumkits URIs from http://hydrogen-music.org/feeds/drumkit_list.php (downloaded to WORKDIR)
-# NOTES: 
-# * Licenses are included in drumkit_list.php
-# * download of drumkits might fail -> repeat builds of this recipe usually helps
 
 SRC_URI = " \
     git://github.com/hydrogen-music/hydrogen.git \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
-    \
-    http://hydrogen-music.org/feeds/drumkit_list.php;name=drumkit-list \
     \
     http://hydro.smoors.de/Audiophob.h2drumkit;downloadfilename=Audiophob.tar.gz;name=Audiophob;subdir=drumkits \
     http://hydro.smoors.de/belofilms_GuitarStrums.h2drumkit;downloadfilename=belofilms_GuitarStrums.tar.gz;name=belofilms_GuitarStrums;subdir=drumkits \
@@ -89,10 +83,17 @@ SRC_URI = " \
 SRCREV = "d186d169f12bd8c5f34677aab713a9542bace52c"
 PV ="1.0.0~rc1+git${SRCPV}"
 
-S = "${WORKDIR}/git"
+###############################################################################
+# drumkits URIs from http://hydrogen-music.org/feeds/drumkit_list.php
+# So if you want to check for more uncomment the following lines and, build
+# hydrogen and check ${WORKDIR}/drumkit_list.php
 
-SRC_URI[drumkit-list.md5sum] = "a690b411370deb00439c1fb9dbbab1f7"
-SRC_URI[drumkit-list.sha256sum] = "c5254e76c2d5d16e4a9674e0f226a3fe49103f9cdc938950598a8b780fd06108"
+#SRC_URI += "http://hydrogen-music.org/feeds/drumkit_list.php;name=drumkit-list"
+#SRC_URI[drumkit-list.md5sum] = "4c709788c9f07dd2f7d2a5e60de6a5b2"
+#SRC_URI[drumkit-list.sha256sum] = "93f057f5ea6b709c6ebf319a20248f7cfb4e10855de87323992eb503929757e7"
+###############################################################################
+
+S = "${WORKDIR}/git"
 
 SRC_URI[Audiophob.md5sum] = "24cb2577a447bbd72aab769aacb3e8b4"
 SRC_URI[Audiophob.sha256sum] = "70b71304221a1287f257ed9a03bfb221af6ce335deec3a3385237e6be6fa9e0c"
