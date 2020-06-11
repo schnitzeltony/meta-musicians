@@ -3,24 +3,25 @@ HOMEPAGE = "http://guitarix.org/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
-PV = "0.39.0"
 SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${BPN}2-${PV}.tar.xz \
-    file://0001-Fix-build-with-latest-LV2.patch \
+    git://github.com/brummer10/guitarix.git \
+    file://0001-Rework-messages-somehow-yes-or-no-is-missing.patch \
+    file://0002-Do-not-strip-LV2-plugins.patch \
 "
-SRC_URI[md5sum] = "04c22ff9baaa69d256e2ca84ba288936"
-SRC_URI[sha256sum] = "490ff3f856282f776456b8e27366dd074d663870c0a89fccded03d854305c8da"
+SRCREV = "9e6dbe30cb5fc226e5d3c02190f1bce0b3fde539"
+PV = "0.40.0+git${SRCPV}"
+S = "${WORKDIR}/git/trunk"
 
 inherit waf fontcache gettext
 
 DEPENDS += " \
     gperf-native \
     intltool-native \
-    faust-native \
+    sassc-native \
     boost \
     libeigen \
     avahi \
-    gtkmm \
+    gtkmm3 \
     jack \
     lilv \
     ladspa-sdk \
@@ -42,15 +43,21 @@ EXTRA_OECONF = " \
     --shared-lib \
     --lib-dev \
     --install-roboto-font \
+    --no-faust \
 "
 
 python waf_preconfigure() {
 }
 
+PATH_prepend = "${B}:"
+
 do_configure_prepend() {
-    for pfile in `grep -rl '/usr/bin/env python$' ${S}`; do
-        sed -i 's:/usr/bin/env python:/usr/bin/env python3:' $pfile
-    done
+    # link python -> python3
+    ln -sf `which python3` ${B}/python
+}
+
+do_compile_prepend() {
+    export STRIP=echo
 }
 
 do_install_append() {

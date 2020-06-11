@@ -1,0 +1,33 @@
+From 6d873f6758321065756805d24a44aab5618a1955 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 11 Jun 2020 18:11:13 +0200
+Subject: [PATCH] Rework messages - somehow 'yes' or 'no' is missing
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ wscript | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/wscript b/wscript
+index 2699325f..c4882262 100644
+--- a/wscript
++++ b/wscript
+@@ -153,10 +153,9 @@ def display_msg(msg, status = None, color = None):
+     global g_maxlen
+     g_maxlen = max(g_maxlen, len(msg))
+     if status is not None:
+-        print_msg("%s :" % msg.ljust(g_maxlen),False)
+-        Logs.pprint(color, status)
++        print("%s : %s" % (msg, status))
+     else:
+-        print_msg("%s" % msg.ljust(g_maxlen))
++        print("%s" % msg)
+ 
+ def error_msg(msg):
+     Utils.eprint('RED', msg)
+-- 
+2.21.3
+
