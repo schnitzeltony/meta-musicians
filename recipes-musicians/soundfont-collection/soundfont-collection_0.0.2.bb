@@ -96,6 +96,7 @@ PACKAGES = " \
     ${PN}-linuxaudio-org \
     ${PN}-linuxaudio-org-single \
     ${PN}-freepats-zenvoid-org \
+    ${PN}-freepats-zenvoid-org-salamander-grand \
     ${PN}-philscomputerlab-com \
     ${PN}-philscomputerlab-com-single \
     ${PN}-christiancollins \
@@ -115,6 +116,7 @@ RRECOMMENDS_${PN}-meta = " \
     ${PN}-musical-artifacts \
     ${PN}-archive-rabs \
 "
+# freepats-zenvoid-org-salamander-grand is 1.3G so don't recommend if for meta
 
 do_configure() {
 }
@@ -176,6 +178,8 @@ FILES_${PN}-linuxaudio-org-single = " \
 FILES_${PN}-freepats-zenvoid-org = " \
     ${datadir}/sf2/YDP-GrandPiano-20160804.sf2 \
     ${datadir}/sf2/UprightPianoKW-20190703.sf2 \
+"
+FILES_${PN}-freepats-zenvoid-org-salamander-grand = " \
     ${datadir}/sf2/SalamanderGrandPiano-V3+20200602.sf2 \
 "
 
