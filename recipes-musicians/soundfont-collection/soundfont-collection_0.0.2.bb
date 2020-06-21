@@ -12,6 +12,7 @@ LIC_FILES_CHKSUM = " \
     file://linuxaudio.org/airfont_a340u/readme;md5=94c7ebefcd275e72d018acec80b714cf \
     file://linuxaudio.org/fluidr3/readme;md5=4223817a5c95fe5efbe35d0e6b487063 \
     \
+    file://archive-rabs/Soundfonts_meta.xml;beginline=11;endline=11;md5=801a564526e0a67ca1344ad076c6497c \
 "
 
 DEPENDS = "sf-tools-native"
@@ -41,38 +42,48 @@ SRC_URI = " \
     https://www.dropbox.com/s/4x27l49kxcwamp5/GeneralUser_GS_1.471.zip;name=christiancollins \
     \
     https://musical-artifacts.com/artifacts/248/iw_vint.zip;subdir=musical-artifacts;name=vintage-dreams-waves \
+    \
+    https://archive.org/download/Soundfonts/RabsBass.sf2;subdir=archive-rabs;name=rabs-bass \
+    https://archive.org/download/Soundfonts/RabsBrassSection.sf2;subdir=archive-rabs;name=rabs-brass-section \
+    https://archive.org/download/Soundfonts/RabsFenderRhodes.sf2;subdir=archive-rabs;name=rabs-fender-rhodes \
+    https://archive.org/download/Soundfonts/RabsHohnerD-6.sf2;subdir=archive-rabs;name=rabs-hohnerD-6 \
+    https://archive.org/download/Soundfonts/RabsJazzkit.sf2;subdir=archive-rabs;name=rabs-jazzkit \
+    https://archive.org/download/Soundfonts/RabsNewConstructionKit.sf2;subdir=archive-rabs;name=rabs-new-construction-kit \
+    https://archive.org/download/Soundfonts/RabsOrgans.sf2;subdir=archive-rabs;name=rabs-organs \
+    https://archive.org/download/Soundfonts/RabsStratocaster.sf2;subdir=archive-rabs;name=rabs-stratocaster \
+    https://archive.org/download/Soundfonts/RabsWwGtr.sf2;subdir=archive-rabs;name=rabs-wwgtr \
+    https://archive.org/download/Soundfonts/Soundfonts_meta.xml;subdir=archive-rabs;name=rabs-meta \
 "
 
 SRC_URI[airfont.sha256sum] = "7c61d6243943e3ff86dbe776cf3f1cdb0af5e55ccda370491c02613849fd9df4"
-
 SRC_URI[fluidr3.sha256sum] = "a62235d86c920f141a1aa2a0921ceaee167478796d9e0ac1130fd87ec50a6a02"
-
 SRC_URI[jRhodes3.sha256sum] = "a50462992b19f4df65aa63d237bb0e45a071e63383ae9f2c5a2980d4ec3bcce1"
-
 SRC_URI[melloflute.sha256sum] = "d4fbbab82ee558092e9f6706c9bf865314cf5d848c7a1a076b039926d36cb305"
-
 SRC_URI[melloreed.sha256sum] = "b6f3ff4ccef5e1b4f35b81e915f85ae4fa0730bf01f26151c66ba04efb30d028"
-
 
 SRC_URI[avl-drumkits.sha256sum] = "46a5d0d1fd3894082ae0ecdab3396a9a1b9eecc0076935f35980cdd7ce024382"
 
-
 SRC_URI[ydp-grand-piano.sha256sum] = "d243dc3e182a60df2a16e92828c1821cf3eb5748b45e2e2bdcfa9cf7af056026"
-
 SRC_URI[upright-piano-kw.sha256sum] = "e1e4b9777e100664ffb1bee2e0a2884378c329c7125e6dd9fb3971c69759582b"
-
 SRC_URI[salamander-grand-piano.sha256sum] = "15edb061d7ba60d58332f72dba8f8ce40988048cc703f935e6320f37d650e213"
 
-
 SRC_URI[weedsgm3.sha256sum] = "4de36fdec6a1f972d3b32ac35ff1c3178ceb0fc05ff5c9fb94aebde5197f8568"
-
 SRC_URI[choriumreva.sha256sum] = "993a1683a67f30c56c248290e1eb6c13b779331856e9a767ace0f5063f41f897"
-
 
 SRC_URI[christiancollins.sha256sum] = "4203835164766f428c4926c097c9ea58dae431c7fb8f9dbe277b92d80da45ec2"
 
-
 SRC_URI[vintage-dreams-waves.sha256sum] = "2706ec973acc390b888e0084c7afd4ba75da58f2772c13b1e398a6a66b021f15"
+
+SRC_URI[rabs-bass.sha256sum] = "9c66c35ed823e340a79e6dbd35d57e6eaa8d1847af5f8619294eedfe90760c4e"
+SRC_URI[rabs-brass-section.sha256sum] = "2b67da6bf2e0a73de578de5884c49061557d83db5603a6494df9eef08752a2ee"
+SRC_URI[rabs-fender-rhodes.sha256sum] = "aafbc93874163e6b702fea3ca4cc4ba8fd8b610a13d726813c55c164d8a87c66"
+SRC_URI[rabs-hohnerD-6.sha256sum] = "64e476f87fd7ec2d3984b8944f7a17d78023bc1a089cc051a5dbd4d02119a222"
+SRC_URI[rabs-jazzkit.sha256sum] = "3636b39e46290beab557ee64e102a731f37f5ed65c36bf025847f68dcfb8f71e"
+SRC_URI[rabs-new-construction-kit.sha256sum] = "b3fce24ba733c78afb9bbf12e973d2d8843d2e6fc34ac5b1e46c598cb72d0ec5"
+SRC_URI[rabs-organs.sha256sum] = "14765b576626e440caf054c7b3a502b03cd95b451d4e8bf53f623705de8a5174"
+SRC_URI[rabs-stratocaster.sha256sum] = "1966c40643b0de18f825fb26f10fdf5aabb298b69268be43d0e5b5c434fd6621"
+SRC_URI[rabs-wwgtr.sha256sum] = "a17be1dff75bf76af0ac78e9fec75313a7375ac1e388709546c4e732c1ca1652"
+SRC_URI[rabs-meta.sha256sum] = "74ff57376b6ce383e0fe3a0b6c391774a7d926585112f7a8650b5bef55bf169a"
 
 
 do_unpack[depends] += "p7zip-native:do_populate_sysroot"
@@ -89,6 +100,7 @@ PACKAGES = " \
     ${PN}-philscomputerlab-com-single \
     ${PN}-christiancollins \
     ${PN}-musical-artifacts \
+    ${PN}-archive-rabs \
 "
 
 ALLOW_EMPTY_${PN}-meta = "1"
@@ -101,6 +113,7 @@ RRECOMMENDS_${PN}-meta = " \
     ${PN}-philscomputerlab-com-single \
     ${PN}-christiancollins \
     ${PN}-musical-artifacts \
+    ${PN}-archive-rabs \
 "
 
 do_configure() {
@@ -121,7 +134,10 @@ do_install() {
     done
 
     for soundfont in `find ${WORKDIR}/linuxaudio.org -name '*.sf2'`; do
-        echo "linuxaudio.org: $soundfont"
+        install $soundfont ${D}${datadir}/sf2
+    done
+
+    for soundfont in `find ${WORKDIR}/archive-rabs -name '*.sf2'`; do
         install $soundfont ${D}${datadir}/sf2
     done
 
@@ -176,3 +192,14 @@ FILES_${PN}-christiancollins = "${datadir}/sf2/general-user-gs-v1.471.sf2"
 
 FILES_${PN}-musical-artifacts = "${datadir}/sf2/Vintage-Dreams-Waves-V2.sf2"
 
+FILES_${PN}-archive-rabs = " \
+    ${datadir}/sf2/RabsStratocaster.sf2 \
+    ${datadir}/sf2/RabsHohnerD-6.sf2 \
+    ${datadir}/sf2/RabsBass.sf2 \
+    ${datadir}/sf2/RabsOrgans.sf2 \
+    ${datadir}/sf2/RabsNewConstructionKit.sf2 \
+    ${datadir}/sf2/RabsFenderRhodes.sf2 \
+    ${datadir}/sf2/RabsJazzkit.sf2 \
+    ${datadir}/sf2/RabsWwGtr.sf2 \
+    ${datadir}/sf2/RabsBrassSection.sf2 \
+"
