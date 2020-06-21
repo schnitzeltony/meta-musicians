@@ -14,10 +14,10 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 5 deletions(-)
 
 diff --git a/plugins/carlabase/CMakeLists.txt b/plugins/carlabase/CMakeLists.txt
-index 4fa81a491..4375e95f1 100644
+index 5e024da40..802ee55c0 100644
 --- a/plugins/carlabase/CMakeLists.txt
 +++ b/plugins/carlabase/CMakeLists.txt
-@@ -12,9 +12,4 @@ if(LMMS_HAVE_CARLA)
+@@ -35,11 +35,6 @@ if(LMMS_HAVE_CARLA OR LMMS_HAVE_WEAKCARLA)
          LINK_DIRECTORIES(${CARLA_LIBRARY_DIRS})
          LINK_LIBRARIES(${CARLA_LIBRARIES})
          BUILD_PLUGIN(carlabase carla.cpp carla.h MOCFILES carla.h EMBEDDED_RESOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.png" LINK SHARED)
@@ -26,7 +26,9 @@ index 4fa81a491..4375e95f1 100644
 -                BUILD_WITH_INSTALL_RPATH TRUE
 -                INSTALL_RPATH_USE_LINK_PATH TRUE
 -                INSTALL_RPATH "${CARLA_RPATH}")
- endif(LMMS_HAVE_CARLA)
+         IF(LMMS_HAVE_WEAKCARLA)
+                 ADD_DEPENDENCIES(carlabase carla_native-plugin)
+         ENDIF()
 -- 
-2.14.5
+2.26.2
 
