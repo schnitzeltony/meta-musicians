@@ -2,7 +2,7 @@ require ${BPN}.inc
 
 inherit autotools-brokensep pkgconfig features_check gtk-icon-cache qemu-ext-musicians
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS += " \
     ${BPN}-native \

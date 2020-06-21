@@ -30,7 +30,7 @@ DEPENDS += " \
 
 inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     git://github.com/Ardour/ardour.git \

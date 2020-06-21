@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=eb1e647870add0502f8f010b19de32af"
 
 inherit meson gettext features_check
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     git://git.zrythm.org/git/ztoolkit;protocol=https \

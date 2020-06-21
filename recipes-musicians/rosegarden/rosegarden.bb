@@ -16,7 +16,7 @@ DEPENDS += " \
 
 inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime mime-xdg
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 PV = "20.06"
 SRC_URI = " \

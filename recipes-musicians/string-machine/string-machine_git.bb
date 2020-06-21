@@ -12,7 +12,7 @@ DEPENDS += " \
 
 inherit pkgconfig features_check lv2-turtle-helper pack_audio_plugins
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     gitsm://github.com/jpcima/string-machine.git \

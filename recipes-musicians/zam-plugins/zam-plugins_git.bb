@@ -18,7 +18,7 @@ DEPENDS += " \
 
 inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
 
-REQUIRED_DISTRO_FEATURE = "x11"
+REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     gitsm://github.com/zamaudio/${BPN}.git \

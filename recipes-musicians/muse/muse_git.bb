@@ -21,6 +21,8 @@ DEPENDS += " \
 
 inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime qt5-translation mime-xdg
 
+REQUIRED_DISTRO_FEATURES = "x11"
+
 SRC_URI = " \
     git://github.com/muse-sequencer/muse.git \
     file://0001-Do-not-try-to-find-aeffectx.h-it-is-not-found-for-un.patch \
