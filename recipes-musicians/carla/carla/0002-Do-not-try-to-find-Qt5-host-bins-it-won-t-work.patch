@@ -14,17 +14,17 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 deletion(-)
 
 diff --git a/source/Makefile.mk b/source/Makefile.mk
-index 688dca20..07afc7a2 100644
+index 6d1b24859..37518ef96 100644
 --- a/source/Makefile.mk
 +++ b/source/Makefile.mk
-@@ -253,7 +253,6 @@ endif
+@@ -285,7 +285,6 @@ endif
  endif
  
  ifeq ($(HAVE_QT5),true)
--QT5_HOSTBINS = $(shell pkg-config --variable=host_bins Qt5Core)
+-QT5_HOSTBINS = $(shell $(PKG_CONFIG) --variable=host_bins Qt5Core)
  MOC_QT5 ?= $(QT5_HOSTBINS)/moc
  RCC_QT5 ?= $(QT5_HOSTBINS)/rcc
  UIC_QT5 ?= $(QT5_HOSTBINS)/uic
 -- 
-2.14.4
+2.26.2
 

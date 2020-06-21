@@ -7,13 +7,13 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/falkTX/Carla.git;branch=develop \
+    git://github.com/falkTX/Carla.git \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
     file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
 "
-SRCREV = "8385b5ee418357e2dc907518ac39c20beb3b28ed"
+SRCREV = "1b5080dff02b1e751e32f0582e4aee7bc2c74a67"
 S = "${WORKDIR}/git"
-PV = "2.0.0+git${SRCPV}"
+PV = "2.1.1"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
