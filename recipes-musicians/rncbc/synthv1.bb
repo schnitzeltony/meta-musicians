@@ -17,14 +17,14 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     ${SOURCEFORGE_MIRROR}/project/autostatic/autostatic-synthv1-presets/autostatic-synthv1-presets1.tar.gz;name=autostatic-synthv1-presets1 \
     http://linuxsynths.com/Synthv1PatchesDemos/Synthv1Patches06.tar.gz;name=linuxsynths-synthv1-presets;subdir=linuxsynths-synthv1-presets \
-    file://0001-no-Qt4-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Avoid-stripping.patch \
     \
     file://synthv1.conf \
 "
-PV = "0.9.14"
-SRC_URI[md5sum] = "778c900808b19c41d8469f1d17bfbc7d"
-SRC_URI[sha256sum] = "802ce0a4e283d3a1ff303509bb9da78058982afc2a2dea8848404c35f31cc822"
+PV = "0.9.15"
+SRC_URI[md5sum] = "843e50e259d86789ac9845d81bdda2d1"
+SRC_URI[sha256sum] = "3d02bdc9e97005f40fdb1afc7d68957d1070cd260738523c0560ff1b0f15fe10"
 
 SRC_URI[autostatic-synthv1-presets1.md5sum] = "02210e5576310554cfe316fb72e88b74"
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
