@@ -18,9 +18,9 @@ SRC_URI = " \
     git://github.com/sjaehn/BJumblr.git \
     file://0001-BJumblr.cpp-Fix-build-with-gcc10.patch \
 "
-SRCREV = "7a240470926e7929048121f0b67938851d712b6c"
+SRCREV = "4f906ea47467637a6e115435784dc34f6bf63ca7"
 S = "${WORKDIR}/git"
-PV = "1.2.0"
+PV = "1.2.2"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
