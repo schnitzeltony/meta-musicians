@@ -38,8 +38,8 @@ SRC_URI = " \
     file://0001-remove-all-build-flags-that-cause-trouble-for-cross-.patch \
     file://0002-Use-ARM-NEON-intrinsics-if-available-for-mixing-func.patch \
 "
-SRCREV = "360c81b815efe1e7b117ad6f96f8493f675d51bf"
-PV = "6.0"
+SRCREV = "c8e92338fffa92e4ee0bc03ca8ca9ff93ed8b2b4"
+PV = "6.2"
 S = "${WORKDIR}/git"
 
 # arch specific override - default (tested) is ARM -> no fpu-optimizations
