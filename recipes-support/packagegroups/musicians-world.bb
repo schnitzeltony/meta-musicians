@@ -130,6 +130,7 @@ RDEPENDS_${PN} += " \
     \
     \
     bjumblr \
+    bsequencer \
     \
     \
     fluidsynth-dssi \
