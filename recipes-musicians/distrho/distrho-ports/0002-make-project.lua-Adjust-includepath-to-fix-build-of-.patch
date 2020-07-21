@@ -1,0 +1,52 @@
+From f420c0b5754060bd4a93108a5c75a1ba4eed886e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Tue, 21 Jul 2020 21:31:47 +0200
+Subject: [PATCH] make-project.lua: Adjust includepath to fix build of
+ DISTRHO-Ports-Extra
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ scripts/make-project.lua | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/scripts/make-project.lua b/scripts/make-project.lua
+index a68a09eb..c7d074f5 100644
+--- a/scripts/make-project.lua
++++ b/scripts/make-project.lua
+@@ -124,7 +124,7 @@ function make_plugin_project(name, spec)
+     "../../../libs/juce-legacy/source",
+     "../../../libs/juce-legacy/source/modules",
+     "../../../libs/juce-plugin",
+-    "../../../libs/juce-plugin/juce-legacy"
++    "../../../libs/juce-legacy"
+   }
+ 
+   package.libpaths = {
+@@ -156,8 +156,8 @@ end
+ function make_juce_lv2_project(name)
+   package = make_plugin_project(name, "LV2")
+ 
+-  package.config["Release"].links = { "juce-legacy" }
+-  package.config["Debug"].links   = { "juce-legacy_debug" }
++  package.config["Release"].links = { "juce-current" }
++  package.config["Debug"].links   = { "juce-current_debug" }
+ 
+   if (windows) then
+     package.links       = { "comdlg32", "gdi32", "imm32", "ole32", "oleaut32", "shlwapi", "uuid", "version", "winmm", "wininet", "ws2_32" }
+@@ -184,8 +184,8 @@ end
+ function make_juce_vst_project(name)
+   package = make_plugin_project(name, "VST")
+ 
+-  package.config["Release"].links = { "juce-legacy" }
+-  package.config["Debug"].links   = { "juce-legacy_debug" }
++  package.config["Release"].links = { ""juce-legacy", juce-current" }
++  package.config["Debug"].links   = { "juce-legacy_debug", "juce-current_debug" }
+ 
+   package.buildoptions = {
+     package.buildoptions,
+-- 
+2.21.3
+

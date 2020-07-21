@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = " \
 
 SRC_URI = " \
     git://github.com/DISTRHO/DISTRHO-Ports.git \
-    file://0001-Fix-build-with-musl-by-removing-unused-SystemStats-g.patch \
-    file://0002-Further-musl-fix-by-removal-of-unused-function.patch \
+    file://0001-Adjust-build-so-ttl-generation-is-postponed.patch \
+    file://0002-make-project.lua-Adjust-includepath-to-fix-build-of-.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \
     \
@@ -17,9 +17,9 @@ SRC_URI = " \
     http://linuxsynths.com/VexPatchesDemos/VexPatches02.tar.gz;name=linuxsynths-vex-patches2;subdir=linuxsynths-vex-patches \
 "
 
-SRCREV = "65c7c68a79e532d01695466f5b94c0e1cc4ae940"
+SRCREV = "b1770b2258f309c11d32ee718bd7f78bc9ca0ae3"
 S = "${WORKDIR}/git"
-PV = "2018-04-16+git${SRCPV}"
+PV = "2020-07-14+git${SRCPV}"
 
 SRC_URI[linuxsynths-obxd-patches1.md5sum] = "32244f847a54a71ee3c25079df5c8b84"
 SRC_URI[linuxsynths-obxd-patches1.sha256sum] = "246fccadd71bb9f0606a95bf7b0aee7807fd3a14f754367425423a51c31e160e"
@@ -31,10 +31,9 @@ SRC_URI[linuxsynths-vex-patches2.sha256sum] = "378cff261dab333c5f29246b6f3f557e0
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
-inherit dos2unix lv2-turtle-helper features_check pack_audio_plugins
+inherit meson lv2-turtle-helper features_check pack_audio_plugins
 
 DEPENDS += " \
-    premake3-native \
     virtual/libgl \
     alsa-lib \
     libx11 \
@@ -44,23 +43,20 @@ DEPENDS += " \
     ladspa-sdk \
 "
 
-LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
+LV2_TTL_GENERATOR = "${B}/libs/lv2-ttl-generator/lv2_ttl_generator"
 
 do_ttl_sed() {
-    # keep unmodified scripts for distrho-ports-extra
-    cp -r ${S}/scripts ${WORKDIR}
-    sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
+    sed -i \
+        -e 's|lv2_ttl_generator,|'\''echo'\'', plugin_lv2_dir / plugin_name + lib_suffix, '\''>>'\'', '\''${LV2_PLUGIN_INFO_FILE}'\'',|g' \
+        ${S}/ports-legacy/meson.build ${S}/ports/meson.build
 }
 
-do_configure() {
-    # platforms supporting sse2 can override NOOPTIMIZATIONS - later todo?
-    NOOPTIMIZATIONS=1 ${S}/scripts/premake-update.sh linux
+do_configure_append() {
+    # Have no idea how to teach meson this properly...
+    sed -i 's|'\''>>'\''|>>|g' ${B}/build.ninja
 }
 
-do_install() {
-    install -d ${D}${libdir}
-	cp -r ${S}/bin/* ${D}${libdir}
-
+do_install_append() {
     # presets
     install -d ${D}${libdir}/lv2
     # obxd
@@ -72,14 +68,21 @@ do_install() {
         cp -rf $file ${D}${libdir}/lv2/
     done
 
-    # install ttl-generator bindir for distrho-ports-extra
-    install -d ${D}/${bindir}/scripts
-	install -m 755 ${S}/libs/lv2_ttl_generator ${D}/${bindir}
-    rm ${S}/libs/lv2_ttl_generator
-    cp -r ${WORKDIR}/scripts ${D}/${bindir}/
-    cp -r ${S}/libs ${D}/${libdir}/
-    mv ${D}/${libdir}/libs/*.a ${D}/${libdir}
+    # install ttl-generator and scripts for distrho-ports-extra
+    install -d ${D}${bindir}/scripts
+    install -m 755 ${B}/libs/lv2-ttl-generator/lv2_ttl_generator ${D}${bindir}
+    for file in `find ${S}/scripts -name '*.sh'` ; do
+        install -m 755 $file ${D}${bindir}/scripts
+    done
+    install -m 755 ${S}/scripts/make-project.lua ${D}${bindir}/scripts
+
+    # juce libs & headers for distrho-ports-extra
+    cp -r ${S}/libs ${D}${libdir}/
+    install -m 644 ${B}/libs/juced/libjuced.a ${D}${libdir}
+    install -m 644 ${B}/libs/juce-legacy/libjuce-legacy.a ${D}${libdir}
+    install -m 644 ${B}/libs/juce-current/libjuce-current.a ${D}${libdir}
 }
+
 # ttl-generator bindir for distrho-ports-extra
 SYSROOT_DIRS_append = " ${bindir}"
 

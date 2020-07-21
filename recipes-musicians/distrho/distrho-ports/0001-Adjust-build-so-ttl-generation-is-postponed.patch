@@ -1,0 +1,45 @@
+From 6854821d70fb76a799d9535ec85abf4c43a21255 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Tue, 21 Jul 2020 20:21:58 +0200
+Subject: [PATCH] Adjust build so ttl-generation is postponed
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [embedded-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ ports-legacy/meson.build | 2 +-
+ ports/meson.build        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/ports-legacy/meson.build b/ports-legacy/meson.build
+index f72df49b..817e18c9 100644
+--- a/ports-legacy/meson.build
++++ b/ports-legacy/meson.build
+@@ -274,7 +274,7 @@ if plugin in get_option('plugins')
+                 'mkdir', '-p', plugin_lv2_dir, '&&',
+                 'cd', plugin_lv2_dir, '&&',
+                 'cp', plugin_lv2_lib.full_path(), plugin_lv2_dir / plugin_name + lib_suffix, '&&',
+-                (meson.is_cross_build() ? 'wine' : 'env'), lv2_ttl_generator, '.' / plugin_name + lib_suffix,
++                'echo', plugin_lv2_dir / plugin_name + lib_suffix, '>>', '/home/superandy/tmp/oe-core-glibc/work/cortexa7t2hf-neon-vfpv4-mortsgna-linux-gnueabi/distrho-ports/2020-07-14+gitAUTOINC+b1770b2258-r0/lv2-ttl-generator-data',
+             ],
+             install: true,
+             install_dir: lv2dir,
+diff --git a/ports/meson.build b/ports/meson.build
+index 51e3ad93..e06370ab 100644
+--- a/ports/meson.build
++++ b/ports/meson.build
+@@ -220,7 +220,7 @@ foreach plugin : plugins
+                 'mkdir', '-p', plugin_lv2_dir, '&&',
+                 'cd', plugin_lv2_dir, '&&',
+                 'cp', plugin_lv2_lib.full_path(), plugin_lv2_dir / plugin_name + lib_suffix, '&&',
+-                (meson.is_cross_build() ? 'wine' : 'env'), lv2_ttl_generator, '.' / plugin_name + lib_suffix,
++                lv2_ttl_generator,
+             ],
+             install: true,
+             install_dir: lv2dir,
+-- 
+2.21.3
+
