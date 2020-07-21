@@ -14,7 +14,6 @@ RDEPENDS_${PN} += " \
     ardour5 \
     aubio \
     audio-tweaks \
-    bjumblr \
     bristol \
     calf \
     carla \
@@ -128,6 +127,9 @@ RDEPENDS_${PN} += " \
     rosegarden \
     rubberband \
     setbfree \
+    \
+    \
+    bjumblr \
     \
     \
     fluidsynth-dssi \
