@@ -46,9 +46,9 @@ SRC_URI = " \
     file://0003-align-path-of-qt-build-tools-to-our-needs.patch \
     file://0004-Do-not-add-host-libdir-to-LDPATH-rpath.patch \
 "
-SRCREV = "8a94cf57d07e3ce2397ea96724d7c6130aa74eff"
+SRCREV = "59683489997e19d861a218e2e692cdbe52168869"
 S = "${WORKDIR}/git"
-PV = "2.2.2"
+PV = "2.2.4"
 
 # qtbase is expected to be build for desktop GL. If there is qtbase with gles
 # add opengles=1 to EXTRA_OESCONS but that currently disables code paths and
