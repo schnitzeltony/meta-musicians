@@ -30,7 +30,7 @@ RDEPENDS_${PN} += " \
     lv2-ttl-generator \
     \
     \
-    dragonfly-reverb \
+    dragonfly-reverb dragonfly-reverb-lv2 dragonfly-reverb-vst \
     drmr \
     \
     \
