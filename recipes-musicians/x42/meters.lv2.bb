@@ -3,7 +3,7 @@ HOMEPAGE = "http://x42.github.io/meters.lv2/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-inherit pkgconfig
+inherit pkgconfig features_check
 
 DEPENDS += " \
     virtual/libgl \
@@ -20,6 +20,8 @@ SRC_URI = "gitsm://github.com/x42/meters.lv2.git"
 SRCREV = "3a74e5661d346c86d99251db16a6c1f3929fde08"
 PV = "0.9.15"
 S = "${WORKDIR}/git"
+
+REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 EXTRA_OEMAKE += " \
     STRIP=echo \
