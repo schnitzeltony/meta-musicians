@@ -8,7 +8,9 @@ SRCREV = "e40b34f3fd5dc4c6523dc826062d0ddb2578f573"
 S = "${WORKDIR}/git"
 PV = "0.8"
 
-inherit pkgconfig
+inherit pkgconfig features_check
+
+REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS += " \
     cairo \
