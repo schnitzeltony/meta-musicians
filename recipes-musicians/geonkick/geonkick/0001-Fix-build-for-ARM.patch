@@ -1,0 +1,231 @@
+From cb6c9b989d7ab705faf2412fdc8ad88a45e0a671 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 26 Jul 2020 20:10:01 +0200
+Subject: [PATCH] Fix build for ARM
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+When compiling for ARM, char defaults to unsigned [1].
+
+To avoid build and runtime issues:
+
+* Set chars to signed explecitly when used as nombers
+* Replace by bool when just used to keep a flag
+
+Fixes build with Yocto/OE:
+
+| gk-src/src/percussion_state.cpp: In constructor 'PercussionState::PercussionState()':
+| gk-src/src/percussion_state.cpp:50:28: error: narrowing conversion of '-1' from 'int' to 'char' [-Wnarrowing]
+
+[1] https://developer.arm.com/documentation/dui0472/m/c-and-c---implementation-details/basic-data-types-in-arm-c-and-c--
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ dsp/src/audio_output.c   |  4 ++--
+ dsp/src/audio_output.h   | 10 +++++-----
+ dsp/src/filter.c         |  6 +++---
+ dsp/src/filter.h         |  2 +-
+ dsp/src/geonkick.c       |  4 ++--
+ dsp/src/geonkick.h       |  4 ++--
+ src/geonkick_api.cpp     |  2 +-
+ src/percussion_state.cpp |  4 ++--
+ src/percussion_state.h   |  6 +++---
+ 9 files changed, 21 insertions(+), 21 deletions(-)
+
+diff --git a/dsp/src/audio_output.c b/dsp/src/audio_output.c
+index e4e45dc..c3f1671 100644
+--- a/dsp/src/audio_output.c
++++ b/dsp/src/audio_output.c
+@@ -205,7 +205,7 @@ void gkick_audio_output_swap_buffers(struct gkick_audio_output *audio_output)
+ }
+ 
+ enum geonkick_error
+-gkick_audio_output_set_playing_key(struct gkick_audio_output *audio_output, char key)
++gkick_audio_output_set_playing_key(struct gkick_audio_output *audio_output, signed char key)
+ {
+         if (key < 0)
+                 key = -1;
+@@ -214,7 +214,7 @@ gkick_audio_output_set_playing_key(struct gkick_audio_output *audio_output, char
+ }
+ 
+ enum geonkick_error
+-gkick_audio_output_get_playing_key(struct gkick_audio_output *audio_output, char *key)
++gkick_audio_output_get_playing_key(struct gkick_audio_output *audio_output, signed char *key)
+ {
+         *key = audio_output->playing_key;
+         return GEONKICK_OK;
+diff --git a/dsp/src/audio_output.h b/dsp/src/audio_output.h
+index e7c8531..3860869 100644
+--- a/dsp/src/audio_output.h
++++ b/dsp/src/audio_output.h
+@@ -41,9 +41,9 @@
+ 
+ struct gkick_note_info {
+         enum gkick_key_state state;
+-        char channel;
+-        char note_number;
+-        char velocity;
++        signed char channel;
++        signed char note_number;
++        signed char velocity;
+ };
+ 
+ struct gkick_audio_output
+@@ -132,10 +132,10 @@ void gkick_audio_output_unlock(struct gkick_audio_output *audio_output);
+ void gkick_audio_output_swap_buffers(struct gkick_audio_output *audio_output);
+ 
+ enum geonkick_error
+-gkick_audio_output_set_playing_key(struct gkick_audio_output *audio_output, char key);
++gkick_audio_output_set_playing_key(struct gkick_audio_output *audio_output, signed char key);
+ 
+ enum geonkick_error
+-gkick_audio_output_get_playing_key(struct gkick_audio_output *audio_output, char *key);
++gkick_audio_output_get_playing_key(struct gkick_audio_output *audio_output, signed char *key);
+ 
+ void gkick_audio_output_tune_output(struct gkick_audio_output *audio_output, bool tune);
+ 
+diff --git a/dsp/src/filter.c b/dsp/src/filter.c
+index 884068f..51e416b 100644
+--- a/dsp/src/filter.c
++++ b/dsp/src/filter.c
+@@ -37,7 +37,7 @@ gkick_filter_new(struct gkick_filter **filter)
+                 return GEONKICK_ERROR_MEM_ALLOC;
+         }
+         (*filter)->type = GEONKICK_FILTER_LOW_PASS;
+-        (*filter)->queue_empty = 1;
++        (*filter)->queue_empty = true;
+ 
+         (*filter)->cutoff_env = gkick_envelope_create();
+         if ((*filter)->cutoff_env == NULL) {
+@@ -71,7 +71,7 @@ gkick_filter_init(struct gkick_filter *filter)
+         }
+ 
+         gkick_filter_lock(filter);
+-        filter->queue_empty = 1;
++        filter->queue_empty = true;
+         memset(filter->queue_l, 0, sizeof(filter->queue_l));
+         memset(filter->queue_b, 0, sizeof(filter->queue_b));
+         memset(filter->queue_h, 0, sizeof(filter->queue_h));
+@@ -241,7 +241,7 @@ gkick_filter_val(struct gkick_filter *filter,
+                 l[n - 1] = l[n] = 0;
+                 b[n - 1] = b[n] = 0;
+                 h[n - 1] = h[n] = 0;
+-                filter->queue_empty = 0;
++                filter->queue_empty = false;
+         } else {
+                 h[n - 1] = h[n];
+                 b[n - 1] = b[n];
+diff --git a/dsp/src/filter.h b/dsp/src/filter.h
+index dd15776..d7bc8ea 100644
+--- a/dsp/src/filter.h
++++ b/dsp/src/filter.h
+@@ -43,7 +43,7 @@ struct gkick_filter {
+         gkick_real queue_l[2];
+         gkick_real queue_b[2];
+         gkick_real queue_h[2];
+-        char queue_empty;
++        bool queue_empty;
+ 
+         /* Filter coefficients. */
+         gkick_real coefficients[2];
+diff --git a/dsp/src/geonkick.c b/dsp/src/geonkick.c
+index 417a7b3..4105662 100644
+--- a/dsp/src/geonkick.c
++++ b/dsp/src/geonkick.c
+@@ -1646,7 +1646,7 @@ size_t geonkick_percussion_number(struct geonkick *kick)
+ enum geonkick_error
+ geonkick_set_playing_key(struct geonkick *kick,
+                          size_t id,
+-                         char key)
++                         signed char key)
+ {
+         if (kick == NULL || id >= GEONKICK_MAX_PERCUSSIONS) {
+                 gkick_log_error("wrong arguments");
+@@ -1656,7 +1656,7 @@ geonkick_set_playing_key(struct geonkick *kick,
+ }
+ 
+ enum geonkick_error
+-geonkick_get_playing_key(struct geonkick *kick, size_t id, char *key)
++geonkick_get_playing_key(struct geonkick *kick, size_t id, signed char *key)
+ {
+         if (kick == NULL || key == NULL
+             || id >= GEONKICK_MAX_PERCUSSIONS) {
+diff --git a/dsp/src/geonkick.h b/dsp/src/geonkick.h
+index 37ec079..ba0ee58 100644
+--- a/dsp/src/geonkick.h
++++ b/dsp/src/geonkick.h
+@@ -600,12 +600,12 @@ geonkick_percussion_number(struct geonkick *kick);
+ enum geonkick_error
+ geonkick_set_playing_key(struct geonkick *kick,
+                          size_t id,
+-                         char key);
++                         signed char key);
+ 
+ enum geonkick_error
+ geonkick_get_playing_key(struct geonkick *kick,
+                          size_t id,
+-                         char *key);
++                         signed char *key);
+ 
+ enum geonkick_error
+ geonkick_set_percussion_name(struct geonkick *kick,
+diff --git a/src/geonkick_api.cpp b/src/geonkick_api.cpp
+index e3b8f66..0f52c5b 100644
+--- a/src/geonkick_api.cpp
++++ b/src/geonkick_api.cpp
+@@ -1249,7 +1249,7 @@ bool GeonkickApi::setPercussionPlayingKey(int index, int key)
+ 
+ int GeonkickApi::getPercussionPlayingKey(int index) const
+ {
+-        char key = -1;
++        signed char key = -1;
+         geonkick_get_playing_key(geonkickApi,
+                                  index,
+                                  &key);
+diff --git a/src/percussion_state.cpp b/src/percussion_state.cpp
+index f89eb24..15ab72b 100644
+--- a/src/percussion_state.cpp
++++ b/src/percussion_state.cpp
+@@ -141,12 +141,12 @@ void PercussionState::setName(const std::string &name)
+         kickName = name;
+ }
+ 
+-char PercussionState::getPlayingKey() const
++signed char PercussionState::getPlayingKey() const
+ {
+         return playingKey;
+ }
+ 
+-void PercussionState::setPlayingKey(char key)
++void PercussionState::setPlayingKey(signed char key)
+ {
+         playingKey = key;
+ }
+diff --git a/src/percussion_state.h b/src/percussion_state.h
+index c21e073..01cdd13 100644
+--- a/src/percussion_state.h
++++ b/src/percussion_state.h
+@@ -49,8 +49,8 @@ class PercussionState
+         bool isSolo() const;
+         std::string getName() const;
+         void setName(const std::string &name);
+-        char getPlayingKey() const;
+-        void setPlayingKey(char key);
++        signed char getPlayingKey() const;
++        void setPlayingKey(signed char key);
+         bool isEnabled() const;
+         void enable(bool b);
+         void setLimiterValue(double val);
+@@ -196,7 +196,7 @@ private:
+         int appVersion;
+         size_t kickId;
+         std::string kickName;
+-        char playingKey;
++        signed char playingKey;
+         size_t outputChannel;
+         bool kickEnabled;
+         bool percussionMuted;
+-- 
+2.21.3
+
