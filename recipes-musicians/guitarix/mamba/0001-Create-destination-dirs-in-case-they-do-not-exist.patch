@@ -1,0 +1,36 @@
+From 08bb24ad55a6e381538b26f1abc08f9d121643eb Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 26 Jul 2020 21:21:48 +0200
+Subject: [PATCH] Create destination dirs in case they do not exist
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Make packager's life easier :)
+
+Upstream-Status: Submitted[https://github.com/brummer10/Mamba/pull/3]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/Makefile b/src/Makefile
+index a9bb87c..3b5db41 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -70,8 +70,11 @@ clean :
+ 
+ install :
+ ifneq ("$(wildcard ./$(BUILD_DIR))","")
++	mkdir -p $(DESTDIR)$(BIN_DIR)
+ 	cp ./$(BUILD_DIR)/$(EXEC_NAME) $(DESTDIR)$(BIN_DIR)/$(EXEC_NAME)
++	mkdir -p $(DESTDIR)$(DESKAPPS_DIR)
+ 	cp $(NAME).desktop $(DESTDIR)$(DESKAPPS_DIR)
++	mkdir -p $(DESTDIR)$(PIXMAPS_DIR)
+ 	cp $(NAME).png $(DESTDIR)$(PIXMAPS_DIR)
+ 	@echo ". ." $(BLUE)", done"$(NONE)
+ else
+-- 
+2.21.3
+

@@ -56,6 +56,7 @@ RDEPENDS_${PN} += " \
     \
     guitarix \
     gxplugins.lv2 \
+    mamba \
     \
     \
     helm-standalone helm-lv2 helm-vst \
