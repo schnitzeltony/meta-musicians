@@ -1,0 +1,28 @@
+From 022247bba4d76e2cd4fcb1d429584459119a2fcc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 6 Aug 2020 00:40:10 +0200
+Subject: [PATCH] Fix path for i18n installation
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Applied[https://github.com/hydrogen-music/hydrogen/commit/55ea213d5076c86eec1f71dffafcb565e3468fd2]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ data/i18n/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/data/i18n/CMakeLists.txt b/data/i18n/CMakeLists.txt
+index 2496fed6..f922c99f 100644
+--- a/data/i18n/CMakeLists.txt
++++ b/data/i18n/CMakeLists.txt
+@@ -5,4 +5,4 @@ FILE(GLOB TS_FILES ${CMAKE_CURRENT_LIST_DIR}/*.ts)
+ 
+ QT5_ADD_TRANSLATION(QM_FILES ${TS_FILES})
+ ADD_CUSTOM_TARGET(translations ALL DEPENDS ${QM_FILES})
+-INSTALL(FILES ${QM_FILES} DESTINATION "data/i18n")
++INSTALL(FILES ${QM_FILES} DESTINATION "${H2_SYS_PATH}/data/i18n")
+-- 
+2.26.2
+

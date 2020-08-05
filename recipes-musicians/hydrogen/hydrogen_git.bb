@@ -32,6 +32,7 @@ DEPENDS += " \
 SRC_URI = " \
     git://github.com/hydrogen-music/hydrogen.git \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
+    file://0002-Fix-path-for-i18n-installation.patch \
     \
     http://hydro.smoors.de/Audiophob.h2drumkit;downloadfilename=Audiophob.tar.gz;name=Audiophob;subdir=drumkits \
     http://hydro.smoors.de/belofilms_GuitarStrums.h2drumkit;downloadfilename=belofilms_GuitarStrums.tar.gz;name=belofilms_GuitarStrums;subdir=drumkits \
@@ -80,8 +81,8 @@ SRC_URI = " \
     https://freewavesamples.com/files/YamahaRX15Kit.h2drumkit;downloadfilename=YamahaRX15Kit.tar.gz;name=YamahaRX15Kit;subdir=drumkits \
     https://freewavesamples.com/files/YamahaTG-55Kit.h2drumkit;downloadfilename=YamahaTG-55Kit.tar.gz;name=YamahaTG-55Kit;subdir=drumkits \
 "
-SRCREV = "d186d169f12bd8c5f34677aab713a9542bace52c"
-PV ="1.0.0~rc1+git${SRCPV}"
+SRCREV = "4b8d6b279411bc33c3fcc0350cb1f3bf7a239802"
+PV ="1.0.0"
 
 ###############################################################################
 # drumkits URIs from http://hydrogen-music.org/feeds/drumkit_list.php
@@ -249,6 +250,8 @@ do_install_append() {
         chmod 755 $drumkitdir
     done
 }
+
+QT_TRANSLATION_FILES = "${datadir}/i18n/*.qm"
 
 PACKAGES =+ "${PN}-drumkits"
 
