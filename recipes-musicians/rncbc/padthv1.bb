@@ -26,9 +26,8 @@ SRC_URI = " \
     ${FFTWSINGLEPATCH} \
     file://padthv1.conf \
 "
-PV = "0.9.15"
-SRC_URI[md5sum] = "3fcc6b4864c34acdf098454ca54f4e07"
-SRC_URI[sha256sum] = "c1a334d9558cb9bd92482a3a9257cac2e233bbf6106c5de5662e56359320aaa2"
+PV = "0.9.16"
+SRC_URI[sha256sum] = "bb6aed4c0c309d6f4ade974b2fc626c8811fa51b863c6068b51928791b305bb8"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
