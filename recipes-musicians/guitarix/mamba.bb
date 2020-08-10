@@ -3,13 +3,10 @@ HOMEPAGE = "https://github.com/brummer10/Mamba"
 LICENSE = "BSD-0-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a396d84ed72b4a017f02f5c5d1eaafe"
 
-SRC_URI = " \
-    gitsm://github.com/brummer10/Mamba.git \
-    file://0001-Create-destination-dirs-in-case-they-do-not-exist.patch \
-"
-SRCREV = "076f382cc17416413dc05fad00a37273736231d3"
+SRC_URI = "gitsm://github.com/brummer10/Mamba.git"
+SRCREV = "f4289a3dadff2640860f37ecbb379c21fe820408"
+PV = "1.1"
 S = "${WORKDIR}/git"
-PV = "1.0"
 
 inherit pkgconfig features_check
 
