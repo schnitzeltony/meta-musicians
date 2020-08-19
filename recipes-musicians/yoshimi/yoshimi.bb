@@ -21,13 +21,9 @@ DEPENDS += " \
     libxft \
 "
 
-PV = "1.7.1"
-SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/project/${BPN}/1.7/${BPN}-${PV}.tar.bz2 \
-    file://0001-Fix-compatibility-with-lv2-1.18.patch \
-"
-SRC_URI[md5sum] = "fb1010d11c506a9f908729a7b5be4774"
-SRC_URI[sha256sum] = "47f134165e24cd503f1d09cfec6d7e84dd22d347b0967992d05467e98be67381"
+PV = "1.7.2"
+SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/1.7/${BPN}-${PV}.tar.bz2"
+SRC_URI[sha256sum] = "23b653e18d69dab1da7fc6dd2a85b7623a188f71da023c7d7ceca6149e9eb9ef"
 
 OECMAKE_SOURCEPATH = "${S}/src"
 
