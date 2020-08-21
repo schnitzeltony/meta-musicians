@@ -136,6 +136,7 @@ RDEPENDS_${PN} += " \
     setbfree \
     \
     \
+    bchoppr \
     bjumblr \
     bsequencer \
     \
