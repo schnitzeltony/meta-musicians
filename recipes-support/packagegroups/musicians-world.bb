@@ -138,6 +138,7 @@ RDEPENDS_${PN} += " \
     \
     bchoppr \
     bjumblr \
+    bschaffl \
     bsequencer \
     \
     \
