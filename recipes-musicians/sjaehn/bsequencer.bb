@@ -1,4 +1,4 @@
-SUMMARY = "PMulti channel MIDI step sequencer LV2 plugin with a variable matrix"
+SUMMARY = "Multi channel MIDI step sequencer LV2 plugin with a variable matrix"
 HOMEPAGE = "https://github.com/sjaehn/BSEQuencer"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
@@ -13,9 +13,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = " \
-    git://github.com/sjaehn/BSEQuencer.git \
-"
+SRC_URI = "git://github.com/sjaehn/BSEQuencer.git"
 SRCREV = "27a8aef5002f3ec5477fba9f389121cfa89f0422"
 S = "${WORKDIR}/git"
 PV = "1.6.0"
