@@ -140,6 +140,7 @@ RDEPENDS_${PN} += " \
     bjumblr \
     bschaffl \
     bsequencer \
+    bshapr \
     \
     \
     fluidsynth-dssi \
