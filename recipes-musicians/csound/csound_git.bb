@@ -9,7 +9,7 @@ DEPENDS += " \
     flex-native \
     bison-native \
     swig-native \
-    python \
+    python3 \
     alsa-lib \
     libsndfile1 \
     portaudio-v19 \
@@ -25,20 +25,21 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/csound/csound.git \
+    git://github.com/csound/csound.git;branch=develop \
     file://0001-Do-not-set-include-path-to-usr-local-include.patch \
-    file://0002-Do-not-use-try_run-for-portaudio.patch \
+    file://0002-use-standard-plugins-path.patch \
 "
-SRCREV = "297845a370b8b5e1b555a60a0be3c5c757599530"
+SRCREV = "18c2c7897425f462b9a7743cee157cb410c88198"
 S = "${WORKDIR}/git"
-PV = "6.13.0"
+PV = "6.15.0"
 
 # Where to get lua-version from?
 LUA_VERSION = "5.3"
 
 EXTRA_OECMAKE += " \
     -DUSE_DOUBLE=OFF \
-    -DPYTHON_MODULE_INSTALL_DIR=${PYTHON_SITEPACKAGES_DIR} \
+    -DPYTHON_MODULE_INSTALL_DIR:STRING=${PYTHON_SITEPACKAGES_DIR} \
+    -DPYTHON3_MODULE_INSTALL_DIR:STRING=${PYTHON_SITEPACKAGES_DIR} \
     -DUSE_LIB64=${@bb.utils.contains("baselib", "lib64", "ON", "OFF",d)} \
 "
 
@@ -49,9 +50,13 @@ PACKAGECONFIG[luajit] = "-DLUA_MODULE_INSTALL_DIR=${libdir}/lua/${LUA_VERSION},,
 PACKAGES =+ " \
     ${PN}-python \
     ${PN}-luajit \
+    ${PN}-samples \
 "
 
 FILES_${PN}-python = "${PYTHON_SITEPACKAGES_DIR}"
 RDEPENDS_${PN}-python += "python3-core"
 
 FILES_${PN}-luajit = "${libdir}/lua"
+
+FILES_${PN}-samples = "${datadir}/samples"
+
