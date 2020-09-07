@@ -29,6 +29,9 @@ EXTRA_OECONF = " \
     --enable-jack-default-audio \
 "
 
+# The fix necessary is huge and requires background knowledge
+CFLAGS += "-fcommon"
+
 do_install_append() {
     # the tar magic makes files owned by build user
     chown -R root:root ${D}${datadir}
