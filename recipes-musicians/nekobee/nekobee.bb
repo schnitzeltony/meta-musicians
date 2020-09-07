@@ -12,43 +12,19 @@ DEPENDS += " \
     liblo \
 "
 
-SRC_URI = "git://github.com/gordonjcp/${BPN}.git"
-SRCREV = "593d4be0ff6b4279e1b2b1bacbd5b6b02221358a"
+SRC_URI = "git://github.com/schnitzeltony/${BPN}.git"
+SRCREV = "d5727e5902a6dd098bbee5a644dce317ef575328"
 S = "${WORKDIR}/git"
 PV = "0.2+git${SRCPV}"
 
 waf_preconfigure() {
 }
 
-do_configure_prepend() {
-    cd ${S}
+PATH_prepend = "${B}:"
 
+do_configure_prepend() {
     # link python -> python3
     ln -sf `which python3` ${B}/python
-    export PATH="${PATH}:${B}"
-
-    # dummy call -> unpacks waf
-    ./waf configure -o ${B} --prefix=${prefix} ${EXTRA_OECONF} || true
-
-    # -> python3
-    2to3 -w -x import `find .waf3-* -name '*.py'`
-
-    ./waf configure --prefix=${prefix} ${WAF_EXTRA_CONF} ${EXTRA_OECONF}
-}
-
-do_compile()  {
-    export PATH="${PATH}:${B}"
-
-    # waf breaks but gets far enough to build what's necessary
-	${S}/waf build ${@oe.utils.parallel_make_argument(d, '-j%d', limit=64)} || true
-}
-
-do_install()  {
-    install -d ${D}${libdir}/dssi/nekobee
-    install -m 0644 ${B}/build/default/nekobee.so ${D}${libdir}/dssi/
-    install -m 0755 ${B}/build/default/nekobee_gtk ${D}${libdir}/dssi/nekobee/
-    install -m 0644 ${B}/extra/knob.png ${D}${libdir}/dssi/nekobee/
-    install -m 0644 ${B}/extra/switch.png ${D}${libdir}/dssi/nekobee/
 }
 
 FILES_${PN} += " \
