@@ -14,20 +14,15 @@ DEPENDS += " \
 
 inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
 
-# fftwf is neon accelerated -> force SINGLE precision
-FFTWSINGLEPATCH = "${@bb.utils.contains('TUNE_FEATURES', 'neon', 'file://0001-Build-against-fftw3f-that-supports-NEON-on-ARM.patch', '', d)}"
-
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Avoid-stripping.patch \
-    \
-    ${FFTWSINGLEPATCH} \
     file://padthv1.conf \
 "
-PV = "0.9.16"
-SRC_URI[sha256sum] = "bb6aed4c0c309d6f4ade974b2fc626c8811fa51b863c6068b51928791b305bb8"
+PV = "0.9.17"
+SRC_URI[sha256sum] = "633555ac1a79fdcbb5c679d84c85816cff131e7a98c617b2b35a3fc61d9a0e25"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
