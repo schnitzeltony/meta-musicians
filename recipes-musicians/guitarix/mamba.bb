@@ -4,11 +4,11 @@ LICENSE = "BSD-0-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a396d84ed72b4a017f02f5c5d1eaafe"
 
 SRC_URI = "gitsm://github.com/brummer10/Mamba.git"
-SRCREV = "f4289a3dadff2640860f37ecbb379c21fe820408"
-PV = "1.1"
+SRCREV = "e003ac626b4f28a76c8a3d3a5c94f0373d6e9f96"
+PV = "1.4"
 S = "${WORKDIR}/git"
 
-inherit pkgconfig features_check
+inherit pkgconfig features_check mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -19,6 +19,8 @@ DEPENDS += " \
     lv2 \
     liblo \
     jack \
+    fluidsynth \
+    libsmf \
 "
 
 do_compile() {
