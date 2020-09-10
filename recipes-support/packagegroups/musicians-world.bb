@@ -174,6 +174,7 @@ RDEPENDS_${PN} += " \
     mixtri.lv2 \
     sisco.lv2 \
     tuna.lv2 \
+    ${@bb.utils.contains('BBFILE_COLLECTIONS', 'xfce-layer', 'xfce4-alsa-plugin', '', d)} \
     \
     \
     xmonk.lv2 xpolymonk.lv2 \
