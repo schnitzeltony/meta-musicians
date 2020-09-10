@@ -3,13 +3,9 @@ HOMEPAGE = "http://supercollider.github.io/"
 LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-SRC_URI = " \
-    gitsm://github.com/supercollider/supercollider.git \
-    file://0001-Fix-build-with-Qt-5.15.patch \
-    file://0002-Fix-boost-1.73.0-support-4983.patch \
-"
-SRCREV = "e341b4957c304823faca063448792358ce62b077"
-PV = "3.11.0"
+SRC_URI = "gitsm://github.com/supercollider/supercollider.git"
+SRCREV = "206f24d865efa37264a0b42594f536ed834c1493"
+PV = "3.11.1"
 S = "${WORKDIR}/git/"
 
 inherit cmake_qt5 features_check mime mime-xdg
