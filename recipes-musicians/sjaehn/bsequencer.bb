@@ -14,9 +14,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BSEQuencer.git"
-SRCREV = "27a8aef5002f3ec5477fba9f389121cfa89f0422"
+SRCREV = "3cb8e1cf83ba3f4dd6e6b281237952b6e402f7a6"
 S = "${WORKDIR}/git"
-PV = "1.6.0"
+PV = "1.8.4"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
