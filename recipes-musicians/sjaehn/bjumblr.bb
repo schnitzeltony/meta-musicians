@@ -14,13 +14,10 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = " \
-    git://github.com/sjaehn/BJumblr.git \
-    file://0001-BJumblr.cpp-Fix-build-with-gcc10.patch \
-"
-SRCREV = "4f906ea47467637a6e115435784dc34f6bf63ca7"
+SRC_URI = "git://github.com/sjaehn/BJumblr.git"
+SRCREV = "fd90faed2dc511fdacdf2dd61952dbda5d87dc2a"
 S = "${WORKDIR}/git"
-PV = "1.2.2"
+PV = "1.4.2"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
