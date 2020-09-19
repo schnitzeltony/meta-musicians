@@ -36,10 +36,9 @@ REQUIRED_DISTRO_FEATURES = "x11"
 SRC_URI = " \
     git://github.com/Ardour/ardour.git \
     file://0001-remove-all-build-flags-that-cause-trouble-for-cross-.patch \
-    file://0002-Use-ARM-NEON-intrinsics-if-available-for-mixing-func.patch \
 "
-SRCREV = "c8e92338fffa92e4ee0bc03ca8ca9ff93ed8b2b4"
-PV = "6.2"
+SRCREV = "1b55648131888f443766b04896f2a8956df062f6"
+PV = "6.3"
 S = "${WORKDIR}/git"
 
 # arch specific override - default (tested) is ARM -> no fpu-optimizations

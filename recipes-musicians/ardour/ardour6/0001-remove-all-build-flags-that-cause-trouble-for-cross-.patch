@@ -10,33 +10,19 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [cross specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
-
 ---
- tools/autowaf.py |  1 +
- wscript          | 26 --------------------------
- 2 files changed, 1 insertion(+), 26 deletions(-)
+ wscript | 26 --------------------------
+ 1 file changed, 26 deletions(-)
 
-diff --git a/tools/autowaf.py b/tools/autowaf.py
-index 375dc5909..bb7714335 100644
---- a/tools/autowaf.py
-+++ b/tools/autowaf.py
-@@ -93,6 +93,7 @@ def copyfile (task):
- 
- def check_header(conf, lang, name, define='', mandatory=True):
-     "Check for a header"
-+    return True
-     includes = '' # search default system include paths
-     if sys.platform == "darwin":
-         includes = '/opt/local/include'
 diff --git a/wscript b/wscript
-index 9fd84bb2c..d4178cb36 100644
+index ca0b2b9d42..8c67ada6bd 100644
 --- a/wscript
 +++ b/wscript
-@@ -476,31 +476,6 @@ int main() { return 0; }''',
+@@ -519,32 +519,6 @@ int main() { return 0; }''',
  
          compiler_flags.append ("-DARCH_X86")
  
--        if platform == 'linux' :
+-        if platform == 'linux' and conf.env['build_target'] != 'armhf' and conf.env['build_target'] != 'aarch64':
 -
 -            #
 -            # determine processor flags via /proc/cpuinfo
@@ -61,6 +47,10 @@ index 9fd84bb2c..d4178cb36 100644
 -
 -        if not is_clang and ((conf.env['build_target'] == 'i686') or (conf.env['build_target'] == 'x86_64')) and build_host_supports_sse:
 -            compiler_flags.extend ([ flags_dict['sse'], flags_dict['fpmath-sse'], flags_dict['xmmintrinsics'] ])
- 
+-
          if (conf.env['build_target'] == 'mingw'):
              if (re.search ("(x86_64|AMD64)", cpu) != None):
+                 # on Windows sse is supported by 64 bit platforms only
+-- 
+2.26.2
+
