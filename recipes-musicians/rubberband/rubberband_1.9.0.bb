@@ -13,16 +13,13 @@ DEPENDS += " \
 "
 
 # fftwf is neon accelerated -> force SINGLE precision
-SINGLEPATCH = "${@bb.utils.contains('TUNE_FEATURES', 'neon', 'file://0003-Optional-replace-FFTW_DOUBLE_ONLY-by-FFTW_SINGLE_ONL.patch', '', d)}"
+SINGLEPATCH = "${@bb.utils.contains('TUNE_FEATURES', 'neon', 'file://0001-Optional-replace-FFTW_DOUBLE_ONLY-by-FFTW_SINGLE_ONL.patch', '', d)}"
 
 SRC_URI = " \
-    http://code.breakfastquay.com/attachments/download/34/${BPN}-${PV}.tar.bz2 \
-    file://0001-Do-not-try-to-install-librubberband-jni.so-no-java-p.patch \
-    file://0002-Fix-build-for-FFTW_SINGLE_ONLY.patch \
+    https://breakfastquay.com/files/releases/${BPN}-${PV}.tar.bz2 \
     ${SINGLEPATCH} \
 "
-SRC_URI[md5sum] = "db0ecb4f1a647bdaf7e43ef2ca2f7883"
-SRC_URI[sha256sum] = "86bed06b7115b64441d32ae53634fcc0539a50b9b648ef87443f936782f6c3ca"
+SRC_URI[sha256sum] = "4f5b9509364ea876b4052fc390c079a3ad4ab63a2683aad09662fb905c2dc026"
 
 EXTRA_OEMAKE += " \
     INSTALL_LIBDIR=${libdir} \
