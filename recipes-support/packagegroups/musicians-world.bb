@@ -12,6 +12,7 @@ inherit packagegroup
 RDEPENDS_${PN} += " \
     amsynth-standalone amsynth-lv2 amsynth-vst \
     ardour5 \
+    ardour6 \
     aubio \
     audio-tweaks \
     bristol \
