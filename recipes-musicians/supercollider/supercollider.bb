@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 SRC_URI = "gitsm://github.com/supercollider/supercollider.git"
 SRCREV = "206f24d865efa37264a0b42594f536ed834c1493"
 PV = "3.11.1"
-S = "${WORKDIR}/git/"
+S = "${WORKDIR}/git"
 
 inherit cmake_qt5 features_check mime mime-xdg
 
