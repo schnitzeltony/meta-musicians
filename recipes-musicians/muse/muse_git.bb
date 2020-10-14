@@ -37,7 +37,7 @@ OECMAKE_SOURCEPATH = "${S}/muse3"
 EXTRA_OECMAKE += " \
     -DLIB_INSTALL_DIR=${libdir} \
     -DMODULES_BUILD_STATIC=1 \
-    -DCMAKE_SHARED_LINKER_FLAGS=-Wl,--no-undefined \
+    -DCMAKE_SHARED_LINKER_FLAGS='${LDFLAGS} -Wl,--no-undefined' \
     -DVST_HEADER_PATH=${S}/muse3/vestige \
     -DENABLE_VST_VESTIGE=1 \
     \
