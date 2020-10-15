@@ -79,6 +79,9 @@ RDEPENDS_${PN} += " \
     libxmp \
     \
     \
+    new-session-manager \
+    \
+    \
     gigedit \
     libgig-bin \
     liblscp \
