@@ -17,3 +17,5 @@ S = "${WORKDIR}/git"
 
 inherit meson gtk-icon-cache
 
+RCONFLICTS_${PN} = "non-session-manager"
+RREPLACES_${PN} = "non-session-manager"

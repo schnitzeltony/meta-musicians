@@ -41,3 +41,18 @@ do_configure_prepend() {
 }
 
 FILES_${PN} += "${datadir}/non-sequencer"
+
+PACKAGES =+ "${PN}-session-manager"
+FILES_${PN}-session-manager = " \
+    ${datadir}/applications/non-session-manager.desktop \
+    ${datadir}/icons/hicolor/*/apps/non-session-manager.png \
+    ${datadir}/pixmaps/non-session-manager \
+    ${bindir}/jackpatch \
+    ${bindir}/non-session-manager \
+    ${bindir}/nsm-proxy \
+    ${bindir}/nsm-proxy-gui \
+    ${bindir}/nsmd \
+"
+
+RCONFLICTS_${PN}-session-manager = "new-session-manager"
+RREPLACES_${PN}-session-manager = "new-session-manager"
