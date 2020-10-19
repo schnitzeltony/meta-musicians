@@ -1,6 +1,6 @@
 inherit qemu
 
-DEPENDS_append = " qemu-native qemu-with-timeout-native coreutils-native"
+DEPENDS_append = " qemu-native coreutils-native"
 
 # This is an extended/modified qemu.bbclass tailored four our needs:
 #
@@ -11,8 +11,12 @@ DEPENDS_append = " qemu-native qemu-with-timeout-native coreutils-native"
 #   not yet installed.
 # * A recipe can set an extra library path in 'QEMU_EXTRA_LIBDIR'. This path is
 #   an absolute path.
-# * To catch infine qemu runs we make use of qemu-with-timeout-native which
-#   hand timeouts as errors
+# * To catch infine qemu runs we create a wrapper adding timeout  handling
+#   and ensuring there is only one qemu instance at a time (we learned in
+#   meta-microcontroller/vtk that spawning many qemu instances in short time
+#   can lead to zombie processes)
+
+QEMU_TIMEOUT ?= "600"
 
 def qemu_run_binary_local(data, rootfs_path, binary):
     libdir = rootfs_path + data.getVar("libdir")
@@ -23,4 +27,23 @@ def qemu_run_binary_local(data, rootfs_path, binary):
         cmdline = qemu_wrapper_cmdline(data, rootfs_path, [libdir, base_libdir, extra_libdir]) + binary
     else:
         cmdline = qemu_wrapper_cmdline(data, rootfs_path, [libdir, base_libdir]) + binary
-    return cmdline.replace(qemu_target_binary(data), qemu_target_binary(data) + '-timeout')
+
+    return cmdline.replace(qemu_target_binary(data), data.getVar("WORKDIR") + '/' + qemu_target_binary(data) + '-timeout')
+
+create_qemu_ext_wrappers() {
+    # create qemu wrappers:
+    # * run one instance of qemu at a time
+    # * add timeout: run infinite is what makes using qemu suck
+    for qemu in `find ${STAGING_BINDIR_NATIVE} -name qemu-*`; do
+        qemu_name=`basename $qemu`
+        if [ "x${@qemu_target_binary(d)}" = "x$qemu_name" ]; then
+            wrapper_name="$qemu_name-timeout"
+            echo '#!/bin/sh' > ${WORKDIR}/$wrapper_name
+            echo 'set -e' >> ${WORKDIR}/$wrapper_name
+            echo "flock ${WORKDIR}/qemu.lock timeout ${QEMU_TIMEOUT} $qemu_name \$@" >> ${WORKDIR}/$wrapper_name
+            chmod +x ${WORKDIR}/$wrapper_name
+        fi
+    done
+}
+do_configure[prefuncs] += "create_qemu_ext_wrappers"
+
