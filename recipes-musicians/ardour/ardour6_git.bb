@@ -33,10 +33,10 @@ inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-SRC_URI = " \
-    git://github.com/Ardour/ardour.git \
-    file://0001-remove-all-build-flags-that-cause-trouble-for-cross-.patch \
-"
+# Was a desperate attemt to get around bus error
+#ARM_INSTRUCTION_SET = "arm"
+
+SRC_URI = "git://github.com/Ardour/ardour.git"
 SRCREV = "1b55648131888f443766b04896f2a8956df062f6"
 PV = "6.3"
 S = "${WORKDIR}/git"
@@ -50,6 +50,7 @@ EXTRA_OECONF = " \
     --bindir=${bindir} \
     --libdir=${libdir} \
     --optimize \
+    --fpu-optimization \
     --freedesktop \
     --cxx11 \
     --no-phone-home \
