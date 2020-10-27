@@ -17,7 +17,7 @@ SRC_URI = " \
     gitsm://github.com/brummer10/Xmonk.lv2.git;protocol=https \
     file://0001-Adjust-to-oe-build.patch \
 "
-SRCREV = "cbd596a990edab750b48c29ced3e32c01990d527"
+SRCREV = "099827f93abcf3bab4a1f23e8648f763c548db3d"
 PV = "0.4+git${SRCPV}"
 S = "${WORKDIR}/git"
 
