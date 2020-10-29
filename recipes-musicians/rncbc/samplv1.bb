@@ -15,11 +15,11 @@ inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
     file://0002-Avoid-stripping.patch \
 "
-PV = "0.9.17"
-SRC_URI[sha256sum] = "420cfa7c7d10783548c90a846c46bf565ff5372b959a4ebc9447802ac4c941ec"
+PV = "0.9.18"
+SRC_URI[sha256sum] = "78f84cf4e4cb269d566b60fd6350eaabfebd5a5121129de287dc8d508254e58e"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \

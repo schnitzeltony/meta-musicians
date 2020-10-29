@@ -17,11 +17,11 @@ inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
     file://0002-Avoid-stripping.patch \
 "
-PV = "0.9.17"
-SRC_URI[sha256sum] = "a2071c7335ebd819a5dbe407dfeab0a4fa67d3087e1b14753ac64ade0af30ea5"
+PV = "0.9.18"
+SRC_URI[sha256sum] = "25db8b111d3326340041245fdd4d5385fec9443cf5232573dc3774accf57f3af"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
