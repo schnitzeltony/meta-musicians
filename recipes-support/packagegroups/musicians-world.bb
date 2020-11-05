@@ -11,8 +11,7 @@ inherit packagegroup
 
 RDEPENDS_${PN} += " \
     amsynth-standalone amsynth-lv2 amsynth-vst \
-    ardour5 \
-    ardour6 \
+    ${@oe.utils.conditional('SITEINFO_BITS', '64', 'ardour6', 'ardour5', d)} \
     aubio \
     audio-tweaks \
     bristol \
