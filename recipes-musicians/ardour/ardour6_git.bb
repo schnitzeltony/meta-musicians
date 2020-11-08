@@ -29,7 +29,7 @@ DEPENDS += " \
     hidapi \
 "
 
-inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg
+inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg siteinfo
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -104,3 +104,7 @@ FILES_${PN}-dev += " \
 FILES_${PN}-staticdev += " \
     ${libdir}/${BPN}/*.a \
 "
+
+# did not get ardour6 to fly on 32bit systems - so (r)provide for 64 bits only
+PROVIDES = "${@oe.utils.conditional('SITEINFO_BITS', '64', 'ardour', '', d)}"
+RPROVIDES_${PN} = "${@oe.utils.conditional('SITEINFO_BITS', '64', 'ardour', '', d)}"

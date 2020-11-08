@@ -2,7 +2,7 @@ SUMMARY = "All music musicican packages"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-inherit packagegroup siteinfo
+inherit packagegroup
 
 # unfortunately there is no way to add a comment. So folders, containing
 # multiple recipes are separated by two '\' before and after. That way the
@@ -11,7 +11,7 @@ inherit packagegroup siteinfo
 
 RDEPENDS_${PN} += " \
     amsynth-standalone amsynth-lv2 amsynth-vst \
-    ${@oe.utils.conditional('SITEINFO_BITS', '64', 'ardour6', 'ardour5', d)} \
+    ardour \
     aubio \
     audio-tweaks \
     bristol \
