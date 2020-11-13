@@ -12,3 +12,5 @@ S = "${WORKDIR}/git"
 PV = "1.1.26"
 
 do_configure[noexec] = "1"
+
+SECURITY_LDFLAGS = ""
