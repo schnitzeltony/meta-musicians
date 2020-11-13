@@ -11,8 +11,8 @@ DEPENDS = " \
 "
 
 SRC_URI = "git://github.com/linuxaudio/new-session-manager.git"
-SRCREV = "de776584362b83240ca324ded978f5c7548e6624"
-PV = "1.4.0"
+SRCREV = "fb380bf7253096620e166d4abafa45cd830eeedd"
+PV = "1.4.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 inherit meson gtk-icon-cache
