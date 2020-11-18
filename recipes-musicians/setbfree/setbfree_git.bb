@@ -25,9 +25,9 @@ SRC_URI = " \
     file://setbfree.desktop \
     file://x42-whirl.desktop \
 "
-SRCREV = "9a4783cd91739d5ead118227bfeaaa651b0def5f"
+SRCREV = "93e7f154bee67590d6d321a572a1b107f8fc36e1"
 S = "${WORKDIR}/git"
-PV = "0.8.8"
+PV = "0.8.11"
 
 EXTRA_OEMAKE += " \
     STRIP=echo \

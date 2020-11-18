@@ -16,10 +16,10 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  2 files changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/common.mak b/common.mak
-index e17b007..569b0b6 100644
+index fb8ad0d..c112e82 100644
 --- a/common.mak
 +++ b/common.mak
-@@ -170,7 +170,7 @@ ifeq ($(LV2AVAIL)$(HAVE_UI)$(HAVE_IDLE), yesyesyes)
+@@ -172,7 +172,7 @@ ifeq ($(LV2AVAIL)$(HAVE_UI)$(HAVE_IDLE), yesyesyes)
        UICFLAGS+=-DFONTFILE=\"$(FONTFILE)\"
      endif
    endif
@@ -29,18 +29,18 @@ index e17b007..569b0b6 100644
  
  #NOTE: midi.c and cfgParser.c needs to be re-compiled w/o HAVE_ASEQ
 diff --git a/robtk/robtk.mk b/robtk/robtk.mk
-index d6d84dd..c787364 100644
+index 13b4789..8153caf 100644
 --- a/robtk/robtk.mk
 +++ b/robtk/robtk.mk
-@@ -65,7 +65,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
+@@ -70,7 +70,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
  %UI_gl.o:: $(ROBGL)
  	@mkdir -p $(@D)
- 	$(CXX) -c $(CPPFLAGS) $(CFLAGS) $(GLUICFLAGS) \
+ 	$(CXX) -c $(CPPFLAGS) $(CFLAGS) $(GLUICFLAGS) $(PTHREADCFLAGS) \
 -	  -DUINQHACK="$(shell date +%s$$$$)" \
  	  -DPLUGIN_SOURCE="\"gui/$(*F).c\"" \
  	  -DRTK_DESCRIPTOR="$(value gl_$(subst -,_,$(*F))_LV2DESC)" \
  	  -o $@ $(RW)ui_gl.c
-@@ -73,7 +72,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
+@@ -78,7 +77,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
  %pugl.o:: $(ROBGL)
  	@mkdir -p $(@D)
  	$(CXX) -c $(CPPFLAGS) $(CFLAGS) $(GLUICFLAGS) \
@@ -48,14 +48,14 @@ index d6d84dd..c787364 100644
  	  -o $@ $(PUGL_SRC)
  
  %_glui.so %_glui.dylib %_glui.dll::
-@@ -89,7 +87,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
+@@ -94,7 +92,6 @@ ROBGTK = $(RW)robtk.mk $(UITOOLKIT) $(RW)ui_gtk.c \
  %UI_gl.so %UI_gl.dylib %UI_gl.dll:: $(ROBGL)
  	@mkdir -p $(@D)
- 	$(CXX) $(CPPFLAGS) $(CFLAGS) $(GLUICFLAGS) \
+ 	$(CXX) $(CPPFLAGS) $(CFLAGS) $(GLUICFLAGS) $(PTHREADCFLAGS) \
 -	  -DUINQHACK="$(shell date +%s$$$$)" \
  	  -DPLUGIN_SOURCE="\"gui/$(*F).c\"" \
  	  -o $@ $(RW)ui_gl.c \
  	  $(PUGL_SRC) \
 -- 
-2.14.3
+2.26.2
 

@@ -31,10 +31,10 @@ index ae47d88..4501f93 100644
  		-o $(LV2GUI)$(LIB_EXT) ui.c -DCONFIGDOCONLY -D XKEYFOCUSGRAB \
  		../src/midi.c \
 diff --git a/common.mak b/common.mak
-index 569b0b6..7731490 100644
+index c112e82..f98b685 100644
 --- a/common.mak
 +++ b/common.mak
-@@ -116,15 +116,7 @@ endif
+@@ -118,15 +118,7 @@ endif
  
  #LV2 / GL-GUI
  
@@ -52,11 +52,11 @@ index 569b0b6..7731490 100644
  ifeq ($(MOD),)
    HAVE_UI=$(shell pkg-config --exists $(PKG_GL_LIBS) ftgl && echo $(FONT_FOUND))
 diff --git a/ui/Makefile b/ui/Makefile
-index 739e92a..3fba31b 100644
+index 207158f..f669224 100644
 --- a/ui/Makefile
 +++ b/ui/Makefile
 @@ -56,7 +56,7 @@ setBfreeUI$(EXE_EXT): $(RW)jackwrap.c $(LV2OBJ) $(OSXJACKWRAP) $(RW)weakjack/wea
- 	../b_synth/lv2.c ../b_synth/uris.h \
+ 	../b_synth/lv2.c ../b_synth/uris.h desc.h \
  	../b_synth/ui.c $(UIDEPS) \
  	../src/cfgParser.h ../src/midi.h
 -	$(MAKE) -C ../b_synth $(FONTFILE)
