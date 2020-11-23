@@ -33,12 +33,9 @@ inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg sitei
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-# Was a desperate attemt to get around bus error
-#ARM_INSTRUCTION_SET = "arm"
-
 SRC_URI = "git://github.com/Ardour/ardour.git"
-SRCREV = "1b55648131888f443766b04896f2a8956df062f6"
-PV = "6.3"
+SRCREV = "80e3c191e412be7da5e0d05856e14f2f208b3035"
+PV = "6.5"
 S = "${WORKDIR}/git"
 
 # arch specific override - default (tested) is ARM -> no fpu-optimizations
