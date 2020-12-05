@@ -20,3 +20,7 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/utils/lv2_ttl_generator ${D}${bindir}/lv2-ttl-generator
 }
+
+# There are cases we neet we need target versions
+SYSROOT_DIRS_append_class-target = " ${bindir}"
+
