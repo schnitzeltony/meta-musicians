@@ -37,6 +37,12 @@ do_ttl_sed() {
 }
 
 do_install() {
+    install -d ${D}${datadir}/surge
+    cp -r ${S}/resources/data/* ${D}${datadir}/surge/
+
+    install -d ${D}${bindir}
+    install -m 755 ${B}/surge-headless ${D}${bindir}
+
     install -d ${D}${libdir}/lv2
     cp -r ${B}/surge_products/Surge.lv2 ${D}${libdir}/lv2/
 
@@ -44,7 +50,12 @@ do_install() {
     for lib in `find ${B}/surge_products/Surge.vst3 -name Surge.so`; do
         install $lib ${D}${libdir}/vst3
     done
-
-    # TODO headless
 }
+
+PACKAGES =+ "${PN}-standalone"
+FILES_${PN}-standalone = "${bindir}"
+
+RDEPENDS_${PN}-standalone = "${PN}"
+RDEPENDS_${PN_LV2} = "${PN}"
+RDEPENDS_${PN_VST3} = "${PN}"
 
