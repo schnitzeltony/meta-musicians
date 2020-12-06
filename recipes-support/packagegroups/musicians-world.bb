@@ -162,6 +162,7 @@ RDEPENDS_${PN} += " \
     stk \
     string-machine-lv2 string-machine-vst \
     supercollider \
+    surge-lv2 surge-vst3 \
     triceratops-lv2 \
     vamp-plugin-sdk \
     wolf-shaper-dssi wolf-shaper-lv2 wolf-shaper-vst \

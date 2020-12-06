@@ -1,0 +1,31 @@
+From c6e21a51788f9777e8acd00a2fd1936392380940 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 5 Dec 2020 22:31:16 +0100
+Subject: [PATCH] CMakeLists.txt: adjust python -> python3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 872ff0ed..d75e30a1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -379,7 +379,7 @@ elseif( UNIX AND NOT APPLE )
+     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+     DEPENDS ${PIGGY_INPUTS}
+     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/lintemp
+-    COMMAND python ${CMAKE_SOURCE_DIR}/scripts/linux/emit-vector-piggy.py ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/lintemp
++    COMMAND python3 ${CMAKE_SOURCE_DIR}/scripts/linux/emit-vector-piggy.py ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/lintemp
+     )
+   
+   if( LINUX_ON_ARM )
+-- 
+2.26.2
+
