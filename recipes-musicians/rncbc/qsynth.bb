@@ -17,10 +17,10 @@ REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
+    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
 "
-SRC_URI[sha256sum] = "1b5733d35b4b24679d59812cf9a5f3152ac0c78046ba1db71870cb7effad3876"
-PV = "0.6.3"
+SRC_URI[sha256sum] = "72ab545c39b7ca518be3dfaaee61c8ce88b20d4c34dff946898a8ca7d8e85ae4"
+PV = "0.9.0"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
