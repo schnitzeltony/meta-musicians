@@ -21,8 +21,8 @@ SRC_URI = " \
     file://0002-Avoid-stripping.patch \
     file://padthv1.conf \
 "
-PV = "0.9.18"
-SRC_URI[sha256sum] = "e5ba942d75233f7dc540a1655e2d1d837ddbeda079907c795c59c6b1f2cd59cd"
+PV = "0.9.19"
+SRC_URI[sha256sum] = "279b3bc5d74449a02830768d940aed60264c2a9b969ac386d223ffde09cbd319"
 
 SRC_URI[linuxsynths-padthv1-presets.md5sum] = "951484ad2fe404d233a704d444147827"
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
