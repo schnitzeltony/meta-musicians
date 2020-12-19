@@ -101,6 +101,7 @@ RDEPENDS_${PN} += " \
     \
     mixxx \
     muse \
+    ${@bb.utils.contains('BBFILE_COLLECTIONS', 'clang-layer', 'musescore', '', d)} \
     nekobee \
     ninjas2-standalone ninjas2-lv2 ninjas2-vst \
     noise-repellent \
