@@ -1,0 +1,33 @@
+From f14857a1889201583b1ba4a054537e8a48277079 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 19 Dec 2020 19:39:45 +0100
+Subject: [PATCH] Do not ask git for version information - it breaks build
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+We sit on a tagged version anyway
+
+Upstream-Status: Inapproprate [OE-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4ff543049..3b0116fa9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -125,7 +125,7 @@ endif()
+ set( GIT_COMMIT_SHORT "unknown" )
+ set( GIT_COMMIT_LONG "unknown" )
+ set( GIT_COMMIT_TIME "unknown" )
+-find_package( Git QUIET )
++#find_package( Git QUIET )
+ if( GIT_FOUND )
+    execute_process(
+       COMMAND
+-- 
+2.26.2
+

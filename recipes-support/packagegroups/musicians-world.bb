@@ -13,6 +13,7 @@ RDEPENDS_${PN} += " \
     amsynth-standalone amsynth-lv2 amsynth-vst \
     ardour \
     aubio \
+    audacity \
     audio-tweaks \
     bristol \
     calf \
