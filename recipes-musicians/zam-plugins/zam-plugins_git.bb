@@ -21,9 +21,9 @@ inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = "gitsm://github.com/zamaudio/${BPN}.git"
-SRCREV = "8cd23d781018e3ec84159958d3d2dc7038a82736"
+SRCREV = "e7077fcc0b7f60daa7471eae42015ffc9cba73d9"
 S = "${WORKDIR}/git"
-PV = "3.13"
+PV = "3.14"
 
 EXTRA_OEMAKE += " \
     NOOPT=true \
