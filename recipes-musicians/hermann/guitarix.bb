@@ -8,8 +8,8 @@ SRC_URI = " \
     file://0001-Rework-messages-somehow-yes-or-no-is-missing.patch \
     file://0002-Do-not-strip-LV2-plugins.patch \
 "
-SRCREV = "a846335f10fc2e737d030e6e1635efb98574e945"
-PV = "0.41.0"
+SRCREV = "a2a3f122c42689cb9dd87b7613b698aa1bac9358"
+PV = "0.42.0"
 S = "${WORKDIR}/git/trunk"
 
 inherit waf fontcache gettext
