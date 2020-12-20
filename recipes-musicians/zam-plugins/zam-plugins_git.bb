@@ -13,7 +13,6 @@ DEPENDS += " \
     libsamplerate0 \
     libsndfile1 \
     fftw \
-    zita-convolver \
 "
 
 inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
