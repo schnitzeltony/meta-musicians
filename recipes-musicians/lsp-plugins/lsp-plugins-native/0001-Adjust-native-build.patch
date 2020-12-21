@@ -10,20 +10,21 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- src/utils/Makefile | 26 +++++++++-----------------
- 1 file changed, 9 insertions(+), 17 deletions(-)
+ src/utils/Makefile | 28 ++++++++++------------------
+ 1 file changed, 10 insertions(+), 18 deletions(-)
 
 diff --git a/src/utils/Makefile b/src/utils/Makefile
-index 37383b05..3cc76ca8 100644
+index 88b37393..b6d4e7a5 100644
 --- a/src/utils/Makefile
 +++ b/src/utils/Makefile
-@@ -14,22 +14,14 @@ ifeq ($(LSP_TESTING),1)
+@@ -15,23 +15,15 @@ ifeq ($(LSP_TESTING),1)
    OBJ_EXTRA              += $(OBJ_TEST_CORE)
  endif
  
 -ifeq ($(findstring lv2,$(BUILD_MODULES)),lv2)
 -  MODULES                += $(UTL_GENTTL)
 -  FILELIST               += lv2_genttl.o
+-  INCLUDE_EXTRA          += $(LV2_HEADERS)
 -endif
 -ifeq ($(findstring vst,$(BUILD_MODULES)),vst)
 -  MODULES                += $(UTL_VSTMAKE)
@@ -31,20 +32,21 @@ index 37383b05..3cc76ca8 100644
 -endif
 -ifeq ($(findstring jack,$(BUILD_MODULES)),jack)
 -  MODULES                += $(UTL_JACKMAKE)
--  FILELIST               += jack_genmake.o 
+-  FILELIST               += jack_genmake.o
 -endif
 -ifeq ($(findstring doc,$(BUILD_MODULES)),doc)
 -  MODULES                += $(UTL_GENPHP)
--  FILELIST               += gen_php.o 
+-  FILELIST               += gen_php.o
 -endif
 +MODULES                += $(UTL_GENTTL)
 +FILELIST               += lv2_genttl.o
++INCLUDE_EXTRA          += $(LV2_HEADERS)
 +MODULES                += $(UTL_VSTMAKE)
 +FILELIST               += vst_genmake.o
 +MODULES                += $(UTL_JACKMAKE)
-+FILELIST               += jack_genmake.o 
++FILELIST               += jack_genmake.o
 +MODULES                += $(UTL_GENPHP)
-+FILELIST               += gen_php.o 
++FILELIST               += gen_php.o
  
  FILES                   = $(addprefix $(OBJDIR)/, $(FILELIST))
  
