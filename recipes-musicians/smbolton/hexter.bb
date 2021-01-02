@@ -17,7 +17,8 @@ SRC_URI = " \
     file://hexter.desktop \
     file://hexter.png \
 "
-SRCREV = "737dbb04c407184fae0e203c1d73be8ad3fd55ba"
+SRCREV = "1cf1bfea5962f7c9726e0cf809b762b3b2655225"
+PV = "1.1.1"
 S = "${WORKDIR}/git"
 
 do_compile_append() {
