@@ -2,17 +2,18 @@ SUMMARY = "A volume control application based on GStreamer"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552"
 
-inherit xfce-panel-plugin
+inherit xfce-panel-plugin xfce-git
 
-DEPENDS += "glib-2.0 gst-plugins-base gtk+ xfconf libunique"
+DEPENDS += "glib-2.0 gst-plugins-base gtk+3 xfce4-dev-tools-native xfconf libunique"
 
-SRC_URI = " \
-    http://archive.xfce.org/src/apps/${BPN}/${@xfce_verdir("${PV}")}/${BPN}-${PV}.tar.bz2 \
-    file://0001-Fix-build-after-update-of-xfconf.patch \
-"
+SRC_URI = "git://gitlab.xfce.org/apps/xfce4-mixer.git"
+PV = "4.11.0+git${SRCPV}"
+SRCREV = "cfcfd6fd1aaa497b5be421bb05b66526104727d3"
+S = "${WORKDIR}/git"
 
-SRC_URI[md5sum] = "1b3753b91224867a3a2dfddda239c28d"
-SRC_URI[sha256sum] = "fb0c1df201ed1130f54f15b914cbe5a59286e994a137acda5609570c57112de2"
+EXTRA_OECONF += "--disable-debug"
+
+FILES_${PN} += "${datadir}/xfce4/mixer"
 
 RDEPENDS_${PN} += " \
     gstreamer \
