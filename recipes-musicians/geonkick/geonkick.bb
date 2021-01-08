@@ -15,8 +15,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://gitlab.com/iurie-sw/geonkick;protocol=https"
-SRCREV = "e3323636b4f3d77cc4c2629f1c196ead161c7a11"
-PV = "2.5.1"
+SRCREV = "e39c142b82d1e82d282601ccd790993d6970c4a1"
+PV = "2.6.1"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = " \
