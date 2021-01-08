@@ -3,7 +3,7 @@ require ${BPN}.inc
 inherit native
 
 do_compile() {
-     ${CXX} ${CXXFLAGS} -o ${S}/drumgizmo-rcgen ${S}/plugingui/rcgen.cc $(LDFLAGS)
+     ${CXX} ${CXXFLAGS} -I${S}/getoptpp -o ${S}/drumgizmo-rcgen ${S}/plugingui/rcgen.cc ${LDFLAGS}
 }
 
 do_install() {

@@ -14,18 +14,18 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/plugingui/Makefile.am b/plugingui/Makefile.am
-index dd36783..ca30e84 100644
+index d102024..8a4a677 100644
 --- a/plugingui/Makefile.am
 +++ b/plugingui/Makefile.am
-@@ -28,7 +28,7 @@ RES = \
- 	../COPYING
+@@ -71,7 +71,7 @@ BUILT_SOURCES = \
+ 	$(NLS_RES)
  
- resource_data.cc : rcgen $(RES)
--	./rcgen $(RES) > resource_data.cc
-+	drumgizmo-rcgen $(RES) > resource_data.cc
+ resource_data.cc: rcgen$(EXEEXT) $(RES) $(NLS_RES)
+-	$(rcgen_verbose)./rcgen$(EXEEXT) -s $(top_srcdir)/plugingui/ -s $(top_builddir)/plugingui/ -o $@ $(RES) $(NLS_RES)
++	drumgizmo-rcgen -s $(top_srcdir)/plugingui/ -s $(top_builddir)/plugingui/ -o $@ $(RES) $(NLS_RES)
  
- libdggui_la_CPPFLAGS = \
- 	$(GUI_CPPFLAGS) \
+ CLEANFILES = \
+ 	resource_data.cc \
 -- 
-2.14.3
+2.26.2
 

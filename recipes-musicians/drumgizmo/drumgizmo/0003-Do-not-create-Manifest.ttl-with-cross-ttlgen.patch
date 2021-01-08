@@ -14,18 +14,18 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/plugin/Makefile.am b/plugin/Makefile.am
-index 6c0d324..5b36f21 100644
+index f382acc..2181854 100644
 --- a/plugin/Makefile.am
 +++ b/plugin/Makefile.am
-@@ -66,7 +66,7 @@ UITYPE=CocoaUI
- endif
+@@ -75,7 +75,7 @@ ttlgen_verbose_ = $(ttlgen_verbose_@AM_DEFAULT_V@)
+ ttlgen_verbose_0 = @echo "  TTLGEN   "$@;
  
  manifest.ttl : ttlgen drumgizmo.la
--	./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE)
-+	echo ./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE)
+-	$(ttlgen_verbose)./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE) > /dev/null
++	echo $(ttlgen_verbose)./ttlgen .libs/drumgizmo.so manifest.ttl $(UITYPE) > /dev/null
  
  
  #######
 -- 
-2.21.0
+2.26.2
 

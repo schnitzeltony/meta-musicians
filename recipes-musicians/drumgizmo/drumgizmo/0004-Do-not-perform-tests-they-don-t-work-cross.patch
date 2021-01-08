@@ -1,0 +1,31 @@
+From 15eefcf7d4db242b1bc00db00194475646d4313d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 8 Jan 2021 17:00:44 +0100
+Subject: [PATCH] Do not perform tests - they don't work cross
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [oe-specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ Makefile.am | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 4196db7..87c401e 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,6 +1,6 @@
+ AUTOMAKE_OPTIONS = gnu
+-SUBDIRS = tools src plugingui plugin drumgizmo man test
+-DISTDIRS = tools src plugingui plugin drumgizmo man test
++SUBDIRS = tools src plugingui plugin drumgizmo man
++DISTDIRS = tools src plugingui plugin drumgizmo man
+ 
+ EXTRA_DIST = \
+ 	version.h \
+-- 
+2.26.2
+
