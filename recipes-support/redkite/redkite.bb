@@ -9,8 +9,8 @@ inherit cmake features_check
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = "git://github.com/iurie-sw/redkite.git"
-SRCREV = "61f26b13123bc9cb85045ab52046a40d6be392dc"
-PV = "1.2.0"
+SRCREV = "008622f9ace72e11d30327dcb2db00271acf0bf6"
+PV = "1.3.0"
 S = "${WORKDIR}/git"
 
 BBCLASSEXTEND = "native"
