@@ -4,8 +4,8 @@ LICENSE = "BSD-0-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a396d84ed72b4a017f02f5c5d1eaafe"
 
 SRC_URI = "gitsm://github.com/brummer10/Mamba.git"
-SRCREV = "2d8da87ea76673c3f17629f6b64a3853e5cd4533"
-PV = "2.0"
+SRCREV = "e5aa1a709757156589715deb2c67d70e19bb0885"
+PV = "2.1"
 S = "${WORKDIR}/git"
 
 inherit pkgconfig features_check mime-xdg gettext
