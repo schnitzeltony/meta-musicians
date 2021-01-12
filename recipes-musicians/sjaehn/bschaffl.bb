@@ -15,9 +15,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BSchaffl.git"
-SRCREV = "2d8a2d7eec67a17420d5735e2210a56b381f51e2"
+SRCREV = "048122a3d45bdb7832c18c83d8b8ef0910247c8d"
 S = "${WORKDIR}/git"
-PV = "1.4.0"
+PV = "1.4.2"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
