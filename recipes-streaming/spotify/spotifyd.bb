@@ -1,7 +1,7 @@
 SUMMARY = "A Spotify daemon"
 HOMEPAGE = "https://github.com/Spotifyd/spotifyd"
 LICENSE = "GPLv3"
-LIC_FILES_CHKSUM = "file://LICENCE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
 python() {
     if 'rust-layer' not in d.getVar('BBFILE_COLLECTIONS').split():
@@ -18,10 +18,12 @@ DEPENDS = " \
 inherit cargo
 
 SRC_URI = "git://github.com/Spotifyd/spotifyd.git"
-SRCREV = "133a1199f80c7c22f29a45226db3bb856b106a5b"
+SRCREV = "acd740287e3ba93bc7ac7b87dc41da0492f78831"
 S = "${WORKDIR}/git"
 # crate ruins SRCPV so set PV manually
-PV = "0.2.24+git133a1199"
+#PV = "0.2.24+git133a1199"
+
+PV = "0.2.25"
 
 # No unconditional start on each boot
 #do_install_append() {
