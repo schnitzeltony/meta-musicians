@@ -18,12 +18,12 @@ DEPENDS = " \
 inherit cargo
 
 SRC_URI = "git://github.com/Spotifyd/spotifyd.git"
-SRCREV = "acd740287e3ba93bc7ac7b87dc41da0492f78831"
+SRCREV = "27ce5ac95c3a9b8de84bc4c0969a942fda2e2ad0"
 S = "${WORKDIR}/git"
 # crate ruins SRCPV so set PV manually
 #PV = "0.2.24+git133a1199"
 
-PV = "0.2.25"
+PV = "0.3.0"
 
 # No unconditional start on each boot
 #do_install_append() {
