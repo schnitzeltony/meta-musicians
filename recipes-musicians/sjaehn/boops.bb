@@ -15,9 +15,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BOops.git"
-SRCREV = "4a7b422f8afdb282301f11e046d27a625fb4b849"
+SRCREV = "bdb4de4d3baf1148b2cc825a1c4c25a884e7fe60"
 S = "${WORKDIR}/git"
-PV = "1.2.0"
+PV = "1.2.4"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
