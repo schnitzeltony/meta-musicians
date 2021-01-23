@@ -13,8 +13,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/sisco.lv2.git"
-SRCREV = "ce8139f989a182f4968911494a1c72940f9f53ee"
-PV = "0.9.0"
+SRCREV = "45ccc654f7ccb8e9da254bf66d02c162f235ddb0"
+PV = "0.9.1"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
