@@ -19,13 +19,13 @@ REQUIRED_DISTRO_FEATURES = "x11"
 SRC_URI = " \
     gitsm://github.com/surge-synthesizer/surge.git;branch=main \
     file://0001-arm-native.cmake-adjust-to-oe.patch \
-    file://0002-CMakeLists.txt-adjust-python-python3.patch \
-    file://0003-package-vst3.sh-Do-not-try-to-strip-antive.patch \
-    file://0004-Do-not-generate-manifest-it-won-t-work-cross.patch \
+    file://0002-package-vst3.sh-Do-not-try-to-strip-antive.patch \
+    file://0003-Do-not-generate-manifest-it-won-t-work-cross.patch \
+    file://0004-emit-vector-piggy-adjust-python-python3.patch \
 "
-SRCREV = "5270cfb97a51570f81f29c1e641c0c6def901448"
+SRCREV = "9de93366e343e45e0da427b00a944d24d5b38304"
 S = "${WORKDIR}/git"
-PV = "1.7.1"
+PV = "1.8.1"
 
 EXTRA_OECMAKE_append_arm = " -DARM_NATIVE=native"
 EXTRA_OECMAKE_append_aarch64 = " -DARM_NATIVE=native"

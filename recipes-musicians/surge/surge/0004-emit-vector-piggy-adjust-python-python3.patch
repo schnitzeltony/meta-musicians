@@ -1,0 +1,28 @@
+From aefd7ccb614ceb55d3b6369daf2f53c27d7599cc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 7 Feb 2021 20:42:45 +0100
+Subject: [PATCH] emit-vector-piggy: adjust python -> python3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ scripts/linux/emit-vector-piggy | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/linux/emit-vector-piggy b/scripts/linux/emit-vector-piggy
+index 762b3fe4..2d434076 100755
+--- a/scripts/linux/emit-vector-piggy
++++ b/scripts/linux/emit-vector-piggy
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ #
+ # This python script auto-generates the files
+ #
+-- 
+2.26.2
+

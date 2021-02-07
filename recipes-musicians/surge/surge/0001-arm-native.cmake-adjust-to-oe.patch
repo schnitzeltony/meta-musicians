@@ -1,6 +1,6 @@
 From 776564ce4049f44bcbe9804e2bb3c81b154f9731 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Sat, 5 Dec 2020 22:25:57 +0100
+Date: Sun, 7 Feb 2021 20:23:03 +0100
 Subject: [PATCH] arm-native.cmake: adjust to oe
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -14,12 +14,12 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 2 deletions(-)
 
 diff --git a/cmake/arm-native.cmake b/cmake/arm-native.cmake
-index de92a619..8b1e07c6 100644
+index 9d0b7044..c4073fba 100644
 --- a/cmake/arm-native.cmake
 +++ b/cmake/arm-native.cmake
 @@ -1,7 +1,5 @@
  set( LINUX_ON_ARM True )
- set(LINUX_ON_ARM_COMPILE_OPTIONS
+ set(FLAGS
 -  -march=native
 -  -mcpu=native
    -Wno-psabi
