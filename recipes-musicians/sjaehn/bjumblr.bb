@@ -15,9 +15,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BJumblr.git"
-SRCREV = "c04fd6149413a07aaa534c6d5bfbe04acadcfd54"
+SRCREV = "d2f25403fb538bc37c3c515f6eaaa04721a16bf2"
 S = "${WORKDIR}/git"
-PV = "1.6.0"
+PV = "1.6.2"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
