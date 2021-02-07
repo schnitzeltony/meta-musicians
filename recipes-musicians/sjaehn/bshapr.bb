@@ -14,9 +14,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BShapr.git"
-SRCREV = "dbb6e2e2429e1ea3a2dc31a46951289347216681"
+SRCREV = "da0a5372f7f92d5c65d1681d199703a18f40c3e2"
 S = "${WORKDIR}/git"
-PV = "0.9"
+PV = "0.10"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
