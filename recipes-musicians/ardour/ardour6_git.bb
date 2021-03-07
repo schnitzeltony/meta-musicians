@@ -34,8 +34,8 @@ inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg sitei
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = "git://github.com/Ardour/ardour.git"
-SRCREV = "80e3c191e412be7da5e0d05856e14f2f208b3035"
-PV = "6.5"
+SRCREV = "e4e21f4d073ab00b1a0bb6ff6ca49f28b02fd68a"
+PV = "6.6"
 S = "${WORKDIR}/git"
 
 # arch specific override - default (tested) is ARM -> no fpu-optimizations
