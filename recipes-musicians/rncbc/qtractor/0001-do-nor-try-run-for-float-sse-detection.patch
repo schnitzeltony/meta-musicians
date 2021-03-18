@@ -15,7 +15,7 @@ diff --git a/configure.ac b/configure.ac
 index e33d2cb2..a582410f 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -606,13 +606,7 @@ fi
+@@ -645,13 +645,7 @@ fi
  AC_SUBST(ac_lrelease)
  
  
@@ -30,7 +30,7 @@ index e33d2cb2..a582410f 100644
  if test "x$ac_float32" = "xyes"; then
     AC_DEFINE(CONFIG_FLOAT32, 1, [Define if IEEE 32bit float optimizations are enabled.])
  fi
-@@ -626,19 +620,13 @@ if test "x$ac_sse" = "xyes"; then
+@@ -666,19 +660,13 @@ if test "x$ac_sse" = "xyes"; then
     CPPFLAGS="$ac_sse_cflags $CPPFLAGS"
     AC_CACHE_CHECK([for SSE optimization],
        ac_cv_sse, [
@@ -50,8 +50,5 @@ index e33d2cb2..a582410f 100644
 -            return ((d & (1 << 25)) ? 0 : 1);
 +            return 0;
           }
-       ], ac_cv_sse="yes", ac_cv_sse="no")
+       ], ac_cv_sse="yes", ac_cv_sse="no", ac_cv_sse=cross)
     ])
--- 
-2.21.1
-
