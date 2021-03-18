@@ -18,8 +18,8 @@ SRC_URI = " \
     file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
     file://0002-Avoid-stripping.patch \
 "
-PV = "0.9.19"
-SRC_URI[sha256sum] = "64f35209853b683a148e5135cabe32756944833a2a6cecb199e16ea7079a9bbb"
+PV = "0.9.21"
+SRC_URI[sha256sum] = "f36d738f9d31f219342c339308a59da712a8d62b3f4703d5ed7b66f82f83e8cf"
 
 EXTRA_OECONF = " \
     --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
