@@ -20,8 +20,8 @@ SRC_URI = " \
     file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
     file://0002-Avoid-stripping.patch \
 "
-PV = "0.9.19"
-SRC_URI[sha256sum] = "2e63945c8f6d06550c7817c7cd6e0a8ed0d38d6b5f13c43ca8e279320ccb2e71"
+PV = "0.9.21"
+SRC_URI[sha256sum] = "35952d6ed82cde9c0d8b516addd2e2f376b94b6d777f2b2a6ffd3978b49da7fa"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
