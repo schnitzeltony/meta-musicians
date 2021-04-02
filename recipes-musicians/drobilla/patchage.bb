@@ -16,6 +16,6 @@ SRC_URI = " \
     gitsm://gitlab.com/drobilla/patchage.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "b69c3bac42c9cf5cfcd79bce3363b4343bf0cd2e"
-PV = "1.0.2"
+SRCREV = "34f5d891fabe5c4e6137ce3d94aee8ca1955ebab"
+PV = "1.0.4"
 S = "${WORKDIR}/git"
