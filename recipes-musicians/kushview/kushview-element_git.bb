@@ -20,12 +20,9 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = " \
-    gitsm://github.com/kushview/Element.git \
-    file://0001-Work-around-broken-git-version-creation.patch \
-"
-SRCREV = "d3f2ee98217f83e3b600a4163b3f8fd403f392fa"
-PV = "0.45.1"
+SRC_URI = "gitsm://github.com/kushview/Element.git"
+SRCREV = "3233c02d0fe1b96e551c0fae20626dcacb6d431e"
+PV = "0.46.0"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
