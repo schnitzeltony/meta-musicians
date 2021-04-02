@@ -8,7 +8,7 @@ SRC_URI = " \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 S = "${WORKDIR}/git"
-SRCREV = "5f40c5c421ffc50783962efb4cab151c8c2519dd"
-PV = "1.18.0"
+SRCREV = "cd152104c84bcee9fec22ef780cec2af7ba85d0c"
+PV = "1.18.2"
 
 inherit waf pkgconfig
