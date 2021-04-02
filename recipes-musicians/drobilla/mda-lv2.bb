@@ -13,8 +13,8 @@ SRC_URI = " \
     gitsm://gitlab.com/drobilla/mda-lv2.git;protocol=https \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRCREV = "1761c1c97a4a4b9b5dc1bbb5b2784bafa8c7d2d5"
-PV = "1.2.4"
+SRCREV = "19752af61234581e0f73db539d5609ab14b3d928"
+PV = "1.2.6"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
