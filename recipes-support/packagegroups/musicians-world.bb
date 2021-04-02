@@ -146,6 +146,7 @@ RDEPENDS_${PN} += " \
     bschaffl \
     bsequencer \
     bshapr \
+    bspacr \
     \
     \
     fluidsynth-dssi \
