@@ -10,6 +10,7 @@ SRC_URI += " \
     file://0007-Load-schema-from-usr-share-zyn-fusion-schema.patch \
     file://0008-Do-not-require-dummy-MainWindow.qml.patch \
     file://0009-Avoid-glGenerateMipmap-for-GLES2-either.patch \
+    file://0010-Do-not-run-mruby-file-stat-s-configure-at-copmpile-t.patch \
 "
 
 DEPENDS += " \
@@ -34,18 +35,10 @@ do_configure_prepend() {
     sed -i -- 's/GL2/GLES2/g' ${WORKDIR}/git/src/mruby-widget-lib/src/gem.c
     sed -i -- 's/MRUBY_NANOVG_GL2/MRUBY_NANOVG_GLES2/g' ${WORKDIR}/git/build_config.rb
     sed -i '/idiot/d' ${WORKDIR}/git/deps/mruby-nanovg/src/nvg_impl.h
-
-    # Fetch ruby gems. Although unexpected it starts building happily and
-    # breaks so ignore that.
-    cd mruby
-    MRUBY_CONFIG=../build_config.rb ruby minirake --pull-gems || true
-
-    # ensure config.h is created at the right place...
-    cd build/host/mrbgems/mruby-file-stat/src
 }
 
 do_configure_append() {
-    cp -f ${S}/mruby/build/host/mrbgems/mruby-file-stat/src/config.h ${S}/deps/mruby-file-stat/src/
+    cp -f ${S}/config.h ${S}/deps/mruby-file-stat/src/
 }
 
 do_install() {
