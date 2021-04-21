@@ -105,7 +105,6 @@ RDEPENDS_${PN} += " \
     nekobee \
     ninjas2-standalone ninjas2-lv2 ninjas2-vst \
     noise-repellent \
-    non \
     \
     \
     arty-fx \
