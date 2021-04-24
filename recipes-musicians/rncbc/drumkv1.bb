@@ -14,6 +14,9 @@ DEPENDS += " \
 
 inherit cmake_qt5 gtk-icon-cache mime
 
+# to get hydrogen2drumkv1 patch applied
+inherit dos2unix
+
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0002-Avoid-stripping-CMake.patch \
