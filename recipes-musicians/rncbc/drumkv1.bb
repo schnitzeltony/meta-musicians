@@ -12,26 +12,18 @@ DEPENDS += " \
     hydrogen \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
+    file://0002-Avoid-stripping-CMake.patch \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
-    file://0002-Avoid-stripping.patch \
+    file://0001-Fix-for-python-3.9.patch;patchdir=../hydrogen2drumkv1 \
 "
 PV = "0.9.21"
 SRC_URI[sha256sum] = "35952d6ed82cde9c0d8b516addd2e2f376b94b6d777f2b2a6ffd3978b49da7fa"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
-
-EXTRA_OECONF = " \
-    --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
-    --with-moc=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc \
-    --with-uic=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic \
-    --with-lupdate=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lupdate \
-    --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
-"
 
 do_install_append() {
     install -d ${D}${datadir}/${BPN}/presets
