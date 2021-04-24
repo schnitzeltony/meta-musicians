@@ -12,27 +12,18 @@ DEPENDS += " \
     fftw \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
+    file://0002-Avoid-stripping-CMake.patch \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
-    file://0002-Avoid-stripping.patch \
     file://padthv1.conf \
 "
 PV = "0.9.21"
 SRC_URI[sha256sum] = "f4c65100794820426e013915737a46bd21d84ea91885da16d105ad7437a24868"
 
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
-
-EXTRA_OECONF = " \
-    --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
-    --with-moc=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc \
-    --with-uic=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic \
-    --with-lupdate=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lupdate \
-    --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
-"
 
 do_install_append() {
     install -d ${D}/${datadir}/${BPN}
