@@ -1,0 +1,33 @@
+From 7e4c32eebb1b074c4f3c2916a43340985bdbfea2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 24 Apr 2021 21:50:53 +0200
+Subject: [PATCH] Avoid stripping - CMake
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/CMakeLists.txt | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 31ce7b8..0cd903a 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -173,12 +173,6 @@ if (CONFIG_LIBLO)
+ endif ()
+ 
+ 
+-if (UNIX AND NOT APPLE AND NOT CONFIG_DEBUG)
+-  add_custom_command(TARGET ${PROJECT_NAME}_lv2  POST_BUILD
+-    COMMAND strip lib${PROJECT_NAME}_lv2.so)
+-  add_custom_command(TARGET ${PROJECT_NAME}_jack POST_BUILD
+-    COMMAND strip ${PROJECT_NAME}_jack)
+-endif ()
+ 
+ 
+ if (UNIX AND NOT APPLE)
+-- 
+2.30.2
+
