@@ -5,20 +5,20 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \
     qtbase-native \
+    qttools-native \
     qtbase \
     jack \
     lv2 \
     liblo \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
+    file://0002-Avoid-stripping-CMake.patch \
     ${SOURCEFORGE_MIRROR}/project/autostatic/autostatic-synthv1-presets/autostatic-synthv1-presets1.tar.gz;name=autostatic-synthv1-presets1 \
     http://linuxsynths.com/Synthv1PatchesDemos/Synthv1Patches06.tar.gz;name=linuxsynths-synthv1-presets;subdir=linuxsynths-synthv1-presets \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
-    file://0002-Avoid-stripping.patch \
     \
     file://synthv1.conf \
 "
@@ -28,14 +28,6 @@ SRC_URI[sha256sum] = "256c314ffbdae3fad2da1f3e91a12a8ba93e10b843240f2cdd070c8727
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
 
 SRC_URI[linuxsynths-synthv1-presets.sha256sum] = "cd444ccecafa9c03b890b3662455e3c1f36e18cd8f2f9b5c269bf1e4eb6cfa72"
-
-EXTRA_OECONF = " \
-    --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
-    --with-moc=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc \
-    --with-uic=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic \
-    --with-lupdate=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lupdate \
-    --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
-"
 
 do_install_append() {
     install -d ${D}/${datadir}/${BPN}/presets
