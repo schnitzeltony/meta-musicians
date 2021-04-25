@@ -1,6 +1,6 @@
 From f8586a2671012c2392b78361b96d17cdd9cfbd44 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Sat, 5 Dec 2020 22:43:17 +0100
+Date: Sun, 25 Apr 2021 23:05:40 +0200
 Subject: [PATCH] package-vst3.sh: Do not try to strip (antive)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -10,19 +10,23 @@ Upstream-Status: Pending
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- scripts/linux/package-vst3.sh | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/linux/package-vst3.sh | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/scripts/linux/package-vst3.sh b/scripts/linux/package-vst3.sh
-index b91adc74..409ebf8e 100755
+index 2f112814..63d2f520 100755
 --- a/scripts/linux/package-vst3.sh
 +++ b/scripts/linux/package-vst3.sh
-@@ -17,4 +17,4 @@ fi
- VST_SO_DIR="$BUNDLE_DIR/Contents/${ARCH}-linux"
- mkdir -p "$VST_SO_DIR"
+@@ -20,8 +20,7 @@ mkdir -p "$VST_SO_DIR"
  cp $1 "$VST_SO_DIR"/Surge.so
--strip -s "$VST_SO_DIR"/Surge.so
-+
+ if [[ -z ${NOSTRIP} ]]; 
+ then
+-  echo "  Stripping ${VST_SO_DIR}/Surge.so"
+-  strip -s "$VST_SO_DIR"/Surge.so
++  echo "  Not stripping in oe-builds"
+ else
+   echo "  Skipping strip phase for debug build"
+ fi
 -- 
-2.26.2
+2.30.2
 

@@ -1,6 +1,6 @@
 From 9cee76f8433b1dbc024d16212c9d566df04aaf58 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Sun, 7 Feb 2021 20:33:37 +0100
+Date: Sun, 25 Apr 2021 23:20:06 +0200
 Subject: [PATCH] Do not generate manifest - it won't work cross
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -17,18 +17,18 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 374991f1..466955e0 100644
+index 4ad951dd..545b6ead 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -961,7 +961,7 @@ if( BUILD_LV2 )
-       COMMAND echo "Packaging up LV2 component"
-       COMMAND ${CMAKE_COMMAND} -E make_directory ${SURGE_PRODUCT_DIR}/Surge.lv2
+@@ -1012,7 +1012,7 @@ if( BUILD_LV2 )
        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:surge-lv2-dll> ${SURGE_PRODUCT_DIR}/Surge.lv2/Surge.so
--      COMMAND scripts/linux/generate-lv2-ttl ${SURGE_PRODUCT_DIR}/Surge.lv2/Surge.so
+       COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/lintemp
+       COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_CURRENT_SOURCE_DIR}/resources/data ${CMAKE_BINARY_DIR}/lintemp/surge
+-      COMMAND XDG_DATA_HOME=${CMAKE_BINARY_DIR}/lintemp scripts/linux/generate-lv2-ttl ${SURGE_PRODUCT_DIR}/Surge.lv2/Surge.so
 +      COMMAND echo ${SURGE_PRODUCT_DIR}/Surge.lv2/Surge.so >> LV2_PLUGIN_INFO_FILE
        )
    endif()
  
 -- 
-2.26.2
+2.30.2
 

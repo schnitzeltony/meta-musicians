@@ -23,9 +23,9 @@ SRC_URI = " \
     file://0003-Do-not-generate-manifest-it-won-t-work-cross.patch \
     file://0004-emit-vector-piggy-adjust-python-python3.patch \
 "
-SRCREV = "9de93366e343e45e0da427b00a944d24d5b38304"
+SRCREV = "91069f8d0c0269e962fa3b5f932b4511aa07e451"
 S = "${WORKDIR}/git"
-PV = "1.8.1"
+PV = "1.9.0"
 
 EXTRA_OECMAKE_append_arm = " -DARM_NATIVE=native"
 EXTRA_OECMAKE_append_aarch64 = " -DARM_NATIVE=native"
