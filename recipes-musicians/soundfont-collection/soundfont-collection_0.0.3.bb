@@ -83,7 +83,7 @@ SRC_URI[rabs-new-construction-kit.sha256sum] = "b3fce24ba733c78afb9bbf12e973d2d8
 SRC_URI[rabs-organs.sha256sum] = "14765b576626e440caf054c7b3a502b03cd95b451d4e8bf53f623705de8a5174"
 SRC_URI[rabs-stratocaster.sha256sum] = "1966c40643b0de18f825fb26f10fdf5aabb298b69268be43d0e5b5c434fd6621"
 SRC_URI[rabs-wwgtr.sha256sum] = "a17be1dff75bf76af0ac78e9fec75313a7375ac1e388709546c4e732c1ca1652"
-SRC_URI[rabs-meta.sha256sum] = "74ff57376b6ce383e0fe3a0b6c391774a7d926585112f7a8650b5bef55bf169a"
+SRC_URI[rabs-meta.sha256sum] = "d3b10719b9bf41f598f7cd9d555c6d4852e0eb3c734ef9694fba0451d091e778"
 
 
 do_unpack[depends] += "p7zip-native:do_populate_sysroot"
