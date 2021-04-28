@@ -1,7 +1,7 @@
 SUMMARY = "MusE is a digital audio workstation"
 HOMEPAGE = "http://muse-sequencer.org/"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://muse3/COPYING;md5=328283dc167a7b37ffdc59f524a7fc4d"
+LIC_FILES_CHKSUM = "file://src/COPYING;md5=328283dc167a7b37ffdc59f524a7fc4d"
 
 DEPENDS += " \
     qtbase \
@@ -28,17 +28,17 @@ SRC_URI = " \
     file://0001-Do-not-try-to-find-aeffectx.h-it-is-not-found-for-un.patch \
     file://0002-muse-find-unused-wavs-convert-to-pythomn3.patch \
 "
-SRCREV = "2b479fecc447871c10b08dcd8aabb1ac9b0bdfc7"
-PV = "3.1.1"
+SRCREV = "3e79cbcbea4480a43dc6052fb0fc118c356fb404"
+PV = "4.0.0"
 S = "${WORKDIR}/git"
 
-OECMAKE_SOURCEPATH = "${S}/muse3"
+OECMAKE_SOURCEPATH = "${S}/src"
 
 EXTRA_OECMAKE += " \
     -DLIB_INSTALL_DIR=${libdir} \
     -DMODULES_BUILD_STATIC=1 \
     -DCMAKE_SHARED_LINKER_FLAGS='${LDFLAGS} -Wl,--no-undefined' \
-    -DVST_HEADER_PATH=${S}/muse3/vestige \
+    -DVST_HEADER_PATH=${S}/src/vestige \
     -DENABLE_VST_VESTIGE=1 \
     \
     -DENABLE_LV2=1 \
@@ -52,7 +52,7 @@ EXTRA_OECMAKE += " \
 do_install_append() {
     # remove python script to convert songs from very old muse to avoid
     # python rdeps
-    rm -f ${D}${datadir}/muse-3.1/utils/muse-song-convert.py
+    rm -f ${D}${datadir}/muse-4.0/utils/muse-song-convert.py
 }
 
 QT_TRANSLATION_FILES = "${datadir}/*/locale/*.qm"
@@ -61,8 +61,8 @@ FILES_${PN}-locale = "${datadir}/muse-3.0/locale"
 FILES_${PN} += " \
     ${datadir}/mime \
     ${datadir}/metainfo \
-    ${datadir}/muse-3.1 \
-    ${libdir}/muse-3.1 \
+    ${datadir}/muse-4.0 \
+    ${libdir}/muse-4.0 \
 "
 
 RDEPENDS_${PN} += "python3-core"

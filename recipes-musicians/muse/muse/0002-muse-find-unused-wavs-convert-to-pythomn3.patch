@@ -10,13 +10,13 @@ Upstream-Status: Pending
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- muse3/utils/muse-find-unused-wavs | 46 +++++++++++++++----------------
+ src/utils/muse-find-unused-wavs | 46 +++++++++++++++----------------
  1 file changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/muse3/utils/muse-find-unused-wavs b/muse3/utils/muse-find-unused-wavs
+diff --git a/src/utils/muse-find-unused-wavs b/src/utils/muse-find-unused-wavs
 index 5aaf2707..3bc4e009 100755
---- a/muse3/utils/muse-find-unused-wavs
-+++ b/muse3/utils/muse-find-unused-wavs
+--- a/src/utils/muse-find-unused-wavs
++++ b/src/utils/muse-find-unused-wavs
 @@ -1,4 +1,4 @@
 -#!/usr/bin/python
 +#!/usr/bin/python3
