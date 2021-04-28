@@ -11,13 +11,13 @@ Upstream-Status: Inappropriate [OE-specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- muse3/CMakeLists.txt | 1 -
+ src/CMakeLists.txt | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/muse3/CMakeLists.txt b/muse3/CMakeLists.txt
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
 index 2746a50f..ebf97d10 100644
---- a/muse3/CMakeLists.txt
-+++ b/muse3/CMakeLists.txt
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
 @@ -451,7 +451,6 @@ SET (AEFFECT_H_FOUND FALSE)
  SET (VST_NATIVE_SUPPORT FALSE)
  
