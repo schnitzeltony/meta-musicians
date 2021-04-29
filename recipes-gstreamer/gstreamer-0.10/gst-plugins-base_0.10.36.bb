@@ -37,6 +37,13 @@ do_configure_prepend() {
     rm -f ${S}/m4/lib-link.m4
 }
 
+do_configure_append() {
+    # remove stay \ introduced by make 4.3
+    if make -v | grep '4\.3'; then
+        sed -i 's:\\#include:#include:g' `find -name Makefile`
+    fi
+}
+
 FILES_${PN} += "${datadir}/${BPN}"
 
 CACHED_CONFIGUREVARS_append_x86 = " ac_cv_header_emmintrin_h=no ac_cv_header_xmmintrin_h=no"
