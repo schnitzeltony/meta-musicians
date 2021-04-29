@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/falkTX/Carla.git \
+    git://github.com/falkTX/Carla.git;nobranch=1 \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
     file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
 "
