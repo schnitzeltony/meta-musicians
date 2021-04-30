@@ -14,7 +14,10 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BJumblr.git"
+SRC_URI = " \
+    git://github.com/sjaehn/BJumblr.git \
+    file://0001-Allow-parallel-build.patch \
+"
 SRCREV = "bf1a0a076c15a641f6d213afcb0f4b9245c87d18"
 S = "${WORKDIR}/git"
 PV = "1.6.6"
