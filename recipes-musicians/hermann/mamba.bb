@@ -4,8 +4,8 @@ LICENSE = "BSD-0-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a396d84ed72b4a017f02f5c5d1eaafe"
 
 SRC_URI = "gitsm://github.com/brummer10/Mamba.git"
-SRCREV = "e5aa1a709757156589715deb2c67d70e19bb0885"
-PV = "2.1"
+SRCREV = "6b1c0011a6cf4bf7e4996b2120a9ff12ed45e0ae"
+PV = "2.2"
 S = "${WORKDIR}/git"
 
 inherit pkgconfig features_check mime-xdg gettext
@@ -13,6 +13,7 @@ inherit pkgconfig features_check mime-xdg gettext
 REQUIRED_DISTRO_FEATURES = "x11"
 
 DEPENDS += " \
+    vim-native \
     cairo \
     virtual/libx11 \
     libsigc++-2.0 \
