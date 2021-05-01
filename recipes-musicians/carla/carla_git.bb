@@ -7,17 +7,17 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/falkTX/Carla.git;nobranch=1 \
+    git://github.com/falkTX/Carla.git;branch=main \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
     file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
 "
-SRCREV = "1b5080dff02b1e751e32f0582e4aee7bc2c74a67"
+SRCREV = "74ee581a3c68cb4b3c13c83bb3f215a8d114b5a7"
 S = "${WORKDIR}/git"
-PV = "2.1.1"
+PV = "2.3.0"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-inherit qmake5_base pkgconfig qemu-ext-musicians features_check mime mime-xdg gtk-icon-cache
+inherit qmake5_base python3native qemu-ext-musicians features_check mime mime-xdg gtk-icon-cache
 
 B = "${S}"
 

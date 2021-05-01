@@ -1,5 +1,5 @@
 From 88c61efce068b4cfe6d4c175bd9d1b85def23708 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@googlemail.com>
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
 Date: Sat, 15 Jul 2017 00:03:36 +0200
 Subject: [PATCH] do not try to cross-run carla-lv2-export
 MIME-Version: 1.0
@@ -8,24 +8,25 @@ Content-Transfer-Encoding: 8bit
 
 Upstream-Status: Inappropriate [cross specific]
 
-Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- source/plugin/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ source/plugin/Makefile | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/source/plugin/Makefile b/source/plugin/Makefile
-index 59b5c5d..3bcb368 100644
+index 2ec4eb305..726ec32c0 100644
 --- a/source/plugin/Makefile
 +++ b/source/plugin/Makefile
-@@ -206,7 +206,7 @@ $(BINDIR)/carla.lv2/manifest.ttl: $(OBJDIR)/carla-lv2-export.cpp.o $(LIBS)
- ifeq ($(BUILDING_FOR_WINDOWS),true)
- 	@cd $(BINDIR) && wine ./carla-lv2-export$(APP_EXT)
- else
--	@cd $(BINDIR) && ./carla-lv2-export$(APP_EXT)
-+	@cd $(BINDIR)
- endif
+@@ -478,8 +478,7 @@ $(BINDIR)/carla.lv2/manifest.ttl: $(OBJDIR)/carla-lv2-export.cpp.o $(BINDIR)/car
+ 	@echo "Linking carla-lv2-export$(APP_EXT)"
+ 	@$(CXX) $< $(LIBS_START) $(LIBS) $(LIBS_END) $(NATIVE_LINK_FLAGS) -o $(BINDIR)/carla-lv2-export$(APP_EXT)
+ 
+-	@echo "Generating LV2 ttl data"
+-	@cd $(BINDIR) && $(EXE_WRAPPER) ./carla-lv2-export$(APP_EXT)
++	@echo "LV2 ttl data creation is postponed"
  	@cd $(BINDIR)/carla.lv2 && ln -sf ../*bridge-* ../carla-discovery-* .
  
+ $(BINDIR)/carla-lv2-export$(APP_EXT): $(OBJDIR)/carla-lv2-export.cpp.o
 -- 
-2.9.4
+2.30.2
 
