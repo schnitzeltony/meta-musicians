@@ -11,9 +11,9 @@ SRC_URI = " \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
     file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
 "
-SRCREV = "74ee581a3c68cb4b3c13c83bb3f215a8d114b5a7"
+SRCREV = "545304f5cfa484d4037b845a4df4abd530f82669"
 S = "${WORKDIR}/git"
-PV = "2.3.0"
+PV = "2.3.0+git${SRCPV}"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
