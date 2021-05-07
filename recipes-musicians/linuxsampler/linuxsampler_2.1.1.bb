@@ -39,6 +39,8 @@ EXTRA_OECONF = " \
     --enable-plugin-dir=${libdir}/${BPN}/plugins \
 "
 
+CXXFLAGS += "-std=c++11"
+
 do_install_append() {
     mv ${D}${libdir}/${BPN}/* ${D}${libdir}
     rmdir ${D}${libdir}/${BPN}
