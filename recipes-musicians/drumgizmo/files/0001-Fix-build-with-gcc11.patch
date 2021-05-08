@@ -1,0 +1,32 @@
+From 584273e28bceb0b52b5b852b56950a04a4fcc4a2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sat, 8 May 2021 15:42:48 +0200
+Subject: [PATCH] Fix build with gcc11
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| translation.h:35:6: error: 'uint64_t' in namespace 'std' does not name a type; did you mean 'wint_t'?
+|    35 | std::uint64_t constexpr const_hash(const char* input)
+|       |      ^~~~~~~~
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/translation.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/translation.h b/src/translation.h
+index 7f506a6..43545b0 100644
+--- a/src/translation.h
++++ b/src/translation.h
+@@ -31,6 +31,7 @@
+ #ifdef WITH_NLS
+ 
+ #include <memory>
++#include <cstdint>
+ 
+ std::uint64_t constexpr const_hash(const char* input)
+ {
+-- 
+2.30.2
+
