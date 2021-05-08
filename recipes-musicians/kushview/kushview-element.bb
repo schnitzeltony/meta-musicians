@@ -20,7 +20,10 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = "gitsm://github.com/kushview/Element.git"
+SRC_URI = " \
+    gitsm://github.com/kushview/Element.git \
+    file://0001-Fix-build-with-gcc11.patch \
+"
 SRCREV = "3233c02d0fe1b96e551c0fae20626dcacb6d431e"
 PV = "0.46.0"
 S = "${WORKDIR}/git"
