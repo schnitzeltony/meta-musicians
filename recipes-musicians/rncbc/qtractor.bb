@@ -16,29 +16,17 @@ DEPENDS += " \
     aubio \
 "
 
-inherit qmake5_base autotools-brokensep pkgconfig gtk-icon-cache mime mime-xdg qt5-translation
+inherit cmake_qt5 gtk-icon-cache mime mime-xdg qt5-translation
 
 SRC_URI = " \
     git://github.com/rncbc//qtractor.git;branch=midiimportx \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
-    \
-    file://0001-do-nor-try-run-for-float-sse-detection.patch \
-    file://0002-do-nor-try-run-for-suil-libs-detection.patch \
     file://0003-Add-ARM-NEON-acceleration-for-time-stretch-not-yet-t.patch \
     \
     file://Qtractor.conf \
 "
-SRCREV = "f03b649c87a1af7a4498fa8205157c16c567937c"
-PV = "0.9.21+git${SRCPV}"
+SRCREV = "628d95225c39235a32b9fc019991a8a05d2bad70"
+PV = "0.9.22+git${SRCPV}"
 S = "${WORKDIR}/git"
-
-EXTRA_OECONF = " \
-    --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
-    --with-moc=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc \
-    --with-uic=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic \
-    --with-lupdate=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lupdate \
-    --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
-"
 
 do_install_append() {
     install -d ${D}/${sysconfdir}/skel/.config/rncbc.org
