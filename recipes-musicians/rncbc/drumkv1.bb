@@ -28,8 +28,8 @@ SRC_URI = " \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
     file://0001-Fix-for-python-3.9.patch;patchdir=../hydrogen2drumkv1 \
 "
-PV = "0.9.21"
-SRC_URI[sha256sum] = "35952d6ed82cde9c0d8b516addd2e2f376b94b6d777f2b2a6ffd3978b49da7fa"
+PV = "0.9.22"
+SRC_URI[sha256sum] = "fe67b6ff00bac86faef18f759100e325ce200f508093566f5d30174702a22330"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
