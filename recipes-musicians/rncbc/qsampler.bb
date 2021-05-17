@@ -11,23 +11,11 @@ DEPENDS += " \
     libgig \
 "
 
-# autotools-brokensep must be after qmake5_base!
-inherit qmake5_base autotools-brokensep gtk-icon-cache qt5-translation mime mime-xdg
+inherit cmake_qt5 gtk-icon-cache qt5-translation mime mime-xdg
 
-SRC_URI = " \
-    ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0001-find-native-qt-build-tools-by-configure-options-auto-qt6.patch \
-"
-SRC_URI[sha256sum] = "ee5f75dc27e0282953ce380118072e5854842572555364bf514484bfafc1e66c"
-PV = "0.9.2"
-
-EXTRA_OECONF = " \
-    --with-qmake=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/qmake \
-    --with-moc=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc \
-    --with-uic=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/uic \
-    --with-lupdate=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lupdate \
-    --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
-"
+SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
+SRC_URI[sha256sum] = "cd772425ad18a9ee531e64fa7abc8492636fdc7c51f1d78f037a18fdf8008ed5"
+PV = "0.9.3"
 
 FILES_${PN} += " \
     ${datadir}/metainfo \
