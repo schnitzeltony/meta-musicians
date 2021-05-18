@@ -3,7 +3,7 @@ HOMEPAGE = "http://breakfastquay.com/rubberband/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=28f6289fba0406b8f491e9b2d5767488"
 
-inherit autotools-brokensep pkgconfig
+inherit meson
 
 DEPENDS += " \
     fftw \
@@ -19,14 +19,7 @@ SRC_URI = " \
     https://breakfastquay.com/files/releases/${BPN}-${PV}.tar.bz2 \
     ${SINGLEPATCH} \
 "
-SRC_URI[sha256sum] = "4f5b9509364ea876b4052fc390c079a3ad4ab63a2683aad09662fb905c2dc026"
-
-EXTRA_OEMAKE += " \
-    INSTALL_LIBDIR=${libdir} \
-    INSTALL_VAMPDIR=${libdir}/vamp \
-    INSTALL_LADSPADIR=${libdir}/ladspa \
-    INSTALL_PKGDIR=${libdir}/pkgconfig \
-"
+SRC_URI[sha256sum] = "fc474878f6823c27ef5df1f9616a8c8b6a4c01346132ea7d1498fe5245e549e3"
 
 CPPFLAGS += "-ftree-vectorize -DPROCESS_SAMPLE_TYPE=float"
 
