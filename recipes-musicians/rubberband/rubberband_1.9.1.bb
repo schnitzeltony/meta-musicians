@@ -12,16 +12,10 @@ DEPENDS += " \
     ladspa-sdk \
 "
 
-# fftwf is neon accelerated -> force SINGLE precision
-SINGLEPATCH = "${@bb.utils.contains('TUNE_FEATURES', 'neon', 'file://0001-Optional-replace-FFTW_DOUBLE_ONLY-by-FFTW_SINGLE_ONL.patch', '', d)}"
-
-SRC_URI = " \
-    https://breakfastquay.com/files/releases/${BPN}-${PV}.tar.bz2 \
-    ${SINGLEPATCH} \
-"
+SRC_URI = "https://breakfastquay.com/files/releases/${BPN}-${PV}.tar.bz2"
 SRC_URI[sha256sum] = "fc474878f6823c27ef5df1f9616a8c8b6a4c01346132ea7d1498fe5245e549e3"
 
-CPPFLAGS += "-ftree-vectorize -DPROCESS_SAMPLE_TYPE=float"
+EXTRA_OEMESON = "-Dfft=fftw"
 
 FILES_${PN} += " \
     ${datadir}/ladspa \
