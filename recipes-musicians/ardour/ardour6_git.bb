@@ -29,13 +29,13 @@ DEPENDS += " \
     hidapi \
 "
 
-inherit waf features_check gtk-icon-cache pkgconfig python3native mime-xdg siteinfo
+inherit waf features_check gtk-icon-cache pkgconfig python3native mime mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = "git://github.com/Ardour/ardour.git"
-SRCREV = "80f6f152ee35e4fd2605a556f0cff3603ca3a1e4"
-PV = "6.6+git${SRCPV}"
+SRCREV = "6733a847eeb55b4640a65a8bfebac8c7166521c8"
+PV = "6.7"
 S = "${WORKDIR}/git"
 
 # arch specific override - default (tested) is ARM -> no fpu-optimizations
@@ -69,20 +69,9 @@ do_configure_prepend() {
     ln -sf `which python3` ${B}/python
 }
 
-do_install_append() {
-    # install icons to freedesktop locations
-    for s in 16 22 32 48 256 512; do
-        install -d  ${D}${datadir}/icons/hicolor/${s}x${s}/apps
-        ln -s ../../../../${BPN}/resources/Ardour-icon_${s}px.png \
-            ${D}${datadir}/icons/hicolor/${s}x${s}/apps/${BPN}.png
-    done
-
-    # install .desktop
-    install -d  ${D}${datadir}/applications
-    install -m 0644 ${B}/gtk2_ardour/ardour6.desktop ${D}${datadir}/applications
-}
-
 FILES_${PN}-dev += " \
+    ${datadir}/appdata \
+    ${datadir}/mime \
     ${libdir}/${BPN}/libardour.so \
     ${libdir}/${BPN}/libardouralsautil.so \
     ${libdir}/${BPN}/libaudiographer.so \
