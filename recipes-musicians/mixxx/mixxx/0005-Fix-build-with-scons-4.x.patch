@@ -1,0 +1,31 @@
+From da5d37978ba2d5fe791a87333e0ff0165a4a4706 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 14 Jun 2021 08:39:07 +0200
+Subject: [PATCH] Fix build with scons 4.x
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ build/qt5.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build/qt5.py b/build/qt5.py
+index 42c706a3ba..0c2ac31181 100644
+--- a/build/qt5.py
++++ b/build/qt5.py
+@@ -43,7 +43,7 @@ import SCons.Scanner
+ import SCons.Tool
+ import SCons.Util
+ 
+-class ToolQt5Warning(SCons.Warnings.Warning):
++class ToolQt5Warning(SCons.Warnings.SConsWarning):
+     pass
+ 
+ class GeneratedMocFileNotIncluded(ToolQt5Warning):
+-- 
+2.31.1
+

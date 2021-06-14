@@ -45,6 +45,7 @@ SRC_URI = " \
     file://0002-force-using-system-soundtouch.patch \
     file://0003-align-path-of-qt-build-tools-to-our-needs.patch \
     file://0004-Do-not-add-host-libdir-to-LDPATH-rpath.patch \
+    file://0005-Fix-build-with-scons-4.x.patch \
 "
 SRCREV = "59683489997e19d861a218e2e692cdbe52168869"
 S = "${WORKDIR}/git"
