@@ -18,9 +18,9 @@ inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-PV = "20.12"
+PV = "21.06"
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.bz2"
-SRC_URI[sha256sum] = "886684afc5858a9578234d1f845188db130114f7fbf38208c4d5ecda15131c5b"
+SRC_URI[sha256sum] = "cde4fde48d01024a03bd7a96f63f9c6e7324728214183ceb605018f89faf0b66"
 
 FILES_${PN} += " \
     ${datadir}/mime \
