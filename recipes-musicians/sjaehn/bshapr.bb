@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BShapr.git"
-SRCREV = "84f48616f92a32740fd59150f449c966935bd7a0"
+SRCREV = "38f4f68fda1b1bb26f50040ea5f18a4f8970cf91"
 S = "${WORKDIR}/git"
 PV = "0.13"
 
