@@ -145,6 +145,7 @@ RDEPENDS_${PN} += " \
     bschaffl \
     bsequencer \
     bshapr \
+    bslizr \
     bspacr \
     \
     \
