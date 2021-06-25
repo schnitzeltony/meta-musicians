@@ -20,7 +20,11 @@ DEPENDS += " \
 SRC_URI += " \
     file://0001-Makefile-align-for-oe-cross-build.patch \
     file://0002-Pass-LDFLAGS-to-so-lib-builds.patch \
-    file://0003-Hack-remove-runtime-charset-conversions.patch \
+"
+# musl is CORRECT and causing nothing but waste of resources
+SRC_URI_append_libc-musl = " \
+    file://musl/0001-Hack-remove-runtime-charset-conversions.patch \
+    file://musl/0002-Fix-build-with-musl.patch \
 "
 
 ARM_INSTRUCTION_SET = "arm"
@@ -77,3 +81,12 @@ FILES_${PN} += " \
 
 PACKAGES =+ "${PN}-standalone"
 FILES_${PN}-standalone = "${bindir}"
+
+# lsp-plugins (and maybe others) need a gconv cache for target use of iconv
+# see https://github.com/sadko4u/lsp-plugins/issues/17#issuecomment-487416107
+RDEPENDS_${PN}_append_libc-glibc += " \
+    glibc-gconv glibc-gconvs glibc-utils \
+"
+pkg_postinst_ontarget_${PN}_append_libc-glibc() {
+    iconvconfig
+}
