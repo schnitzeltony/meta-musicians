@@ -1,0 +1,32 @@
+From 436b33a805714d9030543b5617885701761488bc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 25 Jun 2021 21:41:24 +0200
+Subject: [PATCH] Fix build with musl
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| /include/data/cvector.h:415:24: error: 'ssize_t' does not name a type; did you mean 'size_t'?
+
+Upstream-Status: Inappropriate[musl]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ include/data/cvector.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/data/cvector.h b/include/data/cvector.h
+index eccc94a6..d8a2b7d1 100644
+--- a/include/data/cvector.h
++++ b/include/data/cvector.h
+@@ -22,6 +22,7 @@
+ #ifndef DATA_CVECTOR_H_
+ #define DATA_CVECTOR_H_
+ 
++#include <unistd.h>
+ #include <stddef.h>
+ #include <stdlib.h>
+ #include <string.h>
+-- 
+2.31.1
+
