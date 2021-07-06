@@ -20,8 +20,8 @@ SRC_URI = " \
 "
 SRCREV = "c88e08a7d62be39ea541d26c8c7e1e7b82289cd3"
 
-SRC_URI[sha256sum] = "e9c2ffc219863c8c3dcdb05c4870d419b1625906852294f15c62d590b331bd18"
-PV = "0.9.3"
+SRC_URI[sha256sum] = "febf7019f775a07d167f255756c27e55832656ccf69d1c744b4ce563e478d9a0"
+PV = "0.9.4"
 
 FILES_${PN} += " \
     ${datadir}/metainfo \
