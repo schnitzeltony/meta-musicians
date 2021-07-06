@@ -139,9 +139,10 @@ RDEPENDS_${PN} += " \
     setbfree \
     \
     \
-    boops \
+    bangr \
     bchoppr \
     bjumblr \
+    boops \
     bschaffl \
     bsequencer \
     bshapr \
