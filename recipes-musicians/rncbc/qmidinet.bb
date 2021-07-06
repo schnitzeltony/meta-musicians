@@ -13,8 +13,8 @@ DEPENDS += " \
 inherit cmake_qt5 gtk-icon-cache
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
-SRC_URI[sha256sum] = "3412f7da2642a2a1afc3432b770c496eb320e787bbb550aebc7f368c90f2e15f"
-PV = "0.9.3"
+SRC_URI[sha256sum] = "ed48b89148188293d501a68836b77a5866686289f952e1eccc655a1da7dbfe9d"
+PV = "0.9.4"
 
 FILES_${PN} += " \
     ${datadir}/metainfo \
