@@ -17,8 +17,8 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0002-Avoid-stripping-CMake.patch \
 "
-PV = "0.9.22"
-SRC_URI[sha256sum] = "2fdd96d6fe9d7b4c3780bfb02fb4b0933a4d2a4eb940eabea252f0d23eb752a5"
+PV = "0.9.23"
+SRC_URI[sha256sum] = "78903a8b11f6d16bfe703d82286a269dcc9f278b5fa4e2f752b4de0a46f9fead"
 
 FILES_${PN} += " \
     ${datadir}/appdata \
