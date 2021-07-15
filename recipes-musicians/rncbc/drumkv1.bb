@@ -24,12 +24,11 @@ do_convert_crlf_to_lf () {
 addtask convert_crlf_to_lf after do_unpack before do_patch
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
-    file://0002-Avoid-stripping-CMake.patch \
-    git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
     file://0001-Fix-for-python-3.9.patch;patchdir=../hydrogen2drumkv1 \
+    git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
 "
-PV = "0.9.22"
-SRC_URI[sha256sum] = "fe67b6ff00bac86faef18f759100e325ce200f508093566f5d30174702a22330"
+PV = "0.9.23"
+SRC_URI[sha256sum] = "80db1cb2a1a911f53508d243941033ba6f4cd2fcc94a6e96c796ffce13adfac9"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
