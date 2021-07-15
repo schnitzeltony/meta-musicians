@@ -20,8 +20,8 @@ SRC_URI = " \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://padthv1.conf \
 "
-PV = "0.9.22"
-SRC_URI[sha256sum] = "dd445359803e9bbb6f43af53841054c80e77c197aca2d88c4172301cd24e7ef2"
+PV = "0.9.23"
+SRC_URI[sha256sum] = "f7215fbe5b243989c6adaa2ed92dd07df97c468609a84d309c394e3fc9b14208"
 
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
 
