@@ -25,6 +25,7 @@ addtask convert_crlf_to_lf after do_unpack before do_patch
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0001-Fix-for-python-3.9.patch;patchdir=../hydrogen2drumkv1 \
+    file://0002-Avoid-stripping-CMake.patch \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
 "
 PV = "0.9.23"
