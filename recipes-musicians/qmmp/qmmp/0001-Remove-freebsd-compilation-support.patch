@@ -13,7 +13,7 @@ index 5976e69..0711b11 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,10 +1,6 @@
- cmake_minimum_required(VERSION 2.8.11 FATAL_ERROR)
+ cmake_minimum_required(VERSION 3.5.0 FATAL_ERROR)
  project(qmmp)
  
 -#freebsd support

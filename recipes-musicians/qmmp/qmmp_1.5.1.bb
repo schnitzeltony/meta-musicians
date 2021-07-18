@@ -30,15 +30,15 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    http://qmmp.ylsoftware.com/files/${BPN}-${PV}.tar.bz2 \
+    https://qmmp.ylsoftware.com/files/${BPN}/1.5/${BPN}-${PV}.tar.bz2 \
     file://0001-Remove-freebsd-compilation-support.patch \
     file://0002-Hardcode-projectM-configuration-file-location.patch \
 "
-SRC_URI[sha256sum] = "f513774357836ad4983fa216c84cf5db634284faebec48c461733838917fd664"
+SRC_URI[sha256sum] = "f3dc676039b5f190e6a87377a6b2bd2bcca122d1659b5f22668c7a284bb91f43"
 
 inherit cmake_qt5 mime-xdg
 
 FILES_${PN} += " \
     ${datadir} \
-    ${libdir}/qmmp-1.4 \
+    ${libdir}/qmmp-1.5 \
 "
