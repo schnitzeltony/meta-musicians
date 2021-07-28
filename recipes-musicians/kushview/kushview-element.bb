@@ -24,8 +24,8 @@ SRC_URI = " \
     gitsm://github.com/kushview/Element.git \
     file://0001-Fix-build-with-gcc11.patch \
 "
-SRCREV = "3233c02d0fe1b96e551c0fae20626dcacb6d431e"
-PV = "0.46.0"
+SRCREV = "3acda5f68c8fa6a2b7f84ec11b5f43fa458d0207"
+PV = "0.46.2"
 S = "${WORKDIR}/git"
 
 EXTRA_OECONF = " \
