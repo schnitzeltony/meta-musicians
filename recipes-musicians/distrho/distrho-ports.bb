@@ -71,14 +71,6 @@ do_install() {
     for file in `find ${WORKDIR}/linuxsynths-vex-patches -mindepth 1 -maxdepth 1` ; do
         cp -rf $file ${D}${libdir}/lv2/
     done
-
-    # install ttl-generator bindir for distrho-ports-extra
-    install -d ${D}/${bindir}/scripts
-	install -m 755 ${S}/libs/lv2_ttl_generator ${D}/${bindir}
-    rm ${S}/libs/lv2_ttl_generator
-    cp -r ${WORKDIR}/scripts ${D}/${bindir}/
-    cp -r ${S}/libs ${D}/${libdir}/
-    mv ${D}/${libdir}/libs/*.a ${D}/${libdir}
 }
 # ttl-generator bindir for distrho-ports-extra
 SYSROOT_DIRS_append = " ${bindir}"
@@ -95,9 +87,6 @@ FILES_${PN}-ttl-generator += " \
     ${bindir}/scripts \
     ${libdir}/libs \
 "
-# ${PN}-ttl-generator is intented for build of distrho-ports-extra and
-# definitely nothing to be installed on target
-INSANE_SKIP_${PN}-ttl-generator = "file-rdeps"
 
 # Have not found what causes stripping - debugging of plugins is unlikely
 INSANE_SKIP_${PN} = "already-stripped"
