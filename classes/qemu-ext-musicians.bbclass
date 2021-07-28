@@ -16,7 +16,7 @@ DEPENDS_append = " qemu-native coreutils-native"
 #   meta-microcontroller/vtk that spawning many qemu instances in short time
 #   can lead to zombie processes)
 
-QEMU_TIMEOUT ?= "600"
+QEMU_TIMEOUT ?= "180"
 
 def qemu_run_binary_local(data, rootfs_path, binary):
     libdir = rootfs_path + data.getVar("libdir")
