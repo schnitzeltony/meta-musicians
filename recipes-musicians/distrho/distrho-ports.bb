@@ -47,8 +47,6 @@ DEPENDS += " \
 LV2_TTL_GENERATOR = "${B}/libs/lv2_ttl_generator"
 
 do_ttl_sed() {
-    # keep unmodified scripts for distrho-ports-extra
-    cp -r ${S}/scripts ${WORKDIR}
     sed -i 's|$GEN ./$FILE|echo "`pwd`/$FILE" >> ${LV2_PLUGIN_INFO_FILE}|g' `find ${S}/scripts -name *.sh`
 }
 
