@@ -25,7 +25,7 @@ S = "${WORKDIR}/qcustomplot-source"
 
 inherit qmake5
 
-do_configure_prepend() {
+do_configure:prepend() {
     cp ${WORKDIR}/qcustomplot-sharedlib/sharedlib-compilation/sharedlib-compilation.pro ${S}
     sed -i 's:../../qcustomplot:qcustomplot:g' ${S}/sharedlib-compilation.pro
 }

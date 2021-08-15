@@ -21,7 +21,7 @@ SRC_URI[sha256sum] = "a602d685a6bf48b01a82e1c077a50fe3d115805865ecfe49f531d8bd20
 
 CFLAGS += "-ftree-vectorize"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/applications
     install -m 644 ${WORKDIR}/whysynth.desktop ${D}/${datadir}/applications/
 
@@ -32,9 +32,9 @@ do_install_append() {
     ln -s jack-dssi-host ${D}/${bindir}/whysynth
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/dssi \
 "
 
 # standalone needs jack-dssi-host
-RDEPENDS_${PN} += "dssi"
+RDEPENDS:${PN} += "dssi"

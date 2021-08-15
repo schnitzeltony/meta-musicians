@@ -23,7 +23,7 @@ SRCREV = "3d3ac0a1743365b958033bdd1625dd19041d2c5f"
 PV = "1.2.1"
 S = "${WORKDIR}/git"
 
-do_install_append() {
+do_install:append() {
     install -Dm 644 ${S}/resources/metadata/luppp.desktop ${D}${datadir}/applications/luppp.desktop
     install -Dm 644 ${S}/resources/icons/luppp.svg ${D}/${datadir}/icons/hicolor/scalable/apps/luppp.svg
     install -d ${D}/${datadir}/${BPN}/controllers
@@ -32,4 +32,4 @@ do_install_append() {
     done
 }
 
-RDEPENDS_${PN} += "hicolor-icon-theme"
+RDEPENDS:${PN} += "hicolor-icon-theme"

@@ -40,7 +40,7 @@ PACKAGECONFIG[sdl2] = "--enable-sdl,--disable-sdl,libsdl2"
 # Note: qtbase must be configured with desktop gl / gles won't work
 PACKAGECONFIG[qt] = "--enable-qt,--disable-qt,qtbase-native qtbase pulseaudio"
 
-do_install_append() {
+do_install:append() {
     # Install presets manually for now
     install -m 0644 ${S}/presets/presets_projectM/* ${D}/${datadir}/projectM/presets/
 
@@ -49,6 +49,6 @@ do_install_append() {
     rm -f ${D}/${datadir}/projectM/presets/*.so*
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/projectM \
 "

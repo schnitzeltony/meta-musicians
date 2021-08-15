@@ -17,7 +17,7 @@ SRC_URI[sha256sum] = "fc474878f6823c27ef5df1f9616a8c8b6a4c01346132ea7d1498fe5245
 
 EXTRA_OEMESON = "-Dfft=fftw"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/ladspa \
     ${libdir}/ladspa \
     ${libdir}/vamp \

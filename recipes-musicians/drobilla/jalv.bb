@@ -27,6 +27,6 @@ SRCREV = "9ab6e66c6ea7230f716b74d62c03fc5d19f56abe"
 S = "${WORKDIR}/git"
 PV = "1.6.6"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/jack \
 "

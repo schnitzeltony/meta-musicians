@@ -16,4 +16,4 @@ SRC_URI = " \
 "
 SRC_URI[sha256sum] = "750f08e6b7dc941a5e694c484aab02f69af5aa90edcc9fb2ffb4fb45f1574bfb"
 
-FILES_${PN} += "${libdir}/suil-0"
+FILES:${PN} += "${libdir}/suil-0"

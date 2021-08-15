@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}-native:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}-native:"
 
 inherit native
 
@@ -17,7 +17,7 @@ EXTRA_OEMAKE += " \
     PREFIX=${prefix} \
 "
 
-do_compile_prepend() {
+do_compile:prepend() {
     export BUILD_MODULES="src"
 }
 

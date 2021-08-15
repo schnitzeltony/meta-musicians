@@ -25,7 +25,7 @@ SRC_URI[sha256sum] = "f7215fbe5b243989c6adaa2ed92dd07df97c468609a84d309c394e3fc9
 
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/${BPN}
     install -d ${D}/${datadir}/${BPN}/presets
     cp ${WORKDIR}/linuxsynths-padthv1-presets/*.padthv1 ${D}/${datadir}/${BPN}/presets
@@ -36,7 +36,7 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-presets"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/mime \
     ${datadir}/metainfo \
@@ -44,7 +44,7 @@ FILES_${PN} += " \
     ${libdir}/lv2 \
 "
 
-FILES_${PN}-presets += " \
+FILES:${PN}-presets += " \
     ${sysconfdir}/skel/.config/rncbc.org \
     ${datadir}/${BPN}/presets/ \
 "

@@ -31,19 +31,19 @@ EXTRA_OECONF += " \
     --enable-experimental \
 "
 
-do_configure_prepend() {
+do_configure:prepend() {
     sed -i 's:%QEMUCOMMAND%:${WORKDIR}/QemuCommands:g' `find ${S} -name Makefile.am`
 }
 
 QEMU_EXTRA_LIBDIR = "${D}${libdir}/calf"
 
-do_install_prepend() {
+do_install:prepend() {
     # These are installed by calfmakerdf but that's moved to end of installation
     install -d ${D}${libdir}/lv2
     install -d ${D}${datadir}/calf
 }
 
-do_install_append() {
+do_install:append() {
     # build ttl-files must be done in quemu (lv2-ttl-generator-data loads 
     # so-files and calls functions to create ttl-files)
     cat ${WORKDIR}/QemuCommands | while read calfmakerdf_param; do
@@ -58,5 +58,5 @@ do_install_append() {
 
 }
 
-FILES_${PN} += "${libdir}/lv2"
-INSANE_SKIP_${PN} = "dev-so"
+FILES:${PN} += "${libdir}/lv2"
+INSANE_SKIP:${PN} = "dev-so"

@@ -37,7 +37,7 @@ DEPENDS = " \
 
 inherit cmake python3native gettext gtk-icon-cache mime mime-xdg
 
-do_configure_append() {
+do_configure:append() {
     # do set version 
     # see 0001-Do-not-ask-git-for-version-information-it-breaks-bui.patch
     # and ${S}/cmake-proxies/cmake-modules/Version.cmake. Think it erros out 
@@ -46,7 +46,7 @@ do_configure_append() {
     git show -s "--format=#define REV_LONG \"%H\"%n#define REV_TIME \"%cd\"%n" >> ${B}/src/private/RevisionIdent.h
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/mime \
 "

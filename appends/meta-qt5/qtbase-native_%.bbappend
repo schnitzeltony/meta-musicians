@@ -1,2 +1,2 @@
-PACKAGECONFIG_append = " gui imageformats"
+PACKAGECONFIG:append = " gui imageformats"
 

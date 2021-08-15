@@ -9,7 +9,7 @@ inherit packagegroup
 # sequence as displayed in file browser is kept more or less and avoids to
 # overlook a package.
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     amsynth-standalone amsynth-lv2 amsynth-vst \
     ardour \
     aubio \

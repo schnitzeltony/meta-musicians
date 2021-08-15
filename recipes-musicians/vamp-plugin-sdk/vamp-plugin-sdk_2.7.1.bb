@@ -22,4 +22,4 @@ do_install() {
     oe_runmake 'DESTDIR=${D}' 'INSTALL_SDK_LIBS=${libdir}' 'INSTALL_PLUGINS=${libdir}/vamp' 'INSTALL_PKGCONFIG=${libdir}/pkgconfig' install
 }
 
-FILES_${PN} += "${libdir}/vamp"
+FILES:${PN} += "${libdir}/vamp"

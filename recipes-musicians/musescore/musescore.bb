@@ -60,12 +60,12 @@ do_configure() {
     sed -i 's: ${libdir}/libpulse.so: ${STAGING_LIBDIR}/libpulse.so:g' ${B}/main/CMakeFiles/mscore.dir/build.make
 }
 
-do_install_append() {
+do_install:append() {
     # they copy QtWebEngineProcess from libexe to bindir - tse tse
     rm -f ${D}${bindir}/QtWebEngineProcess
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mscore-3.5 \
     ${datadir}/metainfo \
     ${datadir}/mime \

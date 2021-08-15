@@ -1,7 +1,7 @@
 # avoids build breaks when using no-static-libs.inc
 DISABLE_STATIC = ""
 
-EXTRA_OECONF_append = " ${PACKAGECONFIG_CONFARGS}"
+EXTRA_OECONF:append = " ${PACKAGECONFIG_CONFARGS}"
 
 python waf_preconfigure() {
     import subprocess

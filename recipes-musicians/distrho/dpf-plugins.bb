@@ -56,4 +56,4 @@ do_install() {
 }
 
 PACKAGES =+ "${PN}-standalone"
-FILES_${PN}-standalone = "${bindir}"
+FILES:${PN}-standalone = "${bindir}"

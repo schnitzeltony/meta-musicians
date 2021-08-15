@@ -38,7 +38,7 @@ SRC_URI[sha256sum] = "f3dc676039b5f190e6a87377a6b2bd2bcca122d1659b5f22668c7a284b
 
 inherit cmake_qt5 mime-xdg
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir} \
     ${libdir}/qmmp-1.5 \
 "

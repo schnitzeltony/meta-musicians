@@ -53,10 +53,10 @@ PACKAGES =+ " \
     ${PN}-samples \
 "
 
-FILES_${PN}-python = "${PYTHON_SITEPACKAGES_DIR}"
-RDEPENDS_${PN}-python += "python3-core"
+FILES:${PN}-python = "${PYTHON_SITEPACKAGES_DIR}"
+RDEPENDS:${PN}-python += "python3-core"
 
-FILES_${PN}-luajit = "${libdir}/lua"
+FILES:${PN}-luajit = "${libdir}/lua"
 
-FILES_${PN}-samples = "${datadir}/samples"
+FILES:${PN}-samples = "${datadir}/samples"
 

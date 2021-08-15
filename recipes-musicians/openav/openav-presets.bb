@@ -22,6 +22,6 @@ do_install() {
     done
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lv2 \
 "

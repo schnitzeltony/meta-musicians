@@ -46,9 +46,9 @@ do_install() {
     install -m 0644 ${WORKDIR}/x42-whirl.desktop ${D}${datadir}/applications
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/setBfree \
     ${libdir}/lv2 \
 "
 
-RDEPENDS_${PN} += "ttf-bitstream-vera"
+RDEPENDS:${PN} += "ttf-bitstream-vera"

@@ -17,9 +17,9 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz
 SRC_URI[sha256sum] = "f35adb55982d2d443cf38be1ea61745c55b62dc416f34fbfbbbddb00c033cc19"
 PV = "0.9.4"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/metainfo \
     ${datadir}/mime \
 "
 
-#RDEPENDS_${PN} += "jack-server"
+#RDEPENDS:${PN} += "jack-server"

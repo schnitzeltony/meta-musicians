@@ -19,7 +19,7 @@ SRC_URI = " \
 SRC_URI[md5sum] = "5ab37d9d7532a4cd0ed5508b08b8d1d5"
 SRC_URI[sha256sum] = "16229a46138b101eb9eda042c66d2cd652b1b3c9925a7d9577d52f2282f745ff"
 
-do_install_append() {
+do_install:append() {
     mv ${D}${libdir}/${BPN}/* ${D}${libdir}
     rmdir ${D}${libdir}/${BPN}
 }

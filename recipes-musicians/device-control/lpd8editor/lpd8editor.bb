@@ -19,7 +19,7 @@ SRCREV = "c5b3a64487b3f126f9da15e94d547eff8e972c0c"
 PV = "0.0.13"
 S = "${WORKDIR}/git"
 
-do_install_append() {
+do_install:append() {
     install -Dm 644 ${WORKDIR}/lpd8-editor.desktop ${D}/${datadir}/applications/lpd8-editor.desktop
     install -Dm 644 ${S}/lpd8editor.svg ${D}/${datadir}/icons/hicolor/scalable/apps/lpd8-editor.svg
 }

@@ -26,7 +26,7 @@ WAF_EXTRA_CONF = " \
     --libdir=${libdir} \
 "
 
-do_install_append() {
+do_install:append() {
     rm ${D}${libdir}/libntk.a
     rm ${D}${libdir}/libntk.a.1
     mv ${D}${libdir}/libntk.a.${PV} ${D}${libdir}/libntk.a

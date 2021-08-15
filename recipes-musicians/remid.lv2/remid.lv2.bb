@@ -17,4 +17,4 @@ SRCREV = "7427f1bb44e9bda677ff2098a79420c47927d1e9"
 S = "${WORKDIR}/git"
 PV = "0.3"
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

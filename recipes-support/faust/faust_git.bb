@@ -13,11 +13,11 @@ S = "${WORKDIR}/git/build"
 
 inherit cmake
 
-do_install_append() {
+do_install:append() {
     # Failes package QA due to mismatching arch
     rm -rf ${D}${datadir}/faust/android
 }
 
-RDEPENDS_${PN} += "bash"
+RDEPENDS:${PN} += "bash"
 
 BBCLASSEXTEND = "native"

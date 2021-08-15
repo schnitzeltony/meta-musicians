@@ -49,18 +49,18 @@ EXTRA_OECONF = " \
 python waf_preconfigure() {
 }
 
-PATH_prepend = "${B}:"
+PATH:prepend = "${B}:"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # link python -> python3
     ln -sf `which python3` ${B}/python
 }
 
-do_compile_prepend() {
+do_compile:prepend() {
     export STRIP=echo
 }
 
-do_install_append() {
+do_install:append() {
     # some corrections [dev-elf] - inspired by https://src.fedoraproject.org/rpms/guitarix/blob/master/f/guitarix.spec
     chmod 755 ${D}${libdir}/libgxw*.so.0.1
     rm -rf ${D}${libdir}/libgxw*.so
@@ -68,7 +68,7 @@ do_install_append() {
     ln -sf libgxw.so.0.1 ${D}${libdir}/libgxw.so
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/fonts \
     ${datadir}/gx_head \
     ${datadir}/ladspa \

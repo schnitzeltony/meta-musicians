@@ -21,7 +21,7 @@ DEPENDS += " \
 
 CXXFLAGS += "-ftree-vectorize -ffast-math -DNDEBUG"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/zyn:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/zyn:"
 
 SRC_URI = " \
     gitsm://github.com/zynaddsubfx/zynaddsubfx.git \
@@ -36,7 +36,7 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE += "-DPluginLibDir=${baselib}"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # reconfigure?
     if [ ! -f ${WORKDIR}/lv2-ttl-generator-data ] ; then
         # We cannot run lv2-ttl-generator in cross environment so
@@ -50,7 +50,7 @@ do_configure_prepend() {
     fi
 }
 
-do_compile_append() {
+do_compile:append() {
     # build ttl-files must be done in quemu
     for sofile in `cat ${WORKDIR}/lv2-ttl-generator-data`; do
         cd `dirname ${sofile}`
@@ -60,14 +60,14 @@ do_compile_append() {
 }
 
 PACKAGES =+ "${PN}-standalone"
-FILES_${PN}-standalone = " \
+FILES:${PN}-standalone = " \
     ${datadir}/applications \
     ${datadir}/pixmaps \
     ${bindir}/zynaddsubfx \
 "
 
-RDEPENDS_${PN_DSSI} += "${PN}"
-RDEPENDS_${PN_LV2} += "${PN}"
-RDEPENDS_${PN_VST} += "${PN}"
-RDEPENDS_${PN}-standalone += "${PN}"
+RDEPENDS:${PN_DSSI} += "${PN}"
+RDEPENDS:${PN_LV2} += "${PN}"
+RDEPENDS:${PN_VST} += "${PN}"
+RDEPENDS:${PN}-standalone += "${PN}"
 

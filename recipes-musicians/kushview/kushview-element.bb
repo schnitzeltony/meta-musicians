@@ -33,15 +33,15 @@ EXTRA_OECONF = " \
     --libdir=${libdir} \
 "
 
-PATH_append = ":${B}"
+PATH:append = ":${B}"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # link python -> python3
     ln -sf `which python3` ${B}/python
 }
 
-FILES_${PN} += "${datadir}/element"
+FILES:${PN} += "${datadir}/element"
 
 # TBD - we should send a fix upstream..
 FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/libelement-0.so"
+FILES:${PN} += "${libdir}/libelement-0.so"

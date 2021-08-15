@@ -28,20 +28,20 @@ SRCREV = "535d58144e474550bf740ff941422ec020581cc9"
 PV = "0.9.23+git${SRCPV}"
 S = "${WORKDIR}/git"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${sysconfdir}/skel/.config/rncbc.org
     install -m 0644 ${WORKDIR}/Qtractor.conf ${D}/${sysconfdir}/skel/.config/rncbc.org/
 }
 
 PACKAGES =+ "${PN}-defconfig"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
     ${datadir}/metainfo \
 "
 
-FILES_${PN}-defconfig = " \
+FILES:${PN}-defconfig = " \
     ${sysconfdir}/skel/.config/rncbc.org \
 "
 
-RDEPENDS_${PN}-defconfig = "${PN} fluidsynth-dssi"
+RDEPENDS:${PN}-defconfig = "${PN} fluidsynth-dssi"

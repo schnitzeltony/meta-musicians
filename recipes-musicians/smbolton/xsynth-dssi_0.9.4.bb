@@ -19,6 +19,6 @@ SRC_URI = " \
 SRC_URI[md5sum] = "3432ecdac06407a992f80eb1c1ecf7cd"
 SRC_URI[sha256sum] = "d3d24941a509c6193eac2b2ee3c9a6057c832565a0b66e58c3bd2e89afd8dc02"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/dssi \
 "

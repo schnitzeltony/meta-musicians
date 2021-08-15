@@ -28,4 +28,4 @@ do_install() {
 }
 
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

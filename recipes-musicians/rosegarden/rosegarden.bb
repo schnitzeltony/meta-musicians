@@ -22,7 +22,7 @@ PV = "21.06.1"
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/21.06/${BPN}-${PV}.tar.bz2"
 SRC_URI[sha256sum] = "87750dc0b55ae27e07acc4effdc25ae5c4f6ba4ccf81ac5112abb0fed211397a"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
     ${datadir}/metainfo \
 "

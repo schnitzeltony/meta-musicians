@@ -48,7 +48,7 @@ do_configure() {
     oe_runmake features
 }
 
-do_compile_append() {
+do_compile:append() {
     cd ${S}/bin
     ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', 'carla-lv2-export')}
 }
@@ -57,7 +57,7 @@ do_install() {
     oe_runmake DESTDIR=${D} PREFIX=${prefix} LIBDIR=${libdir} install
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/icons \
     ${datadir}/mime \
     ${libdir}/jack \
@@ -65,6 +65,6 @@ FILES_${PN} += " \
     ${libdir}/vst \
 "
 
-INSANE_SKIP_${PN} = "dev-so"
+INSANE_SKIP:${PN} = "dev-so"
 
-RDEPENDS_${PN} += "python3-pyqt5 bash"
+RDEPENDS:${PN} += "python3-pyqt5 bash"

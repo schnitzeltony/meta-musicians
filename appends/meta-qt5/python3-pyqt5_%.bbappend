@@ -1,11 +1,11 @@
 BBCLASSEXTEND = "native"
 
-DEPENDS_class-native = "qtbase-native sip3-native python3-native"
+DEPENDS:class-native = "qtbase-native sip3-native python3-native"
 
-PYQT_MODULES_class-native = "QtCore"
+PYQT_MODULES:class-native = "QtCore"
 
 # This is a copy from meta-qt5 adjusted to native staging
-do_configure_prepend_class-native() {
+do_configure:prepend:class-native() {
     cd ${S}
     echo "py_platform = linux" > pyqt.cfg
     echo "py_inc_dir = %(sysroot)/$includedir/python%(py_major).%(py_minor)${PYTHON_ABI}" >> pyqt.cfg
@@ -28,10 +28,10 @@ do_configure_prepend_class-native() {
     return 0
 }
 
-CFLAGS_append_class-native = " -I${STAGING_INCDIR_NATIVE}/${PYTHON_DIR}"
-CXXFLAGS_append_class-native = " -I${STAGING_INCDIR_NATIVE}/${PYTHON_DIR}"
+CFLAGS:append:class-native = " -I${STAGING_INCDIR_NATIVE}/${PYTHON_DIR}"
+CXXFLAGS:append:class-native = " -I${STAGING_INCDIR_NATIVE}/${PYTHON_DIR}"
 
-do_install_class-native() {
+do_install:class-native() {
     cd ${S}
     oe_runmake MAKEFLAGS='-j 1' install
 
@@ -42,5 +42,5 @@ do_install_class-native() {
     done
 }
 
-RDEPENDS_${PN}_class-native = ""
+RDEPENDS:${PN}:class-native = ""
 

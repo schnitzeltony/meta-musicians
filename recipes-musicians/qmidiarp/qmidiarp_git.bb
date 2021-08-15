@@ -32,14 +32,14 @@ EXTRA_OECONF = " \
     --with-lrelease=${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/lrelease \
 "
 
-do_install_append() {
+do_install:append() {
     # replace default and split alsa
     rm -f ${D}/${datadir}/applications/qmidiarp.desktop
     install -m 644 ${WORKDIR}/qmidiarp-alsa.desktop ${D}/${datadir}/applications/
     install -m 644 ${WORKDIR}/qmidiarp-jack.desktop ${D}/${datadir}/applications/
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/metainfo \
     ${datadir}/qmidiarp/examples \
     ${datadir}/icons \

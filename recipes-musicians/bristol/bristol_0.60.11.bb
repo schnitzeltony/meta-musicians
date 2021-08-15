@@ -32,7 +32,7 @@ EXTRA_OECONF = " \
 # The fix necessary is huge and requires background knowledge
 CFLAGS += "-fcommon"
 
-do_install_append() {
+do_install:append() {
     # the tar magic makes files owned by build user
     chown -R root:root ${D}${datadir}
     # align data paths

@@ -19,4 +19,4 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz
 SRC_URI[sha256sum] = "76580890c75eeeebf852530a10f86d67b31f49305ced1bc7b3e436ca4f86fc93"
 PV = "0.9.4"
 
-FILES_${PN} += "${datadir}/metainfo"
+FILES:${PN} += "${datadir}/metainfo"

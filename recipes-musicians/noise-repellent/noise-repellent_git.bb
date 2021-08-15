@@ -19,11 +19,11 @@ SRCREV = "7f9653d77918418e3b4ae39f4af8e5860362e986"
 S = "${WORKDIR}/git"
 
 
-do_install_append() {
+do_install:append() {
     mkdir -p ${D}${libdir}/lv2
     mv ${D}${prefix}/nrepel.lv2 ${D}${libdir}/lv2/
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lv2 \
 "

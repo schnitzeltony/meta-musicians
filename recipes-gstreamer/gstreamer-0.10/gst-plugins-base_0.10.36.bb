@@ -32,21 +32,21 @@ PACKAGECONFIG[pango] = "--enable-pango,--disable-pango,pango"
 PACKAGECONFIG[x11] = "--enable-x --enable-xvideo,--disable-x --disable-xvideo,virtual/libx11 libxv libsm libice"
 PACKAGECONFIG[cdparanoia] = "--enable-cdparanoia,--disable-cdparanoia,cdparanoia"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # This m4 file contains nastiness which conflicts with libtool 2.2.2
     rm -f ${S}/m4/lib-link.m4
 }
 
-do_configure_append() {
+do_configure:append() {
     # remove stay \ introduced by make 4.3
     if make -v | grep '4\.3'; then
         sed -i 's:\\#include:#include:g' `find -name Makefile`
     fi
 }
 
-FILES_${PN} += "${datadir}/${BPN}"
+FILES:${PN} += "${datadir}/${BPN}"
 
-CACHED_CONFIGUREVARS_append_x86 = " ac_cv_header_emmintrin_h=no ac_cv_header_xmmintrin_h=no"
+CACHED_CONFIGUREVARS:append:x86 = " ac_cv_header_emmintrin_h=no ac_cv_header_xmmintrin_h=no"
 
 # /usr/bin/gst-visualise-0.10 is a perl script.
-RDEPENDS_${PN}-apps += "perl"
+RDEPENDS:${PN}-apps += "perl"

@@ -32,4 +32,4 @@ do_install() {
     oe_runmake DESTDIR=${D} PREFIX=${prefix} LIBDIR=${libdir} install
 }
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

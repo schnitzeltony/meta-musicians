@@ -26,7 +26,7 @@ EXTRA_OECMAKE = " \
     -DGKICK_ARCHITECTURE=${TARGET_ARCH} \
 "
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
     ${libdir}/lv2 \
 "

@@ -31,7 +31,7 @@ SRCREV = "f579c57045e443b8f4b22375e3bbaf09a3e45c24"
 PV = "2.2.0+git${SRCPV}"
 S = "${WORKDIR}/git/sources"
 
-do_configure_prepend() {
+do_configure:prepend() {
     sed -i \
         -e 's:= /usr/include:= ${STAGING_INCDIR}:g' \
         ${S}/polyphone.pro
@@ -53,7 +53,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/${BPN}.mime ${D}${datadir}/mime/packages/${BPN}.xml
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
 "
 

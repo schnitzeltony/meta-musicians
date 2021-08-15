@@ -4,7 +4,7 @@
 
 inherit binconfig
 
-PACKAGECONFIG_append = " ${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)}"
+PACKAGECONFIG:append = " ${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)}"
 PACKAGECONFIG[opengl] = ",,libglu"
 
 do_patch[postfuncs] += "do_patch_nocross"
@@ -13,7 +13,7 @@ do_patch_nocross() {
     sed -i 's:@cross_compiling@:no:g' ${S}/wx-config.in
 }
 
-do_compile_append() {
+do_compile:append() {
     if [ -L ${B}/wx-config ]; then
         echo "wxwidget recipe is not yet updated to wx-config adjustments so we do"
         # ${B}/wx-config is a symlink for build and not needed after compile

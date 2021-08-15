@@ -41,14 +41,14 @@ EXTRA_OECMAKE = "\
 
 PACKAGES =+ "${PN}-gedit-plugin"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/gtksourceview-3.0 \
     ${datadir}/mime \
     ${datadir}/SuperCollider \
     ${libdir}/SuperCollider/plugins/*.so \
 "
-INSANE_SKIP_${PN} = "useless-rpaths"
+INSANE_SKIP:${PN} = "useless-rpaths"
 
-FILES_${PN}-gedit-plugin = " \
+FILES:${PN}-gedit-plugin = " \
     ${libdir}/gedit \
 "

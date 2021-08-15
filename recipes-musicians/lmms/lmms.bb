@@ -33,9 +33,9 @@ EXTRA_OECMAKE += " \
     -DWANT_WEAKJACK=OFF \
 "
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
     ${datadir}/menu \
 "
 
-RDEPENDS_${PN} += "carla"
+RDEPENDS:${PN} += "carla"

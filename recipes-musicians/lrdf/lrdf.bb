@@ -12,8 +12,8 @@ SRCREV = "1057b8e542f7dd27e3e591e93c07d58bd2143b76"
 PV = "0.6.1"
 S = "${WORKDIR}/git"
 
-do_install_append() {
+do_install:append() {
     sed -i 's:${STAGING_INCDIR}:${includedir}:g' ${D}/${libdir}/pkgconfig/lrdf.pc
 }
 
-FILES_${PN} += "${datadir}/ladspa"
+FILES:${PN} += "${datadir}/ladspa"

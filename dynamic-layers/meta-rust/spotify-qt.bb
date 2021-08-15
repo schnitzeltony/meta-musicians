@@ -15,4 +15,4 @@ DEPENDS = " \
 
 inherit cmake_qt5 gtk-icon-cache
 
-RRECOMMENDS_${PN} = "spotifyd"
+RRECOMMENDS:${PN} = "spotifyd"

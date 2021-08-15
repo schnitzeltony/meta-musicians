@@ -23,26 +23,26 @@ SRCREV = "c88e08a7d62be39ea541d26c8c7e1e7b82289cd3"
 SRC_URI[sha256sum] = "febf7019f775a07d167f255756c27e55832656ccf69d1c744b4ce563e478d9a0"
 PV = "0.9.4"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/metainfo \
 "
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${sysconfdir}/skel/.config/rncbc.org
     install -m 0644 ${WORKDIR}/QjackCtl.conf ${D}/${sysconfdir}/skel/.config/rncbc.org/
 }
 
 PACKAGES =+ "${PN}-defconfig"
 
-FILES_${PN}-defconfig = " \
+FILES:${PN}-defconfig = " \
     ${sysconfdir}/skel/.config/rncbc.org \
 "
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     jack-server \
 "
 
-RDEPENDS_${PN}-defconfig += " \
+RDEPENDS:${PN}-defconfig += " \
     a2jmidid \
     audio-tweaks \
 "

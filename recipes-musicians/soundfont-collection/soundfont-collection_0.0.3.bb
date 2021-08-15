@@ -104,8 +104,8 @@ PACKAGES = " \
     ${PN}-archive-rabs \
 "
 
-ALLOW_EMPTY_${PN}-meta = "1"
-RRECOMMENDS_${PN}-meta = " \
+ALLOW_EMPTY:${PN}-meta = "1"
+RRECOMMENDS:${PN}-meta = " \
     ${PN}-avl-drumkits \
     ${PN}-linuxaudio-org \
     ${PN}-linuxaudio-org-single \
@@ -157,46 +157,46 @@ do_install() {
     sf2-split ${D}${datadir}/sf2/weedsgm3.sf2
 }
 
-FILES_${PN}-avl-drumkits = " \
+FILES:${PN}-avl-drumkits = " \
     ${datadir}/sf2/AVL_Drumkits_Perc_1.1.sf2 \
     ${datadir}/sf2/Black_Pearl*.sf2 \
     ${datadir}/sf2/Red_Zeppelin*.sf2 \
 "
 
-FILES_${PN}-linuxaudio-org = " \
+FILES:${PN}-linuxaudio-org = " \
     ${datadir}/sf2/fluidr3*.sf2 \
     ${datadir}/sf2/airfont_a320u.sf2 \
     ${datadir}/sf2/mello*.sf2 \
     ${datadir}/sf2/jRhodes3.sf2 \
 "
 
-FILES_${PN}-linuxaudio-org-single = " \
+FILES:${PN}-linuxaudio-org-single = " \
     ${datadir}/sf2/fluidr3gm-single \
     ${datadir}/sf2/airfont_a320u-single \
 "
 
-FILES_${PN}-freepats-zenvoid-org = " \
+FILES:${PN}-freepats-zenvoid-org = " \
     ${datadir}/sf2/YDP-GrandPiano-20160804.sf2 \
     ${datadir}/sf2/UprightPianoKW-20190703.sf2 \
 "
-FILES_${PN}-freepats-zenvoid-org-salamander-grand = " \
+FILES:${PN}-freepats-zenvoid-org-salamander-grand = " \
     ${datadir}/sf2/SalamanderGrandPiano-V3+20200602.sf2 \
 "
 
-FILES_${PN}-philscomputerlab-com = " \
+FILES:${PN}-philscomputerlab-com = " \
     ${datadir}/sf2/weedsgm3.sf2 \
     ${datadir}/sf2/choriumreva.sf2 \
 "
 
-FILES_${PN}-philscomputerlab-com-single = " \
+FILES:${PN}-philscomputerlab-com-single = " \
     ${datadir}/sf2/weedsgm3 \
 "
 
-FILES_${PN}-christiancollins = "${datadir}/sf2/general-user-gs-v1.471.sf2"
+FILES:${PN}-christiancollins = "${datadir}/sf2/general-user-gs-v1.471.sf2"
 
-FILES_${PN}-musical-artifacts = "${datadir}/sf2/Vintage-Dreams-Waves-V2.sf2"
+FILES:${PN}-musical-artifacts = "${datadir}/sf2/Vintage-Dreams-Waves-V2.sf2"
 
-FILES_${PN}-archive-rabs = " \
+FILES:${PN}-archive-rabs = " \
     ${datadir}/sf2/RabsStratocaster.sf2 \
     ${datadir}/sf2/RabsHohnerD-6.sf2 \
     ${datadir}/sf2/RabsBass.sf2 \

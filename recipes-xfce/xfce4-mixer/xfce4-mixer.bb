@@ -13,9 +13,9 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECONF += "--disable-debug"
 
-FILES_${PN} += "${datadir}/xfce4/mixer"
+FILES:${PN} += "${datadir}/xfce4/mixer"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     gstreamer \
     gst-plugins-base-playbin \
     gst-plugins-base-decodebin \

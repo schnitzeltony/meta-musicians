@@ -53,7 +53,7 @@ gst_registry_binary_fill_feature(GList **list, GstPluginFeature *orig, GstBinary
   chk->data = dest;
   chk->size = sizeof (GstBinaryPluginFeature);
 
-  *list = g_list_append(*list, chk);
+  *list = g_list:append(*list, chk);
 
   dest->rank = orig->rank;
   if (!strncpy(dest->typename, name, GST_BINARY_REGISTRY_TYPENAME_TYPENAME_LEN) ||
@@ -149,7 +149,7 @@ gst_registry_binary_save_plugin(GList **list, GstRegistry *registry, GstPlugin *
 
   chk->data = e;
   chk->size = sizeof (GstBinaryPluginElement);
-  *list = g_list_append(*list, chk);
+  *list = g_list:append(*list, chk);
 
   if (!strncpy(e->name, plugin->desc.name, GST_BINARY_REGISTRY_NAME_LEN)		       	||
       !strncpy(e->description, plugin->desc.description, GST_BINARY_REGISTRY_DESCRIPTION_LEN)	||
@@ -235,7 +235,7 @@ gst_registry_binary_write_cache(GstRegistry *registry, const char *location)
 
   magic_chunck->data = magic;
   magic_chunck->size = sizeof (GstBinaryRegistryMagic);
-  to_write = g_list_append(to_write, magic_chunck); 
+  to_write = g_list:append(to_write, magic_chunck); 
 
   /* Iterate trough the list of plugins in the GstRegistry and adapt them to our structures */
   for (walk = g_list_last(registry->plugins); walk; walk = g_list_previous(walk))
@@ -410,7 +410,7 @@ gst_registry_binary_get_binary_plugin(GstRegistry *registry, gchar *in)
 	  return -1;
 	}
       gstfeat->plugin_name = g_strdup(plugin->desc.name);
-      plugin_features = g_list_prepend(plugin_features, gstfeat);
+      plugin_features = g_list:prepend(plugin_features, gstfeat);
     }
   
   GST_DEBUG("Added plugin \"%s\" to global registry from binary registry", plugin->desc.name); 

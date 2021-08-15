@@ -20,13 +20,13 @@ PV = "0.2+git${SRCPV}"
 waf_preconfigure() {
 }
 
-PATH_prepend = "${B}:"
+PATH:prepend = "${B}:"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # link python -> python3
     ln -sf `which python3` ${B}/python
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/dssi \
 "

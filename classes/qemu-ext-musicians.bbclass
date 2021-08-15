@@ -1,6 +1,6 @@
 inherit qemu
 
-DEPENDS_append = " qemu-native coreutils-native"
+DEPENDS:append = " qemu-native coreutils-native"
 
 # This is an extended/modified qemu.bbclass tailored four our needs:
 #

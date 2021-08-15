@@ -11,7 +11,7 @@ SRCREV = "7192d344631fc20f9c64b45cd8af7485cd5048c4"
 PV = "0.3.0"
 S = "${WORKDIR}/git"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/xfce4 \
     ${libdir}/xfce4/panel \
 "

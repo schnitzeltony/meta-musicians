@@ -22,6 +22,6 @@ SRCREV = "05bb8d4704a601e660dcd146caf5899d4a4cc5cc"
 S = "${WORKDIR}/git"
 PV = "1.3.2+git${SRCPV}"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lv2 \
 "

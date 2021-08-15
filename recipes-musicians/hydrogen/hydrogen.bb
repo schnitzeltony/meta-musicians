@@ -238,7 +238,7 @@ EXTRA_OECMAKE = " \
     -DLIB_SUFFIX=${@d.getVar('baselib').replace('lib', '')} \
 "
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/${BPN}/data/drumkits
     cp -rf ${WORKDIR}/drumkits/* ${D}/${datadir}/${BPN}/data/drumkits/
 
@@ -257,14 +257,14 @@ PACKAGES =+ "${PN}-drumkits"
 # do not move so-libs to -dev package
 FILES_SOLIBSDEV = ""
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/icons \
     ${libdir}/libhydrogen-core* \
 "
 
 # only extra drumkits - default kits shipped by sources remain in main package
-FILES_${PN}-drumkits = " \
+FILES:${PN}-drumkits = " \
     ${datadir}/${BPN}/data/drumkits/3355606kit \
     ${datadir}/${BPN}/data/drumkits/Audiophob \
     ${datadir}/${BPN}/data/drumkits/belofilms_GuitarStrums \

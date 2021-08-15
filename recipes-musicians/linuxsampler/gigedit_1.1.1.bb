@@ -27,7 +27,7 @@ SRC_URI[sha256sum] = "2b77069302f8721fd614ae4e3ca364f1977731deb166bf5af00d389e99
 EXTRA_OEMAKE = "LIBTOOLFLAGS='--tag=CXX'"
 CXXFLAGS += "-std=c++11"
 
-do_install_append() {
+do_install:append() {
     mv ${D}${libdir}/${BPN}/* ${D}${libdir}
     rmdir ${D}${libdir}/${BPN}
 
@@ -38,4 +38,4 @@ do_install_append() {
     install -m 0644 ${WORKDIR}/${BPN}.desktop ${D}${datadir}/applications
 }
 
-FILES_${PN} += "${libdir}/linuxsampler"
+FILES:${PN} += "${libdir}/linuxsampler"

@@ -10,4 +10,4 @@ do_install() {
 
 }
 
-RDEPENDS_${PN} = "pam-plugin-limits"
+RDEPENDS:${PN} = "pam-plugin-limits"

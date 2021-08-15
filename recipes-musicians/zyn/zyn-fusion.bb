@@ -4,11 +4,11 @@ SUMMARY = "Zyn-Fusion is an open source software synthesizer"
 
 EXTRA_OECMAKE += "-DGuiModule=zest"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/zynaddsubfx \
 "
 
-RDEPENDS_${PN} += "mruby-zest"
+RDEPENDS:${PN} += "mruby-zest"
 
-RREPLACES_${PN} += "zynaddsubfx"
-RCONFLICTS_${PN} += "zynaddsubfx"
+RREPLACES:${PN} += "zynaddsubfx"
+RCONFLICTS:${PN} += "zynaddsubfx"

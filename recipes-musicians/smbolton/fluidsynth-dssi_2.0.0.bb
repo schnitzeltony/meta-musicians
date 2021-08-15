@@ -23,21 +23,21 @@ SRCREV = "c9b41073031dc2ba99c43db1babc9bbfbab2ec1e"
 S = "${WORKDIR}/git"
 #PV = "2.0.0+git${SRCPV}"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${sysconfdir}/skel/.config/fluidsynth-dssi
     install -m 0644 ${WORKDIR}/fluidsynth-dssi.conf ${D}/${sysconfdir}/skel/.config/fluidsynth-dssi/
 }
 
 PACKAGES =+ "${PN}-defconfig"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/dssi \
 "
 
-FILES_${PN}-defconfig = " \
+FILES:${PN}-defconfig = " \
     ${sysconfdir}/skel/.config/fluidsynth-dssi \
 "
 
-RDEPENDS_${PN}-defconfig += " \
+RDEPENDS:${PN}-defconfig += " \
     audio-tweaks \
 "

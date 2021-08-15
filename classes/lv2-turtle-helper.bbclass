@@ -12,12 +12,12 @@
 # 3. Generate ttl-files at first boot / after package was installed
 
 
-# File containing names of plugins to handle in do_compile_append 
+# File containing names of plugins to handle in do_compile:append 
 # Line-format expected: <some-path-in-build>/<plugin>.so
 LV2_PLUGIN_INFO_FILE = "${WORKDIR}/lv2-ttl-generator-data"
 LV2_PLUGIN_INFO_FILE_CLEANED = "${LV2_PLUGIN_INFO_FILE}-cleaned"
 
-# File containing names of plugins to handle in do_compile_append 
+# File containing names of plugins to handle in do_compile:append 
 # Line-format expected: <path-ontarget>/<plugin>.so
 LV2_PLUGIN_POSTINST_INFO_FILE = "${LV2_PLUGIN_INFO_FILE}-postinst"
 
@@ -38,21 +38,21 @@ do_ttl_sed() {
     sed -i 's|"$GEN" "./$FILE"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
 }
 
-do_configure_prepend() {
+do_configure:prepend() {
     # 1st configure?
     if [ ! -f ${LV2_PLUGIN_INFO_FILE} ]; then
         do_ttl_sed
     fi
 }
 
-do_compile_prepend() {
+do_compile:prepend() {
     # remove plugin-info from previous build
     rm -f ${LV2_PLUGIN_INFO_FILE}
     rm -f ${LV2_PLUGIN_POSTINST_INFO_FILE}
 }
 
 do_compile[vardeps] += "LV2_TTL_GENERATOR"
-do_compile_append() {
+do_compile:append() {
     rm -f ${LV2_PLUGIN_INFO_FILE_CLEANED}
     if [ -e ${LV2_PLUGIN_INFO_FILE} ]; then
         echo
@@ -106,7 +106,7 @@ python do_ttl_qa() {
             bb.warn("%i of %i LV2-plugins in %s are postponed to post-install! Check %s and log.do_compile for details" % (num_plugins_postinst, num_plugins, name, lv2_plugin_postinst_info_file))
 }
 
-do_install_append() {
+do_install:append() {
     # create postinst manifest
     if [ -e ${LV2_PLUGIN_POSTINST_INFO_FILE} ]; then
         install -d ${D}`dirname ${LV2_POSTINST_MANIFEST}`
@@ -117,7 +117,7 @@ do_install_append() {
     fi
 }
 
-pkg_postinst_ontarget_${PN_LV2}() {
+pkg_postinst_ontarget:${PN_LV2}() {
     if [ -e ${LV2_POSTINST_MANIFEST} ]; then
         oldpath=`pwd`
         for sofile in `cat ${LV2_POSTINST_MANIFEST}`; do
@@ -133,7 +133,7 @@ pkg_postinst_ontarget_${PN_LV2}() {
     fi
 }
 
-pkg_prerm_${PN_LV2}() {
+pkg_prerm:${PN_LV2}() {
     if [ -e ${LV2_POSTINST_MANIFEST} ]; then
         for sofile in `cat ${LV2_POSTINST_MANIFEST}`; do
             path=`dirname "$sofile"`
@@ -144,5 +144,5 @@ pkg_prerm_${PN_LV2}() {
     fi
 }
 
-FILES_${PN_LV2} += "${LV2_POSTINST_MANIFEST}"
-RDEPENDS_${PN_LV2} += "lv2-ttl-generator"
+FILES:${PN_LV2} += "${LV2_POSTINST_MANIFEST}"
+RDEPENDS:${PN_LV2} += "lv2-ttl-generator"

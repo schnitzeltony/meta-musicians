@@ -54,20 +54,20 @@ EXTRA_OEMESON += " \
 "
 
 # ttl-generator bindir for distrho-ports-extra
-SYSROOT_DIRS_append = " ${bindir}"
+SYSROOT_DIRS:append = " ${bindir}"
 
 PACKAGES =+ "${PN}-presets"
-RDEPENDS_${PN}-presets = "${PN_LV2}"
+RDEPENDS:${PN}-presets = "${PN_LV2}"
 
-FILES_${PN}-presets = "${libdir}/lv2/*.preset.lv2"
+FILES:${PN}-presets = "${libdir}/lv2/*.preset.lv2"
 
 # dummy pack ttl-generator for distrho-ports-extra
 PACKAGES =+ "${PN}-ttl-generator"
-FILES_${PN}-ttl-generator += " \
+FILES:${PN}-ttl-generator += " \
     ${bindir}/lv2_ttl_generator \
     ${bindir}/scripts \
     ${libdir}/libs \
 "
 
 # Have not found what causes stripping - debugging of plugins is unlikely
-INSANE_SKIP_${PN} = "already-stripped"
+INSANE_SKIP:${PN} = "already-stripped"

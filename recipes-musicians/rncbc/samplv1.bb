@@ -20,7 +20,7 @@ SRC_URI = " \
 PV = "0.9.23"
 SRC_URI[sha256sum] = "78903a8b11f6d16bfe703d82286a269dcc9f278b5fa4e2f752b4de0a46f9fead"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/mime \
     ${datadir}/metainfo \

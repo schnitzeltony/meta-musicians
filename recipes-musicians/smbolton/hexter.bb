@@ -21,12 +21,12 @@ SRCREV = "1cf1bfea5962f7c9726e0cf809b762b3b2655225"
 PV = "1.1.1"
 S = "${WORKDIR}/git"
 
-do_compile_append() {
+do_compile:append() {
     cd ${S}/extra
     $CC $CFLAGS -o tx_edit tx_edit.c -lcurses -lasound -lm ${LDFLAGS}
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/applications
     install -m 644 ${WORKDIR}/hexter.desktop ${D}/${datadir}/applications/
 
@@ -39,9 +39,9 @@ do_install_append() {
     install -m 755 ${S}/extra/tx_edit ${D}/${bindir}
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/dssi \
 "
 
 # standalone needs jack-dssi-host
-RDEPENDS_${PN} += "dssi"
+RDEPENDS:${PN} += "dssi"

@@ -13,7 +13,7 @@ CFLAGSADD = "-DNDEBUG -fPIC -ffast-math -DUSE_PTHREADS -I./include"
 CFLAGS += "${CFLAGSADD}"
 CXXFLAGS  += "${CFLAGSADD}"
 
-do_compile_prepend() {
+do_compile:prepend() {
     cp build/general/Makefile.inc Makefile
 }
 

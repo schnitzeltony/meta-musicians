@@ -27,8 +27,8 @@ SRCREV = "91069f8d0c0269e962fa3b5f932b4511aa07e451"
 S = "${WORKDIR}/git"
 PV = "1.9.0"
 
-EXTRA_OECMAKE_append_arm = " -DARM_NATIVE=native"
-EXTRA_OECMAKE_append_aarch64 = " -DARM_NATIVE=native"
+EXTRA_OECMAKE:append:arm = " -DARM_NATIVE=native"
+EXTRA_OECMAKE:append:aarch64 = " -DARM_NATIVE=native"
 
 LV2_TTL_GENERATOR = "${STAGING_BINDIR}/lv2-ttl-generator"
 
@@ -53,9 +53,9 @@ do_install() {
 }
 
 PACKAGES =+ "${PN}-standalone"
-FILES_${PN}-standalone = "${bindir}"
+FILES:${PN}-standalone = "${bindir}"
 
-RDEPENDS_${PN}-standalone = "${PN}"
-RDEPENDS_${PN_LV2} = "${PN}"
-RDEPENDS_${PN_VST3} = "${PN}"
+RDEPENDS:${PN}-standalone = "${PN}"
+RDEPENDS:${PN_LV2} = "${PN}"
+RDEPENDS:${PN_VST3} = "${PN}"
 

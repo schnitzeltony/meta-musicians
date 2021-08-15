@@ -33,7 +33,7 @@ SRC_URI[sha256sum] = "80db1cb2a1a911f53508d243941033ba6f4cd2fcc94a6e96c796ffce13
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}/${BPN}/presets
     # convert hydrogen drumkits to drumkv1
     export IFS=$'\n'
@@ -48,7 +48,7 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-presets"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/mime \
     ${datadir}/metainfo \
@@ -56,6 +56,6 @@ FILES_${PN} += " \
     ${libdir}/lv2 \
 "
 
-FILES_${PN}-presets += "${datadir}/${BPN}/presets/"
+FILES:${PN}-presets += "${datadir}/${BPN}/presets/"
 # hydrogen-drumkits contain samples
-RDEPENDS_${PN}-presets = "hydrogen-drumkits"
+RDEPENDS:${PN}-presets = "hydrogen-drumkits"

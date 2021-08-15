@@ -22,7 +22,7 @@ DEPENDS += " \
 
 CLEANBROKEN = "1"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # common
     for pyfile in `grep -rl '/usr/bin/env python$' ${S}`; do
         sed -i 's:/usr/bin/env python:/usr/bin/env python3:' $pyfile

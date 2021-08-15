@@ -22,5 +22,5 @@ do_install() {
 }
 
 # There are cases we neet we need target versions
-SYSROOT_DIRS_append_class-target = " ${bindir}"
+SYSROOT_DIRS:append:class-target = " ${bindir}"
 

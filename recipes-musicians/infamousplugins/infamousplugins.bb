@@ -22,4 +22,4 @@ EXTRA_OECMAKE += " \
     -DLIBDIR=${baselib} \
 "
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

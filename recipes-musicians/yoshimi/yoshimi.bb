@@ -27,7 +27,7 @@ SRC_URI[sha256sum] = "0b5149dab7b2da15757be9f56384344868774edfee1736d80bd4c6def6
 
 OECMAKE_SOURCEPATH = "${S}/src"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/metainfo \
     ${libdir}/lv2 \
 "

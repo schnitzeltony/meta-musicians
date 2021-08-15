@@ -25,6 +25,6 @@ EXTRA_OECMAKE += " \
     -DBUILD_SSE=OFF \
 "
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lv2 \
 "

@@ -29,7 +29,7 @@ SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b
 
 SRC_URI[linuxsynths-synthv1-presets.sha256sum] = "cd444ccecafa9c03b890b3662455e3c1f36e18cd8f2f9b5c269bf1e4eb6cfa72"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${datadir}/${BPN}/presets
     cp ${WORKDIR}/autostatic-synthv1-presets1/*.synthv1 ${D}/${datadir}/${BPN}/presets
     cp ${WORKDIR}/linuxsynths-synthv1-presets/*.synthv1 ${D}/${datadir}/${BPN}/presets
@@ -40,7 +40,7 @@ do_install_append() {
 
 PACKAGES =+ "${PN}-presets"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/mime \
     ${datadir}/icons \
@@ -48,7 +48,7 @@ FILES_${PN} += " \
     ${libdir}/lv2 \
 "
 
-FILES_${PN}-presets += " \
+FILES:${PN}-presets += " \
     ${sysconfdir}/skel/.config/rncbc.org \
     ${datadir}/${BPN}/presets/ \
 "

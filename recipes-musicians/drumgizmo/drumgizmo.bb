@@ -31,13 +31,13 @@ EXTRA_OECONF = " \
     --disable-sse \
 "
 
-do_compile_append() {
+do_compile:append() {
     # build manifest.ttl
     cd ${B}/plugin
     ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', 'ttlgen')} .libs/drumgizmo.so manifest.ttl || echo "ERROR: at QEMU for ttlgen"
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${datadir}/pixmaps
     install -m 0644 ${S}/plugingui/resources/logo.png ${D}${datadir}/pixmaps/drumgizmo-logo.png
 
@@ -45,4 +45,4 @@ do_install_append() {
     install -m 0644 ${WORKDIR}/${BPN}.desktop ${D}${datadir}/applications/
 }
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

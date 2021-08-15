@@ -17,5 +17,5 @@ SRC_URI[sha256sum] = "26a37790890c9c1f838203b47f5b2320334fe92c02a4d26ebbe2669dbd
 EXTRA_OECONF = "--configdir=${sysconfdir} --dyn-manifest"
 
 PACKAGES += "${PN}-python3"
-FILES_${PN}-python3 += "${PYTHON_SITEPACKAGES_DIR}"
-RDEPENDS_${PN}-python3 += "python3-core"
+FILES:${PN}-python3 += "${PYTHON_SITEPACKAGES_DIR}"
+RDEPENDS:${PN}-python3 += "python3-core"

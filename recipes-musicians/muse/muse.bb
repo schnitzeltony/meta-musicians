@@ -49,20 +49,20 @@ EXTRA_OECMAKE += " \
 #    -DENABLE_EXPERIMENTAL=1 won't work
 
 
-do_install_append() {
+do_install:append() {
     # remove python script to convert songs from very old muse to avoid
     # python rdeps
     rm -f ${D}${datadir}/muse-4.0/utils/muse-song-convert.py
 }
 
 QT_TRANSLATION_FILES = "${datadir}/*/locale/*.qm"
-FILES_${PN}-locale = "${datadir}/muse-3.0/locale"
+FILES:${PN}-locale = "${datadir}/muse-3.0/locale"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/mime \
     ${datadir}/metainfo \
     ${datadir}/muse-4.0 \
     ${libdir}/muse-4.0 \
 "
 
-RDEPENDS_${PN} += "python3-core"
+RDEPENDS:${PN} += "python3-core"

@@ -58,7 +58,7 @@ EXTRA_OECMAKE += " \
 "
 #    -DPERFTOOLS=ON
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/appdata \
     ${datadir}/metainfo \
 "

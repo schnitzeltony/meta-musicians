@@ -24,7 +24,7 @@ LV2_NAME = "http://tomszilagyi.github.io/plugins/lv2/ir"
 IR_LV2_VARIANT ?= ""
 IR_LV2_DOAP_EXTENSION ?= ""
 
-do_compile_prepend() {
+do_compile:prepend() {
     for file in `grep -rl '${LV2_NAME}'`; do
         sed -i 's|${LV2_NAME}|${LV2_NAME}_${IR_LV2_VARIANT}|g' $file
     done
@@ -44,4 +44,4 @@ do_install() {
     sed -i 's|doap:name "IR"|doap:name "IR (${IR_LV2_DOAP_EXTENSION})"|g' ${D}${libdir}/lv2/ir_${IR_LV2_VARIANT}.lv2/ir_${IR_LV2_VARIANT}.ttl
 }
 
-FILES_${PN} += "${libdir}/lv2/"
+FILES:${PN} += "${libdir}/lv2/"

@@ -26,4 +26,4 @@ EXTRA_OECMAKE = " \
     -DLV2_INSTALL_DIR:PATH=${baselib}/lv2 \
 "
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"

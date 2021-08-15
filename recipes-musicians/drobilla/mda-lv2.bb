@@ -21,5 +21,5 @@ EXTRA_OECONF = " \
     --lv2dir=${libdir}/lv2 \
 "
 
-FILES_${PN} += "${libdir}/lv2"
+FILES:${PN} += "${libdir}/lv2"
 

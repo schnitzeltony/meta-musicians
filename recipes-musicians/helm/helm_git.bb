@@ -33,7 +33,7 @@ S = "${WORKDIR}/git"
 
 CXXFLAGS += "-I ${STAGING_INCDIR}/freetype2"
 
-do_configure_prepend() {
+do_configure:prepend() {
     # not easy to patch:
     # * the place is platered all over
     # * we have some <CR><LF> around
@@ -62,12 +62,12 @@ do_install() {
 
 PACKAGES =+ "${PN}-standalone"
 
-FILES_${PN}-standalone = " \
+FILES:${PN}-standalone = " \
     ${datadir}/applications \
     ${datadir}/icons \
     ${bindir} \
 "
 
-RDEPENDS_${PN}-standalone += "${PN}"
-RDEPENDS_${PN}-lv2 += "${PN}"
-RDEPENDS_${PN}-vst += "${PN}"
+RDEPENDS:${PN}-standalone += "${PN}"
+RDEPENDS:${PN}-lv2 += "${PN}"
+RDEPENDS:${PN}-vst += "${PN}"

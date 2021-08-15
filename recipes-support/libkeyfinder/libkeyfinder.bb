@@ -12,6 +12,6 @@ DEPENDS = "fftw"
 inherit cmake
 
 FILES_SOLIBSDEV = ""
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/libkeyfinder.so \
 "

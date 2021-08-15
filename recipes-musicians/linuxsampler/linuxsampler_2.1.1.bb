@@ -41,7 +41,7 @@ EXTRA_OECONF = " \
 
 CXXFLAGS += "-std=c++11"
 
-do_install_append() {
+do_install:append() {
     mv ${D}${libdir}/${BPN}/* ${D}${libdir}
     rmdir ${D}${libdir}/${BPN}
 
@@ -50,17 +50,17 @@ do_install_append() {
 }
 
 PACKAGES =+ "${PN}-standalone ${PN}-tools"
-FILES_${PN}-standalone = " \
+FILES:${PN}-standalone = " \
     ${bindir}/${BPN} \
 "
 
-FILES_${PN}-tools = " \
+FILES:${PN}-tools = " \
     ${bindir}/lscp \
     ${bindir}/ls_instr_script \
 "
 
-RDEPENDS_${PN_DSSI} += "${PN}"
-RDEPENDS_${PN_LV2} += "${PN}"
-RDEPENDS_${PN_VST} += "${PN}"
-RDEPENDS_${PN}-standalone += "${PN}"
+RDEPENDS:${PN_DSSI} += "${PN}"
+RDEPENDS:${PN_LV2} += "${PN}"
+RDEPENDS:${PN_VST} += "${PN}"
+RDEPENDS:${PN}-standalone += "${PN}"
 

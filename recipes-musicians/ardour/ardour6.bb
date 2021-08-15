@@ -58,18 +58,18 @@ EXTRA_OECONF = " \
     --dist-target=${BUILD_DIST_TARGET} \
 "
 
-PATH_append = ":${B}"
+PATH:append = ":${B}"
 
 # Asking fails - waf supports --bindir / --libdir
 waf_preconfigure() {
 }
 
-do_configure_prepend() {
+do_configure:prepend() {
     # link python -> python3
     ln -sf `which python3` ${B}/python
 }
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
     ${datadir}/appdata \
     ${datadir}/mime \
     ${libdir}/${BPN}/libardour.so \
@@ -87,9 +87,9 @@ FILES_${PN}-dev += " \
     ${libdir}/${BPN}/vamp/*.so \
 "
 
-FILES_${PN}-staticdev += " \
+FILES:${PN}-staticdev += " \
     ${libdir}/${BPN}/*.a \
 "
 
 PROVIDES = "ardour"
-RPROVIDES_${PN} = "ardour"
+RPROVIDES:${PN} = "ardour"

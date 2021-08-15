@@ -39,18 +39,18 @@ PACKAGES =+ "${PN}-standalone ${PN}-python"
 
 FILES_SOLIBSDEV = "${libdir}/libingen-*${SOLIBSDEV}"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/libingen_*.so \
 "
 
-FILES_${PN}-standalone = " \
+FILES:${PN}-standalone = " \
     ${datadir}/applications \
     ${datadir}/icons \
     ${bindir}/ingen \
 "
 
 # pyton tools are not expected to work: we do not have rdflib yet
-FILES_${PN}-python = " \
+FILES:${PN}-python = " \
     ${bindir}/ingenams \
     ${bindir}/ingenish \
     ${PYTHON_SITEPACKAGES_DIR} \

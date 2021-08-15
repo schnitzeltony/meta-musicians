@@ -25,26 +25,26 @@ PACKAGECONFIG[lv2] = "--with-lv2,--without-lv2,lv2"
 PACKAGECONFIG[nsm] = "--with-nsm,--without-nsm,liblo,new-session-manager"
 
 PACKAGES =+ "${PN}-standalone"
-FILES_${PN}-standalone += " \
+FILES:${PN}-standalone += " \
     ${datadir}/appdata/amsynth.appdata.xml \
     ${datadir}/applications \
     ${datadir}/icons \
     ${bindir} \
 "
 
-FILES_${PN_DSSI} += " \
+FILES:${PN_DSSI} += " \
     ${datadir}/appdata/dssi-amsynth-plugin.metainfo.xml \
 "
 
-FILES_${PN_LV2} += " \
+FILES:${PN_LV2} += " \
     ${datadir}/appdata/lv2-amsynth-plugin.metainfo.xml \
 "
 
-FILES_${PN_VST} += " \
+FILES:${PN_VST} += " \
     ${datadir}/appdata/vst-amsynth-plugin.metainfo.xml \
 "
 
-RDEPENDS_${PN}-standalone += "${PN}"
-RDEPENDS_${PN_DSSI} += "${PN}"
-RDEPENDS_${PN_LV2} += "${PN}"
-RDEPENDS_${PN_VST} += "${PN}"
+RDEPENDS:${PN}-standalone += "${PN}"
+RDEPENDS:${PN_DSSI} += "${PN}"
+RDEPENDS:${PN_LV2} += "${PN}"
+RDEPENDS:${PN_VST} += "${PN}"

@@ -26,7 +26,7 @@ EXTRA_OECONF = "\
 waf_preconfigure() {
 }
 
-do_configure_prepend() {
+do_configure:prepend() {
     cd ${S}
 
     # link python -> python3
@@ -61,6 +61,6 @@ do_install()  {
 	(cd ${S} && ./waf install --destdir=${D}) || true
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/lv2 \
 "

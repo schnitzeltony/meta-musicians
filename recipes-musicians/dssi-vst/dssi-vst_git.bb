@@ -33,9 +33,9 @@ do_install() {
     install -m 755 ${S}/dssi-vst_gui ${D}${libdir}/dssi/dssi-vst
 }
 
-INSANE_SKIP_${PN} = "dev-so"
+INSANE_SKIP:${PN} = "dev-so"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${libdir}/ladspa \
     ${libdir}/dssi \
 "
