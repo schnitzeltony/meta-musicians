@@ -22,7 +22,7 @@ SRC_URI = " \
     file://0002-package-vst3.sh-Do-not-try-to-strip-antive.patch \
     file://0003-Do-not-generate-manifest-it-won-t-work-cross.patch \
     file://0004-emit-vector-piggy-adjust-python-python3.patch \
-    file://0005-Workaround-build-failure-with-glibc-2.34.patch \
+    file://0005-Upgrade-Catch-2-4845.patch \
 "
 SRCREV = "91069f8d0c0269e962fa3b5f932b4511aa07e451"
 S = "${WORKDIR}/git"
