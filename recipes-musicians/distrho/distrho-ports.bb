@@ -53,10 +53,22 @@ EXTRA_OEMESON += " \
     -Doptimizations=false \
 "
 
+do_install:append() {
+    # obxd-presets
+    for file in `find ${WORKDIR}/linuxsynths-obxd-patches -mindepth 1 -maxdepth 1` ; do
+        cp -rf $file ${D}${libdir}/lv2/
+    done
+    # vex-presets
+    for file in `find ${WORKDIR}/linuxsynths-vex-patches -mindepth 1 -maxdepth 1` ; do
+        cp -rf $file ${D}${libdir}/lv2/
+    done
+}
+
 PACKAGES =+ "${PN}-presets"
 RDEPENDS:${PN}-presets = "${PN_LV2}"
 
 FILES:${PN}-presets = " \
+    ${libdir}/lv2/*.preset.lv2 \
     ${libdir}/lv2/*/presets.ttl \
     ${libdir}/lv2/Vitalium-unfa.lv2 \
 "
