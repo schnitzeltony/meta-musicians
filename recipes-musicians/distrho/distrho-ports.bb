@@ -53,23 +53,12 @@ EXTRA_OEMESON += " \
     -Doptimizations=false \
 "
 
-# ttl-generator bindir for distrho-ports-extra
-SYSROOT_DIRS:append = " ${bindir}"
-
 PACKAGES =+ "${PN}-presets"
 RDEPENDS:${PN}-presets = "${PN_LV2}"
 
 FILES:${PN}-presets = " \
     ${libdir}/lv2/*/presets.ttl \
     ${libdir}/lv2/Vitalium-unfa.lv2 \
-"
-
-# dummy pack ttl-generator for distrho-ports-extra
-PACKAGES =+ "${PN}-ttl-generator"
-FILES:${PN}-ttl-generator += " \
-    ${bindir}/lv2_ttl_generator \
-    ${bindir}/scripts \
-    ${libdir}/libs \
 "
 
 # Have not found what causes stripping - debugging of plugins is unlikely
