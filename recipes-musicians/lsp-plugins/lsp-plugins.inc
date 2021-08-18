@@ -1,6 +1,6 @@
 SUMMARY = "LSP (Linux Studio Plugins) is a collection of open-source plugins"
 HOMEPAGE = "http://lsp-plug.in/"
-LICENSE = "BSD-3-Clause"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = " \
