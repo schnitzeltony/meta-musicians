@@ -55,7 +55,6 @@ EXTRA_OEMAKE += " \
 
 do_compile() {
     export CC_ARCH="${CXXFLAGS}"
-    export LD_ARCH="`echo $LDFLAGS | sed 's:-Wl,::g'`"
 
     # uncomment to build/run unittest
     #UNIT_TEST="1"
