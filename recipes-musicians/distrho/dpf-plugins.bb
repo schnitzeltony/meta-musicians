@@ -5,9 +5,9 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = "git://github.com/DISTRHO/DPF-Plugins.git"
-SRCREV = "86084a934adb26f529038cbcf901fd7a09b95897"
+SRCREV = "014db6d4ef170b44653b1eb668686b624e4ae3f8"
 S = "${WORKDIR}/git"
-PV = "v1.3+git${SRCPV}"
+PV = "v1.4"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
@@ -28,6 +28,10 @@ EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
+
+do_ttl_sed() {
+    sed -i 's|${EXE_WRAPPER} "${GEN}" "./\x24{FILE}"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
+}
 
 do_install() {
     install -d ${D}${bindir}
