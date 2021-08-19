@@ -33,7 +33,7 @@ inherit qemu-ext-musicians audio-plugin-common
 
 # override this function and execute sed (or other magic) to adjust Makefiles
 # so that lv2-ttl-generator is not executed but plugin information. Same here:
-# Set default matich many dpf-based plugins
+# Set default match many dpf-based plugins
 do_ttl_sed() {
     sed -i 's|"$GEN" "./$FILE"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
 }
