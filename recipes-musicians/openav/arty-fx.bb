@@ -17,9 +17,9 @@ SRC_URI = " \
     file://0001-Do-not-overwrite-build-flags-it-causes-trouble-for-m.patch \
     file://0002-avtk-remove-sse-flags-they-work-on-intel-hardware-on.patch \
 "
-SRCREV = "6010d1a6034ea684cc2edb22021f034122ccf814"
+SRCREV = "9b147f25c5b0e45e52c10d9b148ff04e7cc24951"
 S = "${WORKDIR}/git"
-PV = "1.3+git${SRCPV}"
+PV = "1.3.1"
 
 EXTRA_OECMAKE += " \
     -DBUILD_SSE=OFF \
