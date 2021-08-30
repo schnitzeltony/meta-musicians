@@ -194,7 +194,7 @@ RDEPENDS:${PN} += " \
     ${@bb.utils.contains("DISTRO_FEATURES", "opengl", "zyn-fusion-dssi zyn-fusion-lv2 zyn-fusion-vst zyn-fusion-standalone", "zynaddsubfx-dssi zynaddsubfx-lv2 zynaddsubfx-vst zynaddsubfx-standalone",d)} \
     \
     \
-    ${@bb.utils.contains('BBFILE_COLLECTIONS', 'rust-layer', 'spotifyd spotify-qt', '', d)} \
+    spotifyd spotify-qt \
 "
 
 
