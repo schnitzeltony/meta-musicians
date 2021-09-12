@@ -14,9 +14,11 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BChoppr.git"
-SRCREV = "98da08ea7be3bc439c3773c5e0653d37cdbeb19d"
+SRCREV = "d576487c36b32ca36ce0539b4c73fd76e7737349"
 S = "${WORKDIR}/git"
-PV = "1.10.8"
+PV = "1.10.10"
+
+EXTRA_OEMAKE = "STRIP=echo STRIPFLAG=-e"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
