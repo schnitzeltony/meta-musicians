@@ -14,13 +14,12 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = " \
-    git://github.com/sjaehn/BJumblr.git \
-    file://0001-Allow-parallel-build.patch \
-"
-SRCREV = "bf1a0a076c15a641f6d213afcb0f4b9245c87d18"
+SRC_URI = "git://github.com/sjaehn/BJumblr.git"
+SRCREV = "eeafe2d0a7d856eb990cb0f7725e82195ff80c71"
 S = "${WORKDIR}/git"
-PV = "1.6.6"
+PV = "1.6.8"
+
+EXTRA_OEMAKE = "STRIP=echo STRIPFLAG=-e"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
