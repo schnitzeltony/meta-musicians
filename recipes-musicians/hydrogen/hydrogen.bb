@@ -30,7 +30,7 @@ DEPENDS += " \
 
 
 SRC_URI = " \
-    git://github.com/hydrogen-music/hydrogen.git;branch=releases/1.0 \
+    git://github.com/hydrogen-music/hydrogen.git;branch=master \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
     \
     http://hydro.smoors.de/Audiophob.h2drumkit;downloadfilename=Audiophob.tar.gz;name=Audiophob;subdir=drumkits \
@@ -80,8 +80,8 @@ SRC_URI = " \
     https://freewavesamples.com/files/YamahaRX15Kit.h2drumkit;downloadfilename=YamahaRX15Kit.tar.gz;name=YamahaRX15Kit;subdir=drumkits \
     https://freewavesamples.com/files/YamahaTG-55Kit.h2drumkit;downloadfilename=YamahaTG-55Kit.tar.gz;name=YamahaTG-55Kit;subdir=drumkits \
 "
-SRCREV = "3294c3942b6899fb9140c4dc0b343d86bc0935ac"
-PV ="1.0.2"
+SRCREV = "eda3557e2554a52d8b08ea48d708d97c7d0ba947"
+PV ="1.1.0"
 
 ###############################################################################
 # drumkits URIs from http://hydrogen-music.org/feeds/drumkit_list.php
