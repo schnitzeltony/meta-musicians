@@ -47,9 +47,9 @@ DEPENDS += " \
 SRC_URI = " \
     git://github.com/mixxxdj/${BPN}.git;branch=main \
 "
-SRCREV = "d1dca4785af375af8f73b5ee5389311f4a4ef5e6"
+SRCREV = "8acb633220024222504cddcd1f5ea26e659fbcc7"
 S = "${WORKDIR}/git"
-PV = "2.3.0"
+PV = "2.3.1"
 
 EXTRA_OECMAKE += " \
     -DSHOUTCAST=OFF \
