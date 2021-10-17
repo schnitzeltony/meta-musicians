@@ -13,7 +13,7 @@ DEPENDS += " \
 "
 
 SRC_URI = "https://breakfastquay.com/files/releases/${BPN}-${PV}.tar.bz2"
-SRC_URI[sha256sum] = "fc474878f6823c27ef5df1f9616a8c8b6a4c01346132ea7d1498fe5245e549e3"
+SRC_URI[sha256sum] = "b3cff5968517141fcf9e1ef6b5a1fdb06a5511f148000609216cf182ff4ab612"
 
 EXTRA_OEMESON = "-Dfft=fftw"
 
