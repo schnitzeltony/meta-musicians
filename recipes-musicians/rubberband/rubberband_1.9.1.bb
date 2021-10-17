@@ -3,7 +3,7 @@ HOMEPAGE = "http://breakfastquay.com/rubberband/"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=28f6289fba0406b8f491e9b2d5767488"
 
-inherit meson
+inherit meson pkgconfig
 
 DEPENDS += " \
     fftw \
