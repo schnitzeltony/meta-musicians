@@ -9,7 +9,7 @@ DEPENDS += " \
     qtbase \
 "
 
-inherit cmake_qt5 gtk-icon-cache
+inherit cmake_qt5 pkgconfig gtk-icon-cache
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
 SRC_URI[sha256sum] = "3f343fba1388ca687be5903bf74fa19acb6907b2de0fbbbb25580f56135ce419"
