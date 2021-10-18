@@ -12,7 +12,7 @@ DEPENDS += " \
     libsndfile1 \
 "
 
-inherit cmake python3native features_check lv2-turtle-helper pack_audio_plugins
+inherit cmake pkgconfig python3native features_check lv2-turtle-helper pack_audio_plugins
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
