@@ -12,7 +12,7 @@ DEPENDS += " \
     portaudio-v19 \
 "
 
-inherit cmake_qt5 gtk-icon-cache qt5-translation
+inherit cmake_qt5 pkgconfig gtk-icon-cache qt5-translation
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
