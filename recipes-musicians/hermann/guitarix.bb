@@ -12,7 +12,7 @@ SRCREV = "7dfddb517000b3a5c22875c5b06f71ed589adddd"
 PV = "0.42.1+git${SRCPV}"
 S = "${WORKDIR}/git/trunk"
 
-inherit waf fontcache gettext
+inherit waf pkgconfig fontcache gettext
 
 DEPENDS += " \
     gperf-native \
