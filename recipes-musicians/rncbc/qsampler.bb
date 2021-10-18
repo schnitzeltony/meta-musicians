@@ -11,7 +11,7 @@ DEPENDS += " \
     libgig \
 "
 
-inherit cmake_qt5 gtk-icon-cache qt5-translation mime mime-xdg
+inherit cmake_qt5 pkgconfig gtk-icon-cache qt5-translation mime mime-xdg
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
 SRC_URI[sha256sum] = "f35adb55982d2d443cf38be1ea61745c55b62dc416f34fbfbbbddb00c033cc19"
