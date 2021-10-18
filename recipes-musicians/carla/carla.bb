@@ -17,7 +17,7 @@ PV = "2.4.0"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-inherit qmake5_base python3native qemu-ext-musicians features_check mime mime-xdg gtk-icon-cache
+inherit qmake5_base python3native pkgconfig qemu-ext-musicians features_check mime mime-xdg gtk-icon-cache
 
 B = "${S}"
 
