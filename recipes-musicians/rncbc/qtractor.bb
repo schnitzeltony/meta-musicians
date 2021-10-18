@@ -16,7 +16,7 @@ DEPENDS += " \
     aubio \
 "
 
-inherit cmake_qt5 gtk-icon-cache mime mime-xdg qt5-translation
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg qt5-translation
 
 SRC_URI = " \
     git://github.com/rncbc//qtractor.git;branch=midiimportx \
