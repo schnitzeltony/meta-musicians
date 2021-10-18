@@ -12,7 +12,7 @@ DEPENDS += " \
     hydrogen \
 "
 
-inherit cmake_qt5 gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime
 
 do_convert_crlf_to_lf[depends] += "dos2unix-native:do_populate_sysroot"
 
