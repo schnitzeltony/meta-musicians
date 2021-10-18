@@ -10,7 +10,7 @@ DEPENDS += " \
     jack \
 "
 
-inherit cmake_qt5 gtk-icon-cache
+inherit cmake_qt5 pkgconfig gtk-icon-cache
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
 SRC_URI[sha256sum] = "ed48b89148188293d501a68836b77a5866686289f952e1eccc655a1da7dbfe9d"
