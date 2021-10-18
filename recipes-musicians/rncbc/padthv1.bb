@@ -12,7 +12,7 @@ DEPENDS += " \
     fftw \
 "
 
-inherit cmake_qt5 gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
