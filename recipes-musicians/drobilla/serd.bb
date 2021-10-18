@@ -3,7 +3,7 @@ HOMEPAGE = "http://drobilla.net/software/serd"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b698a6a2120a83eecb34a9c6f1b93989"
 
-inherit waf
+inherit waf pkgconfig
 
 PV = "0.30.8"
 SRC_URI = " \
