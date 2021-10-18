@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/lucianodato/noise-repellent"
 LICENSE = "LGPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
-inherit meson gtk-icon-cache
+inherit meson pkgconfig gtk-icon-cache
 
 DEPENDS += " \
     fftw \
