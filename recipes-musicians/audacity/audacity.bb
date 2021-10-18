@@ -35,7 +35,7 @@ DEPENDS = " \
     soundtouch \
 "
 
-inherit cmake python3native gettext gtk-icon-cache mime mime-xdg
+inherit cmake pkgconfig python3native gettext gtk-icon-cache mime mime-xdg
 
 do_configure:append() {
     # do set version 
