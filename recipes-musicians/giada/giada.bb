@@ -3,9 +3,9 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = "gitsm://github.com/monocasual/giada.git;protocol=https"
-SRCREV = "1eaf3d5e5f9f017b6cb5ab29ed141c2cf232d1a3"
+SRCREV = "2b54a58da249de233e9dfaafa81e596d17658293"
 S = "${WORKDIR}/git"
-PV = "0.18.1"
+PV = "0.18.2"
 
 inherit cmake pkgconfig features_check gtk-icon-cache
 
