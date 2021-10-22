@@ -1,6 +1,6 @@
 require ${BPN}.inc
 
-inherit features_check pack_audio_plugins qemu-ext-musicians gtk-icon-cache
+inherit pkgconfig features_check pack_audio_plugins qemu-ext-musicians gtk-icon-cache
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
