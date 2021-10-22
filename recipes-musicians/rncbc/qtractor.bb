@@ -24,8 +24,8 @@ SRC_URI = " \
     \
     file://Qtractor.conf \
 "
-SRCREV = "535d58144e474550bf740ff941422ec020581cc9"
-PV = "0.9.23+git${SRCPV}"
+SRCREV = "7408216eaee4eb1878f92a95ac8dd2bb405fb38b"
+PV = "0.9.24+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 do_install:append() {
