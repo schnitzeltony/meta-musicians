@@ -7,7 +7,7 @@ SRCREV = "1eaf3d5e5f9f017b6cb5ab29ed141c2cf232d1a3"
 S = "${WORKDIR}/git"
 PV = "0.18.1"
 
-inherit cmake features_check gtk-icon-cache
+inherit cmake pkgconfig features_check gtk-icon-cache
 
 REQUIRED_DISTRO_FEATURES ?= "x11"
 
