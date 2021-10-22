@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = " \
     file://COPYING.icon;md5=1d49e879912b1ea962200c42d117ca6c \
 "
 
-inherit meson gtk-icon-cache
+inherit meson pkgconfig gtk-icon-cache
 
 DEPENDS += " \
     gtk+3 \
