@@ -13,7 +13,7 @@ PV = "3.0.5+git${SRCPV}"
 PE = "1"
 S = "${WORKDIR}/git"
 
-inherit python3native
+inherit python3native pkgconfig
 
 DEPENDS += " \
     ruby-native \
