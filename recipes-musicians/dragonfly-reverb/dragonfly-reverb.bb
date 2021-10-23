@@ -14,14 +14,18 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/michaelwillis/dragonfly-reverb.git"
-SRCREV = "bf4b55d5f96ff316109335d957a32bd05e0dc289"
+SRCREV = "e2b5002c6ae1d23e9c0f76ffefb89e36675c81ee"
 S = "${WORKDIR}/git"
-PV = "3.2.0"
+PV = "3.2.5"
 
 EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
+
+do_ttl_sed() {
+    sed -i 's|${EXE_WRAPPER} "${GEN}" "./\x24{FILE}"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
+}
 
 do_install() {
     install -d ${D}${bindir}
