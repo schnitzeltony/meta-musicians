@@ -52,3 +52,7 @@ FILES:${PN} += " \
 "
 
 RDEPENDS:${PN} += "ttf-bitstream-vera"
+
+# TBD: proper fix for
+# ERROR: setbfree-0.8.11-r0 do_package: QA Issue: File '/usr/lib/lv2/b_synth/b_synthUI.so' from setbfree was already stripped, this will prevent future debugging! [already-stripped]
+INSANE_SKIP:${PN} += "already-stripped"
