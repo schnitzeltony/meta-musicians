@@ -45,7 +45,7 @@ DEPENDS += " \
 #    gperftools
 
 SRC_URI = " \
-    git://github.com/mixxxdj/${BPN}.git;branch=main \
+    git://github.com/mixxxdj/${BPN}.git;branch=main;protocol=https \
 "
 SRCREV = "8acb633220024222504cddcd1f5ea26e659fbcc7"
 S = "${WORKDIR}/git"

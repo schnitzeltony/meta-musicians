@@ -19,7 +19,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/pantherb/setBfree.git \
+    git://github.com/pantherb/setBfree.git;branch=master;protocol=https \
     file://0001-remove-UINQHACK-it-is-used-for-OSX-builds-only-and-c.patch \
     file://0002-Do-not-check-for-fontfile.patch \
     file://setbfree.desktop \

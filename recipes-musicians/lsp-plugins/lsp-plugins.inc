@@ -4,7 +4,7 @@ LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=3000208d539ec061b899bce1d9ce9404"
 
 SRC_URI = " \
-    gitsm://github.com/sadko4u/lsp-plugins.git \
+    gitsm://github.com/sadko4u/lsp-plugins.git;branch=master;protocol=https \
     file://0001-Add-missing-dsp-in-SUBDIRS.patch \
 "
 SRCREV = "d78befc2faaa6de64050c3c4b662dea429e47c40"

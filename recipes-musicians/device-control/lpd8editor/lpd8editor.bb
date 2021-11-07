@@ -11,7 +11,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/charlesfleche/lpd8editor.git \
+    git://github.com/charlesfleche/lpd8editor.git;branch=master;protocol=https \
     file://0001-Remove-Werror-from-CXXFLAGS.patch\
     file://lpd8-editor.desktop \
 "

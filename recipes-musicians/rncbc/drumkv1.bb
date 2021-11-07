@@ -26,7 +26,7 @@ SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0001-Fix-for-python-3.9.patch;patchdir=../hydrogen2drumkv1 \
     file://0002-Avoid-stripping-CMake.patch \
-    git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1 \
+    git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1;branch=master;protocol=https \
 "
 PV = "0.9.23"
 SRC_URI[sha256sum] = "80db1cb2a1a911f53508d243941033ba6f4cd2fcc94a6e96c796ffce13adfac9"

@@ -14,7 +14,7 @@ DEPENDS += " \
 inherit cmake pkgconfig
 
 SRC_URI = " \
-    git://github.com/nicklan/drmr.git;branch=lv2unstable \
+    git://github.com/nicklan/drmr.git;branch=lv2unstable;protocol=https \
     file://0001-CMake-Keep-build-system-flags.patch \
 "
 SRCREV = "f244f3b09bb290dd6a4b9c14d4abaf69e9861f9d"

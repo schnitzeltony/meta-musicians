@@ -14,7 +14,7 @@ DEPENDS += " \
     libsndfile1 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BOops.git"
+SRC_URI = "git://github.com/sjaehn/BOops.git;branch=master;protocol=https"
 SRCREV = "b4545121b522f758d89d29a3affbd2e308bdd075"
 S = "${WORKDIR}/git"
 PE = "1"

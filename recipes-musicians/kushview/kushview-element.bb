@@ -21,7 +21,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    gitsm://github.com/kushview/Element.git \
+    gitsm://github.com/kushview/Element.git;branch=master;protocol=https \
     file://0001-Fix-build-with-gcc11.patch \
 "
 SRCREV = "30cab91b515b2fc7a224a3c976bdbaf96273e6e5"

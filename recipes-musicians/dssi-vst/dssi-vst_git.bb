@@ -14,7 +14,7 @@ DEPENDS += " \
     zlib \
 "
 
-SRC_URI = "git://github.com/falkTX/dssi-vst.git"
+SRC_URI = "git://github.com/falkTX/dssi-vst.git;branch=master;protocol=https"
 SRCREV = "9462b34563af84b452795d4924d4f18af9072529"
 S = "${WORKDIR}/git"
 PV = "0.9.2+git${SRCPV}"

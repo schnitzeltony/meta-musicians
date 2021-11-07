@@ -33,7 +33,7 @@ inherit waf features_check gtk-icon-cache pkgconfig python3native mime mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
-SRC_URI = "git://github.com/Ardour/ardour.git"
+SRC_URI = "git://github.com/Ardour/ardour.git;branch=master;protocol=https"
 SRCREV = "945c8f288077565fe3de32c6ac0cb50e286722e4"
 PV = "6.9"
 S = "${WORKDIR}/git"

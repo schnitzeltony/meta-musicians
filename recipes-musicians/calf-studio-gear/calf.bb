@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/calf-studio-gear/calf.git \
+    git://github.com/calf-studio-gear/calf.git;branch=master;protocol=https \
     file://0001-Do-store-calfmakerdf-commandline-for-later-use-in-qe.patch \
     file://0002-fluidsynth-Activate-synth.dynamic-sample-loading-for.patch \
 "

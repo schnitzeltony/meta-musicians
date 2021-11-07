@@ -24,7 +24,7 @@ CXXFLAGS += "-ftree-vectorize -ffast-math -DNDEBUG"
 FILESEXTRAPATHS:prepend := "${THISDIR}/zyn:"
 
 SRC_URI = " \
-    gitsm://github.com/zynaddsubfx/zynaddsubfx.git \
+    gitsm://github.com/zynaddsubfx/zynaddsubfx.git;branch=master;protocol=https \
     file://0001-No-target-specific-asm.patch \
     file://0002-Controller-Spliter-align-Makefiles-for-cross-compili.patch \
     file://0003-Nio.cpp-Do-not-use-ps-aux-to-find-jack-busybox-s-ps-.patch \

@@ -14,7 +14,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "gitsm://github.com/x42/avldrums.lv2.git"
+SRC_URI = "gitsm://github.com/x42/avldrums.lv2.git;branch=master;protocol=https"
 SRCREV = "501af33133e49ad4869b2ee9d538607fa790f5a7"
 PV = "0.4.2"
 S = "${WORKDIR}/git"

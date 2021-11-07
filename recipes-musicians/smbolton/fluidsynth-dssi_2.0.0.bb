@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/schnitzeltony/fluidsynth-dssi.git \
+    git://github.com/schnitzeltony/fluidsynth-dssi.git;branch=master;protocol=https \
     file://0001-Reduce-FSD_MAX_BURST_SIZE-512-128.patch \
     file://0002-Don-t-trash-unused-channels.patch \
     file://fluidsynth-dssi.conf \

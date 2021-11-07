@@ -11,7 +11,7 @@ DEPENDS = " \
 
 inherit pkgconfig lv2-turtle-helper pack_audio_plugins
 
-SRC_URI = "gitsm://github.com/pdesaulniers/wolf-shaper.git"
+SRC_URI = "gitsm://github.com/pdesaulniers/wolf-shaper.git;branch=master;protocol=https"
 SRCREV = "d0b46c9ece642488efed3cd255df22516966b334"
 S = "${WORKDIR}/git"
 PV = "0.1.7"

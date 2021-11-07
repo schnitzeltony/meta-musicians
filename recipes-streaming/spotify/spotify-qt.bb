@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/kraxarn/spotify-qt"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://license;md5=e49f4652534af377a713df3d9dec60cb"
 
-SRC_URI = "git://github.com/kraxarn/spotify-qt.git"
+SRC_URI = "git://github.com/kraxarn/spotify-qt.git;branch=master;protocol=https"
 SRCREV = "c8394e55f511aa03abc54c07d475b04969d0fb23"
 S = "${WORKDIR}/git"
 PV = "3.7"

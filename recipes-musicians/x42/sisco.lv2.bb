@@ -12,7 +12,7 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = "gitsm://github.com/x42/sisco.lv2.git"
+SRC_URI = "gitsm://github.com/x42/sisco.lv2.git;branch=master;protocol=https"
 SRCREV = "7db71571db1c6eea3470bc166658c2c03b6036b4"
 PV = "0.9.3"
 S = "${WORKDIR}/git"

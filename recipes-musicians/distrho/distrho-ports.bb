@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 SRC_URI = " \
-    git://github.com/DISTRHO/DISTRHO-Ports.git \
+    git://github.com/DISTRHO/DISTRHO-Ports.git;branch=master;protocol=https \
     file://0001-Modify-ttl-generation-target-so-we-can-sed-it-to-cor.patch \
     \
     http://linuxsynths.com/ObxdPatchesDemos/ObxdPatchesBrian-01.tar.gz;name=linuxsynths-obxd-patches1;subdir=linuxsynths-obxd-patches \

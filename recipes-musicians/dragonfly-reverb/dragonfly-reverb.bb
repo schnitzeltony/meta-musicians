@@ -13,7 +13,7 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = "gitsm://github.com/michaelwillis/dragonfly-reverb.git"
+SRC_URI = "gitsm://github.com/michaelwillis/dragonfly-reverb.git;branch=master;protocol=https"
 SRCREV = "e2b5002c6ae1d23e9c0f76ffefb89e36675c81ee"
 S = "${WORKDIR}/git"
 PV = "3.2.5"

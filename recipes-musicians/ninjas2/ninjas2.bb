@@ -13,7 +13,7 @@ DEPENDS = " \
 
 inherit pkgconfig lv2-turtle-helper features_check pack_audio_plugins
 
-SRC_URI = "gitsm://github.com/rghvdberg/ninjas2.git"
+SRC_URI = "gitsm://github.com/rghvdberg/ninjas2.git;branch=master;protocol=https"
 SRCREV = "a767a9eea4e543061993290168a321d10c08b03c"
 S = "${WORKDIR}/git"
 PV = "0.2.0"

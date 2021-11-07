@@ -11,7 +11,7 @@ DEPENDS += " \
     virtual/libgl \
 "
 
-SRC_URI = "gitsm://github.com/SpotlightKid/ykchorus.git"
+SRC_URI = "gitsm://github.com/SpotlightKid/ykchorus.git;branch=master;protocol=https"
 SRCREV = "a6b1027e327f5118bbe48ae01e9fa58e14f93479"
 PV = "0.2.2+git${SRCPV}"
 S = "${WORKDIR}/git"

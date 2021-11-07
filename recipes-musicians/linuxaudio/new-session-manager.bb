@@ -10,7 +10,7 @@ DEPENDS = " \
     liblo \
 "
 
-SRC_URI = "git://github.com/linuxaudio/new-session-manager.git"
+SRC_URI = "git://github.com/linuxaudio/new-session-manager.git;branch=master;protocol=https"
 SRCREV = "b23c052c8bfc4c67e6e02105eed624982834e8be"
 PV = "1.5.0"
 S = "${WORKDIR}/git"

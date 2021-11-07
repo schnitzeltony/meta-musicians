@@ -13,7 +13,7 @@ DEPENDS += " \
     fftw \
 "
 
-SRC_URI = "gitsm://github.com/x42/fat1.lv2.git"
+SRC_URI = "gitsm://github.com/x42/fat1.lv2.git;branch=master;protocol=https"
 SRCREV = "274f8cb882d85cbff09a89d3e650f7d366908681"
 PV = "0.6.6"
 S = "${WORKDIR}/git"

@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://gitlab.com/iurie-sw/geonkick;protocol=https \
+    git://gitlab.com/iurie-sw/geonkick;protocol=https;branch=master \
     file://0001-Execute-native-REDKITE-S-rkpng2c.patch \
 "
 SRCREV = "77b2155f8b30ea7e4af5c664e930eeb43c17a24d"

@@ -13,7 +13,7 @@ DEPENDS = " \
 "
 
 SRC_URI = " \
-    git://github.com/openAVproductions/openAV-ArtyFX.git \
+    git://github.com/openAVproductions/openAV-ArtyFX.git;protocol=https;branch=master \
     file://0001-Do-not-overwrite-build-flags-it-causes-trouble-for-m.patch \
     file://0002-avtk-remove-sse-flags-they-work-on-intel-hardware-on.patch \
 "

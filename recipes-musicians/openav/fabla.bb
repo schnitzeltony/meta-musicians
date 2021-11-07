@@ -14,7 +14,7 @@ DEPENDS = " \
 "
 
 SRC_URI = " \
-    git://github.com/openAVproductions/openAV-Fabla.git \
+    git://github.com/openAVproductions/openAV-Fabla.git;protocol=https;branch=master \
     file://0001-Do-not-overwrite-build-flags-it-causes-trouble-for-m.patch \
     file://0002-Fix-for-building-with-lv2-1.18.0.patch \
 "

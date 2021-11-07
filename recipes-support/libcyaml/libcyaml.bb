@@ -4,7 +4,7 @@ LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=52a1707594d3c6694292db3dd1a7f960"
 
 SRC_URI = " \
-    git://github.com/tlsa/libcyaml.git;protocol=https \
+    git://github.com/tlsa/libcyaml.git;protocol=https;branch=master \
 "
 SRCREV = "689766ae2f2a4deb50f888b20160e71e66b4ed92"
 PV = "1.0.2"

@@ -12,7 +12,7 @@ DEPENDS += " \
 
 PV = "0.1.5"
 SRC_URI = " \
-    git://github.com/lucianodato/noise-repellent.git \
+    git://github.com/lucianodato/noise-repellent.git;branch=master;protocol=https \
     file://0001-do-not-pin-sse-flags-they-won-t-work-on-all-arches.patch \
 "
 SRCREV = "7f9653d77918418e3b4ae39f4af8e5860362e986"

@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    gitsm://github.com/brummer10/Xmonk.lv2.git;protocol=https \
+    gitsm://github.com/brummer10/Xmonk.lv2.git;protocol=https;branch=master \
     file://0001-Adjust-to-oe-build.patch \
 "
 SRCREV = "099827f93abcf3bab4a1f23e8648f763c548db3d"

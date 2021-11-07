@@ -13,7 +13,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BSEQuencer.git"
+SRC_URI = "git://github.com/sjaehn/BSEQuencer.git;branch=master;protocol=https"
 SRCREV = "7ad4bf9b02c54ed98b8d293c52d1eca62fec626d"
 S = "${WORKDIR}/git"
 PV = "1.8.10"

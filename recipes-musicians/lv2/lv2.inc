@@ -3,7 +3,7 @@ LICENSE = "ISC"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0383f162366b0c5a316292759a55d292"
 
 SRC_URI = " \
-    gitsm://github.com/lv2/lv2.git \
+    gitsm://github.com/lv2/lv2.git;branch=master;protocol=https \
     file://0001-Output-more-details-on-import-error-to-catch-missing.patch \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "

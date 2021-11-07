@@ -25,7 +25,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/csound/csound.git;branch=develop \
+    git://github.com/csound/csound.git;branch=develop;protocol=https \
     file://0001-Do-not-set-include-path-to-usr-local-include.patch \
     file://0002-use-standard-plugins-path.patch \
 "

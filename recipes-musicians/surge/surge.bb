@@ -17,7 +17,7 @@ inherit cmake pkgconfig python3native features_check lv2-turtle-helper pack_audi
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
-    gitsm://github.com/surge-synthesizer/surge.git;branch=main \
+    gitsm://github.com/surge-synthesizer/surge.git;branch=main;protocol=https \
     file://0001-arm-native.cmake-adjust-to-oe.patch \
     file://0002-package-vst3.sh-Do-not-try-to-strip-antive.patch \
     file://0003-Do-not-generate-manifest-it-won-t-work-cross.patch \

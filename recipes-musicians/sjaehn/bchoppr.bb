@@ -13,7 +13,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BChoppr.git"
+SRC_URI = "git://github.com/sjaehn/BChoppr.git;branch=master;protocol=https"
 SRCREV = "d576487c36b32ca36ce0539b4c73fd76e7737349"
 S = "${WORKDIR}/git"
 PV = "1.10.10"

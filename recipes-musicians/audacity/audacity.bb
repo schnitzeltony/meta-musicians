@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=549b88b1c547acbec8f9e262f30b573e"
 
 PV = "2.4.2"
 SRC_URI = " \
-    git://github.com/audacity/audacity.git \
+    git://github.com/audacity/audacity.git;branch=master;protocol=https \
     file://0001-Do-not-ask-git-for-version-information-it-breaks-bui.patch \
 "
 SRCREV ="16d52f63a4183bba77ef7305d14622958dc0d1d5"

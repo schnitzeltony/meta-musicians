@@ -19,7 +19,7 @@ DEPENDS += " \
 inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg qt5-translation
 
 SRC_URI = " \
-    git://github.com/rncbc//qtractor.git;branch=midiimportx \
+    git://github.com/rncbc//qtractor.git;branch=midiimportx;protocol=https \
     file://0003-Add-ARM-NEON-acceleration-for-time-stretch-not-yet-t.patch \
     \
     file://Qtractor.conf \

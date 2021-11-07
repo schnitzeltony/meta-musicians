@@ -14,7 +14,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BJumblr.git"
+SRC_URI = "git://github.com/sjaehn/BJumblr.git;branch=master;protocol=https"
 SRCREV = "eeafe2d0a7d856eb990cb0f7725e82195ff80c71"
 S = "${WORKDIR}/git"
 PV = "1.6.8"

@@ -14,7 +14,7 @@ DEPENDS += " \
     liblo \
 "
 
-SRC_URI = "gitsm://github.com/x42/darc.lv2.git"
+SRC_URI = "gitsm://github.com/x42/darc.lv2.git;branch=master;protocol=https"
 SRCREV = "5f9dcb2c197cf0833a0006d3deaea7d5909de563"
 PV = "0.5.5"
 S = "${WORKDIR}/git"

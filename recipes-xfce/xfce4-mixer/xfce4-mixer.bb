@@ -6,7 +6,7 @@ inherit xfce-panel-plugin xfce-git
 
 DEPENDS += "gst-plugins-base gtk+3 dbus-glib xfce4-dev-tools-native xfconf"
 
-SRC_URI = "git://gitlab.xfce.org/apps/xfce4-mixer.git"
+SRC_URI = "git://gitlab.xfce.org/apps/xfce4-mixer.git;protocol=https;branch=master"
 PV = "4.11.0+git${SRCPV}"
 SRCREV = "cfcfd6fd1aaa497b5be421bb05b66526104727d3"
 S = "${WORKDIR}/git"

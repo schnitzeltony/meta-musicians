@@ -8,7 +8,7 @@ inherit meson gettext features_check
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
-    git://git.zrythm.org/git/ztoolkit;protocol=https \
+    git://git.zrythm.org/git/ztoolkit;protocol=https;branch=master \
     file://0001-Remove-tests-from-builds-they-cause-linker-errors.patch \
 "
 SRCREV = "be7370d0926c5d676a32b9742b6e33c879a25f3b"

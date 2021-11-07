@@ -9,7 +9,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/tomahawk-player/${BPN}.git \
+    git://github.com/tomahawk-player/${BPN}.git;branch=master;protocol=https \
     file://0001-use-pkg-config-to-find-taglib.patch \
 "
 SRCREV = "7e96285132921936b3a62202d894d5288e5890d2"

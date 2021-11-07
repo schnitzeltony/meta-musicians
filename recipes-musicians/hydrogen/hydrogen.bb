@@ -30,7 +30,7 @@ DEPENDS += " \
 
 
 SRC_URI = " \
-    git://github.com/hydrogen-music/hydrogen.git;branch=master \
+    git://github.com/hydrogen-music/hydrogen.git;branch=master;protocol=https \
     file://0001-hydrogen.default.conf-do-not-show-developer-warnings.patch \
     \
     http://hydro.smoors.de/Audiophob.h2drumkit;downloadfilename=Audiophob.tar.gz;name=Audiophob;subdir=drumkits \

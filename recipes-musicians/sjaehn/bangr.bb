@@ -13,7 +13,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "git://github.com/sjaehn/BAngr.git"
+SRC_URI = "git://github.com/sjaehn/BAngr.git;branch=master;protocol=https"
 SRCREV = "ec25efa0a7a090a8f31dccafa02fe6ffc437aeba"
 S = "${WORKDIR}/git"
 PV = "1.4.0"

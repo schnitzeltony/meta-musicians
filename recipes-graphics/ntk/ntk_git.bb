@@ -4,7 +4,7 @@ LICENSE = "LGPLv2 & FLTK"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f6b26344a24a941a01a5b0826e80b5ca"
 
 SRC_URI = " \
-    git://github.com/falkTX/ntk.git \
+    git://github.com/falkTX/ntk.git;branch=master;protocol=https \
     file://0001-wscript-check-compile-instead-of-tun-check-datatype-.patch \
     file://0002-Fix-build-for-python3-only-environments.patch \
 "

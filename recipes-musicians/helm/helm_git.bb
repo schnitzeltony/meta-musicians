@@ -21,7 +21,7 @@ DEPENDS += " \
 "
 
 SRC_URI += " \
-    git://github.com/mtytel/helm.git \
+    git://github.com/mtytel/helm.git;branch=master;protocol=https \
     file://0001-do-not-create-ttl-files-it-won-t-work-fo-cross.patch \
     file://0002-set-VECTORIZE_LOOP-for-gcc.patch \
     file://0003-use-single-precision-floats-it-performs-much-better.patch \

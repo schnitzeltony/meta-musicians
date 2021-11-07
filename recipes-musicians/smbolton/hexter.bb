@@ -13,7 +13,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/smbolton/hexter.git \
+    git://github.com/smbolton/hexter.git;branch=master;protocol=https \
     file://hexter.desktop \
     file://hexter.png \
 "

@@ -16,7 +16,7 @@ DEPENDS = " \
 "
 
 SRC_URI = " \
-    git://github.com/openAVproductions/openAV-Luppp.git \
+    git://github.com/openAVproductions/openAV-Luppp.git;protocol=https;branch=master \
     file://0001-CMake-Remove-arch-detection-it-detects-build-host.patch \
 "
 SRCREV = "3d3ac0a1743365b958033bdd1625dd19041d2c5f"

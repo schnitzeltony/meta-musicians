@@ -13,7 +13,7 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = "gitsm://github.com/x42/dpl.lv2.git"
+SRC_URI = "gitsm://github.com/x42/dpl.lv2.git;branch=master;protocol=https"
 SRCREV = "e478ef7a1f9b41bc4acd7eec4fc2017022aeed2e"
 PV = "0.5.2"
 S = "${WORKDIR}/git"

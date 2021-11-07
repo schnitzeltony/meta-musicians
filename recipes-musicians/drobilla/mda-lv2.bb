@@ -10,7 +10,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 DEPENDS = "lv2"
 
 SRC_URI = " \
-    gitsm://gitlab.com/drobilla/mda-lv2.git;protocol=https \
+    gitsm://gitlab.com/drobilla/mda-lv2.git;protocol=https;branch=master \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "19752af61234581e0f73db539d5609ab14b3d928"

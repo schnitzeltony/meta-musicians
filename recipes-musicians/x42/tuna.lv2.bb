@@ -16,7 +16,7 @@ DEPENDS += " \
     fftw \
 "
 
-SRC_URI = "gitsm://github.com/x42/tuna.lv2.git"
+SRC_URI = "gitsm://github.com/x42/tuna.lv2.git;branch=master;protocol=https"
 SRCREV = "624075b2567f4558923edf493f2019e37f46c9f5"
 PV = "0.5.5"
 S = "${WORKDIR}/git"

@@ -12,7 +12,7 @@ DEPENDS += " \
     liblo \
 "
 
-SRC_URI = "git://github.com/schnitzeltony/${BPN}.git"
+SRC_URI = "git://github.com/schnitzeltony/${BPN}.git;branch=master;protocol=https"
 SRCREV = "d5727e5902a6dd098bbee5a644dce317ef575328"
 S = "${WORKDIR}/git"
 PV = "0.2+git${SRCPV}"

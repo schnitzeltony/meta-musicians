@@ -12,6 +12,6 @@ DEPENDS += " \
     jack \
 "
 
-SRC_URI = "git://github.com/schnitzeltony/gmidimonitor.git"
+SRC_URI = "git://github.com/schnitzeltony/gmidimonitor.git;branch=master;protocol=https"
 SRCREV = "af366f49970ed91a414e5b832a13436417be4bdb"
 S = "${WORKDIR}/git"

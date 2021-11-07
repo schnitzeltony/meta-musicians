@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    git://github.com/projectM-visualizer/projectm.git;name=projectm \
+    git://github.com/projectM-visualizer/projectm.git;name=projectm;branch=master;protocol=https \
 	http://spiegelmc.com.s3.amazonaws.com/pub/projectm_presets.zip;name=presets \
     file://0001-find-native-qt-build-tools-by-configure-options-auto.patch \
     file://0002-Makefile.am-Fix-installation-with-DESTDIR-set.patch \

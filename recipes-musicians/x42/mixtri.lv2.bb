@@ -13,7 +13,7 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "gitsm://github.com/x42/mixtri.lv2.git;protocol=https"
+SRC_URI = "gitsm://github.com/x42/mixtri.lv2.git;branch=master;protocol=https"
 SRCREV = "4bfbeba3f0146b1cc3e87f3fd0a8917e55452bf1"
 PV = "0.4.3"
 S = "${WORKDIR}/git"

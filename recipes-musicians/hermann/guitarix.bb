@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
 SRC_URI = " \
-    git://github.com/brummer10/guitarix.git \
+    git://github.com/brummer10/guitarix.git;branch=master;protocol=https \
     file://0001-Rework-messages-somehow-yes-or-no-is-missing.patch \
     file://0002-Do-not-strip-LV2-plugins.patch \
 "

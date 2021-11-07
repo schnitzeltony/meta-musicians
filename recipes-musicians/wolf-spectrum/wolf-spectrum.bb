@@ -10,7 +10,7 @@ DEPENDS = " \
 
 inherit pkgconfig lv2-turtle-helper pack_audio_plugins
 
-SRC_URI = "gitsm://github.com/pdesaulniers/wolf-spectrum.git"
+SRC_URI = "gitsm://github.com/pdesaulniers/wolf-spectrum.git;branch=master;protocol=https"
 SRCREV = "87d7aca59e295141a1e8019788267d3ef6d6cae7"
 S = "${WORKDIR}/git"
 PV = "1.0.0"

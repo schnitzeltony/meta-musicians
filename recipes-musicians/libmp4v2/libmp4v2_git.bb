@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=eb3014b036b6d2151d944aef6a84c36f"
 inherit autotools pkgconfig
 
 SRC_URI = " \
-    git://github.com/sergiomb2/${BPN}.git \
+    git://github.com/sergiomb2/${BPN}.git;protocol=https;branch=master \
     file://0001-Fix-build-with-gcc10.patch \
 "
 SRCREV = "855e9674232808ff3be7191b697dfb56917db21f"

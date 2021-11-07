@@ -14,7 +14,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    gitsm://github.com/brummer10/XPolyMonk.lv2.git;protocol=https \
+    gitsm://github.com/brummer10/XPolyMonk.lv2.git;protocol=https;branch=master \
     file://0001-Adjust-to-oe-build.patch \
     file://0002-Do-not-use-host-machine-s-ld-to-pack-resources.patch \
     file://0003-Fix-build-with-lv2-1.1.18.patch \

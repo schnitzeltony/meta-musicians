@@ -13,7 +13,7 @@ DEPENDS += " \
 "
 
 SRC_URI = " \
-    gitsm://gitlab.com/drobilla/patchage.git;protocol=https \
+    gitsm://gitlab.com/drobilla/patchage.git;protocol=https;branch=master \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "34f5d891fabe5c4e6137ce3d94aee8ca1955ebab"

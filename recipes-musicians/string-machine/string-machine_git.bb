@@ -15,7 +15,7 @@ inherit pkgconfig features_check lv2-turtle-helper pack_audio_plugins
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
-    gitsm://github.com/jpcima/string-machine.git \
+    gitsm://github.com/jpcima/string-machine.git;branch=master;protocol=https \
 "
 SRCREV = "cfd556fb88e0236d90170605a7173fd730921fd3"
 S = "${WORKDIR}/git"

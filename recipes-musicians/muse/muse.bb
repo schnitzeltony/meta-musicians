@@ -24,7 +24,7 @@ inherit cmake_qt5 pkgconfig gtk-icon-cache features_check mime qt5-translation m
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = " \
-    git://github.com/muse-sequencer/muse.git \
+    git://github.com/muse-sequencer/muse.git;branch=master;protocol=https \
     file://0001-Do-not-try-to-find-aeffectx.h-it-is-not-found-for-un.patch \
     file://0002-muse-find-unused-wavs-convert-to-pythomn3.patch \
 "

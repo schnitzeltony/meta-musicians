@@ -12,7 +12,7 @@ DEPENDS = " \
 
 inherit cargo
 
-SRC_URI = "git://github.com/Spotifyd/spotifyd.git"
+SRC_URI = "git://github.com/Spotifyd/spotifyd.git;branch=master;protocol=https"
 SRCREV = "27ce5ac95c3a9b8de84bc4c0969a942fda2e2ad0"
 S = "${WORKDIR}/git"
 # crate ruins SRCPV so set PV manually

@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING.TXT;md5=4d2892adf339c4489918ab705d44f66c"
 inherit autotools-brokensep pkgconfig gettext
 
 SRC_URI = " \
-    git://gitlab.com/${BPN}/${BPN}.git \
+    git://gitlab.com/${BPN}/${BPN}.git;branch=master \
     file://0001-Fix-path-to-m4-macro-dir.patch \
 "
 SRCREV = "9205fc971ed23cff407a67242bb9036a51113af4"

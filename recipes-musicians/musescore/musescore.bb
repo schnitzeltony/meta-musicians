@@ -26,7 +26,7 @@ DEPENDS = " \
     freetype \
 "
 
-SRC_URI = "git://github.com/musescore/MuseScore.git;branch=${PV}"
+SRC_URI = "git://github.com/musescore/MuseScore.git;branch=${PV};protocol=https"
 SRCREV = "465e7b6fe50973a24a75891e27575a8d2b962f6a"
 S = "${WORKDIR}/git"
 PV = "3.5.2"

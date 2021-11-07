@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = " \
     file://LICENSE;md5=ec024abddfab2ee463c8c1ad98883d12 \
 "
 
-SRC_URI = "git://github.com/DISTRHO/DPF-Plugins.git"
+SRC_URI = "git://github.com/DISTRHO/DPF-Plugins.git;branch=master;protocol=https"
 SRCREV = "014db6d4ef170b44653b1eb668686b624e4ae3f8"
 S = "${WORKDIR}/git"
 PV = "v1.4"
