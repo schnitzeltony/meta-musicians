@@ -83,7 +83,7 @@ FILES:${PN}-standalone = "${bindir}"
 
 # lsp-plugins (and maybe others) need a gconv cache for target use of iconv
 # see https://github.com/sadko4u/lsp-plugins/issues/17#issuecomment-487416107
-RDEPENDS:${PN}:append:libc-glibc += " \
+RDEPENDS:${PN}:append:libc-glibc = " \
     glibc-gconv glibc-gconvs glibc-utils \
 "
 pkg_postinst_ontarget:${PN}:append:libc-glibc() {
