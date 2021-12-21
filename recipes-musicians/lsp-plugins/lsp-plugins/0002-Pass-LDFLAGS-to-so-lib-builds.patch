@@ -16,7 +16,7 @@ index 0d67881b..18ba73fb 100644
 --- a/scripts/make/tools.mk
 +++ b/scripts/make/tools.mk
 @@ -27,7 +27,7 @@ LD                       ?= $(TOOL_LD)
- MAKE_OPTS                 = -s
+ 
  CFLAGS                   += $(CC_ARCH) $(FLAG_CTUNE) $(CC_FLAGS) $(FLAG_VERSION)
  CXXFLAGS                 += $(CC_ARCH) $(FLAG_CTUNE) $(CC_FLAGS) $(FLAG_VERSION)
 -SO_FLAGS                  = $(CC_ARCH) $(FLAG_RELRO) -Wl,--gc-sections -shared -Llibrary -lc -fPIC

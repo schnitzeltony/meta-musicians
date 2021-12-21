@@ -14,15 +14,18 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/Makefile b/src/Makefile
-index a246ebda..17f390eb 100644
+index a340210f..9f4c003f 100644
 --- a/src/Makefile
 +++ b/src/Makefile
-@@ -1,4 +1,4 @@
+@@ -6,7 +6,7 @@ ifneq ($(VERBOSE),1)
+ .SILENT:
+ endif
+ 
 -SUBDIRS                 = core metadata utils 
 +SUBDIRS                 = core dsp metadata utils
  MODULES                 = $(SUBDIRS)
  CONTAINER_DEPS          = $(OBJ_METADATA) $(OBJ_CORE) $(UTL_FILES)
  UTL_DEPS                = $(OBJ_CORE) $(OBJ_DSP) $(OBJ_METADATA)
 -- 
-2.21.0
+2.31.1
 

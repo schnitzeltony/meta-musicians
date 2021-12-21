@@ -7,8 +7,8 @@ SRC_URI = " \
     gitsm://github.com/sadko4u/lsp-plugins.git;branch=master;protocol=https \
     file://0001-Add-missing-dsp-in-SUBDIRS.patch \
 "
-SRCREV = "d78befc2faaa6de64050c3c4b662dea429e47c40"
+SRCREV = "5ea0b02e08595a2fd2e29a1e0a2acf7189cce47a"
 S = "${WORKDIR}/git"
-PV = "1.1.30"
+PV = "1.1.31"
 
 do_configure[noexec] = "1"
