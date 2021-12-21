@@ -46,6 +46,7 @@ DEPENDS += " \
 
 SRC_URI = " \
     git://github.com/mixxxdj/${BPN}.git;branch=main;protocol=https \
+    file://0001-Update-Benchmark-library-to-v1.6.0.patch \
 "
 SRCREV = "8acb633220024222504cddcd1f5ea26e659fbcc7"
 S = "${WORKDIR}/git"
