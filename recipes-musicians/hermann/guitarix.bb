@@ -8,8 +8,8 @@ SRC_URI = " \
     file://0001-Rework-messages-somehow-yes-or-no-is-missing.patch \
     file://0002-Do-not-strip-LV2-plugins.patch \
 "
-SRCREV = "7dfddb517000b3a5c22875c5b06f71ed589adddd"
-PV = "0.42.1+git${SRCPV}"
+SRCREV = "8937e12db24d98793cd413ab634004a297f71c89"
+PV = "0.43.1"
 S = "${WORKDIR}/git/trunk"
 
 inherit waf pkgconfig fontcache gettext
@@ -70,6 +70,7 @@ do_install:append() {
 
 FILES:${PN} += " \
     ${datadir}/fonts \
+    ${datadir}/metainfo \
     ${datadir}/gx_head \
     ${datadir}/ladspa \
     ${libdir}/ladspa \
