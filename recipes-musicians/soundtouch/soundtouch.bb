@@ -1,14 +1,14 @@
 SUMMARY = "SoundTouch audio tempo/pitch control library"
 HOMEPAGE = "http://www.surina.net/soundtouch/index.html"
 LICENSE = "LGPLv2.1"
-LIC_FILES_CHKSUM = "file://COPYING.TXT;md5=4d2892adf339c4489918ab705d44f66c"
+LIC_FILES_CHKSUM = "file://COPYING.TXT;md5=e05877bfa22930262b6cfbe7db2eea24"
 
-inherit autotools-brokensep pkgconfig gettext
+inherit cmake pkgconfig gettext
 
 SRC_URI = " \
-    git://gitlab.com/${BPN}/${BPN}.git;branch=master \
+    git://codeberg.org/soundtouch/soundtouch.git;protocol=https;branch=master \
     file://0001-Fix-path-to-m4-macro-dir.patch \
 "
-SRCREV = "9205fc971ed23cff407a67242bb9036a51113af4"
-PV = "2.1.2"
+SRCREV = "e1f315f5358d9db5cee35a7a2886425489fcefe8"
+PV = "2.3.1"
 S = "${WORKDIR}/git"
