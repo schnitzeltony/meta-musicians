@@ -9,6 +9,7 @@ DEPENDS += " \
     qttools-native \
     qtbase \
     qtmultimedia \
+    qtx11extras \
     ffmpeg \
     libsamplerate0 \
     curl \
@@ -36,7 +37,9 @@ SRC_URI = " \
 "
 SRC_URI[sha256sum] = "f3dc676039b5f190e6a87377a6b2bd2bcca122d1659b5f22668c7a284bb91f43"
 
-inherit cmake_qt5 mime-xdg
+REQUIRED_DISTRO_FEATURES = "x11"
+
+inherit cmake_qt5 mime-xdg pkgconfig features_check
 
 FILES:${PN} += " \
     ${datadir} \
