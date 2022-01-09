@@ -1,7 +1,7 @@
 SUMMARY = "JACK Audio Connection Kit - Qt GUI Interface"
 HOMEPAGE = "http://qjackctl.sourceforge.net"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \
     qtbase-native \
@@ -20,8 +20,8 @@ SRC_URI = " \
 "
 SRCREV = "c88e08a7d62be39ea541d26c8c7e1e7b82289cd3"
 
-SRC_URI[sha256sum] = "3b9b15cafc6b61540596240db216c59338e6e4a1fb9042a0a5bc59dd35efc1bc"
-PV = "0.9.5"
+SRC_URI[sha256sum] = "39ca2b9d83acfdd16a4c9b3eccd80e1483e1f9a446626f5d00ac297e6f8a166b"
+PV = "0.9.6"
 
 FILES:${PN} += " \
     ${datadir}/metainfo \
