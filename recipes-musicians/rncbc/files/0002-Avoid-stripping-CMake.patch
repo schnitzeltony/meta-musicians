@@ -36,7 +36,7 @@ index e5ef1c1..656d02f 100644
 -    endif ()
      install (TARGETS ${PROJECT_NAME}_jack RUNTIME
        DESTINATION ${CMAKE_INSTALL_BINDIR})
-     install (FILES ${PROJECT_NAME}.desktop
+     install (FILES org.rncbc.${PROJECT_NAME}.desktop
 -- 
 2.31.1
 

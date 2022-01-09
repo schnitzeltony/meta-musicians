@@ -1,7 +1,7 @@
 SUMMARY = "An old-school drum kit sampler"
 HOMEPAGE = "http://drumkv1.sourceforge.net/"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \
     qtbase-native \
@@ -28,8 +28,8 @@ SRC_URI = " \
     file://0002-Avoid-stripping-CMake.patch \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1;branch=master;protocol=https \
 "
-PV = "0.9.23"
-SRC_URI[sha256sum] = "80db1cb2a1a911f53508d243941033ba6f4cd2fcc94a6e96c796ffce13adfac9"
+PV = "0.9.24"
+SRC_URI[sha256sum] = "b3d7a4105e94c3b29235d2d00ae74d0be6a00d62e791c968056aa64ff7ac6012"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
