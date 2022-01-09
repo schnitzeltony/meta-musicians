@@ -1,7 +1,7 @@
 SUMMARY = "An old-school all-digital 4-oscillator subtractive polyphonic synthesizer"
 HOMEPAGE = "http://synthv1.sourceforge.net/"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \
     qtbase-native \
@@ -22,8 +22,8 @@ SRC_URI = " \
     \
     file://synthv1.conf \
 "
-PV = "0.9.23"
-SRC_URI[sha256sum] = "d15ef64f9d62713fedf5f25fe26c1c31864b8f34cf9e68826d4f817709c29b0e"
+PV = "0.9.24"
+SRC_URI[sha256sum] = "74857bf2497023dd0ebe59222e548d870598312b18a5826c54f4033c0fbd3d55"
 
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
 
