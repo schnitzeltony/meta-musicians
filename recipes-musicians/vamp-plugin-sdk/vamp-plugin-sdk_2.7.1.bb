@@ -1,6 +1,6 @@
 SUMMARY = "The Vamp audio analysis plugin system - SDK"
 HOMEPAGE = "http://www.vamp-plugins.org/develop.html"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=af2765066122f0233483605ef6d299fa"
 
 inherit autotools-brokensep pkgconfig
