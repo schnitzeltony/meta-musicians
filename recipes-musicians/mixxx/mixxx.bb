@@ -1,7 +1,7 @@
 SUMMARY = "Qt based DJ software"
 HOMEPAGE = "http://mixxx.org/"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e5323335634095f8bdd15f6a5c5c5865"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b3ce5d18079fa79804cd62469a51d176"
 
 inherit cmake_qt5 gtk-icon-cache features_check
 
@@ -44,13 +44,10 @@ DEPENDS += " \
 # causes segfault trying to find debug libs
 #    gperftools
 
-SRC_URI = " \
-    git://github.com/mixxxdj/${BPN}.git;branch=main;protocol=https \
-    file://0001-Update-Benchmark-library-to-v1.6.0.patch \
-"
-SRCREV = "8acb633220024222504cddcd1f5ea26e659fbcc7"
+SRC_URI = "git://github.com/mixxxdj/${BPN}.git;branch=main;protocol=https"
+SRCREV = "96fc5dd217a81d0e2327a52f564f7aea7d5c2c43"
 S = "${WORKDIR}/git"
-PV = "2.3.1"
+PV = "2.3.2"
 
 EXTRA_OECMAKE += " \
     -DSHOUTCAST=OFF \
