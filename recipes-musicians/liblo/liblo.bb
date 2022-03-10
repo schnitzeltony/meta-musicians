@@ -1,6 +1,6 @@
 SUMMARY = "liblo is an implementation of the Open Sound Control protocol"
 HOMEPAGE = "http://liblo.sourceforge.net"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fbc093901857fcd118f065f900982c24"
 
 inherit autotools pkgconfig

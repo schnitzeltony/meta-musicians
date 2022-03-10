@@ -1,6 +1,6 @@
 SUMMARY = "High quality open source audio plugins for musicians"
 HOMEPAGE = "http://calf-studio-gear.org/"
-LICENSE = "GPLv2 & LGPLv2.1"
+LICENSE = "GPL-2.0-only & LGPL-2.1-only"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=dcf3c825659e82539645da41a7908589 \
     file://COPYING.GPL;md5=94d55d512a9ba36caa9b7df079bae19f \

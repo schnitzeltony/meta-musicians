@@ -1,6 +1,6 @@
 SUMMARY = "Synthesizer plug-in (previously released as Vember Audio Surge)"
 HOMEPAGE = "https://surge-synthesizer.github.io/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=79ee739fc097e8ad5582e1d177746365"
 
 DEPENDS += " \

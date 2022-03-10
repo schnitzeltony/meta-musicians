@@ -1,6 +1,6 @@
 SUMMARY = "projectM is a MilkDrop compatible opensource music visualizer"
 HOMEPAGE = "http://projectm-visualizer.github.io/projectm"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=26f590fe167311fe2a5a7ce0b3e71900"
 
 inherit autotools-brokensep pkgconfig features_check

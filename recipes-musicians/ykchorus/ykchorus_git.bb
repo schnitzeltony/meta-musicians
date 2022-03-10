@@ -1,6 +1,6 @@
 SUMMARY = "A chorus audio effect plugin based on DSP code by Togu Audio Line (TAL)"
 HOMEPAGE = "https://github.com/SpotlightKid/ykchorus"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=02ad2afd072e9ce4a370bedb49e2b075"
 
 inherit pkgconfig gtk-icon-cache lv2-turtle-helper pack_audio_plugins

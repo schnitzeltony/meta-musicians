@@ -1,6 +1,6 @@
 SUMMARY = "A virtual guitar amplifier"
 HOMEPAGE = "http://guitarix.org/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=384f45fb7968a0fe30622ce6160d3b69"
 
 SRC_URI = " \

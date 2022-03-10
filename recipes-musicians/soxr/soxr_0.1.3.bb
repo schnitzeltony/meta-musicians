@@ -1,6 +1,6 @@
 SUMMARY = "The SoX Resampler library"
 HOMEPAGE = "https://sourceforge.net/projects/soxr/"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=1f6605fc6dfe53a780959dfef7061f77"
 
 inherit cmake

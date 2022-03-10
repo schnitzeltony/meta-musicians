@@ -1,6 +1,6 @@
 SUMMARY = "Rewrite of Ninjas sample slicer"
 HOMEPAGE = "https://github.com/rghvdberg/ninjas2"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=97a733ff40c50b4bfc74471e1f6ca88b"
 
 DEPENDS = " \

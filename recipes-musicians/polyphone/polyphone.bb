@@ -1,6 +1,6 @@
 SUMMARY = "Soundfont editor"
 HOMEPAGE = "http://polyphone-soundfonts.com/en/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://main.cpp;beginline=6;endline=18;md5=11e8b245e7c8a15dafd52bc856ef3ff1"
 
 inherit qmake5 pkgconfig gtk-icon-cache mime mime-xdg dos2unix

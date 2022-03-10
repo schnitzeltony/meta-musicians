@@ -1,6 +1,6 @@
 SUMMARY = "A library for reading and resampling audio files"
 HOMEPAGE = "https://www.zrythm.org/"
-LICENSE = "AGPL-3.0"
+LICENSE = "AGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=eb1e647870add0502f8f010b19de32af"
 
 inherit meson

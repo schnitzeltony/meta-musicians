@@ -1,6 +1,6 @@
 SUMMARY = "A C++ library of functions for DSP and Music Informatics purposes"
 HOMEPAGE = "https://code.soundsoftware.ac.uk/projects/qm-dsp"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=cbbd794e2a0a289b9dfcc9f513d1996e"
 
 

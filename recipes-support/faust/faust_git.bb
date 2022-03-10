@@ -1,6 +1,6 @@
 SUMMARY = "Programming language for signal processing and sound synthesis"
 HOMEPAGE = "http://faust.grame.fr/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://../COPYING.txt;md5=212be99c180b5dc717a32f58f34ca3fa"
 
 SRC_URI = " \

@@ -1,6 +1,6 @@
 SUMMARY = "Extended Module Player Library"
 HOMEPAGE = "http://xmp.sourceforge.net/"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://README;beginline=59;md5=9cee4cd08e9762f4a8fda61cb39d430d"
 
 inherit autotools-brokensep pkgconfig

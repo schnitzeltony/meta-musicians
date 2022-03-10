@@ -1,6 +1,6 @@
 SUMMARY = "LV2 port of SID 6581 chip used in the Commodore 64"
 HOMEPAGE = "https://github.com/ssj71/reMID.lv2"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3"
 
 DEPENDS += " \

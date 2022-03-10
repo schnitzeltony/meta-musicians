@@ -1,6 +1,6 @@
 SUMMARY = "Lightweight Spotify client using Qt"
 HOMEPAGE = "https://github.com/kraxarn/spotify-qt"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://license;md5=e49f4652534af377a713df3d9dec60cb"
 
 SRC_URI = "git://github.com/kraxarn/spotify-qt.git;branch=master;protocol=https"

@@ -1,6 +1,6 @@
 SUMMARY = "Multi channel MIDI step sequencer LV2 plugin with a variable matrix"
 HOMEPAGE = "https://github.com/sjaehn/BSEQuencer"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1ebbd3e34237af26da5dc08a4e440464"
 
 REQUIRED_DISTRO_FEATURES = "x11"

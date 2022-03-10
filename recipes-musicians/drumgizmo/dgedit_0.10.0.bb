@@ -1,6 +1,6 @@
 SUMMARY = "DrumGizmo drumkit editor"
 HOMEPAGE = "https://www.drumgizmo.org"
-LICENSE = "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS += " \

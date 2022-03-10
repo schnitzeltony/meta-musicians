@@ -1,6 +1,6 @@
 SUMMARY = "Ardour is a multi-channel digital audio workstation"
 HOMEPAGE = "http://ardour.org/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4641e94ec96f98fabc56ff9cc48be14b"
 
 DEPENDS += " \

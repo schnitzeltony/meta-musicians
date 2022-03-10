@@ -1,6 +1,6 @@
 SUMMARY = "Sequenced audio slicing effect LV2 plugin"
 HOMEPAGE = "https://github.com/sjaehn/BSlizr"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d32239bcb673463ab874e80d47fae504"
 
 REQUIRED_DISTRO_FEATURES = "x11"

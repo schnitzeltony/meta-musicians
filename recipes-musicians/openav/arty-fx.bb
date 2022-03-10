@@ -1,6 +1,6 @@
 SUMMARY = "ArtyFX is a plugin bundle of artistic real-time audio effects"
 HOMEPAGE = "http://openavproductions.com/artyfx/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4cc91856b08b094b4f406a29dc61db21"
 
 inherit cmake pkgconfig

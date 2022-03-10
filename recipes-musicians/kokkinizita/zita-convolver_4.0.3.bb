@@ -1,6 +1,6 @@
 SUMMARY = "A fast, partitioned convolution engine library"
 HOMEPAGE = "http://kokkinizita.linuxaudio.org/linuxaudio/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit manpages

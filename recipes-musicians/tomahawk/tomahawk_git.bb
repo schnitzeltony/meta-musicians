@@ -1,5 +1,5 @@
 SUMMARY = "Tomahawk, the multi-source music player"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=9eef91148a9b14ec7f9df333daebc746"
 
 DEPENDS += " \

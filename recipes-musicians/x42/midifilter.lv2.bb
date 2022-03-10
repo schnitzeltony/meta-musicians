@@ -1,6 +1,6 @@
 SUMMARY = "LV2 plugins to filter midi events"
 HOMEPAGE = "http://x42.github.io/midifilter.lv2/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4641e94ec96f98fabc56ff9cc48be14b"
 
 inherit pkgconfig

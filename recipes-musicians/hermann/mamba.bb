@@ -1,6 +1,6 @@
 SUMMARY = "Virtual Midi Keyboard for Jack Audio Connection Kit"
 HOMEPAGE = "https://github.com/brummer10/Mamba"
-LICENSE = "BSD-0-Clause"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1a396d84ed72b4a017f02f5c5d1eaafe"
 
 SRC_URI = "gitsm://github.com/brummer10/Mamba.git;branch=master;protocol=https"

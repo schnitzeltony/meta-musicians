@@ -1,5 +1,5 @@
 SUMMARY = "Library to access CDDB data"
-LICENSE = "LGPLv2"
+LICENSE = "LGPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6e29c688d912da12b66b73e32b03d812"
 
 DEPENDS = "libcdio"

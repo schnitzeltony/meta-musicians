@@ -1,6 +1,6 @@
 SUMMARY = "Emulator for vintage synthesisers, electric pianos and organs"
 HOMEPAGE = "https://sourceforge.net/projects/bristol/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.GPL;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit autotools pkgconfig  features_check

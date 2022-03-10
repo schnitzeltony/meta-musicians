@@ -1,6 +1,6 @@
 SUMMARY = "Helm - a free polyphonic synth with lots of modulation"
 HOMEPAGE = "http://tytel.org/helm/"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit dos2unix pkgconfig qemu-ext-musicians features_check gtk-icon-cache pack_audio_plugins mime-xdg

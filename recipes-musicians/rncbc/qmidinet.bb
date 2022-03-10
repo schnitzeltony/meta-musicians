@@ -1,6 +1,6 @@
 SUMMARY = "JA MIDI Remote Controller via UDP/IP Multicast"
 HOMEPAGE = "http://qmidictl.sourceforge.net"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \

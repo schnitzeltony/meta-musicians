@@ -1,6 +1,6 @@
 SUMMARY = "SoundTouch audio tempo/pitch control library"
 HOMEPAGE = "http://www.surina.net/soundtouch/index.html"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING.TXT;md5=e05877bfa22930262b6cfbe7db2eea24"
 
 inherit cmake pkgconfig gettext

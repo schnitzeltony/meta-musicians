@@ -1,6 +1,6 @@
 SUMMARY = "MusE is a digital audio workstation"
 HOMEPAGE = "http://muse-sequencer.org/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://src/COPYING;md5=328283dc167a7b37ffdc59f524a7fc4d"
 
 DEPENDS += " \

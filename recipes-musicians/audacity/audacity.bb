@@ -1,6 +1,6 @@
 SUMMARY = "Audacity is an easy-to-use, multi-track audio editor and recorder"
 HOMEPAGE = "https://www.audacityteam.org/"
-LICENSE = "GPL-2.0 & CC-BY-3.0"
+LICENSE = "GPL-2.0-only & CC-BY-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=549b88b1c547acbec8f9e262f30b573e"
 
 PV = "2.4.2"

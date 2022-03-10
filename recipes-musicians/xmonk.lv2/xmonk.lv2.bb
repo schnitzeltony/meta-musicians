@@ -1,6 +1,6 @@
 SUMMARY = "A LV2 toy"
 HOMEPAGE = "https://github.com/brummer10/Xmonk.lv2"
-LICENSE = "BSD-0-Clause"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ed1102993e593e0f97408b1bd982836a"
 
 inherit pkgconfig features_check

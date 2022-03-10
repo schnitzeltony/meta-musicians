@@ -1,6 +1,6 @@
 SUMMARY = "at1.lv2 is an auto-tuner based on Fons Adriaensen's zita-at1."
 HOMEPAGE = "https://x42-plugins.com/x42/x42-autotune"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 inherit pkgconfig features_check

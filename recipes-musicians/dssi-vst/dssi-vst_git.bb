@@ -1,6 +1,6 @@
 SUMMARY = "DSSI plugin wrapper for VST plugins"
 HOMEPAGE = "http://breakfastquay.com/dssi-vst/"
-LICENSE = "LGPLv2"
+LICENSE = "LGPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=3523f03012c30f3347df42d632e5762c"
 
 inherit pkgconfig

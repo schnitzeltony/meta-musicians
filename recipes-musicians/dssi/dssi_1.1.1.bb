@@ -1,6 +1,6 @@
 SUMMARY = "DSSI is an audio plugin API for soft synths and effects"
 HOMEPAGE = "http://dssi.sourceforge.net"
-LICENSE = "LGPLv2.1"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9f46aa1ea6e91bb339e8fa2f11d17e4d"
 
 inherit autotools pkgconfig

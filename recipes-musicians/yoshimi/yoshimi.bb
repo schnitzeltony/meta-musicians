@@ -1,6 +1,6 @@
 SUMMARY = "Yoshimi is a software synthesizer for Linux, a fork of ZynAddSubFX"
 HOMEPAGE = "http://yoshimi.sourceforge.net/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4c5f39c482ca5ca058c1ebd39612cf98"
 
 inherit cmake pkgconfig gtk-icon-cache features_check

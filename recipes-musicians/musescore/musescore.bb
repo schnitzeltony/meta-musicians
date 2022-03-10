@@ -1,6 +1,6 @@
 SUMMARY = "MuseScore is an open source and free music notation software"
 HOMEPAGE = "https://musescore.org"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=ef318be74ef69ee7f919c9ebb45b6e21"
 
 python() {

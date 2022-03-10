@@ -1,6 +1,6 @@
 SUMMARY = "A Linux MIDI Arpeggiator, Step Sequencer and LFO"
 HOMEPAGE = "http://qmidiarp.sourceforge.net"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=cbbd794e2a0a289b9dfcc9f513d1996e"
 
 DEPENDS += " \

@@ -1,5 +1,5 @@
 SUMMARY = "Collection of DPF-based plugins"
-LICENSE = "ISC & GPLv2 & GPLv3 & LGPLv3 & MIT"
+LICENSE = "ISC & GPL-2.0-only & GPL-3.0-only & LGPL-3.0-only & MIT"
 LIC_FILES_CHKSUM = " \
     file://LICENSE;md5=ec024abddfab2ee463c8c1ad98883d12 \
 "

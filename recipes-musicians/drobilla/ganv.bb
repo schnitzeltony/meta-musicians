@@ -1,7 +1,7 @@
 SUMMARY = "Ganv is a Gtk widget for interactive graph-like environments"
 DESCRIPTION = "Ganv is a Gtk widget for interactive graph-like environments, such as modular synthesizers or finite state machines"
 HOMEPAGE = "http://drobilla.net/software/ganv"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit waf pkgconfig

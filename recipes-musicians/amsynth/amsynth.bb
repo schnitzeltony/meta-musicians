@@ -1,6 +1,6 @@
 SUMMARY = "Software synth with a classic subtractive synthesizer topology"
 HOMEPAGE = "http://amsynth.github.io/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=67b604758dd265c185ce36fcf76a889d"
 
 inherit autotools pkgconfig gtk-icon-cache gettext pack_audio_plugins

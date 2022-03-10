@@ -1,6 +1,6 @@
 SUMMARY = "Audio plugin host"
 HOMEPAGE = "http://kxstudio.linuxaudio.org/Applications:Carla"
-LICENSE = "GPLv2 & LGPLv3"
+LICENSE = "GPL-2.0-only & LGPL-3.0-only"
 LIC_FILES_CHKSUM = " \
     file://doc/GPL.txt;md5=4641e94ec96f98fabc56ff9cc48be14b \
     file://doc/LGPL.txt;md5=e6a600fd5e1d9cbde2d983680233ad02 \

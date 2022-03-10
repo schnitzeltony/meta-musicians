@@ -1,6 +1,6 @@
 SUMMARY = "Fabla is an open-source LV2 drum sampler plugin instrument"
 HOMEPAGE = "http://openavproductions.com/fabla/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4cc91856b08b094b4f406a29dc61db21"
 
 inherit cmake pkgconfig

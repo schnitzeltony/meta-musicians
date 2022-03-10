@@ -1,6 +1,6 @@
 SUMMARY = "Matrix Mixer & Trigger (Pre-Processor for Oscilloscope)"
 HOMEPAGE = "https://github.com/x42/mixtri.lv2"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 inherit pkgconfig

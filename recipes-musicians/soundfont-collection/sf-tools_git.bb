@@ -1,5 +1,5 @@
 SUMMARY = "Commandline tools for soundfont analysis and split"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = " \
     file://LICENSE;md5=75859989545e37968a99b631ef42722e \
 "

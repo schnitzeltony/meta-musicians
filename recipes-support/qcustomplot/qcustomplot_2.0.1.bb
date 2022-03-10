@@ -1,5 +1,5 @@
 SUMMARY = "QCustomPlot is a Qt C++ widget for plotting and data visualization"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://GPL.txt;md5=d32239bcb673463ab874e80d47fae504"
 
 # At the beginning we had to go backwards

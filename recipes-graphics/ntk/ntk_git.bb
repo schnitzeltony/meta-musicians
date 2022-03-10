@@ -1,6 +1,6 @@
 SUMMARY = "NTK is a fork of FLTK"
 SECTION = "libs"
-LICENSE = "LGPLv2 & FLTK"
+LICENSE = "LGPL-2.0-only & FLTK"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f6b26344a24a941a01a5b0826e80b5ca"
 
 SRC_URI = " \

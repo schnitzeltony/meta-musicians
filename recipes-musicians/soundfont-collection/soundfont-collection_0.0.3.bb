@@ -1,5 +1,5 @@
 SUMMARY = "A collection of free soundfonts"
-LICENSE = "GPLv2 & MIT & CC-BY-3.0 & CC0-1.0"
+LICENSE = "GPL-2.0-only & MIT & CC-BY-3.0 & CC0-1.0"
 LIC_FILES_CHKSUM = " \
     file://YDP-GrandPiano-SF2-20160804/YDP-GrandPiano-20160804.txt;beginline=6;endline=13;md5=bc4ea1672a4d8fb0b2eb2f95a5d49bf2 \
     file://UprightPianoKW-SF2-20190703/readme.txt;beginline=21;endline=22;md5=b923259da7dc404552b0a300da4afb95 \

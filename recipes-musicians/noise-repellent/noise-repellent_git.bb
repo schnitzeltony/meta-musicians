@@ -1,6 +1,6 @@
 SUMMARY = "An lv2 plugin for broadband noise reduction"
 HOMEPAGE = "https://github.com/lucianodato/noise-repellent"
-LICENSE = "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 inherit meson pkgconfig gtk-icon-cache

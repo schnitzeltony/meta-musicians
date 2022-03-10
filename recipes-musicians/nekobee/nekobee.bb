@@ -1,6 +1,6 @@
 SUMMARY = "A softsynth recreation of a classic single-oscillator bass monosynth"
 HOMEPAGE = "https://github.com/gordonjcp/nekobee"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 
 inherit wafold pkgconfig python3native

@@ -1,7 +1,7 @@
 SUMMARY = "Raul is a utility library primarily aimed at audio/musical applications"
 DESCRIPTION = "Raul (Realtime Audio Utility Library) is a C++ utility library primarily aimed at audio/musical applications"
 HOMEPAGE = "https://drobilla.net/software/raul"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit waf pkgconfig

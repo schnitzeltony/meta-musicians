@@ -1,6 +1,6 @@
 SUMMARY = "Rubber Band Library library for audio time-stretching and pitch-shifting"
 HOMEPAGE = "http://breakfastquay.com/rubberband/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=28f6289fba0406b8f491e9b2d5767488"
 
 inherit meson pkgconfig

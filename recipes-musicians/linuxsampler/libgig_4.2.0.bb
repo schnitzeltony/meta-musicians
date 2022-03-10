@@ -1,6 +1,6 @@
 SUMMARY = "GigaStudio/Gigasampler, DLS, AKAI, SoundFont, KORG file access library"
 HOMEPAGE = "http://www.linuxsampler.org"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=526c29250ae72f6933cdc01414b9943b \
 "

@@ -1,5 +1,5 @@
 SUMMARY = "Redkite is a small free software GUI toolkit"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84216b5b30fa50e81f28b8f28feb2e10"
 
 DEPENDS = "cairo"

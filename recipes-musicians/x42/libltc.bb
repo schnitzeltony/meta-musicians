@@ -1,6 +1,6 @@
 SUMMARY = "Linear/Logitudinal Time Code (LTC) Library"
 HOMEPAGE = "http://x42.github.io/libltc/"
-LICENSE = "LGPLv3"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6a6a8e020838b23406c81b19c1d46df6"
 
 inherit autotools

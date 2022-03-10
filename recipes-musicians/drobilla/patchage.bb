@@ -1,7 +1,7 @@
 SUMMARY = "Patchage is a modular patch bay for audio and MIDI systems"
 DESCRIPTION = "Patchage is a modular patch bay for audio and MIDI systems based on Jack and Alsa"
 HOMEPAGE = "http://drobilla.net/software/patchage"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit waf gtk-icon-cache pkgconfig

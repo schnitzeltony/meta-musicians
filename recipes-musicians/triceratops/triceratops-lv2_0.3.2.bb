@@ -1,6 +1,6 @@
 SUMMARY = "Polyphonic synthesizer LV2 plugin"
 HOMEPAGE = "http://thunderox.com/thor/?q=node/2"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 DEPENDS += " \

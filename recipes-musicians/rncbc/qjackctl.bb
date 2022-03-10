@@ -1,6 +1,6 @@
 SUMMARY = "JACK Audio Connection Kit - Qt GUI Interface"
 HOMEPAGE = "http://qjackctl.sourceforge.net"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS += " \

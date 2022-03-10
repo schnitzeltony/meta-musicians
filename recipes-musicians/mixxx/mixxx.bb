@@ -1,6 +1,6 @@
 SUMMARY = "Qt based DJ software"
 HOMEPAGE = "http://mixxx.org/"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b3ce5d18079fa79804cd62469a51d176"
 
 inherit cmake_qt5 gtk-icon-cache features_check

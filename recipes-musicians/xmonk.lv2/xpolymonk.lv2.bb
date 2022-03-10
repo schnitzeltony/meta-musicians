@@ -1,6 +1,6 @@
 SUMMARY = "Polyphonic version of Xmonk.lv2"
 HOMEPAGE = "https://github.com/brummer10/XPolyMonk.lv2"
-LICENSE = "BSD-0-Clause"
+LICENSE = "0BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ed1102993e593e0f97408b1bd982836a"
 
 inherit pkgconfig features_check

@@ -1,6 +1,6 @@
 SUMMARY = "Digital Peak Limiter LV2 Plugin"
 HOMEPAGE = "https://x42-plugins.com/x42/x42-limiter"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=9eef91148a9b14ec7f9df333daebc746"
 
 inherit pkgconfig

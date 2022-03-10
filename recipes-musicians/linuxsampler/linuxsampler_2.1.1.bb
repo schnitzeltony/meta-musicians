@@ -1,6 +1,6 @@
 SUMMARY = "LinuxSampler - modular, streaming capable sampler"
 HOMEPAGE = "http://www.linuxsampler.org"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = " \
     file://COPYING;md5=0640e0c29fde7334746a009461544030 \
 "

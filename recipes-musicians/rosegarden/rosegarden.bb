@@ -1,6 +1,6 @@
 SUMMARY = "Rosegarden is a music composition and editing environment"
 HOMEPAGE = "http://www.rosegardenmusic.com/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=b33ec9f109e9943af917779ba6ec522e"
 
 DEPENDS += " \

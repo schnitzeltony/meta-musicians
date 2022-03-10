@@ -1,6 +1,6 @@
 SUMMARY = "Chromaprint is library that extracts fingerprints from audio sources"
 HOMEPAGE = "https://acoustid.org/chromaprint"
-LICENSE = "MIT & LGPLv2.1"
+LICENSE = "MIT & LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=5d50f7a9fde1110fa1756b0f5faa26f2"
 
 inherit cmake
