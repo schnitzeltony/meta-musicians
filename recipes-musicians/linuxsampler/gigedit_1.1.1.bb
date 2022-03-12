@@ -9,6 +9,7 @@ DEPENDS = " \
     glib-2.0-native \
     intltool-native \
     libxslt-native \
+    docbook-xsl-stylesheets-native \
     gtkmm3 \
     linuxsampler \
 "
