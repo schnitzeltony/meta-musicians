@@ -1,0 +1,47 @@
+From 7b62fe6f493f0110ccdea23c9cf7ea493d152f0c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 17 Mar 2022 21:50:27 +0100
+Subject: [PATCH] Build with ffmpeg4
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ cmake-proxies/CMakeLists.txt        | 2 +-
+ cmake-proxies/ffmpeg/CMakeLists.txt | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/cmake-proxies/CMakeLists.txt b/cmake-proxies/CMakeLists.txt
+index 9ca7286ac..62e515491 100644
+--- a/cmake-proxies/CMakeLists.txt
++++ b/cmake-proxies/CMakeLists.txt
+@@ -137,7 +137,7 @@ addlib( portaudio-v19      portaudio   PORTAUDIO   YES   YES   "" )
+ # Optional libraries
+ #
+ #       directory          option      symbol      req   chk   version
+-addlib( ffmpeg             ffmpeg      FFMPEG      NO    NO    "libavcodec >= 51.53" "libavformat >= 52.12" "libavutil >= 52.66" )
++addlib( ffmpeg             ffmpeg      FFMPEG      NO    NO    "libavcodec4 >= 51.53" "libavformat4 >= 52.12" "libavutil4 >= 52.66" )
+ addlib( libid3tag          id3tag      LIBID3TAG   NO    YES   "id3tag >= 0.15.1b" )
+ addlib( libmad             mad         LIBMAD      NO    YES   "mad >= 0.15.1b" )
+ addlib( libnyquist         nyquist     NYQUIST     NO    YES   "" )
+diff --git a/cmake-proxies/ffmpeg/CMakeLists.txt b/cmake-proxies/ffmpeg/CMakeLists.txt
+index 98f12c86d..f5ed33f33 100644
+--- a/cmake-proxies/ffmpeg/CMakeLists.txt
++++ b/cmake-proxies/ffmpeg/CMakeLists.txt
+@@ -2,9 +2,9 @@
+ # Add our target and all of it's aliases
+ add_library( ${TARGET} INTERFACE )
+ add_library( ${symbol} ALIAS ${TARGET} )
+-add_library( libavcodec ALIAS ${TARGET} )
+-add_library( libavformat ALIAS ${TARGET} )
+-add_library( libavutil ALIAS ${TARGET} )
++add_library( libavcodec4 ALIAS ${TARGET} )
++add_library( libavformat4 ALIAS ${TARGET} )
++add_library( libavutil4 ALIAS ${TARGET} )
+ 
+ # Pull in standard variables
+ def_vars()
+-- 
+2.34.1
+

@@ -7,6 +7,7 @@ PV = "2.4.2"
 SRC_URI = " \
     git://github.com/audacity/audacity.git;branch=master;protocol=https \
     file://0001-Do-not-ask-git-for-version-information-it-breaks-bui.patch \
+    file://0002-Build-with-ffmpeg4.patch \
 "
 SRCREV ="16d52f63a4183bba77ef7305d14622958dc0d1d5"
 S = "${WORKDIR}/git"
@@ -20,7 +21,7 @@ DEPENDS = " \
     alsa-lib \
     jack \
     libid3tag \
-    ffmpeg \
+    ffmpeg4 \
     libmad \
     vamp-plugin-sdk \
     libogg \
