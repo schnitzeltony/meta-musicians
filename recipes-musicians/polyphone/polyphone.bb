@@ -23,12 +23,9 @@ SRC_URI = " \
     git://github.com/davy7125/polyphone.git;protocol=https;branch=master \
     file://polyphone.desktop \
     file://polyphone.mime \
-    file://0001-align-compiler-switches-constants-for-cross-compilin.patch \
-    file://0002-Sanitize-includes.patch \
-    file://0003-Fix-build-with-Qt-5.15.patch \
 "
-SRCREV = "f579c57045e443b8f4b22375e3bbaf09a3e45c24"
-PV = "2.2.0+git${SRCPV}"
+SRCREV = "5b666133f718c3fe25264796394effac3bf0679f"
+PV = "2.3.0"
 S = "${WORKDIR}/git/sources"
 
 do_configure:prepend() {
