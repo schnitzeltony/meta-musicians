@@ -145,6 +145,7 @@ RDEPENDS:${PN} += " \
     bangr \
     bchoppr \
     bjumblr \
+    blow \
     boops \
     bschaffl \
     bsequencer \
