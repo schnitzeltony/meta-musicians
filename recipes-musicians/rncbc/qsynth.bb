@@ -16,7 +16,7 @@ inherit cmake_qt5 pkgconfig gtk-icon-cache features_check
 REQUIRED_DISTRO_FEATURES = "x11"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
-SRC_URI[sha256sum] = "431843099594cc2e861392133ec77011a9d82214c64d5214593935acfbe77f26"
-PV = "0.9.6"
+SRC_URI[sha256sum] = "0e0d78c26cdd924c774359f306692a9a59f107ebab8b41aa6803b15479207030"
+PV = "0.9.7"
 
 FILES:${PN} += "${datadir}/metainfo"
