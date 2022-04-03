@@ -14,8 +14,8 @@ DEPENDS += " \
 inherit cmake_qt5 pkgconfig gtk-icon-cache qt5-translation mime mime-xdg
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz"
-SRC_URI[sha256sum] = "973d6eac32a12513f3e42d1c5760e043eb344b762abbc02923b6391daa7175a9"
-PV = "0.9.5"
+SRC_URI[sha256sum] = "33a37c5528d73a4ab83ded5c16aefe301807510b1f233c6b360a828482679d20"
+PV = "0.9.6"
 
 FILES:${PN} += " \
     ${datadir}/metainfo \
