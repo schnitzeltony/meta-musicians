@@ -1,0 +1,50 @@
+From 5b83e4597eb232424db85041eefb6a010a7bb28d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Mon, 4 Apr 2022 21:36:47 +0200
+Subject: [PATCH] gx_system.h: Make sure we have a working
+ g_atomic_int_compare_and_exchange
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+g_atomic_int_compare_and_exchange is proposed to change [1]. This change is
+already used in Yocto since [2] and causes
+
+| ../git/src/headers/gx_system.h: In function 'bool gx_system::atomic_compare_and_exchange(volatile int*, int, int)':
+| ../recipe-sysroot/usr/include/glib-2.0/glib/gatomic.h:163:44: error: invalid conversion from 'volatile void*' to 'void*' [-fpermissive]
+|   163 |     __atomic_compare_exchange_n ((atomic), &gaicae_oldval, (newval), FALSE, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST) ? TRUE : FALSE; \
+|       |                                            ^~~~~~~~~~~~~~
+|       |                                            |
+|       |                                            volatile void*
+
+[1] https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2578
+[2] https://github.com/openembedded/openembedded-core/commit/a963f71e882e11c8e41dadf77944de408ad12acb
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/headers/gx_system.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/src/headers/gx_system.h b/src/headers/gx_system.h
+index 5f055e28..e4d49404 100644
+--- a/src/headers/gx_system.h
++++ b/src/headers/gx_system.h
+@@ -80,6 +80,15 @@ inline void AVOIDDENORMALS() {}
+ #define GDK_NO_MOD_MASK (GdkModifierType)0
+ #define SYSTEM_OK   (0)
+ 
++#undef g_atomic_int_compare_and_exchange
++#define g_atomic_int_compare_and_exchange(atomic, oldval, newval) \
++  (G_GNUC_EXTENSION ({                                                       \
++    gint gaicae_oldval = (oldval);                                           \
++    G_STATIC_ASSERT (sizeof *(atomic) == sizeof (gint));                     \
++    (void) (0 ? *(atomic) ^ (newval) ^ (oldval) : 1);                        \
++    __atomic_compare_exchange_n ((atomic), (void *) (&(gaicae_oldval)), (newval), FALSE, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST) ? TRUE : FALSE; \
++  }))
++
+ 
+ namespace gx_system {
+ 
+-- 
+2.34.1
+

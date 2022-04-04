@@ -7,6 +7,7 @@ SRC_URI = " \
     git://github.com/brummer10/guitarix.git;branch=master;protocol=https \
     file://0001-Rework-messages-somehow-yes-or-no-is-missing.patch \
     file://0002-Do-not-strip-LV2-plugins.patch \
+    file://0003-gx_system.h-Make-sure-we-have-a-working-g_atomic_int.patch \
 "
 SRCREV = "8937e12db24d98793cd413ab634004a297f71c89"
 PV = "0.43.1"
