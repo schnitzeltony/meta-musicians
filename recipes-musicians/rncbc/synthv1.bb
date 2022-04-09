@@ -12,7 +12,7 @@ DEPENDS += " \
     liblo \
 "
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
@@ -22,8 +22,8 @@ SRC_URI = " \
     \
     file://synthv1.conf \
 "
-PV = "0.9.24"
-SRC_URI[sha256sum] = "74857bf2497023dd0ebe59222e548d870598312b18a5826c54f4033c0fbd3d55"
+PV = "0.9.25"
+SRC_URI[sha256sum] = "02f05fcd45c896d6194fb10cb8ec64329193e3c194ce7e0b13a5f2e4cc0026c4"
 
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
 
