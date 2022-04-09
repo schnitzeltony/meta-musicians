@@ -12,7 +12,7 @@ DEPENDS += " \
     fftw \
 "
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
@@ -20,8 +20,8 @@ SRC_URI = " \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://padthv1.conf \
 "
-PV = "0.9.24"
-SRC_URI[sha256sum] = "abdbad3bae84f665bada488f0e41d2e75b810e88fa63b64e884856f8a9b8785c"
+PV = "0.9.25"
+SRC_URI[sha256sum] = "6acabd7a9ffa45a0ebab48715c6342bc7530491599936378d4b89d47d211ca85"
 
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
 
