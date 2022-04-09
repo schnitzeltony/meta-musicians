@@ -11,14 +11,14 @@ DEPENDS += " \
     liblo \
 "
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg
 
 SRC_URI = " \
     ${SOURCEFORGE_MIRROR}/project/${BPN}/${BPN}/${PV}/${BPN}-${PV}.tar.gz \
     file://0002-Avoid-stripping-CMake.patch \
 "
-PV = "0.9.24"
-SRC_URI[sha256sum] = "ff0bfbaacfb514cb1a0194b0a43ca121f7679640a293f907fb1bbb2640d373b0"
+PV = "0.9.25"
+SRC_URI[sha256sum] = "acf035da8c0f38ccd0a9bd0327d250c6338d8af56c824bf20f90673b07580534"
 
 FILES:${PN} += " \
     ${datadir}/appdata \
