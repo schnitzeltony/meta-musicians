@@ -12,7 +12,7 @@ DEPENDS += " \
     hydrogen \
 "
 
-inherit cmake_qt5 pkgconfig gtk-icon-cache mime
+inherit cmake_qt5 pkgconfig gtk-icon-cache mime mime-xdg
 
 do_convert_crlf_to_lf[depends] += "dos2unix-native:do_populate_sysroot"
 
@@ -28,8 +28,8 @@ SRC_URI = " \
     file://0002-Avoid-stripping-CMake.patch \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1;branch=master;protocol=https \
 "
-PV = "0.9.24"
-SRC_URI[sha256sum] = "b3d7a4105e94c3b29235d2d00ae74d0be6a00d62e791c968056aa64ff7ac6012"
+PV = "0.9.25"
+SRC_URI[sha256sum] = "cc89d3aaf617ec86fba448b61bb5376445bc5a65b102dd797caad14f2659a05c"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
