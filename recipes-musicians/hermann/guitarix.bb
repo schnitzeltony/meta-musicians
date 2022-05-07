@@ -9,8 +9,8 @@ SRC_URI = " \
     file://0002-Do-not-strip-LV2-plugins.patch \
     file://0003-gx_system.h-Make-sure-we-have-a-working-g_atomic_int.patch \
 "
-SRCREV = "8937e12db24d98793cd413ab634004a297f71c89"
-PV = "0.43.1"
+SRCREV = "efccbd14afb5a85be142319b94be088b9cf1d5fd"
+PV = "0.44.1"
 S = "${WORKDIR}/git/trunk"
 
 inherit waf pkgconfig fontcache gettext
