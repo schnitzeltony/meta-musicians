@@ -4,9 +4,9 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
 SRC_URI = "gitsm://github.com/brummer10/GxPlugins.lv2.git;branch=master;protocol=https"
-SRCREV = "e40b34f3fd5dc4c6523dc826062d0ddb2578f573"
+SRCREV = "fd110089ea9cb675df62662af89f70701757fd8a"
 S = "${WORKDIR}/git"
-PV = "0.8"
+PV = "0.9"
 
 inherit pkgconfig features_check
 
