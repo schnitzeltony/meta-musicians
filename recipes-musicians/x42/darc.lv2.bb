@@ -15,8 +15,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/darc.lv2.git;branch=master;protocol=https"
-SRCREV = "5f9dcb2c197cf0833a0006d3deaea7d5909de563"
-PV = "0.5.5"
+SRCREV = "e5b4d90902e74e3d6753d28ac488ab1c2da936af"
+PV = "0.5.7"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
