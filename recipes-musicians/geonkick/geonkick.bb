@@ -6,19 +6,15 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 inherit cmake pkgconfig mime mime-xdg gtk-icon-cache
 
 DEPENDS += " \
-    redkite-native \
     libsndfile1 \
     rapidjson \
     jack \
     lv2 \
 "
 
-SRC_URI = " \
-    git://gitlab.com/iurie-sw/geonkick;protocol=https;branch=master \
-    file://0001-Execute-native-REDKITE-S-rkpng2c.patch \
-"
-SRCREV = "77b2155f8b30ea7e4af5c664e930eeb43c17a24d"
-PV = "2.7.3"
+SRC_URI = "git://gitlab.com/iurie-sw/geonkick;protocol=https;branch=main"
+SRCREV = "ce95f97363de78cc0cc0f0830f965ecced59195d"
+PV = "2.9.1"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = " \
