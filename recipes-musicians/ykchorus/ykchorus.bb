@@ -12,8 +12,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/SpotlightKid/ykchorus.git;branch=master;protocol=https"
-SRCREV = "a6b1027e327f5118bbe48ae01e9fa58e14f93479"
-PV = "0.2.2+git${SRCPV}"
+SRCREV = "6722568d5551b0f847083269cfbdfaa0f76b906f"
+PV = "0.2.3"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
@@ -21,6 +21,10 @@ EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
+
+do_ttl_sed() {
+    sed -i 's|${EXE_WRAPPER} "${GEN}" "./\x24{FILE}"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
+}
 
 do_install() {
     oe_runmake DESTDIR=${D} PREFIX=${prefix} LIBDIR=${libdir} install
