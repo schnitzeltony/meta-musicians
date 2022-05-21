@@ -21,9 +21,9 @@ DEPENDS += " \
     libxft \
 "
 
-PV = "2.1.2"
-SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/2.1/${BPN}-${PV}.tar.bz2"
-SRC_URI[sha256sum] = "87b69afe9f00159aca66f8a57c87d54d98ea54d28b3be6d954597fab40cdc958"
+PV = "2.2.0"
+SRC_URI = "${SOURCEFORGE_MIRROR}/project/${BPN}/2.2/${BPN}-${PV}.tar.bz2"
+SRC_URI[sha256sum] = "bc2a544ff12115f3769237f3732119b660182a9fbdb4416649902a4d97de90e1"
 
 OECMAKE_SOURCEPATH = "${S}/src"
 
