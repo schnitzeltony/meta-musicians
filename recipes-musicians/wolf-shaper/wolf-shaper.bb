@@ -12,9 +12,9 @@ DEPENDS = " \
 inherit pkgconfig lv2-turtle-helper pack_audio_plugins
 
 SRC_URI = "gitsm://github.com/pdesaulniers/wolf-shaper.git;branch=master;protocol=https"
-SRCREV = "d0b46c9ece642488efed3cd255df22516966b334"
+SRCREV = "73f7f2caa0ac9552cc5ec652e610b3fdd7529b93"
 S = "${WORKDIR}/git"
-PV = "0.1.7"
+PV = "0.1.8"
 
 EXTRA_OEMAKE += " \
     PREFIX=${prefix} \
