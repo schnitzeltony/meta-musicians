@@ -2,9 +2,11 @@ SUMMARY = "A linux editor for the Akai LPD8"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=6dc9df5fa3108f437a4580b0aebca196"
 
-inherit pkgconfig qmake5 gtk-icon-cache
+inherit cmake_qt5 pkgconfig gtk-icon-cache
 
 DEPENDS += " \
+    qttools-native \
+    qttools \
     qtbase \
     qtsvg \
     alsa-lib \
@@ -12,11 +14,10 @@ DEPENDS += " \
 
 SRC_URI = " \
     git://github.com/charlesfleche/lpd8editor.git;branch=master;protocol=https \
-    file://0001-Remove-Werror-from-CXXFLAGS.patch\
     file://lpd8-editor.desktop \
 "
-SRCREV = "c5b3a64487b3f126f9da15e94d547eff8e972c0c"
-PV = "0.0.13"
+SRCREV = "ae9072e58d23d5926ca8d0228400eead9248a494"
+PV = "0.0.16"
 S = "${WORKDIR}/git"
 
 do_install:append() {
