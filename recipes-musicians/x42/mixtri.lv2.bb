@@ -14,8 +14,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/mixtri.lv2.git;branch=master;protocol=https"
-SRCREV = "4bfbeba3f0146b1cc3e87f3fd0a8917e55452bf1"
-PV = "0.4.3"
+SRCREV = "546c80fb2fb9f6d5e5f3121f7feed2e570dcea04"
+PV = "0.4.4"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
