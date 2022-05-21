@@ -14,18 +14,18 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mruby/lib/mruby/build/command.rb b/mruby/lib/mruby/build/command.rb
-index d4354225e..e80a74c2b 100644
+index c93d08ea7..9e9e05f78 100644
 --- a/mruby/lib/mruby/build/command.rb
 +++ b/mruby/lib/mruby/build/command.rb
-@@ -325,7 +325,7 @@ module MRuby
+@@ -329,7 +329,7 @@ module MRuby
      end
  
-     def run(out, infiles, funcname, cdump = true)
+     def run(out, infiles, funcname, cdump: true, static: false)
 -      @command ||= @build.mrbcfile
 +      @command ||= "mrbc-zest"
        infiles = [infiles].flatten
        infiles.each_with_index do |f, i|
          _pp i == 0 ? "MRBC" : "", f.relative_path, indent: 2
 -- 
-2.21.0
+2.34.1
 

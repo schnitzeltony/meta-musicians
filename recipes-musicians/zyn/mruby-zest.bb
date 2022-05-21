@@ -10,7 +10,6 @@ SRC_URI += " \
     file://0007-Load-schema-from-usr-share-zyn-fusion-schema.patch \
     file://0008-Do-not-require-dummy-MainWindow.qml.patch \
     file://0009-Avoid-glGenerateMipmap-for-GLES2-either.patch \
-    file://0010-Do-not-run-mruby-file-stat-s-configure-at-copmpile-t.patch \
 "
 
 DEPENDS += " \

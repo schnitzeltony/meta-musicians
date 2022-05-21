@@ -13,23 +13,25 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- Makefile | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ Makefile | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 5f110db..3000ca2 100644
+index 7bc3788..30c0b14 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -1,7 +1,7 @@
+@@ -5,9 +5,8 @@ linux-hotload: linux
  
- all:
+ linux:
  	ruby ./rebuild-fcache.rb
 -	cd deps/nanovg/src   && $(CC) nanovg.c -c -fPIC
 +	cd deps/nanovg/src   && $(CC) $(CFLAGS) nanovg.c -c -fPIC
  	$(AR) rc deps/libnanovg.a deps/nanovg/src/*.o
- 	cd deps/mruby-file-stat/src && ../configure
+-	cd deps/mruby-file-stat/src && ../configure
  	cd src/osc-bridge    && make lib
-@@ -10,10 +10,10 @@ all:
+ #	cd mruby             && UI_HOTLOAD=1 MRUBY_CONFIG=../build_config.rb rake
+ # force rebuilding all code that depends on hotloading.
+@@ -16,10 +15,10 @@ linux:
  	$(CC) -shared -o libzest.so `find mruby/build/host -type f | grep -v mrbc | grep -e "\.o$$" | grep -v bin` ./deps/libnanovg.a \
  		./deps/libnanovg.a \
  		src/osc-bridge/libosc-bridge.a \
@@ -44,5 +46,5 @@ index 5f110db..3000ca2 100644
  osx: deps/libuv.a
  	ruby ./rebuild-fcache.rb
 -- 
-2.26.2
+2.34.1
 

@@ -16,10 +16,10 @@ Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
  1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/build_config.rb b/build_config.rb
-index 87e4e95..6c49a3d 100644
+index e72b5ab..2d3d661 100644
 --- a/build_config.rb
 +++ b/build_config.rb
-@@ -125,6 +125,8 @@ build_type.new(build_name) do |conf|
+@@ -134,6 +134,8 @@ build_type.new(build_name) do |conf|
        cc.flags << "-mstackrealign"      if windows
        cc.flags << "-mwindows"           if windows
        cc.flags << "-Wno-declaration-after-statement"
@@ -28,7 +28,7 @@ index 87e4e95..6c49a3d 100644
        cc.defines << "UI_HOTLOAD"        if ENV.include?("UI_HOTLOAD")
        cc.defines << "DEMO_MODE=#{demo_mode ? '1':'0'}"
        cc.defines << "MRB_NO_BOXING"
-@@ -134,13 +136,15 @@ build_type.new(build_name) do |conf|
+@@ -146,13 +148,15 @@ build_type.new(build_name) do |conf|
        linker.library_paths  << "#{`pwd`.strip}/../src/osc-bridge/"
        linker.libraries << 'osc-bridge'
        linker.flags_after_libraries  << "#{`pwd`.strip}/../deps/libnanovg.a"
@@ -45,7 +45,7 @@ index 87e4e95..6c49a3d 100644
          end
          linker.flags_after_libraries  << "-lpthread -ldl -lm"
        else
-@@ -159,6 +163,11 @@ build_type.new(build_name) do |conf|
+@@ -171,6 +175,11 @@ build_type.new(build_name) do |conf|
    conf.gem 'src/mruby-widget-lib'
  
    #conf.gem 'deps/mruby-profiler'
@@ -58,7 +58,7 @@ index 87e4e95..6c49a3d 100644
  
  MRuby::Build.new('host-debug') do |conf|
 diff --git a/mruby/tasks/toolchains/gcc.rake b/mruby/tasks/toolchains/gcc.rake
-index f370c0ab..a2ab5ed4 100644
+index 51bda6517..04eaa01eb 100644
 --- a/mruby/tasks/toolchains/gcc.rake
 +++ b/mruby/tasks/toolchains/gcc.rake
 @@ -23,7 +23,7 @@ MRuby::Toolchain.new(:gcc) do |conf, params|
@@ -71,5 +71,5 @@ index f370c0ab..a2ab5ed4 100644
      linker.libraries = %w(m)
      linker.library_paths = []
 -- 
-2.26.1
+2.34.1
 
