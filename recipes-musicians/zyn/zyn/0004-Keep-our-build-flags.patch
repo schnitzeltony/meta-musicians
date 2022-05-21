@@ -10,32 +10,29 @@ Upstream-Status: Inappropriate [configuration]
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
 ---
- src/CMakeLists.txt | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ src/CMakeLists.txt | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index 365c129..1fa1b24 100644
+index 2900f4b7..fa6f9e10 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
-@@ -44,9 +44,6 @@ CHECK_CXX_SOURCE_COMPILES(
-     #endif
-     int main(){return 0;}" HAVE_ASYNC)
+@@ -251,15 +251,11 @@ set (BuildOptions_NEON
+   CACHE STRING "Cortex_a9 compiler options"
+ )
  
--check_cxx_compiler_flag("-msse2" SUPPORT_SSE)
--check_cxx_compiler_flag("-mfpu=neon -Werror" SUPPORT_NEON)
+-check_cxx_compiler_flag("${BuildOptions_NEON} -Werror" SUPPORT_NEON)
 -
- set(CMAKE_REQUIRED_FLAGS "")
+ set (BuildOptions_SSE
+ 	"-msse -msse2 -mfpmath=sse"
+   CACHE STRING "SSE compiler options"
+ )
  
- 
-@@ -328,7 +325,7 @@ if (BuildForDebug)
- else (BuildForDebug)
- 	set (CMAKE_BUILD_TYPE "Release")
- 	
--	set (CMAKE_CXX_FLAGS_RELEASE ${BuildOptionsBasic})
-+	set (CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS})
- 	
- 	if (BuildForAMD_X86_64)
- 		set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${BuildOptions_x86_64AMD}")
+-check_cxx_compiler_flag("${BuildOptions_SSE} -Werror" SUPPORT_SSE)
+-
+ set (BuildOptionsBasic
+     "-std=c++11 -Wno-unused-parameter -O3 -ffast-math -fomit-frame-pointer"
+     CACHE STRING "basic X86 compiler options"
 -- 
-2.9.4
+2.34.1
 

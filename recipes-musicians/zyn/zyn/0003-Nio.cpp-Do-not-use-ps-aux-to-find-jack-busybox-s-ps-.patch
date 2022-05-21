@@ -11,14 +11,14 @@ Upstream-Status: Pending
 
 Signed-off-by: Andreas Müller <schnitzeltony@googlemail.com>
 ---
- src/Nio/Nio.cpp | 15 +--------------
- 1 file changed, 1 insertion(+), 14 deletions(-)
+ src/Nio/Nio.cpp | 13 -------------
+ 1 file changed, 13 deletions(-)
 
 diff --git a/src/Nio/Nio.cpp b/src/Nio/Nio.cpp
-index 1e26b65..9bbb5bc 100644
+index 1b3056c3..6df2059d 100644
 --- a/src/Nio/Nio.cpp
 +++ b/src/Nio/Nio.cpp
-@@ -136,21 +136,8 @@ string Nio::getSink()
+@@ -136,19 +136,6 @@ string Nio::getSink()
  #include <jack/jack.h>
  void Nio::preferredSampleRate(unsigned &rate)
  {
@@ -29,18 +29,15 @@ index 1e26b65..9bbb5bc 100644
 -    while(fgets(buffer, sizeof(buffer), ps))
 -        if(strstr(buffer, "jack"))
 -            break;
--    fclose(ps);
+-    pclose(ps);
 -
 -    if(!strstr(buffer, "jack"))
 -        return;
 -#endif
 -
      jack_client_t *client = jack_client_open("temp-client",
--                                             JackNoStartServer, 0);
-+                                             JackNullOption, 0);
+                                              JackNoStartServer, 0);
      if(client) {
-         rate = jack_get_sample_rate(client);
-         jack_client_close(client);
 -- 
-2.9.4
+2.34.1
 

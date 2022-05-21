@@ -2,7 +2,7 @@ HOMEPAGE = "http://zynaddsubfx.sourceforge.net"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=21fa88a5e50a1c608d22612c1fbe1971"
 
-inherit cmake qemu-ext-musicians pkgconfig gtk-icon-cache features_check pack_audio_plugins
+inherit cmake qemu-ext-musicians pkgconfig gtk-icon-cache features_check pack_audio_plugins bash-completion
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -30,11 +30,14 @@ SRC_URI = " \
     file://0003-Nio.cpp-Do-not-use-ps-aux-to-find-jack-busybox-s-ps-.patch \
     file://0004-Keep-our-build-flags.patch \
 "
-SRCREV = "4d4aedf834dbd13c6e5f07ac512c9da74732fd58"
-PV = "3.0.5"
+SRCREV = "be9fc502748c8b19fc4ab67751428734549d958b"
+PV = "3.0.6"
 S = "${WORKDIR}/git"
 
-EXTRA_OECMAKE += "-DPluginLibDir=${baselib}"
+EXTRA_OECMAKE += " \
+    -DCompileTests=OFF \
+    -DPluginLibDir=${baselib} \
+"
 
 do_configure:prepend() {
     # reconfigure?
