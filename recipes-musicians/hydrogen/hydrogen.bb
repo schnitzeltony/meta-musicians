@@ -80,8 +80,8 @@ SRC_URI = " \
     https://freewavesamples.com/files/YamahaRX15Kit.h2drumkit;downloadfilename=YamahaRX15Kit.tar.gz;name=YamahaRX15Kit;subdir=drumkits \
     https://freewavesamples.com/files/YamahaTG-55Kit.h2drumkit;downloadfilename=YamahaTG-55Kit.tar.gz;name=YamahaTG-55Kit;subdir=drumkits \
 "
-SRCREV = "eda3557e2554a52d8b08ea48d708d97c7d0ba947"
-PV ="1.1.0"
+SRCREV = "c845af2f0bb14946c23afd0838d1934b0660dd84"
+PV ="1.1.1"
 
 ###############################################################################
 # drumkits URIs from http://hydrogen-music.org/feeds/drumkit_list.php
