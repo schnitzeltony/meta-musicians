@@ -17,8 +17,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/meters.lv2.git;branch=master;protocol=https"
-SRCREV = "7416ef980c2e7e0fb484460ba40c05ca37a22cde"
-PV = "0.9.18"
+SRCREV = "13750c7c8d19d5c9c7900736d93549d39f6f468b"
+PV = "0.9.20"
 S = "${WORKDIR}/git"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
