@@ -14,9 +14,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/michaelwillis/dragonfly-reverb.git;branch=master;protocol=https"
-SRCREV = "e2b5002c6ae1d23e9c0f76ffefb89e36675c81ee"
+SRCREV = "465bfa2586a06ec9bd8684a84f402a275e8b65aa"
 S = "${WORKDIR}/git"
-PV = "3.2.5"
+PV = "3.2.6"
 
 EXTRA_OEMAKE += " \
     NOOPT=true \
