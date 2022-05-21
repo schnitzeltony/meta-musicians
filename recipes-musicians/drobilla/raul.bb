@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 inherit waf pkgconfig
 
 SRC_URI = " \
-    gitsm://gitlab.com/drobilla/raul.git;protocol=https;branch=master \
+    gitsm://github.com/drobilla/raul.git;protocol=https;branch=master \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
 SRCREV = "e87bb398f025912fb989a09f1450b838b251aea1"
