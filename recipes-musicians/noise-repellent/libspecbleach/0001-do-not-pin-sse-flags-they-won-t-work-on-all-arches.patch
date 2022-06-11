@@ -1,0 +1,34 @@
+From 3e648dec4bddf87090bcc9ff9fb72c8326b1a477 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 12 Jun 2022 00:23:17 +0200
+Subject: [PATCH] do not pin sse flags - they won't work on all arches
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Inappropriate [embedded specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ meson.build | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index b4e4dbb..1a56c57 100644
+--- a/meson.build
++++ b/meson.build
+@@ -52,11 +52,6 @@ current_arch = build_machine.cpu_family()
+ # Shared c_args for libraries
+ lib_c_args = []
+ 
+-# Add default x86 and x86_64 optimizations
+-if current_arch == 'x86' or current_arch == 'x86_64' and current_os != 'darwin'
+-    lib_c_args += ['-msse','-msse2','-mfpmath=sse','-ffast-math','-fomit-frame-pointer','-fno-finite-math-only']
+-endif
+-
+ # Public header
+ inc = include_directories('include')
+ install_headers(specbleach_headers)
+-- 
+2.34.3
+
