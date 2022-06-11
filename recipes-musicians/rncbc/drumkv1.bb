@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 DEPENDS += " \
     qtbase-native \
     qtbase \
+    qtsvg \
     jack \
     lv2 \
     liblo \
@@ -28,8 +29,8 @@ SRC_URI = " \
     file://0002-Avoid-stripping-CMake.patch \
     git://github.com/TuriSc/hydrogen2drumkv1.py.git;name=hydrogen2drumkv1;destsuffix=hydrogen2drumkv1;branch=master;protocol=https \
 "
-PV = "0.9.25"
-SRC_URI[sha256sum] = "cc89d3aaf617ec86fba448b61bb5376445bc5a65b102dd797caad14f2659a05c"
+PV = "0.9.26"
+SRC_URI[sha256sum] = "1149811ae195dd08e835d87fa23f644660a7dbda271afab4b57c9ec51eee0548"
 
 SRCREV_hydrogen2drumkv1 = "4ca8af8f1433dce33f675ae68e95429c9eed084e"
 
