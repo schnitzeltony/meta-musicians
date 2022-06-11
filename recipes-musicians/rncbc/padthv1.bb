@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 DEPENDS += " \
     qtbase-native \
     qtbase \
+    qtsvg \
     jack \
     lv2 \
     liblo \
@@ -20,8 +21,8 @@ SRC_URI = " \
     http://linuxsynths.com/Padthv1PatchesDemos/Padthv1Patches.tar.gz;name=linuxsynths-padthv1-presets;subdir=linuxsynths-padthv1-presets \
     file://padthv1.conf \
 "
-PV = "0.9.25"
-SRC_URI[sha256sum] = "6acabd7a9ffa45a0ebab48715c6342bc7530491599936378d4b89d47d211ca85"
+PV = "0.9.26"
+SRC_URI[sha256sum] = "813f818d6c6c66b403937c66a7729ea85226eab17db0992334441613c903ef0a"
 
 SRC_URI[linuxsynths-padthv1-presets.sha256sum] = "ad9eadc707784b6931955b1fc63308b9e5dc59d24903e6405e9d34d30794fd0b"
 
