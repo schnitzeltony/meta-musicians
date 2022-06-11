@@ -7,6 +7,7 @@ DEPENDS += " \
     qtbase-native \
     qttools-native \
     qtbase \
+    qtsvg \
     jack \
     lv2 \
     liblo \
@@ -22,8 +23,8 @@ SRC_URI = " \
     \
     file://synthv1.conf \
 "
-PV = "0.9.25"
-SRC_URI[sha256sum] = "02f05fcd45c896d6194fb10cb8ec64329193e3c194ce7e0b13a5f2e4cc0026c4"
+PV = "0.9.26"
+SRC_URI[sha256sum] = "8d551fc7572feeac2f1676b4a8915e1e20f5a7f2075044335d7bb840069c51ab"
 
 SRC_URI[autostatic-synthv1-presets1.sha256sum] = "587ac8cb4cb645fc71603d1b4b351b24f3e4d9f15a53aca59c0f30cc9f66e253"
 
