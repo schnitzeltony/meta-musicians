@@ -14,8 +14,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/fat1.lv2.git;branch=master;protocol=https"
-SRCREV = "4fe6ad6e193ccae3366de9abc07c4f2500517854"
-PV = "0.7.1"
+SRCREV = "347ea087c545f91d2271ec2bc63ba82b17085f46"
+PV = "0.7.2"
 S = "${WORKDIR}/git"
 
 REQUIRED_DISTRO_FEATURES = "x11 opengl"
