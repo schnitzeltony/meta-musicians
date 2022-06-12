@@ -1,6 +1,6 @@
-From 11e8233da08bd812cd49370ca329aaf9f6f797cd Mon Sep 17 00:00:00 2001
+From 21dab1327d0e8121bb4fdc3e0bd50a4f885ef3fc Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
-Date: Fri, 3 Jan 2020 22:06:56 +0100
+Date: Sun, 12 Jun 2022 00:27:53 +0200
 Subject: [PATCH] do not pin sse flags - they won't work on all arches
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -10,34 +10,24 @@ Upstream-Status: Inappropriate [embedded specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
 ---
- meson.build | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ meson.build | 4 ----
+ 1 file changed, 4 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index c43938e..1d3297e 100755
+index ea26cf1..ccdfcf8 100755
 --- a/meson.build
 +++ b/meson.build
-@@ -27,11 +27,6 @@ install_folder = 'nrepel.lv2'
- current_os = build_machine.system()
- current_arch = build_machine.cpu_family()
+@@ -22,10 +22,6 @@ current_arch = build_machine.cpu_family()
+ # Shared c_args for libraries
+ lib_c_args = ['-fvisibility=hidden']
  
--# Add x86_64 optimization where appropriate (not for ARM)
--if current_arch != 'aarch64'
--    cflags += ['-msse','-msse2','-mfpmath=sse']
+-# Add default x86 and x86_64 optimizations
+-if current_arch == 'x86' or current_arch == 'x86_64' and current_os != 'darwin'
+-    lib_c_args += ['-msse','-msse2','-mfpmath=sse','-ffast-math','-fomit-frame-pointer','-fno-finite-math-only']
 -endif
--
- # Add osx multiarch flags when appropriate
- if current_os == 'darwin'
-     cflags += ['-march=i386', '-march=x86-64','-mmacosx-version-min=10.5','-DMAC_OS_X_VERSION_MAX_ALLOWED=105']
-@@ -48,7 +43,7 @@ if current_os == 'windows' or current_os == 'cygwin'
- endif
  
- #build of the shared object
--shared_library(lv2_name,src,name_prefix: '',dependencies: nr_dep,c_args: cflags,install: true,install_dir : install_folder)
-+shared_library(lv2_name,src,name_prefix: '',dependencies: nr_dep,install: true,install_dir : install_folder)
  
- #Configure manifest ttl in order to replace the correct shared object extension
- manifest_conf = configuration_data()
+ # Configure extension for shared object
 -- 
-2.21.0
+2.34.3
 
