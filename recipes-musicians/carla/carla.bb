@@ -9,11 +9,10 @@ LIC_FILES_CHKSUM = " \
 SRC_URI = " \
     git://github.com/falkTX/Carla.git;branch=main;protocol=https \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
-    file://0002-Do-not-try-to-find-Qt5-host-bins-it-won-t-work.patch \
 "
-SRCREV = "b02121e9a2cc6229b3863a54405c52614471895c"
+SRCREV = "f22915f6ec0093a0d27c4b3e3cf27724d5bc536b"
 S = "${WORKDIR}/git"
-PV = "2.4.0"
+PV = "2.4.3"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
@@ -51,6 +50,7 @@ do_configure() {
 do_compile:append() {
     cd ${S}/bin
     ${@qemu_run_binary_local(d, '${STAGING_DIR_TARGET}', 'carla-lv2-export')}
+    cd ${S}/bin/carla.lv2 && ln -sf ../*bridge-* ../carla-discovery-* .
 }
 
 do_install() {
@@ -58,6 +58,7 @@ do_install() {
 }
 
 FILES:${PN} += " \
+    ${datadir}/appdata \
     ${datadir}/icons \
     ${datadir}/mime \
     ${libdir}/jack \
