@@ -11,8 +11,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/amsynth/amsynth.git;branch=develop;protocol=https"
-SRCREV = "4d980f3421f61cc8ea53e92eba5e43e823af7c02"
-PV = "1.12.2"
+SRCREV = "39bd448fd499e0e802aa6a20273d64655bda356a"
+PV = "1.12.4"
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG ??= "alsa jack lv2 nsm"
