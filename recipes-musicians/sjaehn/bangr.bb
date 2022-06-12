@@ -14,9 +14,13 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BAngr.git;branch=master;protocol=https"
-SRCREV = "ec25efa0a7a090a8f31dccafa02fe6ffc437aeba"
+SRCREV = "e5893db858c39ef8ba1b1798dc7040e4f72de2a7"
 S = "${WORKDIR}/git"
-PV = "1.4.0"
+PV = "1.6.0"
+
+EXTRA_OEMAKE += " \
+    STRIP=echo \
+"
 
 do_install() {
     DESTDIR=${D} PREFIX=${prefix} oe_runmake install
