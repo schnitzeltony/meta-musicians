@@ -17,8 +17,8 @@ DEPENDS += " \
 "
 
 SRC_URI = "gitsm://github.com/x42/fil4.lv2.git;branch=master;protocol=https"
-SRCREV = "c6d1c6884cc6d1e1d3c124bb453ea850b979aff6"
-PV = "0.8.0"
+SRCREV = "54f841a0b3c892e50e5b6f87b0e15cb16c6d17ac"
+PV = "0.8.1"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += " \
