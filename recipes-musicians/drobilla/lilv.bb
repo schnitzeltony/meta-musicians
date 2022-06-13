@@ -7,12 +7,12 @@ inherit waf python3native bash-completion pkgconfig
 
 DEPENDS += "lv2 serd sord sratom"
 
-PV = "0.24.12"
+PV = "0.24.14"
 SRC_URI = " \
     http://download.drobilla.net/${BPN}-${PV}.tar.bz2 \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRC_URI[sha256sum] = "26a37790890c9c1f838203b47f5b2320334fe92c02a4d26ebbe2669dbd769061"
+SRC_URI[sha256sum] = "6399dfcbead61a143acef3a38ad078047ab225b00470ad5d33745637341d6406"
 
 EXTRA_OECONF = "--configdir=${sysconfdir} --dyn-manifest"
 
