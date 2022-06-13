@@ -7,9 +7,9 @@ inherit waf pkgconfig
 
 DEPENDS += "lv2 serd sord"
 
-PV = "0.6.8"
+PV = "0.6.10"
 SRC_URI = " \
     http://download.drobilla.net/${BPN}-${PV}.tar.bz2 \
     file://0001-Fix-build-for-python3-only-environments.patch \
 "
-SRC_URI[sha256sum] = "3acb32b1adc5a2b7facdade2e0818bcd6c71f23f84a1ebc17815bb7a0d2d02df"
+SRC_URI[sha256sum] = "e5951c0d7f0618672628295536a271d61c55ef0dab33ba9fc5767ed4db0a634d"
