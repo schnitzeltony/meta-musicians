@@ -15,9 +15,9 @@ DEPENDS += " \
 "
 
 SRC_URI = "git://github.com/sjaehn/BSchaffl.git;branch=master;protocol=https"
-SRCREV = "b7d93f7fa17f7b726e064b6482a5e0754da9da22"
+SRCREV = "b2ff199403f33b3d606dd361a795b30621f93232"
 S = "${WORKDIR}/git"
-PV = "1.4.8"
+PV = "1.4.10"
 
 EXTRA_OEMAKE = "STRIP=echo STRIPFLAG=-e"
 
