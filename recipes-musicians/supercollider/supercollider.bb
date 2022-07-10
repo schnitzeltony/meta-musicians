@@ -3,12 +3,15 @@ HOMEPAGE = "http://supercollider.github.io/"
 LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
-SRC_URI = "gitsm://github.com/supercollider/supercollider.git;branch=develop;protocol=https"
-SRCREV = "206f24d865efa37264a0b42594f536ed834c1493"
-PV = "3.11.2"
+SRC_URI = " \
+    gitsm://github.com/supercollider/supercollider.git;branch=develop;protocol=https \
+    file://0001-libsndfile-use-a-macro-instead-of-redefining-the-str.patch \
+"
+SRCREV = "7c4c983cbe98cb470928ac7345c4cf257afd2b55"
+PV = "3.12.2"
 S = "${WORKDIR}/git"
 
-inherit cmake_qt5 features_check mime mime-xdg
+inherit cmake_qt5 features_check gtk-icon-cache mime mime-xdg
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
