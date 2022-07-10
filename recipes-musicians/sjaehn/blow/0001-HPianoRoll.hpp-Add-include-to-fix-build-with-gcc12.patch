@@ -1,0 +1,44 @@
+From e637e97e7eb872ea8b8e4a76d9fcd3affcd0f77a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Sun, 10 Jul 2022 14:40:12 +0200
+Subject: [PATCH] HPianoRoll.hpp: Add include to fix build with gcc12
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+BLow fails build on gcc 12 with:
+
+| Build BLow.lv2 GUI...In file included from ../../src/BLow_GUI.cpp:10:
+| ../../src/../BWidgets/BWidgets/HPianoRoll.hpp:348:42: error: variable 'constexpr const std::array<BWidgets::PianoKeyCoords, 12> BWidgets::keyCoords' has initializer but incomplete type
+|   348 | constexpr std::array<PianoKeyCoords, 12> keyCoords=
+|       |                                          ^~~~~~~~~
+| ../../src/BLow_GUI.cpp:37:63: error: field 'controllerWidgets' has incomplete type 'std::array<BWidgets::Valueable*, 4>'
+|    37 |         std::array<BWidgets::Valueable*, BLOW_NR_CONTROLLERS> controllerWidgets;
+|       |                                                               ^~~~~~~~~~~~~~~~~
+| In file included from /home/superandy/tmp/oe-core-glibc/work/cortexa72-mortsgna-linux/blow/1.2.0-r0/recipe-sysroot/usr/include/c++/12.1.0/functional:54,
+|                  from ../../src/../BWidgets/BWidgets/Widget.hpp:22,
+|                  from ../../src/../BWidgets/BWidgets/Window.hpp:25,
+|                  from ../../src/BLow_GUI.cpp:7:
+
+Upstream-Status: Submitted [https://github.com/sjaehn/BWidgets/pull/3]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ BWidgets/BWidgets/HPianoRoll.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/BWidgets/BWidgets/HPianoRoll.hpp b/BWidgets/BWidgets/HPianoRoll.hpp
+index eb5b2ec..4f938fa 100644
+--- a/BWidgets/BWidgets/HPianoRoll.hpp
++++ b/BWidgets/BWidgets/HPianoRoll.hpp
+@@ -27,6 +27,7 @@
+ #include <cmath>
+ #include <cstdint>
+ #include <vector>
++#include <array>
+ 
+ #ifndef BWIDGETS_DEFAULT_HPIANOROLL_WIDTH
+ #define BWIDGETS_DEFAULT_HPIANOROLL_WIDTH 400.0
+-- 
+2.35.3
+

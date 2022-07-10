@@ -13,7 +13,10 @@ DEPENDS += " \
     lv2 \
 "
 
-SRC_URI = "gitsm://github.com/sjaehn/BLow.git;branch=master;protocol=https"
+SRC_URI = " \
+    gitsm://github.com/sjaehn/BLow.git;branch=master;protocol=https \
+    file://0001-HPianoRoll.hpp-Add-include-to-fix-build-with-gcc12.patch \
+"
 SRCREV = "77f7a6e36860df80469539a6ba7f5ba9b4479c92"
 S = "${WORKDIR}/git"
 PV = "1.2.0"
