@@ -10,9 +10,9 @@ SRC_URI = " \
     git://github.com/falkTX/Carla.git;branch=main;protocol=https \
     file://0001-do-not-try-to-cross-run-carla-lv2-export.patch \
 "
-SRCREV = "f22915f6ec0093a0d27c4b3e3cf27724d5bc536b"
+SRCREV = "6bc9a90ebb1767649d2538108ed4a604ce96dacb"
 S = "${WORKDIR}/git"
-PV = "2.4.3"
+PV = "2.5.0"
 
 REQUIRED_DISTRO_FEATURES = "x11"
 

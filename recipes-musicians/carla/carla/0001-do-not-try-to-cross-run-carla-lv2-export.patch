@@ -9,17 +9,18 @@ Content-Transfer-Encoding: 8bit
 Upstream-Status: Inappropriate [cross specific]
 
 Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+
 ---
  source/plugin/Makefile | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/source/plugin/Makefile b/source/plugin/Makefile
-index 19a23ff40..57aa47341 100644
+index 389dd77ee..251ecc18c 100644
 --- a/source/plugin/Makefile
 +++ b/source/plugin/Makefile
-@@ -481,9 +481,7 @@ $(BINDIR)/carla.lv2/manifest.ttl: $(OBJDIR)/carla-lv2-export.cpp.o $(BINDIR)/car
+@@ -528,9 +528,7 @@ $(BINDIR)/carla.lv2/manifest.ttl: $(OBJDIR)/carla-lv2-export.cpp.o $(BINDIR)/car
  	@echo "Linking carla-lv2-export$(APP_EXT)"
- 	$(SILENT)$(CXX) $< $(LIBS_START) $(LIBS) $(LIBS_END) $(NATIVE_LINK_FLAGS) -o $(BINDIR)/carla-lv2-export$(APP_EXT)
+ 	$(SILENT)$(CXX) $< $(LIBS_START) $(LIBS) $(LIBS_juce) $(LIBS_END) $(NATIVE_LINK_FLAGS) -o $(BINDIR)/carla-lv2-export$(APP_EXT)
  
 -	@echo "Generating LV2 ttl data"
 -	$(SILENT)cd $(BINDIR) && $(EXE_WRAPPER) ./carla-lv2-export$(APP_EXT)
