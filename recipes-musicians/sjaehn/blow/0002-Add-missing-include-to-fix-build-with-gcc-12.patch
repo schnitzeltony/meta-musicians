@@ -1,0 +1,36 @@
+From f4923da43759941ce780b2bf39a8d03395db802b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 31 Aug 2022 20:58:15 +0200
+Subject: [PATCH] Add missing include to fix build with gcc 12
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| Build BLow.lv2 DSP...src/BLow.cpp: In constructor 'BLow::BLow(double, const char*, const LV2_Feature* const*)':
+| src/BLow.cpp:101:14: error: 'time' was not declared in this scope
+|   101 |         rnd (time (0)),
+|       |              ^~~~
+| src/BLow.cpp:19:1: note: 'time' is defined in header '<ctime>'; did you forget to '#include <ctime>'?
+
+Upstream-Status: Submitted [https://github.com/sjaehn/BLow/pull/3]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/BLow.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/BLow.cpp b/src/BLow.cpp
+index 720248d..05495ad 100644
+--- a/src/BLow.cpp
++++ b/src/BLow.cpp
+@@ -11,6 +11,7 @@
+ #include <string>
+ #include <algorithm>
+ #include <random>
++#include <ctime>
+ #include "Definitions.hpp"
+ #include "Ports.hpp"
+ #include "Urids.hpp"
+-- 
+2.35.3
+
