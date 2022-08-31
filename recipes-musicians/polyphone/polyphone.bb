@@ -24,8 +24,8 @@ SRC_URI = " \
     file://polyphone.desktop \
     file://polyphone.mime \
 "
-SRCREV = "5b666133f718c3fe25264796394effac3bf0679f"
-PV = "2.3.0"
+SRCREV = "8413167d83cc911405c5f1813cd5b0ceab701827"
+PV = "2.3.1"
 S = "${WORKDIR}/git/sources"
 
 do_configure:prepend() {
