@@ -6,7 +6,6 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=e4224ccaecb14d942c71d31bef20d78c"
 DEPENDS += " \
     virtual/libx11 \
     virtual/libgl \
-    boost \
     cairo \
 "
 
@@ -17,7 +16,7 @@ REQUIRED_DISTRO_FEATURES = "x11"
 SRC_URI = " \
     gitsm://github.com/jpcima/string-machine.git;branch=master;protocol=https \
 "
-SRCREV = "cfd556fb88e0236d90170605a7173fd730921fd3"
+SRCREV = "7050cb1516fbaf5aaaa2c6cc9999fe5ac100d746"
 S = "${WORKDIR}/git"
 PV = "0.1.1+git${SRCPV}"
 
@@ -26,6 +25,10 @@ EXTRA_OEMAKE += " \
     NOOPT=true \
     SKIP_STRIPPING=true \
 "
+
+do_ttl_sed() {
+    sed -i 's|${EXE_WRAPPER} "${GEN}" "./\x24{FILE}"|echo "`realpath  "./$FILE"`" >> ${LV2_PLUGIN_INFO_FILE}|g' ${S}/dpf/utils/generate-ttl.sh
+}
 
 do_install() {
     oe_runmake DESTDIR=${D} PREFIX=${prefix} LIBDIR=${libdir} install
