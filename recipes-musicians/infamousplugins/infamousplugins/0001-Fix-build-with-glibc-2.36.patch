@@ -1,0 +1,53 @@
+From eb4fd9af25362fdd006549c471f4cf0427816dd5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 31 Aug 2022 21:35:16 +0200
+Subject: [PATCH] Fix build with glibc 2.36
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+| src/lushlife/lushlife_ui_main.cxx:47:27: error: 'time' was not declared in this scope
+|    47 |     srand ((unsigned int) time (NULL));
+|       |                           ^~~~
+| src/lushlife/lushlife_ui_main.cxx:9:1: note: 'time' is defined in header '<ctime>'; did you forget to '#include <ctime>'?
+
+| src/casynth/casynth_ui_main.cxx:47:27: error: 'time' was not declared in this scope
+|    47 |     srand ((unsigned int) time (NULL));
+|       |                           ^~~~
+| src/casynth/casynth_ui_main.cxx:9:1: note: 'time' is defined in header '<ctime>'; did you forget to '#include <ctime>'?
+
+Upstream-Status: Submitted [https://github.com/ssj71/infamousPlugins/pull/52]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/casynth/casynth_ui_main.cxx   | 1 +
+ src/lushlife/lushlife_ui_main.cxx | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/src/casynth/casynth_ui_main.cxx b/src/casynth/casynth_ui_main.cxx
+index 818905a..be339d2 100644
+--- a/src/casynth/casynth_ui_main.cxx
++++ b/src/casynth/casynth_ui_main.cxx
+@@ -7,6 +7,7 @@
+ 
+ #include "casynth_ui.h"
+ #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
++#include <ctime>
+ 
+ #define CASYNTHUI_URI "http://ssj71.github.io/infamousPlugins/plugs.html#casynth_ui"
+ 
+diff --git a/src/lushlife/lushlife_ui_main.cxx b/src/lushlife/lushlife_ui_main.cxx
+index 75b2ab2..869a087 100644
+--- a/src/lushlife/lushlife_ui_main.cxx
++++ b/src/lushlife/lushlife_ui_main.cxx
+@@ -7,6 +7,7 @@
+ 
+ #include "lushlife_ui.h"
+ #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
++#include <ctime>
+ 
+ #define LUSHLIFEUI_URI "http://ssj71.github.io/infamousPlugins/plugs.html#lushlife_ui"
+ 
+-- 
+2.35.3
+
