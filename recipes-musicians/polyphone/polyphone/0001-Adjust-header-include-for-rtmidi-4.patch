@@ -1,0 +1,31 @@
+From 5868f3dcf7180f36bfdeeb30a8c7cabbba9a5aa6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 2 Sep 2022 00:29:29 +0200
+Subject: [PATCH] Adjust header include for rtmidi 4
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ context/mididevice.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/context/mididevice.h b/context/mididevice.h
+index 1b1b48af..238a64f8 100644
+--- a/context/mididevice.h
++++ b/context/mididevice.h
+@@ -27,7 +27,7 @@
+ 
+ #include <QString>
+ #include <QObject>
+-#include "rtmidi/RtMidi.h"
++#include "RtMidi.h"
+ class ConfManager;
+ class RtMidiIn;
+ class DialogKeyboard;
+-- 
+2.35.3
+

@@ -21,6 +21,7 @@ DEPENDS += " \
 
 SRC_URI = " \
     git://github.com/davy7125/polyphone.git;protocol=https;branch=master \
+    file://0001-Adjust-header-include-for-rtmidi-4.patch \
     file://polyphone.desktop \
     file://polyphone.mime \
 "
