@@ -1,0 +1,30 @@
+From b9f1706e2b2ea4ec4a624ab87191ae6170579cfc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 2 Sep 2022 01:21:49 +0200
+Subject: [PATCH] Fix Carla version detction
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Backport[https://github.com/LMMS/lmms/commit/3518d307f47c79db06bd0e9430f39b91488673dc]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ plugins/carlabase/carla.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/plugins/carlabase/carla.h b/plugins/carlabase/carla.h
+index fb54e2271..6f1971ea0 100644
+--- a/plugins/carlabase/carla.h
++++ b/plugins/carlabase/carla.h
+@@ -28,6 +28,7 @@
+ #include <QtCore/QMutex>
+ 
+ #define REAL_BUILD // FIXME this shouldn't be needed
++#include "CarlaDefines.h"
+ #if CARLA_VERSION_HEX >= 0x010911
+     #include "CarlaNativePlugin.h"
+ #else
+-- 
+2.35.3
+
