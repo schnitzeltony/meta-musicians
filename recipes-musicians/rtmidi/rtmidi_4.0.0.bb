@@ -12,5 +12,6 @@ PACKAGECONFIG[jack] = "-DRTMIDI_API_JACK=ON,-DRTMIDI_API_JACK=OFF,jack"
 SRC_URI = " \
     https://www.music.mcgill.ca/~gary/${BPN}/release/${BPN}-${PV}.tar.gz \
     file://0001-Fix-cmake-file-installation-path.patch \
+    file://0002-Avoid-links-to-build-tmp-path.patch \
 "
 SRC_URI[sha256sum] = "370cfe710f43fbeba8d2b8c8bc310f314338c519c2cf2865e2d2737b251526cd"
