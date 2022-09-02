@@ -1,0 +1,46 @@
+From aeb41046eb55d77c017998966799269c99767783 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Thu, 1 Sep 2022 22:50:28 +0200
+Subject: [PATCH] Hack juceaide build to native paths
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/deps/juce/extras/Build/juceaide/CMakeLists.txt | 9 +++++++++
+ hack-oe-native-paths                 | 2 ++
+ 2 files changed, 11 insertions(+)
+ create mode 100755 hack-oe-native-paths
+
+diff --git a/src/deps/juce/extras/Build/juceaide/CMakeLists.txt b/src/deps/juce/extras/Build/juceaide/CMakeLists.txt
+index 34f1a7f5ff..76b19c952f 100644
+--- a/src/deps/juce/extras/Build/juceaide/CMakeLists.txt
++++ b/src/deps/juce/extras/Build/juceaide/CMakeLists.txt
+@@ -88,6 +88,15 @@ else()
+         message(FATAL_ERROR "Failed to configure juceaide\n${command_output}")
+     endif()
+ 
++    message(STATUS "Adjust juceaide paths to OE-native")
++    execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/hack-oe-native-paths ${JUCE_BINARY_DIR}/tools/build.ninja
++        OUTPUT_VARIABLE command_output
++        ERROR_VARIABLE command_output
++        RESULT_VARIABLE result_variable)
++    if(result_variable)
++        message(FATAL_ERROR "Failed to adjust juceaide paths\n${command_output}")
++    endif()
++
+     message(STATUS "Building juceaide")
+ 
+     execute_process(COMMAND "${CMAKE_COMMAND}"
+diff --git a/src/deps/juce/extras/Build/juceaide/hack-oe-native-paths b/src/deps/juce/extras/Build/juceaide/hack-oe-native-paths
+new file mode 100755
+index 0000000000..726ebd2503
+--- /dev/null
++++ b/src/deps/juce/extras/Build/juceaide/hack-oe-native-paths
+@@ -0,0 +1,2 @@
++#!/bin/sh
++sed -i 's:recipe-sysroot/:recipe-sysroot-native/:g' $1
+-- 
+2.35.3
+

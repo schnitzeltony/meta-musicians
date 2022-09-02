@@ -1,0 +1,32 @@
+From 4d1bddceceaafc16f0f275d25c5e6786749ea865 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Fri, 2 Sep 2022 00:19:30 +0200
+Subject: [PATCH] Do not log API not available
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Pending
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ src/core/kernelMidi.cpp | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/src/core/kernelMidi.cpp b/src/core/kernelMidi.cpp
+index 9d2b119d..0d71f906 100644
+--- a/src/core/kernelMidi.cpp
++++ b/src/core/kernelMidi.cpp
+@@ -276,9 +276,6 @@ void KernelMidi::logCompiledAPIs()
+ 		case RtMidi::Api::RTMIDI_DUMMY:
+ 			u::log::print("  Dummy\n");
+ 			break;
+-		case RtMidi::Api::WEB_MIDI_API:
+-			u::log::print("  Web MIDI API\n");
+-			break;
+ 		default:
+ 			u::log::print("  (unknown)\n");
+ 			break;
+-- 
+2.35.3
+
