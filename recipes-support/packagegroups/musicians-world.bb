@@ -53,7 +53,6 @@ RDEPENDS:${PN} += " \
     dssi \
     dssi-vst \
     geonkick \
-    giada \
     gmidimonitor \
     helm-standalone helm-lv2 helm-vst \
     \
